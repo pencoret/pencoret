@@ -1,0 +1,21 @@
+backend:
+  name: github
+  repo: PenCoret
+  branch: main
+  base_url: https://pencoret.my.id
+  auth_endpoint: auth
+
+media_folder: "static/images"
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "Artikel Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Judul", name: "title", widget: "string" }
+      - { label: "Tanggal", name: "date", widget: "datetime" }
+      - { label: "Foto Utama", name: "banner", widget: "image", required: false }
+      - { label: "Isi Artikel", name: "body", widget: "markdown" }
