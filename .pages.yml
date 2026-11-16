@@ -1,0 +1,26 @@
+media:
+  input: static/images
+  output: /images
+
+content:
+  - name: posts
+    label: Artikel Blog
+    path: content/posts
+    type: collection
+    fields:
+      - name: title
+        label: Judul Artikel
+        type: string
+        required: true
+      - name: date
+        label: Tanggal Terbit
+        type: date
+      - name: description
+        label: Ringkasan Singkat
+        type: text
+      - name: image
+        label: Foto Utama
+        type: image
+      - name: body
+        label: Isi Artikel
+        type: rich-text
