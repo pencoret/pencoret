@@ -1,7 +1,7 @@
 baseURL = 'https://pencoret.my.id/'
 languageCode = 'id-id'
 title = 'PenCoret'
-theme = 'mainroad'
+theme = 'hugo-universal-theme'
 
 [Params]
   description = "Informasi Terkini"
