@@ -1,10 +1,10 @@
-baseURL = 'https://pencoret.pages.dev/'
+baseURL = 'https://pencoret.my.id/'
 languageCode = 'id-id'
 title = 'PenCoret'
 theme = 'mainroad'
 
 [Params]
-  description = "Portal Berita dan Informasi Terkini"
+  description = "Informasi Terkini"
   copyright = "PenCoret"
   opengraph = true
   schema = true
