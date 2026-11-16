@@ -14,8 +14,9 @@ collections:
     folder: "content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
+        fields:
       - { label: "Judul", name: "title", widget: "string" }
       - { label: "Tanggal", name: "date", widget: "datetime" }
+      - { label: "Kategori", name: "categories", widget: "list" }
       - { label: "Foto Utama", name: "banner", widget: "image", required: false }
       - { label: "Isi Artikel", name: "body", widget: "markdown" }
