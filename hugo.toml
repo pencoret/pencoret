@@ -1,7 +1,7 @@
 baseURL = 'https://pencoret.my.id/'
 languageCode = 'id-id'
 title = 'PenCoret'
-theme = 'hugo-universal-theme'
+theme = 'mainroad'
 
 [Params]
   description = "Informasi Terkini"
@@ -14,7 +14,7 @@ theme = 'hugo-universal-theme'
   toc = true
   pager = true
   post_meta = ["author", "date", "categories", "translations"]
-  mainSections = ["blog"]
+  mainSections = ["post"]
   dateformat = "02 January 2006"
 
 [Params.sidebar]
