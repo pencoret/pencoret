@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: PenCoret
+  repo: si/pencoret
   branch: main
   base_url: https://pencoret.my.id
   auth_endpoint: auth
