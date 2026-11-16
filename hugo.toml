@@ -14,7 +14,7 @@ theme = 'hugo-universal-theme'
   toc = true
   pager = true
   post_meta = ["author", "date", "categories", "translations"]
-  mainSections = ["post"]
+  mainSections = ["blog"]
   dateformat = "02 January 2006"
 
 [Params.sidebar]
