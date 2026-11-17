@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  <head>
+    {{ partial "headers.html" . }}
+    {{ partial "custom_headers.html" . }}
+    <style>
+      .list-wrap { padding: 20px 0 40px; }
+      .list-header { font-size: 20px; font-weight: 800; text-transform: uppercase; border-left: 4px solid #38a7bb; padding-left: 12px; margin-bottom: 20px; color: #222; text-align: left; }
+      .arsip-card { display: flex; gap: 15px; padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid #eeeeee; text-align: left; }
+      .arsip-thumb { width: 140px; height: 95px; flex-shrink: 0; border-radius: 6px; overflow: hidden; background: #f2f2f2; }
+      .arsip-thumb img { width: 100%; height: 100%; object-fit: cover; }
+      .arsip-info h3 { margin: 2px 0 6px; font-size: 16px; font-weight: 700; line-height: 1.35; text-align: left !important; }
+      .arsip-info h3 a { color: #222; text-decoration: none; }
+      .arsip-meta { font-size: 12px; color: #777; }
+      @media (max-width: 576px) {
+        .arsip-thumb { width: 115px; height: 80px; }
+        .arsip-info h3 { font-size: 14.5px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="all">
+
+        {{ partial "top.html" . }}
+        {{ partial "nav.html" . }}
+
+        <div id="content">
+            <div class="container list-wrap">
+                <div class="list-header">{{ if eq .Title "Blogs" }}Semua Postingan Terbaru{{ else }}{{ .Title }}{{ end }}</div>
+
+                {{ if gt (len .Pages) 0 }}
+                  {{ range .Pages }}
+                  <div class="arsip-card">
+                    <div class="arsip-thumb">
+                      <a href="{{ .Permalink }}">
+                        <img src="{{ .Params.banner | default "img/placeholder.png" | relURL }}" alt="{{ .Title }}">
+                      </a>
+                    </div>
+                    <div class="arsip-info">
+                      {{ with .Params.categories }}<div style="font-size: 11px; font-weight: 700; color: #38a7bb; text-transform: uppercase;">{{ index . 0 }}</div>{{ end }}
+                      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                      <div class="arsip-meta">Oleh: {{ .Params.author | default "PenCoret" }} • {{ .Date.Format "02 Jan 2006" }}</div>
+                    </div>
+                  </div>
+                  {{ end }}
+                {{ else }}
+                  <p style="color: #666; font-size: 14px;">Belum ada artikel yang diterbitkan di kategori ini.</p>
+                {{ end }}
+            </div>
+        </div>
+
+        {{ partial "footer.html" . }}
+
+    </div>
+    {{ partial "scripts.html" . }}
+  </body>
+</html>
