@@ -12,7 +12,7 @@ tags:
   - Puncak Hujan Meteor Leonid 2026, Fakta Hujan Meteor Leonid, Cara Melihat
     Hujan Meteor Leonid di Indonesia
 banner: /images/Gemini_Generated_Image_ul7le6ul7le6ul7l.jpeg
-banner_caption: "(Fenomena puncak hujan Meteor/Ilustrasi: AI Gemini)"
+banner_caption: "(Foto: enomena puncak hujan Meteor/Ilustrasi: AI Gemini)"
 ---
 Langit malam di penghujung tahun selalu punya cara tersendiri untuk memanjakan mata para pencinta astronomi. Salah satu pertunjukan alam paling dinanti tahun ini, **Puncak Hujan Meteor Leonid**, akan mencapai intensitas tertingginya pada malam ini, **Selasa, 17 November hingga Rabu dini hari, 18 November 2026**.
 
