@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  <head>
+    {{ partial "headers.html" . }}
+    {{ partial "custom_headers.html" . }}
+    <style>
+      .home-wrap { padding: 18px 0 35px; }
+      .sec-label { font-size: 15px; font-weight: 800; text-transform: uppercase; color: #222; border-left: 4px solid #38a7bb; padding-left: 10px; margin: 22px 0 12px; text-align: left; }
+
+      /* 1. SLIDER BESAR POSTINGAN POPULER (HANYA GAMBAR + JUDUL RINGKAS) */
+      .pop-slider { position: relative; overflow: hidden; border-radius: 8px; background: #111; margin-top: 6px; }
+      .pop-track { display: flex; transition: transform 0.35s ease; }
+      .pop-slide { min-width: 100%; position: relative; height: 240px; }
+      .pop-slide img { width: 100%; height: 100%; object-fit: cover; opacity: 0.78; }
+      .pop-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 18px 16px; background: linear-gradient(transparent, rgba(0,0,0,0.92)); text-align: left; }
+      .pop-overlay h2 { margin: 0; font-size: 18px; font-weight: 700; line-height: 1.35; text-align: left !important; }
+      .pop-overlay h2 a { color: #ffffff; text-decoration: none; }
+      .pop-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.55); color: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; cursor: pointer; z-index: 5; }
+      .pop-prev { left: 10px; }
+      .pop-next { right: 10px; }
+
+      /* KOTAK KECIL SLIDE KANAN-KIRI (UNTUK PILIHAN & TERBARU LANJUTAN) */
+      .mini-row { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .mini-row::-webkit-scrollbar { display: none; }
+      .mini-card { width: 165px; flex-shrink: 0; border: 1px solid #eaeaea; border-radius: 6px; overflow: hidden; background: #fff; text-align: left; }
+      .mini-card img { width: 100%; height: 100px; object-fit: cover; }
+      .mini-card-body { padding: 8px 10px; }
+      .mini-card-body h4 { margin: 0; font-size: 13px; font-weight: 700; line-height: 1.35; text-align: left !important; }
+      .mini-card-body h4 a { color: #222; text-decoration: none; }
+
+      /* POSTINGAN TERBARU BESAR 1 & BESAR 2 */
+      .big-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; margin-bottom: 14px; background: #fff; text-align: left; }
+      .big-card img { width: 100%; height: 195px; object-fit: cover; }
+      .big-card-body { padding: 12px 14px; }
+      .big-cat { font-size: 11px; font-weight: 700; color: #38a7bb; text-transform: uppercase; }
+      .big-card-body h3 { margin: 4px 0 6px; font-size: 17px; font-weight: 700; line-height: 1.35; text-align: left !important; }
+      .big-card-body h3 a { color: #222; text-decoration: none; }
+      .big-meta { font-size: 11.5px; color: #777; }
+
+      /* TOMBOL TAMPILKAN SEMUA POST + DROPDOWN 9 MENU MENURUN */
+      .all-post-box { margin-top: 26px; text-align: center; position: relative; }
+      .btn-all-post { width: 100%; max-width: 340px; background: #38a7bb; color: #fff; font-weight: 700; font-size: 14px; padding: 12px 18px; border: none; border-radius: 6px; cursor: pointer; }
+      .menu-9-list { display: none; max-width: 340px; margin: 6px auto 0; background: #fff; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); overflow: hidden; text-align: left; }
+      .menu-9-list a { display: block; padding: 11px 16px; font-size: 13.5px; font-weight: 600; color: #222; border-bottom: 1px solid #f0f0f0; text-decoration: none; }
+      .menu-9-list a:last-child { border-bottom: none; }
+      .menu-9-list a:hover { background: #f4fbfc; color: #38a7bb; }
+
+      @media (min-width: 768px) {
+        .pop-slide { height: 360px; }
+        .pop-overlay h2 { font-size: 24px; }
+        .big-card img { height: 260px; }
+        .mini-card { width: 215px; }
+        .mini-card img { height: 130px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="all">
+
+        {{ partial "top.html" . }}
+        {{ partial "nav.html" . }}
+
+        <div id="content">
+            <div class="container home-wrap">
+
+                {{ $allPosts := where .Site.RegularPages "Section" "blog" }}
+                {{ $populerPosts := where $allPosts "Params.populer" true }}
+                {{ if eq (len $populerPosts) 0 }}{{ $populerPosts = first 5 $allPosts }}{{ end }}
+
+                <!-- 1. POSTINGAN POPULER (SLIDER BESAR: GAMBAR + JUDUL RINGKAS) -->
+                {{ if gt (len $populerPosts) 0 }}
+                <div class="pop-slider">
+                  <div class="pop-track" id="popTrack">
+                    {{ range first 5 $populerPosts }}
+                    <div class="pop-slide">
+                      <a href="{{ .Permalink }}">
+                        <img src="{{ .Params.banner | default "img/placeholder.png" | relURL }}" alt="{{ .Title }}">
+                        <div class="pop-overlay">
+                          <h2><a href="{{ .Permalink }}">{{ .Title | truncate 68 }}</a></h2>
+                        </div>
+                      </a>
+                    </div>
+                    {{ end }}
+                  </div>
+                  <button class="pop-nav pop-prev" onclick="geserPop(-1)">&#10094;</button>
+                  <button class="pop-nav pop-next" onclick="geserPop(1)">&#10095;</button>
+                </div>
+                {{ end }}
+
+                <!-- 2. POSTINGAN PILIHAN (KOTAK-KOTAK KECIL SLIDE KANAN-KIRI) -->
+                {{ $pilihanPosts := where $allPosts "Params.pilihan" true }}
+                {{ if eq (len $pilihanPosts) 0 }}{{ $pilihanPosts = first 6 $allPosts }}{{ end }}
+                {{ if gt (len $pilihanPosts) 0 }}
+                <div class="sec-label">Postingan Pilihan</div>
+                <div class="mini-row">
+                  {{ range first 8 $pilihanPosts }}
+                  <div class="mini-card">
+                    <a href="{{ .Permalink }}">
+                      <img src="{{ .Params.banner | default "img/placeholder.png" | relURL }}" alt="{{ .Title }}">
+                    </a>
+                    <div class="mini-card-body">
+                      <h4><a href="{{ .Permalink }}">{{ .Title | truncate 55 }}</a></h4>
+                    </div>
+                  </div>
+                  {{ end }}
+                </div>
+                {{ end }}
+
+                <!-- 3. POSTINGAN TERBARU (BESAR 1, BESAR 2, LALU KOTAK KECIL SLIDE) -->
+                {{ if gt (len $allPosts) 0 }}
+                <div class="sec-label">Postingan Terbaru</div>
+
+                <!-- Besar 1 & Besar 2 -->
+                {{ range first 2 $allPosts }}
+                <div class="big-card">
+                  <a href="{{ .Permalink }}">
+                    <img src="{{ .Params.banner | default "img/placeholder.png" | relURL }}" alt="{{ .Title }}">
+                  </a>
+                  <div class="big-card-body">
+                    {{ with .Params.categories }}<div class="big-cat">{{ index . 0 }}</div>{{ end }}
+                    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                    <div class="big-meta">Oleh: {{ .Params.author | default "PenCoret" }} • {{ .Date.Format "02 Jan 2006" }}</div>
+                  </div>
+                </div>
+                {{ end }}
+
+                <!-- Kotak-kotak Kecil Slide untuk Postingan Terbaru ke-3 dst -->
+                {{ $sisaTerbaru := after 2 $allPosts }}
+                {{ if gt (len $sisaTerbaru) 0 }}
+                <div class="mini-row" style="margin-top: 10px;">
+                  {{ range first 10 $sisaTerbaru }}
+                  <div class="mini-card">
+                    <a href="{{ .Permalink }}">
+                      <img src="{{ .Params.banner | default "img/placeholder.png" | relURL }}" alt="{{ .Title }}">
+                    </a>
+                    <div class="mini-card-body">
+                      <h4><a href="{{ .Permalink }}">{{ .Title | truncate 55 }}</a></h4>
+                    </div>
+                  </div>
+                  {{ end }}
+                </div>
+                {{ end }}
+                {{ end }}
+
+                <!-- 4. TOMBOL TAMPILKAN SEMUA POST (MEMBUKA 9 PILIHAN MENURUN) -->
+                <div class="all-post-box">
+                  <button class="btn-all-post" onclick="toggleMenu9()">Tampilkan Semua Post &#9662;</button>
+                  <div class="menu-9-list" id="menu9List">
+                    <a href="/blog/">1. Terbaru</a>
+                    <a href="/blog/">2. Populer</a>
+                    <a href="/blog/">3. Pilihan</a>
+                    <a href="/categories/viral--tren/">4. Viral & Tren</a>
+                    <a href="/categories/fakta-unik/">5. Fakta Unik</a>
+                    <a href="/categories/teknologi--digital/">6. Teknologi & Digital</a>
+                    <a href="/categories/gaya-hidup/">7. Gaya Hidup</a>
+                    <a href="/categories/bisnis--cuan/">8. Bisnis & Cuan</a>
+                    <a href="/categories/opini--cerita/">9. Opini & Cerita</a>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+
+        {{ partial "footer.html" . }}
+
+    </div>
+
+    {{ partial "scripts.html" . }}
+    <script>
+      var idxPop = 0;
+      function geserPop(arah) {
+        var track = document.getElementById("popTrack");
+        if (!track) return;
+        var jumlah = track.children.length;
+        idxPop = (idxPop + arah + jumlah) % jumlah;
+        track.style.transform = "translateX(-" + (idxPop * 100) + "%)";
+      }
+      function toggleMenu9() {
+        var menu = document.getElementById("menu9List");
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+      }
+    </script>
+  </body>
+</html>
