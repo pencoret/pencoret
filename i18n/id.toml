@@ -1,0 +1,20 @@
+[seeMore]
+other = "Tampilkan Semua"
+
+[recentPosts]
+other = "Postingan Terbaru"
+
+[readMore]
+other = "Baca Selengkapnya"
+
+[categoriesTitle]
+other = "Kategori"
+
+[tagsTitle]
+other = "Tag"
+
+[navHome]
+other = "Beranda"
+
+[navToggle]
+other = "Toggle Navigasi"
