@@ -21,13 +21,11 @@
 
                 <div class="row">
 
-                    <div class="col-md-9" id="blog-post">
+                    <div class="col-md-10 col-md-offset-1" id="blog-post">
 
-                        {{ if or .Params.author .Params.date }}
+                        {{ if .Params.date }}
                         <p class="text-muted text-uppercase mb-small text-right">
-                          {{ if .Params.date }}
                             {{ .Date.Format (.Site.Params.date_format | default "02 January 2006") }}
-                          {{ end }}
                         </p>
                         {{ end }}
 
@@ -44,10 +42,6 @@
                           {{ .Content }}
                         </div>
 
-                    </div>
-
-                    <div class="col-md-3">
-                        {{ partial "sidebar.html" . }}
                     </div>
 
                 </div>
