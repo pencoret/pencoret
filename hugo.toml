@@ -1,53 +1,49 @@
-baseURL = 'https://pencoret.my.id/'
+baseURL = 'https://pencoret.my.id'
 languageCode = 'id-id'
 title = 'PenCoret'
 theme = 'mainroad'
+summaryLength = 35
 
 [Params]
-  description = "Informasi Terkini"
+  description = "Informasi Terkini, Tren Viral, dan Fakta Unik"
   copyright = "PenCoret"
-  opengraph = true
-  schema = true
-  twitter_cards = true
-  readmore = true
-  authorbox = true
-  toc = true
-  pager = true
-  post_meta = ["author", "date", "categories", "translations"]
-  mainSections = ["post"]
-  dateformat = "02 January 2006"
+  style = "default"
+  mainSections = ["blog"]
+  dateFormat = "02 January 2006"
+  about_us = "<p>PenCoret adalah ruang baca digital yang menyajikan informasi terkini, fenomena viral di media sosial, serta fakta-fakta unik yang jarang dibahas secara mendalam.</p>"
 
-[Params.sidebar]
-  home = "right"
-  list = "right"
-  single = "right"
-  widgets = ["search", "recent", "categories", "taglist"]
+[Params.recent_posts]
+  enable = true
+  title = "Artikel Terbaru"
+  subtitle = "Kumpulan tulisan terkini seputar tren viral, fakta unik, teknologi, dan gaya hidup."
+  hide_summary = false
 
 [Params.widgets]
-  recent_num = 5
-  categories_counter = true
-  tags_counter = true
+  search = true
+  categories = true
+  tags = true
 
 [[menu.main]]
-  identifier = "about"
-  name = "Tentang Kami"
-  url = "/about/"
+  name = "Beranda"
+  url = "/"
   weight = 1
 
 [[menu.main]]
-  identifier = "contact"
-  name = "Kontak"
-  url = "/contact/"
+  name = "Tentang Kami"
+  url = "/about/"
   weight = 2
 
 [[menu.main]]
-  identifier = "privacy"
-  name = "Kebijakan Privasi"
-  url = "/privacy-policy/"
+  name = "Kontak"
+  url = "/contact/"
   weight = 3
 
 [[menu.main]]
-  identifier = "disclaimer"
+  name = "Kebijakan Privasi"
+  url = "/privacy-policy/"
+  weight = 4
+
+[[menu.main]]
   name = "Disclaimer"
   url = "/disclaimer/"
-  weight = 4
+  weight = 5
