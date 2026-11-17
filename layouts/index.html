@@ -207,7 +207,47 @@
 
     {{ partial "scripts.html" . }}
     <script>
-      var idxPop = 0;
+      let idxPop = 0;
+      const totalPopSlides = 5; // Batas maksimal slide populer
+
+      function updateSlider() {
+        const track = document.getElementById("popTrack");
+        if (track) {
+          track.style.transform = "translateX(-" + (idxPop * 100) + "%)";
+        }
+      }
+
       function geserPop(arah) {
-        var track = document.getElementById("popTrack");
-        if (!track) return;
+        idxPop += arah;
+        if (idxPop < 0) {
+          idxPop = totalPopSlides - 1;
+        } else if (idxPop >= totalPopSlides) {
+          idxPop = 0;
+        }
+        updateSlider();
+      }
+
+      // Fungsi untuk Overlay Fullscreen Menu
+      function bukaFullMenu() {
+        const menu = document.getElementById("fullMenuOverlay");
+        if (menu) {
+          menu.style.display = "block";
+          document.body.style.overflow = "hidden"; // Mencegah background scroll
+        }
+      }
+
+      function tutupFullMenu() {
+        const menu = document.getElementById("fullMenuOverlay");
+        if (menu) {
+          menu.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+      }
+
+      // Opsional: Auto-slide setiap 5 detik untuk slider populer
+      setInterval(function() {
+        geserPop(1);
+      }, 5000);
+    </script>
+  </body>
+</html>
