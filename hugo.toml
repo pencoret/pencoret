@@ -13,14 +13,10 @@ summaryLength = 35
   style = "default"
   mainSections = ["blog"]
   date_format = "02 January 2006"
-  
-  # Pastikan file logo.png dan logo-small.png ada di dalam folder static/img/
   logo = "img/logo.png"
   logo_small = "img/logo-small.png"
-  
   about_us = "<p>PenCoret adalah ruang baca digital yang menyajikan informasi terkini, fenomena viral di media sosial, serta fakta-fakta unik yang jarang dibahas secara mendalam.</p>"
 
-  # Pengaturan tombol di bagian bawah daftar postingan
   [Params.recent_posts]
     enable = true
     title = "Artikel Terbaru"
@@ -32,7 +28,6 @@ summaryLength = 35
     categories = false
     tags = false
 
-# Pengaturan Menu Navigasi Utama
 [[menu.main]]
   name = "Beranda"
   identifier = "home"
