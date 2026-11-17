@@ -9,7 +9,7 @@ summaryLength = 35
   copyright = "PenCoret"
   style = "default"
   mainSections = ["blog"]
-  dateFormat = "02 January 2006"
+  dateFormat = "02_January_2006"
   about_us = "<p>PenCoret adalah ruang baca digital yang menyajikan informasi terkini, fenomena viral di media sosial, serta fakta-fakta unik yang jarang dibahas secara mendalam.</p>"
 
 [Params.recent_posts]
