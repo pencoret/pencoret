@@ -40,6 +40,9 @@ content:
       - name: banner
         label: Foto Utama
         type: image
+      - name: banner_caption
+        label: Keterangan / Sumber Foto Utama
+        type: string
       - name: body
         label: Isi Artikel
         type: rich-text
