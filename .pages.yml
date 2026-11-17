@@ -7,8 +7,9 @@ content:
     label: Artikel Blog
     type: collection
     path: content/blog
+    filename: "{primary}.md"
     view:
-      fields: [ title, date, categories ]
+      fields: [ title, date, categories, populer, pilihan ]
     fields:
       - name: title
         label: Judul
@@ -18,6 +19,10 @@ content:
         label: Tanggal
         type: date
         required: true
+      - name: author
+        label: Penulis
+        type: string
+        default: PenCoret
       - name: description
         label: Deskripsi Singkat
         type: text
@@ -33,6 +38,14 @@ content:
             - Gaya Hidup
             - Bisnis & Cuan
             - Opini & Cerita
+      - name: populer
+        label: Tampilkan di Slider Populer (Utama)
+        type: boolean
+        default: false
+      - name: pilihan
+        label: Tampilkan di Kotak Postingan Pilihan
+        type: boolean
+        default: false
       - name: tags
         label: Tags
         type: string
