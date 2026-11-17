@@ -3,22 +3,41 @@ media:
   output: /images
 
 content:
-  - name: posts
+  - name: blog
     label: Artikel Blog
-    path: content/posts
     type: collection
+    path: content/blog
+    view:
+      fields: [ title, date, categories ]
     fields:
       - name: title
-        label: Judul Artikel
+        label: Judul
         type: string
         required: true
       - name: date
-        label: Tanggal Terbit
+        label: Tanggal
         type: date
+        required: true
       - name: description
-        label: Ringkasan Singkat
+        label: Deskripsi Singkat
         type: text
-      - name: image
+      - name: categories
+        label: Kategori
+        type: select
+        options:
+          multiple: true
+          values:
+            - Viral & Tren
+            - Fakta Unik
+            - Teknologi & Digital
+            - Gaya Hidup
+            - Bisnis & Cuan
+            - Opini & Cerita
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: banner
         label: Foto Utama
         type: image
       - name: body
