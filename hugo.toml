@@ -1,7 +1,7 @@
 baseURL = 'https://pencoret.my.id'
 languageCode = 'id-id'
 title = 'PenCoret'
-theme = 'hugo-universal-theme'
+theme = 'mainroad'
 summaryLength = 35
 
 [permalinks]
