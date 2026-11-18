@@ -3,27 +3,33 @@ languageCode = 'id-id'
 title = 'PenCoret'
 theme = 'mainroad'
 summaryLength = 35
+enableRobotsTXT = true
+
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
 
 [permalinks]
-  blog = "/:slug/"
+  blog = '/:slug/'
 
 [Params]
-  description = "Ruang Informasi Terkini, Tren Viral, dan Fakta Unik"
-  copyright = "PenCoret"
-  style = "default"
-  mainSections = ["blog"]
-  date_format = "02 January 2006"
-  logo = "images/image_b36997e3.jpeg"
-  logo_small = "images/image_b36997e3.jpeg"
-  about_us = "<p>PenCoret adalah ruang baca digital yang menyajikan informasi terkini, fenomena viral di media sosial, serta fakta-fakta unik yang jarang dibahas secara mendalam dari sudut pandang yang berbeda.</p>"
+  description = 'Ruang Informasi Terkini, Tren Viral, dan Fakta Unik'
+  copyright = 'PenCoret'
+  style = 'default'
+  mainSections = ['blog']
+  date_format = '02 January 2006'
+  logo = 'images/image_b36997e3.jpeg'
+  logo_small = 'images/image_b36997e3.jpeg'
+  about_us = '<p>PenCoret adalah ruang baca digital yang menyajikan informasi terkini, fenomena viral di media sosial, serta fakta-fakta unik yang jarang dibahas secara mendalam dari sudut pandang yang berbeda.</p>'
 
   [Params.carousel]
     enable = true
 
   [Params.recent_posts]
     enable = true
-    title = "Artikel Terbaru"
-    subtitle = "Kumpulan tulisan terkini seputar tren viral, fakta unik, teknologi, dan gaya hidup."
+    title = 'Artikel Terbaru'
+    subtitle = 'Kumpulan tulisan terkini seputar tren viral, fakta unik, teknologi, dan gaya hidup.'
     hide_summary = false
 
   [Params.widgets]
@@ -32,35 +38,35 @@ summaryLength = 35
     tags = false
 
 [taxonomies]
-  category = "categories"
-  tag = "tags"
+  category = 'categories'
+  tag = 'tags'
 
 [[menu.main]]
-  name = "Beranda"
-  identifier = "home"
-  url = "/"
+  name = 'Beranda'
+  identifier = 'home'
+  url = '/'
   weight = 1
 
 [[menu.main]]
-  name = "Tentang Kami"
-  identifier = "about"
-  url = "/about/"
+  name = 'Tentang Kami'
+  identifier = 'about'
+  url = '/about/'
   weight = 2
 
 [[menu.main]]
-  name = "Kontak"
-  identifier = "contact"
-  url = "/contact/"
+  name = 'Kontak'
+  identifier = 'contact'
+  url = '/contact/'
   weight = 3
 
 [[menu.main]]
-  name = "Kebijakan Privasi"
-  identifier = "privacy"
-  url = "/privacy-policy/"
+  name = 'Kebijakan Privasi'
+  identifier = 'privacy'
+  url = '/privacy-policy/'
   weight = 4
 
 [[menu.main]]
-  name = "Disclaimer"
-  identifier = "disclaimer"
-  url = "/disclaimer/"
+  name = 'Disclaimer'
+  identifier = 'disclaimer'
+  url = '/disclaimer/'
   weight = 5
