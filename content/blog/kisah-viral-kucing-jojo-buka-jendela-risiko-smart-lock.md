@@ -4,7 +4,7 @@ title: Viral Kucing Oyen Jojo Selamatkan Pemiliknya, Ini Celah Smart Lock Saat
 seo_title: Viral Kucing Oyen Jojo Selamatkan Pemiliknya, Ini Celah Smart Lock
   Saat Mati Listrik
 slug: kisah-viral-kucing-jojo-buka-jendela-risiko-smart-lock
-date: 2026-11-19
+date: 2026-11-18
 author: PenCoret
 description: Aksi viral kucing oranye bernama Jojo membuka jendela saat
   pemiliknya terkunci di luar rumah menjadi pengingat penting soal risiko smart
