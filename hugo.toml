@@ -57,3 +57,53 @@ summaryLength = 35
   identifier = "disclaimer"
   url = "/disclaimer/"
   weight = 5
+
+  
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[[menu.main]]
+    name = "Terbaru"
+    url  = "/blog/"
+    weight = 1
+
+[[menu.main]]
+    name = "Populer"
+    url  = "/tags/populer/"
+    weight = 2
+
+[[menu.main]]
+    name = "Pilihan"
+    url  = "/tags/pilihan/"
+    weight = 3
+
+[[menu.main]]
+    name = "Viral & Tren"
+    url  = "/categories/viral--tren/"
+    weight = 4
+
+[[menu.main]]
+    name = "Fakta Unik"
+    url  = "/categories/fakta-unik/"
+    weight = 5
+
+[[menu.main]]
+    name = "Teknologi & Digital"
+    url  = "/categories/teknologi--digital/"
+    weight = 6
+
+[[menu.main]]
+    name = "Gaya Hidup"
+    url  = "/categories/gaya-hidup/"
+    weight = 7
+
+[[menu.main]]
+    name = "Bisnis & Cuan"
+    url  = "/categories/bisnis--cuan/"
+    weight = 8
+
+[[menu.main]]
+    name = "Opini & Cerita"
+    url  = "/categories/opini--cerita/"
+    weight = 9
