@@ -8,18 +8,6 @@
       .home-wrap { padding: 14px 0 35px; }
       .sec-label { font-size: 15px; font-weight: 800; text-transform: uppercase; color: #222; border-left: 4px solid #38a7bb; padding-left: 10px; margin: 22px 0 12px; text-align: left; }
 
-      /* BILAH KATEGORI INTI DI BAWAH NAVIGASI ATAS */
-      .cat-bar-wrap { background: #f8f9fa; border-bottom: 1px solid #e5e7eb; padding: 8px 0; }
-      .cat-bar-inner { position: relative; display: flex; align-items: center; }
-      .cat-scroll { display: flex; gap: 8px; overflow-x: auto; scroll-behavior: smooth; padding: 2px 34px; scrollbar-width: none; -webkit-overflow-scrolling: touch; width: 100%; }
-      .cat-scroll::-webkit-scrollbar { display: none; }
-      .cat-pill { flex-shrink: 0; background: #ffffff; color: #333; border: 1px solid #dcdcdc; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; text-decoration: none !important; transition: all 0.2s; }
-      .cat-pill:hover, .cat-pill.active { background: #38a7bb; color: #ffffff; border-color: #38a7bb; }
-      .cat-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: #ffffff; border: 1px solid #dcdcdc; color: #333; width: 28px; height: 28px; border-radius: 50%; font-size: 13px; cursor: pointer; z-index: 5; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
-      .cat-arrow:hover { background: #38a7bb; color: #fff; border-color: #38a7bb; }
-      .cat-prev { left: 0; }
-      .cat-next { right: 0; }
-
       /* 1. SLIDER BESAR POSTINGAN POPULER */
       .pop-slider { position: relative; overflow: hidden; border-radius: 8px; background: #111; margin-top: 6px; }
       .pop-track { display: flex; transition: transform 0.35s ease; }
@@ -50,10 +38,15 @@
       .big-card-body h3 a { color: #222; text-decoration: none; }
       .big-meta { font-size: 11.5px; color: #777; }
 
-      /* 4. TOMBOL BERANDA ARTIKEL DENGAN PANAH */
+      /* 4. TOMBOL TAMPILKAN SEMUA */
       .all-post-box { margin-top: 26px; text-align: center; }
-      .btn-all-post { display: inline-flex; align-items: center; justify-content: space-between; width: 100%; max-width: 320px; background: #38a7bb; color: #ffffff !important; font-weight: 700; font-size: 14px; padding: 12px 20px; border-radius: 6px; text-decoration: none !important; transition: background 0.2s; }
+      .btn-all-post { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 320px; background: #38a7bb; color: #ffffff !important; font-weight: 700; font-size: 14px; padding: 12px 20px; border-radius: 6px; text-decoration: none !important; transition: background 0.2s; }
       .btn-all-post:hover { background: #2c8a9b; }
+
+      @keyframes jalanTeks {
+        0%   { transform: translate(0, 0); }
+        100% { transform: translate(-100%, 0); }
+      }
 
       @media (min-width: 768px) {
         .pop-slide { height: 360px; }
@@ -71,24 +64,6 @@
         {{ partial "top.html" . }}
         {{ partial "nav.html" . }}
 
-        <!-- BILAH KATEGORI INTI DI BAWAH NAVIGASI ATAS -->
-        <div class="cat-bar-wrap">
-          <div class="container">
-            <div class="cat-bar-inner">
-              <button class="cat-arrow cat-prev" onclick="geserKategori(-180)" aria-label="Geser Kiri">❮</button>
-              <div class="cat-scroll" id="catScroll">
-                <a href="{{ "/blog/" | relURL }}" class="cat-pill active">Semua Artikel</a>
-                <a href="{{ "/categories/viral-tren/" | relURL }}" class="cat-pill">Viral & Tren</a>
-                <a href="{{ "/categories/fakta-unik/" | relURL }}" class="cat-pill">Fakta Unik</a>
-                <a href="{{ "/categories/teknologi-digital/" | relURL }}" class="cat-pill">Teknologi & Digital</a>
-                <a href="{{ "/categories/gaya-hidup-cuan/" | relURL }}" class="cat-pill">Gaya Hidup & Cuan</a>
-                <a href="{{ "/categories/opini-cerita/" | relURL }}" class="cat-pill">Opini & Cerita</a>
-              </div>
-              <button class="cat-arrow cat-next" onclick="geserKategori(180)" aria-label="Geser Kanan">❯</button>
-            </div>
-          </div>
-        </div>
-
         <div id="content">
             <div class="container home-wrap">
 
@@ -101,12 +76,6 @@
                     </div>
                   </div>
                 </div>
-                <style>
-                  @keyframes jalanTeks {
-                    0%   { transform: translate(0, 0); }
-                    100% { transform: translate(-100%, 0); }
-                  }
-                </style>
 
                 {{ $allPosts := where .Site.RegularPages "Section" "blog" }}
                 {{ $populerPosts := where $allPosts "Params.populer" true }}
@@ -127,18 +96,20 @@
                     </div>
                     {{ end }}
                   </div>
-                  <button class="pop-nav pop-prev" onclick="geserPop(-1)">❮</button>
-                  <button class="pop-nav pop-next" onclick="geserPop(1)">❯</button>
+                  {{ if gt (len $populerPosts) 1 }}
+                  <button class="pop-nav pop-prev" onclick="geserPop(-1)" aria-label="Sebelumnya">❮</button>
+                  <button class="pop-nav pop-next" onclick="geserPop(1)" aria-label="Berikutnya">❯</button>
+                  {{ end }}
                 </div>
                 {{ end }}
 
-                <!-- 2. POSTINGAN PILIHAN (KOTAK KECIL SLIDE) -->
+                <!-- 2. POSTINGAN PILIHAN -->
                 {{ $pilihanPosts := where $allPosts "Params.pilihan" true }}
                 {{ if eq (len $pilihanPosts) 0 }}{{ $pilihanPosts = first 6 $allPosts }}{{ end }}
                 {{ if gt (len $pilihanPosts) 0 }}
                 <div class="sec-label">Postingan Pilihan</div>
                 <div class="mini-row">
-                  {{ range first 8 $pilihanPosts }}
+                  {{ range first 6 $pilihanPosts }}
                   <div class="mini-card">
                     <a href="{{ .Permalink }}">
                       <img src="{{ .Params.banner | default "img/placeholder.png" | relURL }}" alt="{{ .Title }}">
@@ -151,46 +122,30 @@
                 </div>
                 {{ end }}
 
-                              <!-- 3. POSTINGAN TERBARU -->
+                <!-- 3. POSTINGAN TERBARU -->
                 {{ if gt (len $allPosts) 0 }}
                 <div class="sec-label">Postingan Terbaru</div>
-
-                {{ range first 2 $allPosts }}
+                {{ range first 6 $allPosts }}
                 <div class="big-card">
                   <a href="{{ .Permalink }}">
                     <img src="{{ .Params.banner | default "img/placeholder.png" | relURL }}" alt="{{ .Title }}">
                   </a>
                   <div class="big-card-body">
-                    {{ with .Params.categories }}<div class="big-cat">{{ index . 0 }}</div>{{ end }}
+                    {{ with .Params.categories }}
+                    <div class="big-cat">{{ index . 0 }}</div>
+                    {{ end }}
                     <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-                    <div class="big-meta">Oleh: {{ .Params.author | default "PenCoret" }} • {{ .Date.Format "02 Jan 2006" }}</div>
+                    <div class="big-meta">Oleh: PenCoret • {{ .Date.Format "02 Jan 2006" }}</div>
                   </div>
-                </div>
-                {{ end }}
-
-                {{ $sisaTerbaru := after 2 $allPosts }}
-                {{ if gt (len $sisaTerbaru) 0 }}
-                <div class="mini-row" style="margin-top: 10px;">
-                  {{ range first 10 $sisaTerbaru }}
-                  <div class="mini-card">
-                    <a href="{{ .Permalink }}">
-                      <img src="{{ .Params.banner | default "img/placeholder.png" | relURL }}" alt="{{ .Title }}">
-                    </a>
-                    <div class="mini-card-body">
-                      <h4><a href="{{ .Permalink }}">{{ .Title | truncate 55 }}</a></h4>
-                    </div>
-                  </div>
-                  {{ end }}
                 </div>
                 {{ end }}
                 {{ end }}
 
-                <!-- 4. TOMBOL BERANDA ARTIKEL DENGAN PANAH -->
+                <!-- 4. TOMBOL TAMPILKAN SEMUA -->
                 <div class="all-post-box">
                   <a href="{{ "/blog/" | relURL }}" class="btn-all-post">
-                    <span>❮</span>
-                    <span>Beranda Artikel</span>
-                    <span>❯</span>
+                    <span>Tampilkan Semua</span>
+                    <span>→</span>
                   </a>
                 </div>
 
@@ -204,21 +159,13 @@
     {{ partial "scripts.html" . }}
 
     <script>
-      let popIdx = 0;
+      let idxPop = 0;
       function geserPop(arah) {
         const track = document.getElementById('popTrack');
         if (!track) return;
         const total = track.children.length;
-        if (total <= 1) return;
-        popIdx = (popIdx + arah + total) % total;
-        track.style.transform = 'translateX(-' + (popIdx * 100) + '%)';
-      }
-
-      function geserKategori(jarak) {
-        const bar = document.getElementById('catScroll');
-        if (bar) {
-          bar.scrollBy({ left: jarak, behavior: 'smooth' });
-        }
+        idxPop = (idxPop + arah + total) % total;
+        track.style.transform = `translateX(-${idxPop * 100}%)`;
       }
     </script>
 
