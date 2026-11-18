@@ -56,10 +56,8 @@
       .btn-all-post:hover { background: #2c8a9b; }
 
       /* FOOTER */
-      .site-footer { background: #1a2536; color: #ccc; padding: 30px 0 20px; margin-top: 40px; font-size: 13px; }
-      .site-footer h4 { color: #fff; font-weight: 700; font-size: 15px; margin-bottom: 10px; }
-      .site-footer a { color: #f4d08c; text-decoration: none; }
-      .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px; padding-top: 15px; text-align: center; font-size: 12px; color: #999; }
+      .site-footer { background: #1a2536; color: #ccc; padding: 25px 0 20px; margin-top: 40px; font-size: 13px; }
+      .footer-bottom { text-align: center; font-size: 12px; color: #bbb; }
 
       @keyframes jalanTeks {
         0%   { transform: translate(0, 0); }
@@ -131,8 +129,7 @@
                   {{ end }}
                 </div>
                 {{ end }}
-
-                <!-- 2. POSTINGAN PILIHAN -->
+                              <!-- 2. POSTINGAN PILIHAN -->
                 {{ $pilihanPosts := where $allPosts "Params.pilihan" true }}
                 {{ if eq (len $pilihanPosts) 0 }}{{ $pilihanPosts = first 6 $allPosts }}{{ end }}
                 {{ if gt (len $pilihanPosts) 0 }}
@@ -182,3 +179,27 @@
         </div>
 
         <!-- FOOTER -->
+        <footer class="site-footer">
+          <div class="container">
+            <div class="footer-bottom">
+              © {{ now.Year }} {{ .Site.Title }}. Hak Cipta Dilindungi.
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+    <script>
+      let idxPop = 0;
+      function geserPop(arah) {
+        const track = document.getElementById('popTrack');
+        if (!track) return;
+        const total = track.children.length;
+        idxPop = (idxPop + arah + total) % total;
+        track.style.transform = `translateX(-${idxPop * 100}%)`;
+      }
+    </script>
+
+  </body>
+</html>
+
