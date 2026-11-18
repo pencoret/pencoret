@@ -1,0 +1,61 @@
+<footer id="footer">
+    <div class="container">
+
+        {{ if isset .Site.Params "about_us" }}
+        <div class="col-md-4 col-sm-6">
+            <h4>Tentang PenCoret</h4>
+            {{ .Site.Params.about_us | safeHTML }}
+            <hr class="hidden-md hidden-lg hidden-sm">
+        </div>
+        {{ end }}
+
+        <div class="col-md-4 col-sm-6">
+            {{ if .Site.Params.recent_posts.enable }}
+            <h4>Postingan Terbaru</h4>
+            <div class="blog-entries">
+                {{ range first 3 (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="{{ .Permalink }}">
+                          {{ if isset .Params "banner" }}
+                            <img src="{{ .Params.banner | relURL }}" class="img-responsive" alt="{{ .Params.banner_alt | default .Title }}">
+                          {{ else }}
+                            <img src="{{ "img/placeholder.png" | relURL }}" class="img-responsive" alt="{{ .Title }}">
+                          {{ end }}
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="{{ .Permalink }}">{{ .Title }}</a></h5>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+            <hr class="hidden-md hidden-lg">
+            {{ end }}
+        </div>
+
+        {{ if isset .Site.Params "address" }}
+        <div class="col-md-4 col-sm-6">
+            <h4>Kontak</h4>
+            {{ .Site.Params.address | safeHTML }}
+            <a href="{{ "/contact/" | relURL }}" class="btn btn-small btn-template-main">Hubungi Kami</a>
+            <hr class="hidden-md hidden-lg hidden-sm">
+        </div>
+        {{ end }}
+
+    </div>
+</footer>
+
+<!-- BINGKAI PENUTUP / COPYRIGHT BAR RAMPING & SENADA DENGAN RUNNING TEXT -->
+<div id="copyright" style="background-color: #1a2536 !important; color: #f4d08c !important; padding: 14px 0 !important; border-top: 1px solid rgba(255,255,255,0.12) !important;">
+    <div class="container">
+        <div class="col-md-12 text-center">
+            <p style="margin: 0 0 4px 0 !important; font-size: 13.5px !important; font-weight: 700 !important; color: #f4d08c !important; float: none !important; text-align: center !important;">
+                Terima kasih telah berkunjung dan membaca di PenCoret. Semoga setiap coretan membawa wawasan dan inspirasi baru!
+            </p>
+            <p style="margin: 0 !important; font-size: 12px !important; color: #d1d5db !important; float: none !important; text-align: center !important;">
+                © {{ now.Format "2006" }} PenCoret. Hak Cipta Dilindungi.
+            </p>
+        </div>
+    </div>
+</div>
