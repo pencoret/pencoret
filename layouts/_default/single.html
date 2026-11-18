@@ -2,6 +2,17 @@
 <html lang="{{ .Site.LanguageCode }}">
 
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Site.Title }} — {{ .Site.Params.description }}</title>
+
+    <!-- PASANG DI SINI (DI BAWAH <head> DAN <title>) -->
+    <link rel="icon" type="image/jpeg" sizes="48x48" href="{{ "images/image_d634cfff.jpg" | relURL }}">
+    <link rel="icon" type="image/jpeg" sizes="512x512" href="{{ "images/image_d634cfff.jpg" | relURL }}">
+    <link rel="apple-touch-icon" href="{{ "images/image_d634cfff.jpg" | relURL }}">
+
+    <link rel="stylesheet" href="https://bootstrapcdn.com">
+
     {{ partial "headers.html" . }}
     {{ partial "custom_headers.html" . }}
     <style>
