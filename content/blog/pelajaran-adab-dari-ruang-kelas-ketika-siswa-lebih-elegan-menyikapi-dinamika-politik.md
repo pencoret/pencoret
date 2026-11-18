@@ -12,8 +12,8 @@ categories:
 populer: true
 pilihan: false
 tags:
-  - Viral
   - Trend
+  - Viral
 banner: /images/image_90e2aad5.jpg
 banner_caption: "(Ilustrasi suasana ruang kelas ketika para pelajar menunjukkan
   adab dan rasa hormat saat menurunkan bingkai foto resmi pejabat negara. Foto:
