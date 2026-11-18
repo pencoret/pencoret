@@ -50,10 +50,3 @@ Keberhasilan Jojo membuka jendela bukan sekadar hiburan ringan yang menghangatka
 
 ---
 
-**Sumber Referensi:**
-
-1. **TikTok @bentukpelarian** – Unggahan video asli pemilik Jojo ([tiktok.com](http://tiktok.com))
-2. **[Kompas.com](http://Kompas.com)** – Liputan video aksi kucing Jojo membuka pengait jendela (++**[YouTube Shorts Kompas.com](http://Kompas.com)**++ & ++**[Facebook Kompas.com](http://Kompas.com)**++)
-3. **Radio Elshinta** – Laporan berita viral aksi kucing Jojo (++**[TikTok Radio Elshinta](https://www.tiktok.com/@radioelshinta/video/7709451054517144884)**++ & Instagram Reels Radio Elshinta)
-4. **Okezone** – Liputan media sosial terkait aksi penyelamatan pemilik oleh kucing Jojo (TikTok Okezone)
-
