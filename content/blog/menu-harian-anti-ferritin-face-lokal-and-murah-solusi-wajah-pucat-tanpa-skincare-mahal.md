@@ -1,6 +1,7 @@
 ---
 title: "Menu Harian Anti-Ferritin Face Lokal & Murah: Solusi Wajah Pucat Tanpa
   Skincare Mahal"
+seo_title: 7 Menu Harian Anti Ferritin Face Bahan Lokal Murah | PenCoret
 slug: menu-harian-anti-ferritin-face-lokal-murah
 date: 2026-11-18
 author: PenCoret
