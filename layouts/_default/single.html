@@ -20,6 +20,119 @@
         padding-bottom: 10px;
         border-bottom: 1px solid #eeeeee;
       }
+
+      /* BANNER RAMPING & RUNNING TEXT DI ATAS ARTIKEL */
+      .article-top-wrap {
+        background: #1a2536;
+        padding-top: 8px;
+      }
+      .article-top-banner {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 6px 6px 0 0;
+      }
+      .article-top-banner img {
+        width: 100%;
+        height: 95px;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+      .article-running-bar {
+        background-color: #1a2536;
+        color: #f4d08c;
+        padding: 7px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        font-weight: 800;
+        font-size: 13px;
+        letter-spacing: 1px;
+        border-top: 1px solid rgba(255,255,255,0.12);
+      }
+      .article-running-text {
+        display: inline-block;
+        padding-left: 100%;
+        animation: jalanBaca 16s linear infinite;
+      }
+      @keyframes jalanBaca {
+        0%   { transform: translate(0, 0); }
+        100% { transform: translate(-100%, 0); }
+      }
+
+      /* KOLOM KOMENTAR */
+      .comment-section {
+        margin-top: 40px;
+        padding-top: 24px;
+        border-top: 2px solid #eeeeee;
+      }
+      .comment-section h3 {
+        font-size: 18px;
+        font-weight: 800;
+        color: #222222;
+        margin-bottom: 16px;
+        border-left: 4px solid #38a7bb;
+        padding-left: 10px;
+      }
+      .comment-box {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 18px;
+        margin-bottom: 20px;
+      }
+      .comment-box input,
+      .comment-box textarea {
+        width: 100%;
+        padding: 10px 12px;
+        margin-bottom: 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      .btn-kirim-komentar {
+        background: #38a7bb;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .btn-kirim-komentar:hover {
+        background: #2c8a9b;
+      }
+      .comment-item {
+        background: #ffffff;
+        border: 1px solid #eaeaea;
+        border-radius: 6px;
+        padding: 12px 15px;
+        margin-bottom: 10px;
+      }
+      .comment-author {
+        font-weight: 700;
+        font-size: 13.5px;
+        color: #1a2536;
+        margin-bottom: 4px;
+      }
+      .comment-time {
+        font-size: 11px;
+        color: #888888;
+        font-weight: normal;
+        margin-left: 6px;
+      }
+      .comment-text {
+        font-size: 14px;
+        color: #333333;
+        margin: 0;
+      }
+
+      @media (min-width: 768px) {
+        .article-top-banner img {
+          height: 140px;
+        }
+      }
     </style>
   </head>
 
@@ -27,7 +140,19 @@
 
     <div id="all">
 
-        {{ partial "top.html" . }}
+        <!-- BANNER RAMPING & RUNNING TEXT PENGGANTI SELAMAT DATANG -->
+        <div class="article-top-wrap">
+          <div class="container">
+            <a href="{{ "/" | relURL }}" class="article-top-banner" title="Kembali ke Beranda PenCoret">
+              <img src="{{ "images/image_dacac6d.jpeg" | relURL }}" alt="{{ .Site.Title }}">
+            </a>
+            <div class="article-running-bar">
+              <div class="article-running-text">
+                SELAMAT MEMBACA — Terima kasih telah berkunjung disini. Jangan lupa tinggalkan kritik dan saran, serta pendapat Anda di kolom komentar bawah!
+              </div>
+            </div>
+          </div>
+        </div>
 
         {{ partial "nav.html" . }}
 
@@ -57,6 +182,17 @@
                           {{ .Content }}
                         </div>
 
+                        <!-- KOLOM KOMENTAR -->
+                        <div class="comment-section">
+                          <h3>Tinggalkan Komentar</h3>
+                          <div class="comment-box">
+                            <input type="text" id="namaKomentar" placeholder="Nama Anda..." required>
+                            <textarea id="isiKomentar" rows="3" placeholder="Tulis komentar atau tanggapan Anda di sini..." required></textarea>
+                            <button type="button" class="btn-kirim-komentar" onclick="kirimKomentar()">Kirim Komentar</button>
+                          </div>
+                          <div id="daftarKomentar"></div>
+                        </div>
+
                     </div>
 
                 </div>
@@ -69,6 +205,46 @@
     </div>
 
     {{ partial "scripts.html" . }}
+
+    <script>
+      const kunciKomentar = "komentar_" + window.location.pathname;
+
+      function tampilkanKomentar() {
+        const wadah = document.getElementById("daftarKomentar");
+        if (!wadah) return;
+        const data = JSON.parse(localStorage.getItem(kunciKomentar) || "[]");
+        if (data.length === 0) {
+          wadah.innerHTML = '<p style="font-size: 13px; color: #777;">Belum ada komentar. Jadilah yang pertama berkomentar!</p>';
+          return;
+        }
+        wadah.innerHTML = data.map(item => `
+          <div class="comment-item">
+            <div class="comment-author">${item.nama} <span class="comment-time">• ${item.waktu}</span></div>
+            <p class="comment-text">${item.isi}</p>
+          </div>
+        `).join("");
+      }
+
+      function kirimKomentar() {
+        const inputNama = document.getElementById("namaKomentar");
+        const inputIsi = document.getElementById("isiKomentar");
+        const nama = inputNama.value.trim();
+        const isi = inputIsi.value.trim();
+        if (!nama || !isi) {
+          alert("Silakan isi nama dan komentar Anda terlebih dahulu.");
+          return;
+        }
+        const sekarang = new Date().toLocaleDateString("id-ID", { day: "2-digit", month: "short", year: "numeric" });
+        const data = JSON.parse(localStorage.getItem(kunciKomentar) || "[]");
+        data.unshift({ nama: nama.replace(/</g, "&lt;"), isi: isi.replace(/</g, "&lt;"), waktu: sekarang });
+        localStorage.setItem(kunciKomentar, JSON.stringify(data));
+        inputNama.value = "";
+        inputIsi.value = "";
+        tampilkanKomentar();
+      }
+
+      document.addEventListener("DOMContentLoaded", tampilkanKomentar);
+    </script>
 
   </body>
 </html>
