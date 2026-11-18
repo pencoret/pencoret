@@ -7,14 +7,20 @@ content:
     label: Artikel Blog
     type: collection
     path: content/blog
-    filename: "{primary}.md"
+    filename: "{fields.slug}.md"
     view:
-      fields: [ title, date, categories, populer, pilihan ]
+      fields: [ title, slug, date, categories, populer, pilihan ]
     fields:
       - name: title
         label: Judul
         type: string
         required: true
+      - name: slug
+        label: Permalink / Slug (URL)
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+        description: "Gunakan huruf kecil dan tanda hubung saja tanpa spasi (contoh: menu-harian-ferritin-face)"
       - name: date
         label: Tanggal
         type: date
@@ -53,6 +59,10 @@ content:
       - name: banner
         label: Foto Utama
         type: image
+      - name: banner_alt
+        label: Alt Text Foto Utama (SEO)
+        type: string
+        description: "Deskripsi singkat isi gambar untuk SEO Google Images dan pembaca layar"
       - name: banner_caption
         label: Keterangan / Sumber Foto Utama
         type: string
