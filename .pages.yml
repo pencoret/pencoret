@@ -12,9 +12,15 @@ content:
       fields: [ title, slug, date, categories, populer, pilihan ]
     fields:
       - name: title
-        label: Judul
+        label: Judul Artikel (H1)
         type: string
         required: true
+        description: "Judul lengkap yang tampil di bagian atas halaman artikel"
+      - name: seo_title
+        label: Judul SEO (Title Tag)
+        type: string
+        required: false
+        description: "Opsional. Ideal 50-60 karakter untuk tampilan di Google. Jika kosong, otomatis pakai Judul Artikel"
       - name: slug
         label: Permalink / Slug (URL)
         type: string
@@ -30,8 +36,9 @@ content:
         type: string
         default: PenCoret
       - name: description
-        label: Deskripsi Singkat
+        label: Meta Description (Deskripsi Singkat SEO)
         type: text
+        description: "Ringkasan artikel untuk hasil pencarian Google (ideal 120-155 karakter)"
       - name: categories
         label: Kategori
         type: select
