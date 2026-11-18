@@ -44,4 +44,52 @@
   #footer p { margin: 0 0 6px 0 !important; font-size: 13.5px !important; line-height: 1.5 !important; }
   .box-image-text .image img, .post .image img { width: 100% !important; height: 180px !important; object-fit: cover !important; border-radius: 6px; }
   @media (min-width: 768px) { .global-top-banner, .global-top-banner img, .article-top-banner, .article-top-banner img { height: 125px !important; max-height: 125px !important; } }
+/* 1. MENU DROPDOWN PAS DI BAWAH TOMBOL TITIK 3 */
+.navbar-affixed-top, .navbar-default, header { position: static !important; }
+#navigation { position: absolute !important; top: 48px !important; right: 12px !important; left: auto !important; width: 210px !important; background: #1a2536 !important; border-radius: 6px !important; z-index: 99999 !important; box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important; }
+
+/* 2. JUDUL RAPAT DENGAN "OLEH: PENCORET" */
+#heading-breadcrumbs, .heading-breadcrumbs { padding: 10px 0 2px 0 !important; margin: 0 !important; }
+#heading-breadcrumbs h1 { margin: 0 0 2px 0 !important; font-size: 24px !important; }
+#content > .container > .row { margin-top: 0 !important; }
+.info-penulis { margin-top: 2px !important; padding-top: 0 !important; }
+
+/* 3. GAMBAR & POSTINGAN DI BAWAH KOMENTAR SEJAJAR DENGAN ISI ARTIKEL */
+#footer .container { max-width: 945px !important; padding: 0 15px !important; }
+#footer img, .footer img { max-width: 100% !important; height: auto !important; border-radius: 6px !important; }
+<!-- AUTO TRANSLATE SESUAI BAHASA BROWSER PENGUNJUNG -->
+<div id="google_translate_element" style="display:none;"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'id',
+      autoDisplay: false
+    }, 'google_translate_element');
+
+    // Deteksi bahasa browser/perangkat pengunjung
+    var userLang = (navigator.language || navigator.userLanguage || 'id').toLowerCase().split('-')[0];
+    
+    // Jika bahasa pengunjung bukan Indonesia ('id'), otomatis terjemahkan
+    if (userLang && userLang !== 'id') {
+      setTimeout(function() {
+        var selectField = document.querySelector("#google_translate_element select");
+        if (selectField) {
+          for (var i = 0; i < selectField.options.length; i++) {
+            if (selectField.options[i].value.indexOf(userLang) === 0) {
+              selectField.selectedIndex = i;
+              selectField.dispatchEvent(new Event("change"));
+              break;
+            }
+          }
+        }
+      }, 1000);
+    }
+  }
+</script>
+<script type="text/javascript" src="//://google.com"></script>
+
+<style>
+  /* Sembunyikan bar atas bawaan Google Translate agar desain blog tetap bersih */
+  .skiptranslate iframe, .goog-te-banner-frame { display: none !important; }
+  body { top: 0px !important; }
 </style>
