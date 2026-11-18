@@ -1,205 +1,47 @@
 <meta charset="utf-8">
 <meta name="robots" content="all,follow">
-<meta name="googlebot" content="index,follow,snippet,archive">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {{ $raw_title := .Params.seo_title | default .Title }}
-{{ $title_plain := $raw_title | markdownify | plainify }}
-<title>{{ $title_plain }}</title>
-<meta name="author" content="{{ .Param "author" }}" />
-
-<!-- Canonical URL for SEO -->
+<title>{{ $raw_title | markdownify | plainify }}</title>
 <link rel="canonical" href="{{ .Permalink | absURL }}" />
-
-{{ $keywords := .Site.Params.defaultKeywords | default (slice "" | first 0) }}
-{{ if isset .Params "tags" }}{{ range .Params.tags }}{{ $keywords = $keywords | append . }}{{ end }}{{ end }}
-{{ if isset .Params "keywords" }}{{ range .Params.keywords }}{{ $keywords = $keywords | append . }}{{ end }}{{ end }}
-{{ if gt (len $keywords) 0 }}
-<meta name="keywords" content="{{ delimit (uniq $keywords) ", " }}">
-{{ end }}
-{{ $description_plain := default .Site.Params.defaultDescription .Description | markdownify | plainify }}
-<meta name="description" content="{{ $description_plain }}">
-
+<meta name="description" content="{{ default .Site.Params.defaultDescription .Description | markdownify | plainify }}">
 {{ hugo.Generator }}
-
-<!-- Font -->
-<link href='//://googleapis.com' rel='stylesheet' type='text/css'>
-
-<!-- Bootstrap and Font Awesome CSS -->
 <link rel="stylesheet" href="//://fontawesome.com">
-<link rel="stylesheet" href="//://bootstrapcdn.com" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
-<!-- CSS animations  -->
-<link href="{{ "css/animate.css" | relURL }}" rel="stylesheet">
-
-<!-- Theme stylesheet, if possible do not edit this stylesheet -->
-{{ with .Site.Params.style }}
-  <link href="{{ "css/style" | relURL }}.{{ . }}.css" rel="stylesheet" id="theme-stylesheet">
-{{ else }}
-  <link href="{{ "css/style.default.css" | relURL }}" rel="stylesheet" id="theme-stylesheet">
-{{ end }}
-
-<!-- Custom stylesheet - for your changes -->
-<link href="{{ "css/custom.css" | relURL }}?{{ now.Unix }}" rel="stylesheet">
-
-<!-- Responsivity for older IE -->
-{{ `
-  <!--[if lt IE 9]>
-      <script src="https://cloudflare.com"></script>
-      <script src="https://cloudflare.com"></script>
-  <![endif]-->
-` | safeHTML }}
-
-<!-- Favicon and Apple touch icons-->
+<link rel="stylesheet" href="//://bootstrapcdn.com">
+<link href="{{ "css/style.default.css" | relURL }}" rel="stylesheet" id="theme-stylesheet">
 <link rel="shortcut icon" href="{{ "img/favicon.ico" | relURL }}" type="image/x-icon" />
-<link rel="apple-touch-icon" href="{{ "img/apple-touch-icon.png" | relURL }}" />
-
-<!-- owl carousel CSS -->
-<link href="{{ "css/owl.carousel.css" | relURL }}" rel="stylesheet">
-<link href="{{ "css/owl.theme.css" | relURL }}" rel="stylesheet">
-
-<!-- RSS feed -->
-<link rel="alternate" href="{{ "/index.xml" | absURL }}" type="application/rss+xml" title="{{ .Site.Title }}">
-
-<!-- Facebook OpenGraph tags -->
-{{ $is_blog := and (eq .Type "blog") (eq .Kind "page") }}
-{{ $has_image :=  isset .Params "banner" }}
-{{ $image := cond $has_image .Params.banner (.Site.Params.default_sharing_image | default "img/sharing-default.png") }}
-{{ $is_valid_image := print "static/" $image | fileExists }}
-{{ if $is_valid_image }}
-{{ $image_ext := path.Ext $image }}
-<meta property="og:locale" content="{{ replace .Site.LanguageCode "-" "_" }}">
-<meta property="og:site_name" content="{{ .Site.Title }}">
+{{ $title_plain := (.Params.seo_title | default .Title) | markdownify | plainify }}
+{{ $desc_plain := (default .Site.Params.defaultDescription .Description) | markdownify | plainify }}
 <meta property="og:title" content="{{ $title_plain }}">
-<meta property="og:type" content="{{ cond $is_blog "article" "website" }}">
+<meta property="og:description" content="{{ $desc_plain }}">
 <meta property="og:url" content="{{ .Permalink }}" />
-<meta property="og:description" content="{{ $description_plain }}">
-<meta property="og:image" content="{{ $image | absURL }}">
-<meta property="og:image:type" content="image/{{ if eq $image_ext ".svg" }}svg+xml{{ else }}{{ trim $image_ext "." }}{{ end }}">
+{{ with .Params.banner }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
 {{ with .Params.banner_alt }}<meta property="og:image:alt" content="{{ . | markdownify | plainify }}">{{ end }}
-{{ $image_local :=  printf "/static/%s" $image}}
-{{ with (imageConfig $image_local) }}
-  <meta property="og:image:width" content="{{ .Width }}">
-  <meta property="og:image:height" content="{{ .Height }}">
-{{ end }}
-{{ end }}
-{{ with .Lastmod }}<meta property="og:updated_time" content="{{ .Format "2006-01-02T15:04:05Z0700" }}">{{ end }}
-{{ if $is_blog }}
-  {{ with .Param "facebook_site" }}<meta property="article:publisher" content="https://facebook.com{{ . }}/">{{ end }}
-  {{ with .Param "facebook_author" }}<meta property="article:author" content="https://facebook.com{{ . }}/">{{ end }}
-  {{ with .Params.categories }}<meta property="article:section" content="{{ index . 0 }}">{{ end }}
-  {{ range .Params.tags }}<meta property="article:tag" content="{{ . }}">
-  {{ end }}
-  {{ if gt .ExpiryDate .PublishDate }}<meta property="article:expiration_time" content="{{ .ExpiryDate.Format "2006-01-02T15:04:05Z0700" }}">{{ end }}
-  {{ with .PublishDate }}<meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05Z0700" }}">{{ end }}
-  {{ with .Lastmod }}<meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05Z0700" }}">{{ end }}
-{{ end }}
-
-<!-- Twitter Card meta tags -->
-<meta name="twitter:card" content="summary{{ if (and $is_blog (and $has_image $is_valid_image)) }}_large_image{{ end }}">
-{{ with .Param "twitter_site" }}<meta name="twitter:site" content="@{{ . }}">{{ end }}
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $title_plain | truncate 70 }}">
-{{ if $is_valid_image }}
-<meta name="twitter:image" content="{{ $image | absURL }}">
-{{ end }}
-<meta name="twitter:description" content="{{ $description_plain | truncate 200 }}">
-{{ with .Param "twitter_author" }}<meta name="twitter:creator" content="@{{ . }}">{{ end }}
+<meta name="twitter:description" content="{{ $desc_plain | truncate 200 }}">
 
-<!-- STYLE KUSTOM ANDA (BANNER RAMPING & RUNNING TEXT) -->
 <style>
-  /* BANNER RAMPING GLOBAL & TOMBOL TITIK 3 */
-  .global-top-wrap {
-    background: #1a2536;
-    padding-top: 8px;
-  }
-  .banner-box-relative {
-    position: relative;
-    width: 100%;
-  }
-  .global-top-banner {
-    display: block;
-    width: 100%;
-    height: 80px !important;
-    overflow: hidden;
-    border-radius: 6px 6px 0 0;
-  }
-  .global-top-banner img {
-    width: 100% !important;
-    height: 80px !important;
-    max-height: 80px !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    display: block;
-  }
-
-  /* TOMBOL TITIK 3 DI POJOK KANAN ATAS BANNER */
-  .banner-dots-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 20;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(26, 37, 54, 0.78);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    transition: background 0.2s;
-  }
-  .banner-dots-btn:hover,
-  .banner-dots-btn:focus {
-    background: #38a7bb;
-    color: #ffffff;
-    outline: none;
-  }
-
-  /* HILANGKAN TULISAN SELAMAT DATANG BAWAAN DI SEMUA HALAMAN */
-  #all .navbar-header {
-    display: none !important;
-  }
-  #all .navbar {
-    min-height: 0 !important;
-    margin-bottom: 0 !important;
-    border: none !important;
-  }
-
-  /* RUNNING TEXT GLOBAL */
-  .global-running-bar {
-    background-color: #1a2536;
-    color: #f4d08c;
-    padding: 7px 0;
-    overflow: hidden;
-    white-space: nowrap;
-    font-weight: 800;
-    font-size: 13px;
-    letter-spacing: 1px;
-    border-top: 1px solid rgba(255,255,255,0.12);
-  }
-  .global-running-text {
-    display: inline-block;
-    padding-left: 100%;
-    animation: jalanGlobal 16s linear infinite;
-  }
-  @keyframes jalanGlobal {
-    0%   { transform: translate(0, 0); }
-    100% { transform: translate(-100%, 0); }
-  }
-
-  @media (min-width: 768px) {
-    .global-top-banner,
-    .global-top-banner img {
-      height: 120px !important;
-      max-height: 120px !important;
-    }
-    .banner-dots-btn {
-      display: none;
-    }
-  }
+  .global-top-wrap, .article-top-wrap { background: transparent !important; padding-top: 0 !important; margin-top: 0 !important; }
+  .global-top-wrap .container, .article-top-wrap .container { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
+  .banner-box-relative { position: relative; width: 100%; }
+  .global-top-banner, .article-top-banner { display: block; width: 100%; height: 85px !important; overflow: hidden; border-radius: 0 !important; }
+  .global-top-banner img, .article-top-banner img { width: 100% !important; height: 85px !important; max-height: 85px !important; object-fit: cover !important; display: block; }
+  .banner-dots-btn { position: absolute; top: 10px; right: 12px; z-index: 20; width: 36px; height: 36px; border-radius: 50%; background: rgba(26,37,54,0.85); color: #fff; border: 1px solid rgba(255,255,255,0.35); font-size: 20px; font-weight: bold; display: flex !important; align-items: center; justify-content: center; cursor: pointer; }
+  #all .navbar-header { display: none !important; }
+  #all .navbar { min-height: 0 !important; margin: 0 !important; border: none !important; background: transparent !important; }
+  #navigation.navbar-collapse.collapse { display: none !important; }
+  #navigation.navbar-collapse.collapse.in { display: block !important; background: #1a2536; padding: 10px 15px; position: absolute; right: 12px; top: 52px; z-index: 999; min-width: 220px; border-radius: 6px; box-shadow: 0 6px 16px rgba(0,0,0,0.35); }
+  #navigation .navbar-nav, #navigation .navbar-nav > li { float: none !important; display: block !important; margin: 0 !important; }
+  #navigation .navbar-nav > li > a { color: #fff !important; padding: 8px 12px !important; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  #navigation .navbar-nav > li > a:hover { background: #38a7bb !important; border-radius: 4px; }
+  .global-running-bar, .article-running-bar { background: #1a2536; color: #f4d08c; padding: 7px 0; overflow: hidden; white-space: nowrap; font-weight: 800; font-size: 13px; }
+  .global-running-text, .article-running-text { display: inline-block; padding-left: 100%; animation: jalanGlobal 16s linear infinite; }
+  @keyframes jalanGlobal { 0% { transform: translate(0,0); } 100% { transform: translate(-100%,0); } }
+  #footer { padding: 18px 0 12px 0 !important; }
+  #footer .container, #blog-post ~ div, .bar.background-white, #recent-posts { max-width: 960px; margin-left: auto; margin-right: auto; }
+  #footer h4 { margin: 0 0 6px 0 !important; font-size: 15px !important; }
+  #footer p { margin: 0 0 6px 0 !important; font-size: 13.5px !important; line-height: 1.5 !important; }
+  .box-image-text .image img, .post .image img { width: 100% !important; height: 180px !important; object-fit: cover !important; border-radius: 6px; }
+  @media (min-width: 768px) { .global-top-banner, .global-top-banner img, .article-top-banner, .article-top-banner img { height: 125px !important; max-height: 125px !important; } }
 </style>
