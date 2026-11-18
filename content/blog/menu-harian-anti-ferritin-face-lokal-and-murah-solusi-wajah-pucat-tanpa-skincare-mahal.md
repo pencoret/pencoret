@@ -1,6 +1,7 @@
 ---
 title: "Menu Harian Anti-Ferritin Face Lokal & Murah: Solusi Wajah Pucat Tanpa
   Skincare Mahal"
+slug: menu-harian-anti-ferritin-face-lokal-murah
 date: 2026-11-18
 author: PenCoret
 description: Wajah pucat dan rambut rontok akibat tren viral Ferritin Face?
@@ -14,6 +15,9 @@ pilihan: true
 tags:
   - Ferritin Face, Tren TikTok 2026, Menu Harian Sehat, Makanan Tinggi Zat Besi,
     Gaya Hidup Sehat
+banner_alt: Menu harian anti-ferritin face berbahan lokal terdiri dari nasi
+  putih, sambal goreng hati ayam, tumis bayam, tempe goreng, serta buah tinggi
+  vitamin C seperti jambu biji merah dan jeruk.
 banner_caption: "(Ilustrasi menu harian tinggi zat besi lokal/Foto: AI Gemini)"
 ---
 Belakangan ini, istilah **Ferritin Face** mendadak ramai diperbincangkan di linimasa TikTok dan Instagram. Tren kesehatan dan kecantikan ini menyoroti kondisi wajah yang tampak pucat, kusam, mata cekung, hingga rambut rontok parah akibat rendahnya cadangan zat besi (feritin) di dalam tubuh.
