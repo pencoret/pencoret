@@ -1,0 +1,6 @@
+<!-- Title Tag untuk Google & Browser -->
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Params.seo_title | default .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+<!-- Meta Title untuk Share Media Sosial (WhatsApp, Facebook, X) -->
+<meta property="og:title" content="{{ .Params.seo_title | default .Title }}">
+<meta name="twitter:title" content="{{ .Params.seo_title | default .Title }}">
