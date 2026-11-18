@@ -15,6 +15,7 @@ pilihan: true
 tags:
   - Ferritin Face, Tren TikTok 2026, Menu Harian Sehat, Makanan Tinggi Zat Besi,
     Gaya Hidup Sehat
+banner: /images/image_e74ed976.jpg
 banner_alt: Menu harian anti-ferritin face berbahan lokal terdiri dari nasi
   putih, sambal goreng hati ayam, tumis bayam, tempe goreng, serta buah tinggi
   vitamin C seperti jambu biji merah dan jeruk.
