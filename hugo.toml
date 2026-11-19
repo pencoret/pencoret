@@ -14,7 +14,9 @@ enableRobotsTXT = true
   blog = '/:slug/'
 
 [Params]
-  description = 'Ruang Informasi Terkini, Tren Viral, dan Fakta Unik'
+  customCSS = ["css/custom.css"]
+  customJS = ["js/custom.js"]
+  description = 'Ruang Baca Terkini, Tren Viral dan Fakta Unik'
   copyright = 'PenCoret'
   style = 'default'
   mainSections = ['blog']
