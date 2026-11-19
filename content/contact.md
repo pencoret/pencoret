@@ -1,7 +1,7 @@
 ---
 title: "Kontak"
 url: "/contact/"
-description: "Hubungi tim redaksi PenCoret untuk masukan, koreksi informasi, hak jawab, atau kerja sama."
+description: "Hubungi Kami untuk koreksi informasi, hak jawab, atau kerja sama."
 ---
 
 Terima kasih telah mengunjungi **PenCoret** (`https://pencoret.my.id`). 
