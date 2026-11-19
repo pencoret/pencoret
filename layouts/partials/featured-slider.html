@@ -1,0 +1,71 @@
+<div class="multi-slider-wrapper">
+
+  <!-- 1. SLIDER POPULER / UTAMA (Cepat: 3500 ms = 3.5 detik) -->
+  {{ $populer := where .Site.RegularPages "Params.featured" true | first 5 }}
+  {{ if $populer }}
+  <div class="slider-section">
+    <h4 class="slider-heading">Populer</h4>
+    <div class="featured-slider" data-speed="3500">
+      {{ range $index, $page := $populer }}
+      <div class="featured-slide {{ if eq $index 0 }}active{{ end }}">
+        {{ with $page.Params.thumbnail }}
+          <img src="{{ . | relURL }}" alt="{{ $page.Title }}">
+        {{ end }}
+        <div class="featured-caption">
+          <span class="featured-badge badge-populer">Populer</span>
+          <h3><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h3>
+          <p>{{ $page.Summary | truncate 100 }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  <!-- Grid 2 Kolom untuk Pilihan & Terbaru -->
+  <div class="slider-sub-grid">
+
+    <!-- 2. SLIDER POSTINGAN PILIHAN (Lebih Lambat: 6000 ms = 6 detik) -->
+    {{ $pilihan := where .Site.RegularPages "Params.pilihan" true | first 5 }}
+    {{ if $pilihan }}
+    <div class="slider-section">
+      <h4 class="slider-heading">Postingan Pilihan</h4>
+      <div class="featured-slider slider-small" data-speed="6000">
+        {{ range $index, $page := $pilihan }}
+        <div class="featured-slide {{ if eq $index 0 }}active{{ end }}">
+          {{ with $page.Params.thumbnail }}
+            <img src="{{ . | relURL }}" alt="{{ $page.Title }}">
+          {{ end }}
+          <div class="featured-caption">
+            <span class="featured-badge badge-pilihan">Pilihan</span>
+            <h4><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h4>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <!-- 3. SLIDER POSTINGAN TERBARU (Lebih Lambat: 7500 ms = 7.5 detik) -->
+    {{ $terbaru := .Site.RegularPages | first 5 }}
+    {{ if $terbaru }}
+    <div class="slider-section">
+      <h4 class="slider-heading">Postingan Terbaru</h4>
+      <div class="featured-slider slider-small" data-speed="7500">
+        {{ range $index, $page := $terbaru }}
+        <div class="featured-slide {{ if eq $index 0 }}active{{ end }}">
+          {{ with $page.Params.thumbnail }}
+            <img src="{{ . | relURL }}" alt="{{ $page.Title }}">
+          {{ end }}
+          <div class="featured-caption">
+            <span class="featured-badge badge-terbaru">Terbaru</span>
+            <h4><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h4>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+  </div>
+</div>
