@@ -4,9 +4,10 @@ title = 'PenCoret'
 theme = 'mainroad'
 summaryLength = 35
 enableRobotsTXT = true
+timeZone = 'Asia/Jakarta'
 
 [sitemap]
-  changefreq = 'weekly'
+  changefreq = 'daily'
   filename = 'sitemap.xml'
   priority = 0.5
 
