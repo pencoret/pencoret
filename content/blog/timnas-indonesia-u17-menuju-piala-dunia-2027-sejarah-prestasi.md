@@ -31,6 +31,8 @@ Kepastian tersebut diraih skuad berjuluk Garuda Asia usai melibas Afghanistan de
 
 Perlu diluruskan agar tidak keliru informasi, kemenangan atas Afghanistan belum otomatis mengantar Indonesia langsung ke putaran final Piala Dunia U-17 2027. Namun, kelolosan ke Piala Asia U-17 2027 merupakan pintu gerbang utama dan syarat mutlak untuk memperebutkan tiket ke pentas dunia tersebut.
 
+**Baca Juga:** [Guns N' Roses Konser di Jakarta Sabtu Ini: Ada Rhoma Irama hingga Opsi Rekayasa Cuaca!](/konser-guns-n-roses-jakarta-2026-fakta-unik/)
+
 **Dominasi Sempurna Garuda Asia di Babak Kualifikasi**
 
 Di bawah arahan pelatih **David Nascimento**, Timnas Indonesia U-17 tampil luar biasa dominan sepanjang fase kualifikasi Grup A di Myanmar. Garuda Asia sukses menyapu bersih tiga pertandingan awal dengan raihan poin sempurna (9 poin) tanpa sekali pun kebobolan.
