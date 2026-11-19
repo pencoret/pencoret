@@ -15,6 +15,7 @@ tags:
     Teknologi, Update Google
 banner: /images/image_ca1b5d77.jpg
 banner_caption: "Ilustrasi: Google Gemini 4 Hydrogen (Dibuat oleh AI Nano Banana 2 by Gemini)"
+featured: true
 ---
 Perkembangan kecerdasan buatan (AI) kembali memasuki babak baru di pertengahan November 2026. Google secara resmi meluncurkan **Gemini 4 Hydrogen**, model AI generasi terbaru yang diklaim mampu bekerja hingga **2,5 kali lebih cepat** dibandingkan pendahulunya. Tidak hanya itu, Google juga melakukan perombakan besar pada aplikasi Gemini dengan mengganti fitur *Gems* menjadi **Keahlian (*Skills*)** mulai bulan ini.
 
