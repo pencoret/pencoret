@@ -1,0 +1,30 @@
+/* Membuat menu navigasi sejajar 1 baris dan bisa di-slide horizontal */
+.menu__list {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap !important;
+  scrollbar-width: none; /* Menyembunyikan scrollbar di Firefox */
+}
+
+/* Menyembunyikan scrollbar di Chrome, Safari, dan Edge agar lebih rapi */
+.menu__list::-webkit-scrollbar {
+  display: none;
+}
+
+.menu__item {
+  flex: 0 0 auto !important;
+  display: inline-block !important;
+}
+
+/* Memastikan tombol hamburger mobile bawaan tidak menyembunyikan menu */
+@media screen and (max-width: 767px) {
+  .menu__btn {
+    display: none !important;
+  }
+  .menu__list {
+    max-height: none !important;
+    visibility: visible !important;
+  }
+}
