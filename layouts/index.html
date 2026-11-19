@@ -1,242 +1,202 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ .Site.Title }} — {{ .Site.Params.description }}</title>
-
-  <link rel="icon" type="image/jpeg" sizes="48x48" href="{{ "images/image_d634cfff.jpg" | relURL }}">
-  <link rel="icon" type="image/jpeg" sizes="512x512" href="{{ "images/image_d634cfff.jpg" | relURL }}">
+  <link rel="icon" type="image/jpeg" href="{{ "images/image_d634cfff.jpg" | relURL }}">
   <link rel="apple-touch-icon" href="{{ "images/image_d634cfff.jpg" | relURL }}">
-
   <style>
     * { box-sizing: border-box; }
     body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #fff; color: #333; margin: 0; }
-    
-    /* PENGGANTI BOOTSTRAP CONTAINER (RINGAN & CEPAT) */
     .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 15px; }
-    .home-wrap { padding: 0 0 35px; }
-    .sec-label { font-size: 15px; font-weight: 800; text-transform: uppercase; color: #222; border-left: 4px solid #38a7bb; padding-left: 10px; margin: 14px 0 8px; text-align: left; }
+    .home-wrap { padding-bottom: 35px; }
+    .sec-label { font-size: 15px; font-weight: 800; text-transform: uppercase; color: #222; border-left: 4px solid #38a7bb; padding-left: 10px; margin: 14px 0 8px; }
+    
+    /* KATEGORI */
+    .cat-menu-bar { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 8px 0 10px; }
+    .cat-menu-btn { background: #f4f6f8; color: #222 !important; border: 1px solid #dce1e7; padding: 5px 12px; border-radius: 20px; font-size: 12.5px; font-weight: 700; text-decoration: none !important; text-transform: uppercase; transition: 0.2s; }
+    .cat-menu-btn:hover { background: #38a7bb; color: #fff !important; border-color: #38a7bb; }
 
-    /* MENU KATEGORI DI BAWAH TEKS BERJALAN */
-    .cat-menu-bar { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 6px 0 8px; }
-    .cat-menu-btn { background: #f4f6f8; color: #222 !important; border: 1px solid #dce1e7; padding: 5px 12px; border-radius: 20px; font-size: 12.5px; font-weight: 700; text-decoration: none !important; text-transform: uppercase; transition: background 0.2s, color 0.2s; }
-    .cat-menu-btn:hover { background: #38a7bb; color: #ffffff !important; border-color: #38a7bb; }
-
-    /* 1. SLIDER BESAR POSTINGAN POPULER */
+    /* 1. SLIDER BESAR POPULER */
     .pop-slider { position: relative; overflow: hidden; border-radius: 8px; background: #111; margin-top: 6px; }
-    .pop-track { display: flex; transition: transform 0.35s ease; will-change: transform; }
+    .pop-track { display: flex; transition: transform 0.45s ease; will-change: transform; }
     .pop-slide { min-width: 100%; position: relative; height: 240px; }
     .pop-slide img { width: 100%; height: 100%; object-fit: cover; opacity: 0.78; }
-    .pop-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 18px 16px; background: linear-gradient(transparent, rgba(0,0,0,0.92)); text-align: left; }
-    .pop-overlay h2 { margin: 0; font-size: 18px; font-weight: 700; line-height: 1.35; text-align: left !important; }
-    .pop-overlay h2 a { color: #ffffff; text-decoration: none; }
+    .pop-overlay { position: absolute; bottom: 0; inset-inline: 0; padding: 18px 16px; background: linear-gradient(transparent, rgba(0,0,0,0.92)); }
+    .pop-overlay h2 { margin: 0; font-size: 18px; font-weight: 700; line-height: 1.35; }
+    .pop-overlay h2 a { color: #fff; text-decoration: none; }
     .pop-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.55); color: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; cursor: pointer; z-index: 5; }
-    .pop-prev { left: 10px; }
-    .pop-next { right: 10px; }
+    .pop-prev { left: 10px; } .pop-next { right: 10px; }
 
-    /* 2. KOTAK KECIL SLIDE KANAN-KIRI */
-    .mini-row { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    /* 2. KOTAK KECIL SLIDE OTOMATIS */
+    .mini-row { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; scroll-behavior: smooth; scrollbar-width: none; }
     .mini-row::-webkit-scrollbar { display: none; }
-    .mini-card { width: 165px; flex-shrink: 0; border: 1px solid #eaeaea; border-radius: 6px; overflow: hidden; background: #fff; text-align: left; }
+    .mini-card { width: 165px; flex-shrink: 0; border: 1px solid #eaeaea; border-radius: 6px; overflow: hidden; background: #fff; }
     .mini-card img { width: 100%; height: 100px; object-fit: cover; }
     .mini-card-body { padding: 8px 10px; }
-    .mini-card-body h4 { margin: 0; font-size: 13px; font-weight: 700; line-height: 1.35; text-align: left !important; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .mini-card-body h4 { margin: 0; font-size: 13px; font-weight: 700; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
     .mini-card-body h4 a { color: #222; text-decoration: none; }
 
-    /* 3. POSTINGAN TERBARU (4 KOTAK / GRID 2x2) */
+    /* 3. GRID 2x2 TERBARU & TOMBOL */
     .latest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
-    .big-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; background: #fff; text-align: left; display: flex; flex-direction: column; }
+    .big-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
     .big-card img { width: 100%; height: 115px; object-fit: cover; }
     .big-card-body { padding: 9px 10px; flex-grow: 1; }
-    .big-cat { font-size: 10px; font-weight: 700; color: #38a7bb; text-transform: uppercase; display: block; }
-    .big-card-body h3 { margin: 3px 0 5px; font-size: 13.5px; font-weight: 700; line-height: 1.3; text-align: left !important; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .big-cat { font-size: 10px; font-weight: 700; color: #38a7bb; text-transform: uppercase; }
+    .big-card-body h3 { margin: 3px 0 5px; font-size: 13.5px; font-weight: 700; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
     .big-card-body h3 a { color: #222; text-decoration: none; }
     .big-meta { font-size: 10.5px; color: #777; }
-
-    /* 4. TOMBOL TAMPILKAN SEMUA */
     .all-post-box { margin-top: 16px; text-align: center; }
-    .btn-all-post { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 320px; background: #38a7bb; color: #ffffff !important; font-weight: 700; font-size: 14px; padding: 12px 20px; border-radius: 6px; text-decoration: none !important; transition: background 0.2s; }
+    .btn-all-post { display: inline-flex; align-items: center; justify-content: center; width: 100%; max-width: 320px; background: #38a7bb; color: #fff !important; font-weight: 700; font-size: 14px; padding: 12px 20px; border-radius: 6px; text-decoration: none !important; transition: 0.2s; }
     .btn-all-post:hover { background: #2c8a9b; }
 
-    /* FOOTER: LOGO KIRI & TOMBOL SEJAJAR DI KANAN */
-.site-footer { background: #1a2536; color: #ccc; padding: 20px 0 16px; margin-top: 36px; font-size: 13px; }
-.footer-top-flex { display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap; gap: 10px; margin-bottom: 14px; }
-.footer-logo { flex-shrink: 0; }
-.footer-logo img { max-height: 36px; width: auto; border-radius: 6px; display: block; background: #fff; padding: 2px; }
-.footer-nav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 5px; }
-.footer-btn { background: rgba(255,255,255,0.1); color: #ffffff !important; border: 1px solid rgba(255,255,255,0.2); padding: 4px 9px; border-radius: 14px; font-size: 11px; font-weight: 600; text-decoration: none !important; transition: all 0.2s; white-space: nowrap; }
-.footer-btn:hover { background: #38a7bb; border-color: #38a7bb; color: #fff !important; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; text-align: center; font-size: 11.5px; color: #aaa; }
+    /* FOOTER */
+    .site-footer { background: #1a2536; color: #ccc; padding: 20px 0 16px; margin-top: 36px; font-size: 13px; }
+    .footer-top-flex { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+    .footer-logo img { max-height: 36px; border-radius: 6px; display: block; background: #fff; padding: 2px; }
+    .footer-nav { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 5px; }
+    .footer-btn { background: rgba(255,255,255,0.1); color: #fff !important; border: 1px solid rgba(255,255,255,0.2); padding: 4px 9px; border-radius: 14px; font-size: 11px; font-weight: 600; text-decoration: none !important; white-space: nowrap; transition: 0.2s; }
+    .footer-btn:hover { background: #38a7bb; border-color: #38a7bb; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; text-align: center; font-size: 11.5px; color: #aaa; }
 
-    @keyframes jalanTeks {
-      0%   { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-100%, 0, 0); }
-    }
-
+    @keyframes jalanTeks { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
     @media (min-width: 768px) {
-      .pop-slide { height: 360px; }
-      .pop-overlay h2 { font-size: 24px; }
-      .latest-grid { gap: 16px; }
-      .big-card img { height: 185px; }
-      .big-card-body h3 { font-size: 16px; }
-      .mini-card { width: 215px; }
-      .mini-card img { height: 130px; }
+      .pop-slide { height: 360px; } .pop-overlay h2 { font-size: 24px; }
+      .latest-grid { gap: 16px; } .big-card img { height: 185px; } .big-card-body h3 { font-size: 16px; }
+      .mini-card { width: 215px; } .mini-card img { height: 130px; }
     }
   </style>
 </head>
-
-  <body>
-  <div id="all">
-    <div id="content">
-      <div class="container home-wrap">
-
-        <!-- BANNER PEN CORET & TEKS BERJALAN -->
-        <div style="width: 100%; text-align: center; margin-top: 0;">
-          <div style="width: 100%; overflow: hidden; margin-top: -14px;">
-            <img src="{{ "images/image_dacac6d.jpeg" | relURL }}" alt="Banner PenCoret" 
-                 style="width: 100%; height: auto; display: block; transform: scale(1.12); transform-origin: center;">
-          </div>
-
-          <div style="background-color: #1a2536; color: #f4d08c; padding: 5px 0; line-height: 1.2; overflow: hidden; white-space: nowrap; border-radius: 0 0 8px 8px; font-weight: bold; font-size: 13px;">
-            <div style="display: inline-block; padding-left: 100%; animation: jalanTeks 22s linear infinite; will-change: transform;">
-              Selamat Datang di Ruang Baca dari sudut pandang yang berbeda, menyelami ide, mengurai cerita, dan menulis makna baru di setiap coretan pena.
-            </div>
-          </div>
-        </div>
-
-        <!-- KATEGORI DI BAWAH TEKS BERJALAN -->
-        <nav class="cat-menu-bar">
-          {{ range .Site.Menus.main }}
-          <a href="{{ .URL | relURL }}" class="cat-menu-btn">{{ .Name }}</a>
-          {{ end }}
-        </nav>
-
-        {{ $allPosts := where .Site.RegularPages "Section" "blog" }}
-        {{ $populerPosts := where $allPosts "Params.populer" true }}
-        {{ if eq (len $populerPosts) 0 }}{{ $populerPosts = first 5 $allPosts }}{{ end }}
-
-        <!-- 1. POSTINGAN POPULER (SLIDER BESAR) -->
-        {{ if gt (len $populerPosts) 0 }}
-        <div class="sec-label">Postingan Populer</div>
-        <div class="pop-slider">
-          <div class="pop-track" id="popTrack">
-            {{ range first 5 $populerPosts }}
-            <div class="pop-slide">
-              <a href="{{ .Permalink }}">
-                {{ $img := .Params.banner | default .Params.image | default "images/image_d634cfff.jpg" }}
-                <img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy">
-              </a>
-              <div class="pop-overlay">
-                <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-              </div>
-            </div>
-            {{ end }}
-          </div>
-          <button class="pop-nav pop-prev" onclick="moveSlide(-1)">&#10094;</button>
-          <button class="pop-nav pop-next" onclick="moveSlide(1)">&#10095;</button>
-        </div>
-        {{ end }}
-
-        <!-- 2. POSTINGAN PILIHAN (SLIDE KANAN-KIRI) -->
-        {{ $pilihanPosts := where $allPosts "Params.pilihan" true }}
-        {{ if eq (len $pilihanPosts) 0 }}{{ $pilihanPosts = first 6 $allPosts }}{{ end }}
-        {{ if gt (len $pilihanPosts) 0 }}
-        <div class="sec-label">Postingan Pilihan</div>
-        <div class="mini-row">
-          {{ range first 6 $pilihanPosts }}
-          <div class="mini-card">
-            <a href="{{ .Permalink }}">
-              {{ $img := .Params.banner | default .Params.image | default "images/image_d634cfff.jpg" }}
-              <img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy">
-            </a>
-            <div class="mini-card-body">
-              <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
-            </div>
-          </div>
-          {{ end }}
-        </div>
-        {{ end }}
-
-        <!-- 3. POSTINGAN TERBARU (4 KOTAK PERTAMA) -->
-        <div class="sec-label">Postingan Terbaru</div>
-        <div class="latest-grid">
-          {{ range first 4 $allPosts }}
-          <article class="big-card">
-            <a href="{{ .Permalink }}">
-              {{ $img := .Params.banner | default .Params.image | default "images/image_d634cfff.jpg" }}
-              <img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy">
-            </a>
-            <div class="big-card-body">
-              {{ with .Params.categories }}
-              <span class="big-cat">{{ index . 0 }}</span>
-              {{ end }}
-              <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-              <div class="big-meta">{{ .Date.Format "02 Jan 2006" }}</div>
-            </div>
-          </article>
-          {{ end }}
-        </div>
-
-        <!-- 3B. POSTINGAN KE-5 DAN SETERUSNYA (SLIDE KANAN-KIRI) -->
-        {{ $morePosts := after 4 $allPosts }}
-        {{ if gt (len $morePosts) 0 }}
-        <div class="mini-row" style="margin-top: 10px;">
-          {{ range first 6 $morePosts }}
-          <div class="mini-card">
-            <a href="{{ .Permalink }}">
-              {{ $img := .Params.banner | default .Params.image | default "images/image_d634cfff.jpg" }}
-              <img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy">
-            </a>
-            <div class="mini-card-body">
-              <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
-            </div>
-          </div>
-          {{ end }}
-        </div>
-        {{ end }}
-
-        <!-- 4. TOMBOL TAMPILKAN SEMUA -->
-        <div class="all-post-box">
-          <a href="{{ "blog/" | relURL }}" class="btn-all-post">Tampilkan Semua</a>
-        </div>
-
+<body>
+  <div class="container home-wrap">
+    <!-- BANNER & TEKS BERJALAN (DITURUNKAN SEDIKIT) -->
+    <div style="overflow: hidden; margin-top: 12px; border-radius: 8px 8px 0 0;">
+      <img src="{{ "images/image_dacac6d.jpeg" | relURL }}" alt="Banner PenCoret" style="width: 100%; display: block; transform: scale(1.12);">
+    </div>
+    <div style="background: #1a2536; color: #f4d08c; padding: 5px 0; overflow: hidden; white-space: nowrap; border-radius: 0 0 8px 8px; font-weight: bold; font-size: 13px;">
+      <div style="display: inline-block; padding-left: 100%; animation: jalanTeks 22s linear infinite;">
+        Selamat Datang di Ruang Baca dari sudut pandang yang berbeda, menyelami ide, mengurai cerita, dan menulis makna baru di setiap coretan pena.
       </div>
     </div>
+    <!-- MENU KATEGORI -->
+    <nav class="cat-menu-bar">
+      {{ range .Site.Menus.main }}<a href="{{ .URL | relURL }}" class="cat-menu-btn">{{ .Name }}</a>{{ end }}
+    </nav>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-top-flex">
-          <div class="footer-logo">
-            <a href="{{ "/" | relURL }}">
-              <img src="{{ "images/image_d634cfff.jpg" | relURL }}" alt="{{ .Site.Title }}" loading="lazy">
-            </a>
-          </div>
-          <div class="footer-nav">
-            {{ range .Site.Menus.main }}
-            <a href="{{ .URL | relURL }}" class="footer-btn">{{ .Name }}</a>
-            {{ end }}
-          </div>
+    {{ $allPosts := where .Site.RegularPages "Section" "blog" }}
+    {{ $populerPosts := where $allPosts "Params.populer" true | default (first 5 $allPosts) }}
+    {{ $pilihanPosts := where $allPosts "Params.pilihan" true | default (first 6 $allPosts) }}
+
+    <!-- 1. POSTINGAN POPULER (OTOMATIS 3.5 DETIK) -->
+    {{ if $populerPosts }}
+    <div class="sec-label">Postingan Populer</div>
+    <div class="pop-slider" id="popSliderBox">
+      <div class="pop-track" id="popTrack">
+        {{ range first 5 $populerPosts }}
+        {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "images/image_d634cfff.jpg" }}
+        <div class="pop-slide">
+          <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
+          <div class="pop-overlay"><h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2></div>
         </div>
-        <div class="footer-bottom">
-          &copy; {{ now.Year }} {{ .Site.Title }}. Hak Cipta Dilindungi.
-        </div>
+        {{ end }}
       </div>
-    </footer>
+      <button class="pop-nav pop-prev" onclick="moveSlide(-1)">❮</button>
+      <button class="pop-nav pop-next" onclick="moveSlide(1)">❯</button>
+    </div>
+    {{ end }}
+
+    <!-- 2. POSTINGAN PILIHAN (OTOMATIS 5.5 DETIK) -->
+    {{ if $pilihanPosts }}
+    <div class="sec-label">Postingan Pilihan</div>
+    <div class="mini-row" id="pilihanRow">
+      {{ range first 6 $pilihanPosts }}
+      {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "images/image_d634cfff.jpg" }}
+      <div class="mini-card">
+        <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
+        <div class="mini-card-body"><h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4></div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <!-- 3. POSTINGAN TERBARU (4 KOTAK + SLIDE OTOMATIS 7 DETIK) -->
+    <div class="sec-label">Postingan Terbaru</div>
+    <div class="latest-grid">
+      {{ range first 4 $allPosts }}
+      {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "images/image_d634cfff.jpg" }}
+      <article class="big-card">
+        <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
+        <div class="big-card-body">
+          {{ with .Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
+          <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <div class="big-meta">{{ .Date.Format "02 Jan 2006" }}</div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+
+    {{ with after 4 $allPosts }}
+    <div class="mini-row" id="terbaruRow" style="margin-top: 10px;">
+      {{ range first 6 . }}
+      {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "images/image_d634cfff.jpg" }}
+      <div class="mini-card">
+        <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
+        <div class="mini-card-body"><h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4></div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <div class="all-post-box"><a href="{{ "blog/" | relURL }}" class="btn-all-post">Tampilkan Semua</a></div>
   </div>
 
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-flex">
+        <div class="footer-logo"><a href="{{ "/" | relURL }}"><img src="{{ "images/image_d634cfff.jpg" | relURL }}" alt="{{ .Site.Title }}" loading="lazy"></a></div>
+        <div class="footer-nav">{{ range .Site.Menus.main }}<a href="{{ .URL | relURL }}" class="footer-btn">{{ .Name }}</a>{{ end }}</div>
+      </div>
+      <div class="footer-bottom">&copy; {{ now.Year }} {{ .Site.Title }}. Hak Cipta Dilindungi.</div>
+    </div>
+  </footer>
+
   <script>
-    let currentSlide = 0;
+    let currentSlide = 0, popTimer;
     function moveSlide(step) {
       const track = document.getElementById('popTrack');
-      if (!track) return;
-      const total = track.children.length;
-      currentSlide = (currentSlide + step + total) % total;
+      if (!track || track.children.length <= 1) return;
+      currentSlide = (currentSlide + step + track.children.length) % track.children.length;
       track.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
+    const popBox = document.getElementById('popSliderBox');
+    if (popBox) {
+      const startPop = () => popTimer = setInterval(() => moveSlide(1), 3500);
+      popBox.addEventListener('mouseenter', () => clearInterval(popTimer));
+      popBox.addEventListener('mouseleave', startPop);
+      startPop();
+    }
+
+    function autoScrollRow(id, speed) {
+      const row = document.getElementById(id);
+      if (!row) return;
+      let timer;
+      const step = () => {
+        const card = row.querySelector('.mini-card');
+        if (!card) return;
+        if (row.scrollLeft + row.clientWidth >= row.scrollWidth - 5) row.scrollTo({ left: 0, behavior: 'smooth' });
+        else row.scrollBy({ left: card.offsetWidth + 12, behavior: 'smooth' });
+      };
+      const start = () => timer = setInterval(step, speed);
+      row.addEventListener('mouseenter', () => clearInterval(timer));
+      row.addEventListener('mouseleave', start);
+      row.addEventListener('touchstart', () => clearInterval(timer), { passive: true });
+      row.addEventListener('touchend', start);
+      start();
+    }
+    autoScrollRow('pilihanRow', 5500);
+    autoScrollRow('terbaruRow', 7000);
   </script>
 </body>
-
 </html>
