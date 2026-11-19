@@ -49,7 +49,7 @@
       .mini-card-body h4 { margin: 0; font-size: 13px; font-weight: 700; line-height: 1.35; text-align: left !important; }
       .mini-card-body h4 a { color: #222; text-decoration: none; }
 
-      <!-- 3. POSTINGAN TERBARU (4 KOTAK) -->
+      <!-- 3. POSTINGAN TERBARU (4 KOTAK PERTAMA) -->
 <div class="sec-label">Postingan Terbaru</div>
 
 <div class="latest-grid">
@@ -73,8 +73,29 @@
   {{ end }}
 </div>
 
+<!-- 3B. POSTINGAN KE-5 DAN SETERUSNYA (SLIDE KANAN-KIRI) -->
+{{ $morePosts := after 4 $allPosts }}
+{{ if gt (len $morePosts) 0 }}
+<div class="mini-row" style="margin-top: 10px;">
+  {{ range first 10 $morePosts }}
+  <div class="mini-card">
+    <a href="{{ .Permalink }}">
+      {{ with .Params.image }}
+      <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+      {{ else }}
+      <img src="{{ "images/image_d634cfff.jpg" | relURL }}" alt="{{ .Title }}">
+      {{ end }}
+    </a>
+    <div class="mini-card-body">
+      <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+    </div>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
+
 <!-- 4. TOMBOL TAMPILKAN SEMUA -->
-<div class="all-post-box" style="margin-top: 14px;">
+<div class="all-post-box" style="margin-top: 16px;">
   <a href="{{ "blog/" | relURL }}" class="btn-all-post">Tampilkan Semua</a>
 </div>
 
