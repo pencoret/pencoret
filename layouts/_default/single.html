@@ -201,6 +201,28 @@
       }
     </style>
   </head>
+<div class="meta__item-views meta__item">
+  <span class="meta__text" id="view-counter">Memuat tayangan...</span>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const workerUrl = "https://hitung-klik.coretpen4.workers.dev/";
+    const postSlug = "{{ .RelPermalink }}";
+
+    fetch(`${workerUrl}?slug=${encodeURIComponent(postSlug)}`, {
+      method: "POST"
+    })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("view-counter").innerText = `${data.views}x dibaca`;
+      })
+      .catch(err => {
+        console.error("Gagal memuat hitungan:", err);
+        document.getElementById("view-counter").innerText = "";
+      });
+  });
+</script>
 
   <body>
 
