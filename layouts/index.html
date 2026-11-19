@@ -69,16 +69,18 @@
   </style>
 </head>
 <body>
+  <!-- HANYA BANNER & RUNTEXT YANG MEPET KIRI-KANAN -->
+  <div style="width: 100%; overflow: hidden; margin-top: 8px;">
+    <img src="{{ "images/image_dacac6d.jpeg" | relURL }}" alt="Banner PenCoret" style="width: 100%; display: block; transform: scale(1.12);">
+  </div>
+  <div style="width: 100%; background: #1a2536; color: #f4d08c; padding: 5px 0; overflow: hidden; white-space: nowrap; font-weight: bold; font-size: 13px;">
+    <div style="display: inline-block; padding-left: 100%; animation: jalanTeks 22s linear infinite;">
+      Selamat Datang di Ruang Baca dari sudut pandang yang berbeda, menyelami ide, mengurai cerita, dan menulis makna baru di setiap coretan pena.
+    </div>
+  </div>
+
+  <!-- WADAH ISI POSTINGAN TETAP RAPI SEPERTI SEMULA -->
   <div class="container home-wrap">
-    <!-- BANNER & TEKS BERJALAN (DITURUNKAN SEDIKIT) -->
-    <div style="overflow: hidden; margin-top: 12px; border-radius: 8px 8px 0 0;">
-      <img src="{{ "images/image_dacac6d.jpeg" | relURL }}" alt="Banner PenCoret" style="width: 100%; display: block; transform: scale(1.12);">
-    </div>
-    <div style="background: #1a2536; color: #f4d08c; padding: 5px 0; overflow: hidden; white-space: nowrap; border-radius: 0 0 8px 8px; font-weight: bold; font-size: 13px;">
-      <div style="display: inline-block; padding-left: 100%; animation: jalanTeks 22s linear infinite;">
-        Selamat Datang di Ruang Baca dari sudut pandang yang berbeda, menyelami ide, mengurai cerita, dan menulis makna baru di setiap coretan pena.
-      </div>
-    </div>
     <!-- MENU KATEGORI -->
     <nav class="cat-menu-bar">
       {{ range .Site.Menus.main }}<a href="{{ .URL | relURL }}" class="cat-menu-btn">{{ .Name }}</a>{{ end }}
