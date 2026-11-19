@@ -1,12 +1,1 @@
----
-title: "Disclaimer"
-url: "/disclaimer/"
----
-
-Seluruh informasi yang diterbitkan di **PenCoret** (`https://pencoret.my.id`) dipublikasikan dengan iktikad baik dan hanya untuk tujuan informasi serta bacaan umum.
-
-### Keakuratan Informasi
-PenCoret tidak memberikan jaminan mutlak atas kelengkapan, keandalan, dan keakuratan informasi yang disajikan. Segala tindakan yang Anda ambil berdasarkan informasi yang ditemukan di situs ini sepenuhnya merupakan tanggung jawab Anda sendiri.
-
-### Tautan Eksternal
-Melalui situs web kami, Anda dapat mengunjungi situs web eksternal melalui tautan (*hyperlink*) yang tersedia. Kami tidak memiliki kendali atas isi maupun perubahan kebijakan dari situs-situs pihak ketiga tersebut.
+<p>Seluruh informasi di <strong>PenCoret</strong> (<a href="https://pencoret.my.id">https://pencoret.my.id</a>) disajikan dengan iktikad baik untuk tujuan edukasi dan informasi umum sebagai media warga/blog opini independen. Informasi ini tidak menjamin keakuratan mutlak dan bukan pengganti nasihat profesional (medis, keuangan, hukum). Sebagian ilustrasi menggunakan AI, dan tautan eksternal di luar kendali kami. Segala risiko penggunaan ditanggung pembaca. Untuk koreksi atau hak jawab, silakan hubungi halaman Kontak. Dengan mengakses situs ini, Anda menyetujui ketentuan disclaimer ini.</p>
