@@ -49,19 +49,34 @@
       .mini-card-body h4 { margin: 0; font-size: 13px; font-weight: 700; line-height: 1.35; text-align: left !important; }
       .mini-card-body h4 a { color: #222; text-decoration: none; }
 
-      /* 3. POSTINGAN TERBARU BESAR */
-      .big-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; margin-bottom: 14px; background: #fff; text-align: left; }
-      .big-card img { width: 100%; height: 195px; object-fit: cover; }
-      .big-card-body { padding: 12px 14px; }
-      .big-cat { font-size: 11px; font-weight: 700; color: #38a7bb; text-transform: uppercase; }
-      .big-card-body h3 { margin: 4px 0 6px; font-size: 17px; font-weight: 700; line-height: 1.35; text-align: left !important; }
-      .big-card-body h3 a { color: #222; text-decoration: none; }
-      .big-meta { font-size: 11.5px; color: #777; }
+      <!-- 3. POSTINGAN TERBARU (4 KOTAK) -->
+<div class="sec-label">Postingan Terbaru</div>
 
-      /* 4. TOMBOL TAMPILKAN SEMUA */
-      .all-post-box { margin-top: 26px; text-align: center; }
-      .btn-all-post { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 320px; background: #38a7bb; color: #ffffff !important; font-weight: 700; font-size: 14px; padding: 12px 20px; border-radius: 6px; text-decoration: none !important; transition: background 0.2s; }
-      .btn-all-post:hover { background: #2c8a9b; }
+<div class="latest-grid">
+  {{ range first 4 $allPosts }}
+  <article class="big-card">
+    <a href="{{ .Permalink }}">
+      {{ with .Params.image }}
+      <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+      {{ else }}
+      <img src="{{ "images/image_d634cfff.jpg" | relURL }}" alt="{{ .Title }}">
+      {{ end }}
+    </a>
+    <div class="big-card-body">
+      {{ with .Params.categories }}
+      <span class="big-cat">{{ index . 0 }}</span>
+      {{ end }}
+      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+      <div class="big-meta">{{ .Date.Format "02 Jan 2006" }}</div>
+    </div>
+  </article>
+  {{ end }}
+</div>
+
+<!-- 4. TOMBOL TAMPILKAN SEMUA -->
+<div class="all-post-box" style="margin-top: 14px;">
+  <a href="{{ "blog/" | relURL }}" class="btn-all-post">Tampilkan Semua</a>
+</div>
 
       /* FOOTER: LOGO KIRI & NAVIGASI TOMBOL KANAN */
       .site-footer { background: #1a2536; color: #ccc; padding: 26px 0 20px; margin-top: 36px; font-size: 13px; }
