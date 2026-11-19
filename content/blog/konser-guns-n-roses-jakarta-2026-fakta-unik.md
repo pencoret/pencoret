@@ -21,7 +21,7 @@ banner_alt: Ilustrasi konser Guns N' Roses Jakarta 2026 bersama 9 Dewa Gitar
   Indonesia dan pesawat operasi modifikasi cuaca di atas stadion.
 banner_caption: "Ketika legenda rock dunia bertemu 9 Dewa Gitar Tanah Air di
   panggung Jakarta, lengkap dengan pesawat modifikasi cuaca yang siaga menghalau
-  hujan! (Ilustrasi: AI Generate/PenCoret)"
+  hujan! (Ilustrasi: AI Generated/PenCoret)"
 ---
 Sekian lama berlalu, akhirnya band legendaris internasional pemilik lagu *"Sweet Child O' Mine"* kembali ke Indonesia. Guns N' Roses merupakan band besar yang didirikan oleh Axl Rose dan kawan-kawan di Los Angeles pada era 1980-an, yang sukses mengubah wajah musik rock dunia lewat deretan hit abadi seperti *"Welcome to the Jungle"*, *"Paradise City"*, hingga *"Knockin' on Heaven's Door"*.
 
