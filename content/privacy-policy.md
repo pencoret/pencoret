@@ -19,3 +19,5 @@ PenCoret berkomitmen melindungi privasi anak-anak di dunia maya. Kami tidak seca
 
 ### Persetujuan dan Pembaruan
 Dengan mengakses dan menggunakan situs web PenCoret, Anda menyetujui Kebijakan Privasi ini beserta seluruh ketentuannya. Kebijakan ini dapat diperbarui sewaktu-waktu dan setiap perubahan akan langsung ditampilkan pada halaman ini. Jika Anda memiliki pertanyaan terkait kebijakan privasi kami, silakan hubungi kami melalui halaman [Kontak](/contact/).
+
+Terakhir diperbarui: November 2026
