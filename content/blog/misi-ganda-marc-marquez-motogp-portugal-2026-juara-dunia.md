@@ -20,9 +20,9 @@ banner: /images/image_3daffbbf.jpg
 banner_alt: Ilustrasi Marc Marquez nomor 93 bersama motor merah Ducati memimpin
   di depan pembalap lain di Sirkuit Portimao dengan tulisan Patahkan Kutukan
   untuk Juara Dunia
-banner_caption: Marc Marquez (#93) memacu motor Ducati di depan para rivalnya
+banner_caption: "Marc Marquez (#93) memacu motor Ducati di depan para rivalnya
   pada Sirkuit Portimao dengan misi mematahkan kutukan sekaligus mengunci gelar
-  juara dunia MotoGP 2026.
+  juara dunia MotoGP 2026 (Ilustrasi: AI Genedated)"
 ---
 Seri ke-21 MotoGP 2026 berlangsung di Sirkuit Internasional Algarve, Portimao, Portugal, pada 20–22 November 2026. Balapan ini menjadi momen penentuan bagi pembalap Ducati Lenovo Team, Marc Marquez. Ia mengemban dua misi besar sekaligus, yakni meraih kemenangan perdana di Portimao dan mengunci gelar juara dunia MotoGP 2026.
 
