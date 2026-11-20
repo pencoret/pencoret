@@ -1,0 +1,48 @@
+{{ $related := .Site.RegularPages.Related . | first 4 }}
+{{ with $related }}
+<div class="baca-juga-box">
+  <div class="baca-juga-title">Baca Juga Artikel Menarik Lainnya:</div>
+  <ul class="baca-juga-list">
+    {{ range . }}
+    <li>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+
+<style>
+  .baca-juga-box {
+    background: #f8fbfc;
+    border-left: 4px solid #38a7bb;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 24px 0;
+  }
+  .baca-juga-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #1a2536;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .baca-juga-list {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .baca-juga-list li {
+    margin-bottom: 6px;
+  }
+  .baca-juga-list a {
+    color: #2c8a9b;
+    font-weight: 600;
+    font-size: 14.5px;
+    text-decoration: none;
+    line-height: 1.4;
+  }
+  .baca-juga-list a:hover {
+    text-decoration: underline;
+    color: #1a2536;
+  }
+</style>
+{{ end }}
