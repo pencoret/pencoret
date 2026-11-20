@@ -49,4 +49,79 @@
       }
     </style>
   </head>
-  
+  <body>
+    <div id="all">
+
+        {{ partial "top.html" . }}
+        {{ partial "nav.html" . }}
+
+        <div id="content">
+            <div class="container list-wrap">
+                <div class="list-header">{{ if eq .Title "Blogs" }}Semua Postingan Terbaru{{ else }}{{ .Title }}{{ end }}</div>
+
+                <!-- TOMBOL FILTER KATEGORI -->
+                <div class="filter-bar" id="filterBar">
+                  <button type="button" class="filter-btn active" onclick="filterPosts('all', this)">Semua</button>
+                  <button type="button" class="filter-btn" onclick="filterPosts('Viral & Tren', this)">Viral & Tren</button>
+                  <button type="button" class="filter-btn" onclick="filterPosts('Fakta Unik', this)">Fakta Unik</button>
+                  <button type="button" class="filter-btn" onclick="filterPosts('Teknologi & Digital', this)">Teknologi & Digital</button>
+                  <button type="button" class="filter-btn" onclick="filterPosts('Gaya Hidup', this)">Gaya Hidup</button>
+                  <button type="button" class="filter-btn" onclick="filterPosts('Bisnis & Cuan', this)">Bisnis & Cuan</button>
+                  <button type="button" class="filter-btn" onclick="filterPosts('Opini & Cerita', this)">Opini & Cerita</button>
+                </div>
+
+                {{ if gt (len .Pages) 0 }}
+                  <div class="latest-grid mode-all" id="postGrid">
+                    {{ range $index, $page := .Pages }}
+                    {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "images/image_d634cfff.jpg" }}
+                    <article class="big-card" data-cats="{{ with .Params.categories }}{{ delimit . "|" }}{{ end }}">
+                      <a href="{{ .Permalink }}">
+                        <img src="{{ $img | relURL }}" alt="{{ .Title }}" {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}>
+                      </a>
+                      <div class="big-card-body">
+                        {{ with .Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
+                        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                        <div class="big-meta">Oleh: {{ .Params.author | default "PenCoret" }} • {{ .Date.Format "02 Jan 2006" }}</div>
+                      </div>
+                    </article>
+                    {{ end }}
+                  </div>
+                {{ else }}
+                  <p style="color: #666; font-size: 14px;">Belum ada artikel yang diterbitkan di kategori ini.</p>
+                {{ end }}
+            </div>
+        </div>
+
+        {{ partial "footer.html" . }}
+
+    </div>
+    {{ partial "scripts.html" . }}
+
+    <script>
+      function filterPosts(category, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const grid = document.getElementById('postGrid');
+        if (!grid) return;
+
+        if (category === 'all') {
+          grid.classList.add('mode-all');
+        } else {
+          grid.classList.remove('mode-all');
+        }
+
+        const cards = grid.querySelectorAll('.big-card');
+        cards.forEach(card => {
+          const cats = (card.getAttribute('data-cats') || '').split('|');
+          if (category === 'all' || cats.includes(category)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+    </script>
+  </body>
+                      </html>
+                      
