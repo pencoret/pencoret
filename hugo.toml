@@ -102,3 +102,5 @@ timeZone = 'Asia/Jakarta'
   [[related.indices]]
     name = 'date'
     weight = 10
+
+layouts/_default/single.html
