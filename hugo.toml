@@ -43,7 +43,7 @@ timeZone = 'Asia/Jakarta'
 [taxonomies]
   category = 'categories'
   tag = 'tags'
-
+ 
 [[menu.main]]
   name = 'Beranda'
   identifier = 'home'
