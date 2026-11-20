@@ -1,0 +1,25 @@
+name: Ganti Kategori Otomatis
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  replace-categories:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Ganti Kategori Lama ke Fakta Unik
+        run: |
+          find content/blog -type f -name "*.md" -exec sed -i 's/Viral & Tren/Fakta Unik/g' {} +
+          find content/blog -type f -name "*.md" -exec sed -i 's/Opini & Cerita/Gaya Hidup/g' {} +
+
+      - name: Commit dan Push Perubahan
+        run: |
+          git config --local user.email "github-actions[bot]@://github.com"
+          git config --local user.name "github-actions[bot]"
+          git add content/blog
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Otomatis rapikan kategori artikel" && git push)
