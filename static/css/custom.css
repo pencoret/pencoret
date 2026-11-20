@@ -1,0 +1,74 @@
+/* === Memperhalus Tampilan Kolom Postingan Pilihan === */
+
+/* 1. Mengatur tata letak grid agar rapi dan sejajar */
+/* Ganti '.featured-posts-grid' dengan nama class pembungkus (wrapper) di HTML Anda jika berbeda */
+.featured-posts-grid, 
+.postingan-pilihan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* 2. Styling kartu artikel agar terlihat halus & modern */
+/* Ganti '.featured-card' dengan class item kartu Anda jika berbeda */
+.featured-card,
+.postingan-pilihan-item {
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 12px; /* Sudut melengkung halus */
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Bayangan sangat lembut */
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3. Efek melayang halus saat kursor diarahkan (Hover) */
+.featured-card:hover,
+.postingan-pilihan-item:hover {
+  transform: translateY(-4px); /* Sedikit terangkat */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08); /* Bayangan menyebar halus */
+  border-color: #d0d0d0;
+}
+
+/* 4. Memperhalus gambar thumbnail */
+.featured-card img,
+.postingan-pilihan-item img {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Rasio gambar seragam */
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Efek zoom gambar sangat pelan saat di-hover */
+.featured-card:hover img,
+.postingan-pilihan-item:hover img {
+  transform: scale(1.03);
+}
+
+/* 5. Merapikan judul artikel (H4) */
+.featured-card h4,
+.postingan-pilihan-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+  margin: 14px 16px 16px;
+  color: #222222;
+  /* Membatasi judul maksimal 3 baris agar tinggi kartu rata */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.featured-card a,
+.postingan-pilihan-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.featured-card:hover h4,
+.postingan-pilihan-item:hover h4 {
+  color: #e22d30; /* Warna aksen merah khas tema Mainroad */
+}
