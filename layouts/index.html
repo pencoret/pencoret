@@ -145,7 +145,6 @@
 
     {{ $allPosts := where .Site.RegularPages "Section" "blog" }}
     {{ $populerPosts := where $allPosts "Params.populer" true | default (first 5 $allPosts) }}
-    {{ $pilihanPosts := where $allPosts "Params.pilihan" true | default (first 6 $allPosts) }}
 
     <!-- 1. POSTINGAN POPULER (OTOMATIS 3.5 DETIK) -->
     {{ if $populerPosts }}
@@ -165,20 +164,7 @@
     </div>
     {{ end }}
 
-    <!-- 2. POSTINGAN PILIHAN (OTOMATIS 5.5 DETIK) -->
-    {{ if $pilihanPosts }}
-    <div class="sec-label">Postingan Pilihan</div>
-    <div class="mini-row" id="pilihanRow">
-      {{ range first 6 $pilihanPosts }}
-      {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "images/image_d634cfff.jpg" }}
-      <div class="mini-card">
-        <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
-        <div class="mini-card-body"><h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4></div>
-      </div>
-      {{ end }}
-    </div>
-    {{ end }}
-    <!-- 3. POSTINGAN TERBARU (4 KOTAK + SLIDE OTOMATIS 7 DETIK) -->
+    <!-- 2. POSTINGAN TERBARU (4 KOTAK + SLIDE OTOMATIS 7 DETIK) -->
     <div class="sec-label">Postingan Terbaru</div>
     <div class="latest-grid">
       {{ range first 4 $allPosts }}
@@ -253,7 +239,6 @@
       row.addEventListener('touchend', start);
       start();
     }
-    autoScrollRow('pilihanRow', 5500);
     autoScrollRow('terbaruRow', 7000);
   </script>
 </body>
