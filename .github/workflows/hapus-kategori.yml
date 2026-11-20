@@ -1,7 +1,9 @@
 name: Hapus Kategori Otomatis
 
 on:
-  workflow_dispatch: # Dijalankan manual lewat tombol di HP
+  push:
+    paths:
+      - '.github/workflows/hapus-kategori.yml'
 
 jobs:
   hapus-teks:
@@ -10,15 +12,14 @@ jobs:
       - name: Ambil isi repositori
         uses: actions/checkout@v4
 
-      - name: Hapus teks kategori di semua file
+      - name: Hapus baris yang mengandung kategori
         run: |
-          find . -type f -not -path '*/.git/*' -not -path '*/.github/*' -exec sed -i 's/Viral & Tren//g; s/Opini & Cerita//g' {} +
+          find . -type f -not -path '*/.git/*' -not -path '*/.github/*' -exec sed -i '/Viral & Tren/d; /Opini & Cerita/d' {} +
 
       - name: Simpan perubahan (Commit & Push)
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@://github.com"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m "Hapus kategori Viral & Tren dan Opini & Cerita" || exit 0
           git push
-          
