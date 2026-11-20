@@ -7,23 +7,38 @@ enableRobotsTXT = true
 timeZone = 'Asia/Jakarta'
 
 [sitemap]
-  changefreq = 'daily'
+  changefreq = 'hourly'
   filename = 'sitemap.xml'
-  priority = 0.5
+  priority = 0.8
 
 [permalinks]
   blog = '/:slug/'
+
+[imaging]
+  quality = 85
+  resampleFilter = 'lanczos'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [Params]
   customCSS = ["css/custom.css"]
   customJS = ["js/custom.js"]
   description = 'Ruang Baca Terkini, Tren Viral dan Fakta Unik'
+  keywords = ['berita terkini', 'tren viral', 'fakta unik', 'teknologi', 'hiburan', 'olahraga']
   copyright = 'PenCoret'
   style = 'default'
   mainSections = ['blog']
   date_format = '02 January 2006'
   logo = 'images/image_b36997e3.jpeg'
   logo_small = 'images/image_b36997e3.jpeg'
+  images = ['images/image_d634cfff.jpg']
+  opengraph = true
+  twitter_cards = true
+  schema = true
+  post_meta = ['author', 'date', 'categories']
   about_us = '<p>PenCoret adalah ruang baca digital yang menyajikan informasi terkini, fenomena viral di media sosial, serta fakta-fakta unik yang jarang dibahas secara mendalam dari sudut pandang yang berbeda.</p>'
 
   [Params.carousel]
@@ -73,4 +88,3 @@ timeZone = 'Asia/Jakarta'
   identifier = 'disclaimer'
   url = '/disclaimer/'
   weight = 5
- 
