@@ -33,4 +33,6 @@
   }
 }
 </script>
+{{ if or (eq .Kind "taxonomy") (eq .Kind "term") }}
+<meta name="robots" content="noindex, follow">
 {{ end }}
