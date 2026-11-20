@@ -29,14 +29,71 @@
     .pop-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.55); color: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; cursor: pointer; z-index: 5; }
     .pop-prev { left: 10px; } .pop-next { right: 10px; }
 
-    /* 2. KOTAK KECIL SLIDE OTOMATIS */
-    .mini-row { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; scroll-behavior: smooth; scrollbar-width: none; }
+    /* 2. KOTAK KECIL SLIDE OTOMATIS (HALUS & MODERN) */
+    .mini-row {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding: 6px 2px 14px;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
     .mini-row::-webkit-scrollbar { display: none; }
-    .mini-card { width: 165px; flex-shrink: 0; border: 1px solid #eaeaea; border-radius: 6px; overflow: hidden; background: #fff; }
-    .mini-card img { width: 100%; height: 100px; object-fit: cover; }
-    .mini-card-body { padding: 8px 10px; }
-    .mini-card-body h4 { margin: 0; font-size: 13px; font-weight: 700; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .mini-card-body h4 a { color: #222; text-decoration: none; }
+
+    .mini-card {
+      width: 175px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      border: 1px solid #edf0f3;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .mini-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(56, 167, 187, 0.14);
+      border-color: #bfe3ea;
+    }
+
+    .mini-card > a {
+      display: block;
+      overflow: hidden;
+    }
+    .mini-card img {
+      width: 100%;
+      height: 105px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .mini-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .mini-card-body {
+      padding: 10px 12px 12px;
+    }
+    .mini-card-body h4 {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .mini-card-body h4 a {
+      color: #222;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .mini-card:hover .mini-card-body h4 a {
+      color: #38a7bb;
+    }
 
     /* 3. GRID 2x2 TERBARU & TOMBOL */
     .latest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
@@ -64,7 +121,7 @@
     @media (min-width: 768px) {
       .pop-slide { height: 360px; } .pop-overlay h2 { font-size: 24px; }
       .latest-grid { gap: 16px; } .big-card img { height: 185px; } .big-card-body h3 { font-size: 16px; }
-      .mini-card { width: 215px; } .mini-card img { height: 130px; }
+      .mini-card { width: 225px; } .mini-card img { height: 135px; }
     }
   </style>
 </head>
@@ -121,7 +178,6 @@
       {{ end }}
     </div>
     {{ end }}
-
     <!-- 3. POSTINGAN TERBARU (4 KOTAK + SLIDE OTOMATIS 7 DETIK) -->
     <div class="sec-label">Postingan Terbaru</div>
     <div class="latest-grid">
@@ -188,7 +244,7 @@
         const card = row.querySelector('.mini-card');
         if (!card) return;
         if (row.scrollLeft + row.clientWidth >= row.scrollWidth - 5) row.scrollTo({ left: 0, behavior: 'smooth' });
-        else row.scrollBy({ left: card.offsetWidth + 12, behavior: 'smooth' });
+        else row.scrollBy({ left: card.offsetWidth + 14, behavior: 'smooth' });
       };
       const start = () => timer = setInterval(step, speed);
       row.addEventListener('mouseenter', () => clearInterval(timer));
