@@ -8,3 +8,4 @@ export async function onRequest(context) {
   redirectUrl.searchParams.set('scope', 'repo user');
   return Response.redirect(redirectUrl.href, 302);
 }
+ 
