@@ -98,7 +98,7 @@
     }
     .mini-card-body h4 a { color: #222; text-decoration: none; transition: color 0.2s ease; }
     .mini-card:hover .mini-card-body h4 a { color: #38a7bb; }
-    /* 3. GRID 2x2 TERBARU & TOMBOL */
+        /* 3. GRID 2x2 TERBARU & TOMBOL */
     .latest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
     .big-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
     .big-card img { width: 100%; height: 115px; object-fit: cover; }
@@ -111,12 +111,12 @@
     .btn-all-post { display: inline-flex; align-items: center; justify-content: center; width: 100%; max-width: 320px; background: #38a7bb; color: #fff !important; font-weight: 700; font-size: 14px; padding: 12px 20px; border-radius: 6px; text-decoration: none !important; transition: 0.2s; }
     .btn-all-post:hover { background: #2c8a9b; }
 
-    /* FOOTER */
+    /* FOOTER (SUSUNAN 2x2 SEJAJAR) */
     .site-footer { background: #1a2536; color: #ccc; padding: 20px 0 16px; margin-top: 36px; font-size: 13px; }
     .footer-top-flex { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
     .footer-logo img { max-height: 36px; border-radius: 6px; display: block; background: #fff; padding: 2px; }
-    .footer-nav { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 5px; }
-    .footer-btn { background: rgba(255,255,255,0.1); color: #fff !important; border: 1px solid rgba(255,255,255,0.2); padding: 4px 9px; border-radius: 14px; font-size: 11px; font-weight: 600; text-decoration: none !important; white-space: nowrap; transition: 0.2s; }
+    .footer-nav { display: grid; grid-template-columns: repeat(2, auto); gap: 6px; justify-content: end; text-align: center; }
+    .footer-btn { background: rgba(255,255,255,0.1); color: #fff !important; border: 1px solid rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 14px; font-size: 11px; font-weight: 600; text-decoration: none !important; white-space: nowrap; transition: 0.2s; }
     .footer-btn:hover { background: #38a7bb; border-color: #38a7bb; }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; text-align: center; font-size: 11.5px; color: #aaa; }
 
@@ -198,7 +198,7 @@
     <div class="all-post-box"><a href="{{ "blog/" | relURL }}" class="btn-all-post">Tampilkan Semua</a></div>
   </div>
 
-  <!-- FOOTER (MENU BAWAH: 4 HALAMAN WAJIB) -->
+  <!-- FOOTER (MENU BAWAH: 4 HALAMAN WAJIB 2x2) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top-flex">
@@ -247,4 +247,4 @@
   </script>
 </body>
 </html>
-  
+    
