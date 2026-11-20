@@ -58,7 +58,8 @@ timeZone = 'Asia/Jakarta'
 [taxonomies]
   category = 'categories'
   tag = 'tags'
- 
+
+# MENU ATAS (Beranda + Kategori)
 [[menu.main]]
   name = 'Beranda'
   identifier = 'home'
@@ -66,28 +67,55 @@ timeZone = 'Asia/Jakarta'
   weight = 1
 
 [[menu.main]]
-  name = 'Tentang Kami'
-  identifier = 'about'
-  url = '/about/'
+  name = 'Fakta Unik'
+  identifier = 'fakta-unik'
+  url = '/categories/fakta-unik/'
   weight = 2
 
 [[menu.main]]
-  name = 'Kontak'
-  identifier = 'contact'
-  url = '/contact/'
+  name = 'Teknologi'
+  identifier = 'teknologi'
+  url = '/categories/teknologi/'
   weight = 3
 
 [[menu.main]]
-  name = 'Kebijakan Privasi'
-  identifier = 'privacy'
-  url = '/privacy-policy/'
+  name = 'Hiburan'
+  identifier = 'hiburan'
+  url = '/categories/hiburan/'
   weight = 4
 
 [[menu.main]]
-  name = 'Disclaimer'
-  identifier = 'disclaimer'
-  url = '/disclaimer/'
+  name = 'Olahraga'
+  identifier = 'olahraga'
+  url = '/categories/olahraga/'
   weight = 5
+
+[[menu.main]]
+  name = 'Gaya Hidup'
+  identifier = 'gaya-hidup'
+  url = '/categories/gaya-hidup/'
+  weight = 6
+
+# MENU BAWAH / FOOTER (Khusus 4 Halaman Wajib)
+[[menu.footer]]
+  name = 'Tentang Kami'
+  url = '/about/'
+  weight = 1
+
+[[menu.footer]]
+  name = 'Kontak'
+  url = '/contact/'
+  weight = 2
+
+[[menu.footer]]
+  name = 'Kebijakan Privasi'
+  url = '/privacy-policy/'
+  weight = 3
+
+[[menu.footer]]
+  name = 'Disclaimer'
+  url = '/disclaimer/'
+  weight = 4
 
 [related]
   includeNewer = true
@@ -102,4 +130,3 @@ timeZone = 'Asia/Jakarta'
   [[related.indices]]
     name = 'date'
     weight = 10
- 
