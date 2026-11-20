@@ -10,8 +10,6 @@
     <link rel="icon" type="image/jpeg" sizes="512x512" href="{{ "images/image_d634cfff.jpg" | relURL }}">
     <link rel="apple-touch-icon" href="{{ "images/image_d634cfff.jpg" | relURL }}">
 
-    <link rel="stylesheet" href="https://jsdelivr.net">
-
     {{ partial "headers.html" . }}
     {{ partial "custom_headers.html" . }}
     <style>
@@ -202,7 +200,6 @@
       }
     </style>
   </head>
-
   <body>
 
     <div id="all">
@@ -239,7 +236,6 @@
 
                         <div class="info-penulis">
                             <span>Oleh: <strong>{{ .Params.author | default "PenCoret" }}</strong>{{ if .Params.date }}, {{ .Date.Format (.Site.Params.date_format | default "02 January 2006") }}{{ end }}</span>
-                            <span id="view-counter" style="color:#38a7bb; font-weight:700;"></span>
                         </div>
 
                         {{ if .Params.banner }}
@@ -251,7 +247,7 @@
                         </div>
                         {{ end }}
 
-                                              <div id="post-content" style="font-size: 16px; line-height: 1.8; margin-top: 0;">
+                        <div id="post-content" style="font-size: 16px; line-height: 1.8; margin-top: 0;">
                           {{ $paragraphs := split .Content "</p>" }}
                           {{ $relatedMid := .Site.RegularPages.Related . | first 2 }}
                           {{ range $index, $p := $paragraphs }}
@@ -310,25 +306,6 @@
     {{ partial "scripts.html" . }}
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const workerUrl = "https://workers.dev";
-        const postSlug = "{{ .RelPermalink }}";
-
-        fetch(`${workerUrl}?slug=${encodeURIComponent(postSlug)}`, {
-          method: "POST"
-        })
-          .then(response => response.json())
-          .then(data => {
-            const viewEl = document.getElementById("view-counter");
-            if (viewEl && data.views) {
-              viewEl.innerText = `• ${data.views}x dibaca`;
-            }
-          })
-          .catch(err => {
-            console.error("Gagal memuat hitungan:", err);
-          });
-      });
-
       const kunciKomentar = "komentar_" + window.location.pathname;
 
       function tampilkanKomentar() {
@@ -370,4 +347,3 @@
 
   </body>
 </html>
-
