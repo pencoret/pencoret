@@ -7,7 +7,6 @@ Selamat datang di **PenCoret** (`https://pencoret.my.id`), ruang baca digital ya
 
 ### Apa yang Kami Bahas?
 Di tengah derasnya arus informasi di internet dan media sosial setiap hari, PenCoret hadir untuk menyaring dan merangkum cerita-cerita paling relevan ke dalam tulisan yang ringan, informatif, dan mudah dipahami. Topik utama yang kami sajikan meliputi:
-* **Viral & Tren:** Sorotan peristiwa dan perbincangan hangat yang sedang ramai di media sosial maupun mesin pencari.
 * **Fakta Unik:** Ulasan mengenai sisi lain dari sejarah, sains, budaya, dan fenomena dunia yang jarang diketahui orang.
 * **Teknologi & Digital:** Perkembangan dunia internet, aplikasi bermanfaat, kecerdasan buatan (AI), serta tips digital sehari-hari.
 * **Gaya Hidup & Cuan:** Inspirasi seputar hiburan, ide bisnis kreatif, dan tren gaya hidup masa kini.

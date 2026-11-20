@@ -62,12 +62,10 @@
                 <!-- TOMBOL FILTER KATEGORI -->
                 <div class="filter-bar" id="filterBar">
                   <button type="button" class="filter-btn active" onclick="filterPosts('all', this)">Semua</button>
-                  <button type="button" class="filter-btn" onclick="filterPosts('Viral & Tren', this)">Viral & Tren</button>
                   <button type="button" class="filter-btn" onclick="filterPosts('Fakta Unik', this)">Fakta Unik</button>
                   <button type="button" class="filter-btn" onclick="filterPosts('Teknologi & Digital', this)">Teknologi & Digital</button>
                   <button type="button" class="filter-btn" onclick="filterPosts('Gaya Hidup', this)">Gaya Hidup</button>
                   <button type="button" class="filter-btn" onclick="filterPosts('Bisnis & Cuan', this)">Bisnis & Cuan</button>
-                  <button type="button" class="filter-btn" onclick="filterPosts('Opini & Cerita', this)">Opini & Cerita</button>
                 </div>
 
                 {{ if gt (len .Pages) 0 }}
