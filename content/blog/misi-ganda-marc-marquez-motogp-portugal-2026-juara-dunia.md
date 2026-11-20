@@ -10,7 +10,7 @@ description: Marc Marquez berpeluang memutus kutukan Sirkuit Portimao sekaligus
   mengunci gelar juara dunia MotoGP 2026 akhir pekan ini. Simak skenario juara
   dan jadwal lengkap sesi Sabtu.
 categories:
-  - Viral & Tren
+  - Fakta Unik
 populer: true
 pilihan: false
 tags:

@@ -9,7 +9,7 @@ description: Wajah pucat dan rambut rontok akibat tren viral Ferritin Face?
   Simak panduan menu harian tinggi zat besi berbahan lokal yang murah dan
   efektif berikut ini.
 categories:
-  - Viral & Tren
+  - Fakta Unik
   - Gaya Hidup
 populer: true
 pilihan: true

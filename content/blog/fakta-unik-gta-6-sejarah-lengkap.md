@@ -10,7 +10,7 @@ description: GTA 6 resmi rilis 19 November 2026. Telusuri perjalanan GTA 1
   diketahui publik.
 categories:
   - Fakta Unik
-  - Viral & Tren
+  - Fakta Unik
   - Teknologi & Digital
 populer: true
 pilihan: true

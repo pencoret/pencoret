@@ -7,7 +7,7 @@ description: Viral aksi siswa turunkan foto Wapres Gibran dengan sikap hormat.
   Simak sudut pandang berbeda tentang tamparan etika politik dan pendidikan
   karakter di balik fenomena ini.
 categories:
-  - Viral & Tren
+  - Fakta Unik
   - Fakta Unik
 populer: true
 pilihan: false

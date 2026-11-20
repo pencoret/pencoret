@@ -10,11 +10,11 @@ description: Simak 5 fakta unik Hari Anak Sedunia 20 November 2026 yang jarang
   Takeover.
 categories:
   - Fakta Unik
-  - Viral & Tren
+  - Fakta Unik
 populer: true
 pilihan: false
 tags:
-  - Viral & Tren, Fakta Unik, Musik, Konser Jakarta, Guns N' Roses, 9 Dewa Gitar
+  - Fakta Unik, Fakta Unik, Musik, Konser Jakarta, Guns N' Roses, 9 Dewa Gitar
 banner: /images/image_d8aa135.jpg
 banner_alt: Ilustrasi anak-anak dari berbagai suku di Indonesia dan dunia
   merayakan Hari Anak Sedunia 20 November dengan tema biru di Jakarta (AI

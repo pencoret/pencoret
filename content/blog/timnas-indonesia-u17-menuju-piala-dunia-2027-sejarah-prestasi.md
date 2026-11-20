@@ -9,8 +9,8 @@ description: Timnas Indonesia U-17 selangkah lebih dekat menuju Piala Dunia U-17
   2027 usai memastikan tiket Piala Asia U-17 2027 di Uzbekistan. Simak skenario
   kelolosan dan daftar sejarah prestasi Garuda Muda di sini!
 categories:
-  - Viral & Tren
-  - Opini & Cerita
+  - Fakta Unik
+  - Gaya Hidup
 populer: true
 pilihan: true
 tags:

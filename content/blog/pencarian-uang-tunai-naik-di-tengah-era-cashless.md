@@ -12,7 +12,7 @@ description: Pencarian "uang tunai" melonjak di Google Trends. Simak 3 penyebab
 categories:
   - Bisnis & Cuan
   - Fakta Unik
-  - Viral & Tren
+  - Fakta Unik
 populer: true
 pilihan: true
 tags:

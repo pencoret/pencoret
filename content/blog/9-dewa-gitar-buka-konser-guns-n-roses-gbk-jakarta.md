@@ -10,11 +10,11 @@ description: Bukan band biasa, konser Guns N' Roses di Stadion Madya GBK besok
   fakta uniknya!
 categories:
   - Fakta Unik
-  - Viral & Tren
+  - Fakta Unik
 populer: true
 pilihan: false
 tags:
-  - Viral & Tren, Fakta Unik, Musik, Konser Jakarta, Guns N' Roses, 9 Dewa Gitar
+  - Fakta Unik, Fakta Unik, Musik, Konser Jakarta, Guns N' Roses, 9 Dewa Gitar
 banner: /images/image_11280041.jpg
 banner_alt: Ilustrasi panggung 9 Dewa Gitar Indonesia bersama vokalis rock
   membuka konser Guns N Roses World Tour 2026 di Stadion Madya GBK Jakarta

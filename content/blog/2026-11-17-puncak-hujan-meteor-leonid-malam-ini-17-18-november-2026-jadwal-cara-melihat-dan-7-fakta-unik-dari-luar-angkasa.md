@@ -6,7 +6,7 @@ description: Simak jadwal puncak Hujan Meteor Leonid malam ini, 17–18 November
   2026! Lengkap dengan 7 fakta unik komet induk, sejarah badai meteor, sumber
   ilmiah, dan cara mengamatinya di Indonesia.
 categories:
-  - Viral & Tren
+  - Fakta Unik
   - Fakta Unik
 tags:
   - Puncak Hujan Meteor Leonid 2026, Fakta Hujan Meteor Leonid, Cara Melihat

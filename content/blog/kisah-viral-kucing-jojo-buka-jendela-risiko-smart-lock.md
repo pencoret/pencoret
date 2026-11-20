@@ -10,7 +10,7 @@ description: Aksi viral kucing oranye bernama Jojo membuka jendela saat
   pemiliknya terkunci di luar rumah menjadi pengingat penting soal risiko smart
   lock ketika mati listrik.
 categories:
-  - Viral & Tren
+  - Fakta Unik
 populer: true
 pilihan: true
 tags:
