@@ -1,6 +1,9 @@
-
 <!-- Wajib agar artikel & gambar besar muncul di Google Discover -->
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+{{ if or (eq .Kind "taxonomy") (eq .Kind "term") }}
+<meta name="robots" content="noindex, follow">
+{{ end }}
 
 <!-- Schema NewsArticle Otomatis untuk Halaman Artikel -->
 {{ if .IsPage }}
@@ -33,6 +36,4 @@
   }
 }
 </script>
-{{ if or (eq .Kind "taxonomy") (eq .Kind "term") }}
-<meta name="robots" content="noindex, follow">
 {{ end }}
