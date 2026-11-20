@@ -45,7 +45,7 @@ Pertama, pada 20 November 1959, Majelis Umum Perserikatan Bangsa-Bangsa (PBB) se
 
 Konvensi Hak-Hak Anak yang lahir pada momen 20 November memegang rekor luar biasa dalam diplomasi internasional. Dokumen ini tercatat sebagai perjanjian hak asasi manusia yang paling cepat dan paling luas diratifikasi oleh negara-negara di seluruh dunia.
 
-Hampir seluruh negara di bumi—termasuk Indonesia—telah meratifikasi kesepakatan tersebut. Artinya, negara-negara ini terikat secara hukum untuk menjamin hak dasar setiap anak, mulai dari hak bermain, mendapatkan pendidikan, perlindungan dari kekerasan, hingga kebebasan berpendapat.
+Hampir seluruh negara di bumi termasuk Indonesia, telah meratifikasi kesepakatan tersebut. Artinya, negara-negara ini terikat secara hukum untuk menjamin hak dasar setiap anak, mulai dari hak bermain, mendapatkan pendidikan, perlindungan dari kekerasan, hingga kebebasan berpendapat.
 
 **4. Tradisi "Kids Takeover": Saat Anak-Anak Mengambil Alih Kursi Pemimpin**
 
@@ -57,8 +57,6 @@ Mereka tampil menjadi pembaca berita utama di stasiun televisi, memimpin rapat d
 
 Jika Anda melihat gedung-gedung pencakar langit atau monumen ikonik dunia tiba-tiba bermandikan cahaya biru terang pada malam 20 November, itulah kampanye global bertajuk *Go Blue*.
 
-Sejumlah landmark terkenal dunia—seperti Menara Eiffel di Prancis, Gedung Empire State di Amerika Serikat, hingga berbagai ikon kota di Asia—rutin menyalakan lampu biru sebagai simbol solidaritas. Warna biru dipilih sebagai pengingat visual bagi masyarakat dunia bahwa setiap anak berhak tumbuh dalam lingkungan yang aman, sehat, dan penuh harapan.
-
----
+Sejumlah landmark terkenal dunia, seperti Menara Eiffel di Prancis, Gedung Empire State di Amerika Serikat, hingga berbagai ikon kota di Asia, rutin menyalakan lampu biru sebagai simbol solidaritas. Warna biru dipilih sebagai pengingat visual bagi masyarakat dunia bahwa setiap anak berhak tumbuh dalam lingkungan yang aman, sehat, dan penuh harapan.
 
 Melalui deretan fakta unik di atas, Hari Anak Sedunia 20 November jelas bukan sekadar seremoni tahunan di kalender. Peringatan ini menjadi pengingat nyata bahwa kualitas masa depan dunia sangat ditentukan oleh bagaimana generasi hari ini menjaga dan mendengarkan suara anak-anaknya.
