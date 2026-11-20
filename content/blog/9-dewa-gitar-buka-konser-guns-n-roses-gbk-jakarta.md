@@ -22,7 +22,7 @@ banner_caption: "Ilustrasi aksi panggung kolosal 9 Dewa Gitar Indonesia bersama
   vokalis rock legendaris sebelum konser Guns N' Roses World Tour 2026 di
   Stadion Madya GBK, Jakarta. (Ilustrasi: AI generated Nano Banana 2)"
 ---
-Menjelang konser akbar Guns N' Roses di Stadion Madya Gelora Bung Karno (GBK), Jakarta, pada Sabtu, 21 November 2026, perhatian pecinta musik Tanah Air tidak hanya tertuju pada aksi panggung Axl Rose dan Slash. Sosok penampil pembuka yang disiapkan oleh pihak promotor Rajawali Indonesia justru memicu rasa penasaran publik karena konsepnya yang di luar kebiasaan.
+Menjelang konser akbar Guns N' Roses di Stadion Madya Gelora Bung Karno (GBK), Jakarta, pada Sabtu, 21 November 2026, perhatian pecinta musik Tanah Air tidak hanya tertuju pada aksi panggung Axl Rose dan Slash. Sosok penampil pembuka yang disiapkan oleh pihak promotor Rajawali Indonesia justru memicu rasa penasaran publik karena konsepnya yang di luar kebiasaan. 
 
 Alih-alih menunjuk satu band pembuka seperti konser musisi mancanegara pada umumnya, panggung GBK besok akan lebih dulu dipanaskan oleh proyek kolaborasi kolosal bertajuk 9 Dewa Gitar. Proyek ini mempertemukan sembilan maestro gitar Indonesia lintas generasi dan genre dalam satu panggung megah.
 
