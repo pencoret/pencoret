@@ -46,10 +46,16 @@
     </div>
 </footer>
 
-<!-- BINGKAI PENUTUP / COPYRIGHT BAR RAMPING & SENADA DENGAN RUNNING TEXT -->
+<!-- BINGKAI PENUTUP / COPYRIGHT BAR + 4 HALAMAN WAJIB -->
 <div id="copyright" style="background-color: #1a2536 !important; color: #f4d08c !important; padding: 14px 0 !important; border-top: 1px solid rgba(255,255,255,0.12) !important;">
     <div class="container">
         <div class="col-md-12 text-center">
+            <p style="margin: 0 0 8px 0 !important; font-size: 13px !important; float: none !important; text-align: center !important;">
+                {{ range $index, $element := .Site.Menus.footer }}
+                    {{ if $index }} <span style="color: rgba(255,255,255,0.3); margin: 0 6px;">|</span> {{ end }}
+                    <a href="{{ .URL | relURL }}" style="color: #ffffff !important; text-decoration: none; font-weight: 600;">{{ .Name }}</a>
+                {{ end }}
+            </p>
             <p style="margin: 0 0 4px 0 !important; font-size: 13.5px !important; font-weight: 700 !important; color: #f4d08c !important; float: none !important; text-align: center !important;">
                 Terima kasih telah berkunjung dan membaca di PenCoret. Semoga setiap coretan membawa wawasan dan inspirasi baru!
             </p>
