@@ -36,7 +36,7 @@ Jika berhasil menang pada balapan utama Minggu (22/11/2026) malam, Marquez akan 
 
 **Skenario Juara Dunia MotoGP 2026**
 
-Marc Marquez tiba di Portugal dengan posisi sangat aman di puncak klasemen sementara. Ia mengoleksi 431 poin, unggul 60 angka dari pesaing terdekatnya asal tim Aprilia Racing, Jorge Martin (371 poin).
+Marc Marquez tiba di Portugal dengan posisi sangat aman di puncak klasemen sementara. Ia mengoleksi 431 poin, unggul 60 angka dari pesaing terdekatnya asal tim Aprilia Racing, Jorge Martin (371 poin). 
 
 Dengan sisa maksimal 74 poin dari dua seri terakhir (Portugal dan Valencia), peluang juara Marquez terbuka lebar:
 
