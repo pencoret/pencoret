@@ -4,67 +4,49 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ .Site.Title }} — {{ .Site.Params.description }}</title>
+    <title>{{ if eq .Title "Blogs" }}Semua Postingan Terbaru{{ else }}{{ .Title }}{{ end }} — {{ .Site.Title }}</title>
 
-    <!-- PASANG DI SINI (DI BAWAH <head> DAN <title>) -->
     <link rel="icon" type="image/jpeg" sizes="48x48" href="{{ "images/image_d634cfff.jpg" | relURL }}">
     <link rel="icon" type="image/jpeg" sizes="512x512" href="{{ "images/image_d634cfff.jpg" | relURL }}">
     <link rel="apple-touch-icon" href="{{ "images/image_d634cfff.jpg" | relURL }}">
-
-    <link rel="stylesheet" href="https://bootstrapcdn.com">
 
     {{ partial "headers.html" . }}
     {{ partial "custom_headers.html" . }}
     <style>
       .list-wrap { padding: 20px 0 40px; }
-      .list-header { font-size: 20px; font-weight: 800; text-transform: uppercase; border-left: 4px solid #38a7bb; padding-left: 12px; margin-bottom: 20px; color: #222; text-align: left; }
-      .arsip-card { display: flex; gap: 15px; padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid #eeeeee; text-align: left; }
-      .arsip-thumb { width: 140px; height: 95px; flex-shrink: 0; border-radius: 6px; overflow: hidden; background: #f2f2f2; }
-      .arsip-thumb img { width: 100%; height: 100%; object-fit: cover; }
-      .arsip-info h3 { margin: 2px 0 6px; font-size: 16px; font-weight: 700; line-height: 1.35; text-align: left !important; }
-      .arsip-info h3 a { color: #222; text-decoration: none; }
-      .arsip-meta { font-size: 12px; color: #777; }
-      @media (max-width: 576px) {
-        .arsip-thumb { width: 115px; height: 80px; }
-        .arsip-info h3 { font-size: 14.5px; }
+      .list-header { font-size: 16px; font-weight: 800; text-transform: uppercase; border-left: 4px solid #38a7bb; padding-left: 10px; margin-bottom: 12px; color: #222; text-align: left !important; }
+
+      /* FILTER KATEGORI INSTAN */
+      .filter-bar { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 6px; padding-bottom: 10px; margin-bottom: 14px; scrollbar-width: none; }
+      .filter-bar::-webkit-scrollbar { display: none; }
+      .filter-btn { background: #f4f6f8; color: #333; border: 1px solid #dce1e7; padding: 6px 13px; border-radius: 20px; font-size: 12px; font-weight: 700; white-space: nowrap; cursor: pointer; transition: 0.2s; }
+      .filter-btn:hover, .filter-btn.active { background: #38a7bb; color: #ffffff; border-color: #38a7bb; }
+
+      /* GRID 2 KOLOM + HEADLINE UTAMA */
+      .latest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .big-card { border: 1px solid #eaeaea; border-radius: 10px; overflow: hidden; background: #fff; display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease; text-align: left; }
+      .big-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.07); }
+      .big-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: #f3f4f6; }
+      .big-card-body { padding: 10px 12px; flex-grow: 1; display: flex; flex-direction: column; }
+      .big-cat { font-size: 10.5px; font-weight: 700; color: #38a7bb; text-transform: uppercase; }
+      .big-card-body h3 { margin: 4px 0 6px !important; font-size: 14px; font-weight: 700; line-height: 1.35; text-align: left !important; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+      .big-card-body h3 a { color: #1a2536; text-decoration: none; }
+      .big-card-body h3 a:hover { color: #38a7bb; }
+      .big-meta { font-size: 11px; color: #777; margin-top: auto; }
+
+      /* KARTU PERTAMA LEBAR PENUH (HEADLINE) SAAT MODE SEMUA */
+      .latest-grid.mode-all .big-card:first-child { grid-column: 1 / -1; }
+      .latest-grid.mode-all .big-card:first-child h3 { font-size: 17px; -webkit-line-clamp: 3; }
+
+      @media (min-width: 768px) {
+        .filter-bar { flex-wrap: wrap; }
+        .latest-grid { gap: 18px; }
+        .big-card-body h3 { font-size: 16px; }
+        .latest-grid.mode-all .big-card:first-child { flex-direction: row; }
+        .latest-grid.mode-all .big-card:first-child > a { width: 55%; flex-shrink: 0; }
+        .latest-grid.mode-all .big-card:first-child .big-card-body { padding: 20px; justify-content: center; }
+        .latest-grid.mode-all .big-card:first-child h3 { font-size: 21px; }
       }
     </style>
   </head>
-
-  <body>
-    <div id="all">
-
-        {{ partial "top.html" . }}
-        {{ partial "nav.html" . }}
-
-        <div id="content">
-            <div class="container list-wrap">
-                <div class="list-header">{{ if eq .Title "Blogs" }}Semua Postingan Terbaru{{ else }}{{ .Title }}{{ end }}</div>
-
-                {{ if gt (len .Pages) 0 }}
-                  {{ range .Pages }}
-                  <div class="arsip-card">
-                    <div class="arsip-thumb">
-                      <a href="{{ .Permalink }}">
-                        <img src="{{ .Params.banner | default "img/placeholder.png" | relURL }}" alt="{{ .Title }}">
-                      </a>
-                    </div>
-                    <div class="arsip-info">
-                      {{ with .Params.categories }}<div style="font-size: 11px; font-weight: 700; color: #38a7bb; text-transform: uppercase;">{{ index . 0 }}</div>{{ end }}
-                      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-                      <div class="arsip-meta">Oleh: {{ .Params.author | default "PenCoret" }} • {{ .Date.Format "02 Jan 2006" }}</div>
-                    </div>
-                  </div>
-                  {{ end }}
-                {{ else }}
-                  <p style="color: #666; font-size: 14px;">Belum ada artikel yang diterbitkan di kategori ini.</p>
-                {{ end }}
-            </div>
-        </div>
-
-        {{ partial "footer.html" . }}
-
-    </div>
-    {{ partial "scripts.html" . }}
-  </body>
-</html>
+  
