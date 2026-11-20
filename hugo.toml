@@ -96,20 +96,20 @@ timeZone = 'Asia/Jakarta'
   url = '/categories/gaya-hidup/'
   weight = 6
 
-# MENU BAWAH / FOOTER (Khusus 4 Halaman Wajib)
-[[menu.footer]]
-  name = 'Tentang Kami'
-  url = '/about/'
-  weight = 1
-
+# MENU BAWAH / FOOTER (Kontak & Kebijakan Privasi di atas, Tentang Kami & Disclaimer di bawah)
 [[menu.footer]]
   name = 'Kontak'
   url = '/contact/'
-  weight = 2
+  weight = 1
 
 [[menu.footer]]
   name = 'Kebijakan Privasi'
   url = '/privacy-policy/'
+  weight = 2
+
+[[menu.footer]]
+  name = 'Tentang Kami'
+  url = '/about/'
   weight = 3
 
 [[menu.footer]]
