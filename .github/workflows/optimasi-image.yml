@@ -1,10 +1,10 @@
-name: Optimasi Gambar SEO Otomatis
+name: Optimasi Gambar SEO & Thumbnail Otomatis
 
 on:
   push:
     paths:
-      - 'static/images/**' # Hanya jalan saat ada gambar baru/diubah di static/images
-  workflow_dispatch: # Bisa juga diklik manual untuk mengompres gambar lama
+      - 'static/images/**'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -26,29 +26,46 @@ jobs:
           from PIL import Image, ImageOps
 
           folder = "static/images"
-          MAX_WIDTH = 1200
-          MAX_HEIGHT = 630
+          OG_WIDTH = 1200
+          OG_HEIGHT = 630
+          MAX_CONTENT_WIDTH = 1200
 
           if os.path.exists(folder):
               for root, _, files in os.walk(folder):
                   for file in files:
                       if file.lower().endswith((".jpg", ".jpeg", ".png")):
                           path = os.path.join(root, file)
+                          is_thumbnail = file.lower().startswith("thumb-") or "thumbs" in root.lower()
+
                           try:
                               with Image.open(path) as img:
-                                  # Lewati jika ukuran file sudah ringan (< 250 KB) dan dimensi sudah pas
-                                  if os.path.getsize(path) < 250 * 1024 and img.width == MAX_WIDTH and img.height == MAX_HEIGHT:
-                                      continue
+                                  # 1. Aturan untuk Thumbnail Share Link (1200x630)
+                                  if is_thumbnail:
+                                      if os.path.getsize(path) < 250 * 1024 and img.width == OG_WIDTH and img.height == OG_HEIGHT:
+                                          continue
+                                      if img.mode in ("RGBA", "P"):
+                                          img = img.convert("RGB")
+                                      img = ImageOps.fit(img, (OG_WIDTH, OG_HEIGHT), Image.Resampling.LANCZOS)
+                                      img.save(path, format="JPEG", quality=82, optimize=True)
+                                      print(f"Thumbnail OG dioptimasi (1200x630): {path}")
 
-                                  if img.mode in ("RGBA", "P"):
-                                      img = img.convert("RGB")
+                                  # 2. Aturan untuk Gambar Isi Artikel (Proporsional, Tanpa Potong)
+                                  else:
+                                      if os.path.getsize(path) < 250 * 1024 and img.width <= MAX_CONTENT_WIDTH:
+                                          continue
+                                      if img.width > MAX_CONTENT_WIDTH:
+                                          ratio = MAX_CONTENT_WIDTH / float(img.width)
+                                          new_height = int(float(img.height) * ratio)
+                                          img = img.resize((MAX_CONTENT_WIDTH, new_height), Image.Resampling.LANCZOS)
 
-                                  # Potong tengah & sesuaikan ke 1200x630 piksel tanpa gepeng
-                                  img_resized = ImageOps.fit(img, (MAX_WIDTH, MAX_HEIGHT), Image.Resampling.LANCZOS)
+                                      if file.lower().endswith(".png"):
+                                          img.save(path, format="PNG", optimize=True)
+                                      else:
+                                          if img.mode in ("RGBA", "P"):
+                                              img = img.convert("RGB")
+                                          img.save(path, format="JPEG", quality=82, optimize=True)
+                                      print(f"Gambar artikel dioptimasi (proporsional): {path}")
 
-                                  # Simpan ulang dengan kualitas 82% (ringan & tetap tajam)
-                                  img_resized.save(path, format="JPEG", quality=82, optimize=True)
-                                  print(f"Berhasil dioptimasi: {path}")
                           except Exception as e:
                               print(f"Gagal memproses {path}: {e}")
           '
