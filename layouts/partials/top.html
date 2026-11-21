@@ -11,17 +11,16 @@
     }
   }
 
-  /* BARIS LOGO DI DEPAN BANNER & BANNER GESER KE KANAN */
-  .header-logo-banner-row {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 12px;
-    padding: 8px 0;
+  .banner-box-relative {
+    position: relative !important;
   }
 
-  .front-logo-link {
-    flex-shrink: 0;
+  /* LOGO KECIL MENIMPA DI DEPAN BANNER (SUDUT KIRI ATAS) */
+  .logo-overlay-banner {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    z-index: 20;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -29,8 +28,8 @@
   }
 
   .logo-animasi-estetik {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     object-fit: contain;
     mix-blend-mode: multiply;
     background: transparent;
@@ -40,44 +39,27 @@
     display: block;
   }
 
-  .front-logo-link:hover .logo-animasi-estetik,
-  .front-logo-link:active .logo-animasi-estetik {
+  .logo-overlay-banner:hover .logo-animasi-estetik,
+  .logo-overlay-banner:active .logo-animasi-estetik {
     animation-play-state: paused;
     transform: scale(1.15) rotate(-6deg);
-  }
-
-  /* BANNER DIGESER KE KANAN SEDIKIT */
-  .banner-shifted-right {
-    flex-grow: 1;
-    margin-left: 6px;
-    overflow: hidden;
-    border-radius: 8px;
-  }
-
-  .banner-shifted-right img {
-    width: 100%;
-    height: auto;
-    display: block;
   }
 </style>
 
 <div class="global-top-wrap">
   <div class="container">
-    <div class="header-logo-banner-row">
-      <!-- LOGO TRANSPARAN DI DEPAN BANNER -->
-      <a href="{{ "/" | relURL }}" class="front-logo-link" title="Beranda {{ .Site.Title }}">
-        <img src="{{ "/images/image_d634cfff.jpg" | relURL }}" alt="Logo {{ .Site.Title }}" width="48" height="48" class="logo-animasi-estetik">
+    <div class="banner-box-relative">
+      <!-- LOGO TRANSPARAN MENIMPA DI DEPAN BANNER -->
+      <a href="{{ "/" | relURL }}" class="logo-overlay-banner" title="Beranda {{ .Site.Title }}">
+        <img src="{{ "/images/image_d634cfff.jpg" | relURL }}" alt="Logo {{ .Site.Title }}" width="44" height="44" class="logo-animasi-estetik">
       </a>
 
-      <!-- BANNER UTAMA GESER KE KANAN -->
-      <div class="banner-shifted-right">
-        <a href="{{ "/" | relURL }}" class="global-top-banner" title="Kembali ke Beranda PenCoret">
-          <img src="{{ "/images/image_dacac6d.jpeg" | relURL }}" alt="{{ .Site.Title }}">
-        </a>
-      </div>
+      <!-- BANNER UTAMA ASLI -->
+      <a href="{{ "/" | relURL }}" class="global-top-banner" title="Kembali ke Beranda PenCoret">
+        <img src="{{ "/images/image_dacac6d.jpeg" | relURL }}" alt="{{ .Site.Title }}">
+      </a>
     </div>
 
-    <!-- RUNNING TEXT ATAS -->
     <div class="global-running-bar">
       <div class="global-running-text">
         SELAMAT DATANG & MEMBACA | Terima kasih telah meluangkan waktu untuk berkunjung. Jangan lupa tinggalkan kritik dan saran, serta pendapat Anda di kolom komentar bawah!
