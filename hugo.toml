@@ -32,9 +32,9 @@ timeZone = 'Asia/Jakarta'
   style = 'default'
   mainSections = ['blog']
   date_format = '02 January 2006'
-  logo = 'images/image_b36997e3.jpeg'
-  logo_small = 'images/image_b36997e3.jpeg'
-  images = ['images/image_d634cfff.jpg']
+  logo = '/images/image_b36997e3.jpeg'
+  logo_small = '/images/image_b36997e3.jpeg'
+  images = ['/images/image_d634cfff.jpg']
   opengraph = true
   twitter_cards = true
   schema = true
@@ -96,7 +96,7 @@ timeZone = 'Asia/Jakarta'
   url = '/categories/gaya-hidup/'
   weight = 6
 
-# MENU BAWAH / FOOTER (Kontak & Kebijakan Privasi di atas, Tentang Kami & Disclaimer di bawah)
+# MENU BAWAH / FOOTER
 [[menu.footer]]
   name = 'Kontak'
   url = '/contact/'
@@ -130,3 +130,4 @@ timeZone = 'Asia/Jakarta'
   [[related.indices]]
     name = 'date'
     weight = 10
+    
