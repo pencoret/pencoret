@@ -1,0 +1,71 @@
+{{ define "main" }}
+<main class="main" role="main">
+  
+  <!-- 1. BANNER & RUNNING TEXT OTOMATIS -->
+  <div class="custom-banner" style="margin-bottom: 15px; text-align: center;">
+    <img src="{{ "/img/banner.jpg" | relURL }}" alt="Banner" style="max-width: 100%; height: auto;">
+  </div>
+  <div class="running-text" style="background: #f4f4f4; padding: 8px; margin-bottom: 20px; border-left: 4px solid #e22d30;">
+    <marquee behavior="scroll" direction="left">Selamat datang! Baca informasi dan artikel terbaru kami di sini.</marquee>
+  </div>
+
+  <article class="post">
+    <header class="post__header">
+      <h1 class="post__title">{{ .Title }}</h1>
+      
+      <!-- 2. KATEGORI, TANGGAL, & META -->
+      {{- with .Params.lead }}
+      <p class="post__lead">{{ . }}</p>
+      {{- end }}
+      {{ with partial "post_meta.html" . -}}
+      <div class="post__meta meta">{{ . }}</div>
+      {{- end }}
+    </header>
+
+    <!-- 3. FOTO THUMBNAIL UTAMA -->
+    {{- if .Params.thumbnail }}
+    <figure class="post__thumbnail thumbnail">
+      <img class="thumbnail__image" src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}">
+    </figure>
+    {{- end }}
+
+    <!-- 4. KONTEN ARTIKEL + BACA JUGA OTOMATIS DI TENGAH -->
+    <div class="content post__content clearfix">
+      {{- $paragraphs := split .Content "</p>" -}}
+      {{- $total := len $paragraphs -}}
+      {{- $mid := div $total 2 -}}
+      {{- $related := .Site.RegularPages.Related . | first 3 -}}
+
+      {{- range $index, $p := $paragraphs -}}
+        {{- if ne (trim $p " \n\r\t") "" -}}
+          {{ $p | safeHTML }}</p>
+        {{- end -}}
+
+        {{- if and (eq $index $mid) (gt (len $related) 0) -}}
+        <div class="baca-juga-tengah" style="background: #f9f9f9; border-left: 4px solid #e22d30; padding: 12px 15px; margin: 20px 0;">
+          <strong>Baca Juga:</strong>
+          <ul style="margin: 8px 0 0 20px;">
+            {{- range $related }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{- end }}
+          </ul>
+        </div>
+        {{- end -}}
+      {{- end -}}
+    </div>
+
+    <!-- 5. TAGS BAGIAN BAWAH -->
+    {{- if .Params.tags }}
+    <footer class="post__footer">
+      {{ partial "post_tags.html" . }}
+    </footer>
+    {{- end }}
+  </article>
+</main>
+
+<!-- 6. AUTHOR BOX, NEXT/PREV NAVIGASI, & KOMENTAR BAGIAN BAWAH -->
+{{ partial "authorbox.html" . }}
+{{ partial "pager.html" . }}
+{{ partial "comments.html" . }}
+{{ end }}
+  
