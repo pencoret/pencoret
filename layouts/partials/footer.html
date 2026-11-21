@@ -1,10 +1,12 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const workerUrl = "https://hitung-klik.coretpen4.workers.dev";
+    const namaWorker = "hitung-klik";
+    const akunWorker = "coretpen4";
+    const workerUrl = `https://${hitung-klik}.${coretpen4}.workers.dev`;
     const slug = encodeURIComponent(window.location.pathname || "/");
     const counterEl = document.getElementById("view-counter");
 
-    fetch(`${workerUrl}?slug=${slug}`, {
+    fetch(`${https://hitung-klik.coretpen4.workers.dev}?slug=${slug}`, {
       method: "POST"
     })
       .then(res => res.json())
@@ -12,11 +14,11 @@
         if (data && data.views !== undefined) {
           counterEl.textContent = data.views.toLocaleString("id-ID");
         } else {
-          counterEl.textContent = "https://hitung-klik.coretpen4.workers.dev";
+          counterEl.textContent = "1";
         }
       })
       .catch(() => {
-        counterEl.textContent = "https://hitung-klik.coretpen4.workers.dev;
+        counterEl.textContent = "1";
       });
   });
 </script>
