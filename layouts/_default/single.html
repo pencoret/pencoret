@@ -54,12 +54,17 @@
       {{- end -}}
     </div>
 
-    <!-- 5. TAGS BAGIAN BAWAH -->
-    {{- if .Params.tags }}
-    <footer class="post__footer">
-      {{ partial "post_tags.html" . }}
+    <!-- 5. TAGS & VIEW COUNTER POJOK KANAN BAWAH -->
+    <footer class="post__footer" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <div>
+        {{- if .Params.tags }}
+          {{ partial "post_tags.html" . }}
+        {{- end }}
+      </div>
+      <div class="post__views" style="margin-left: auto; font-size: 0.9em; color: #666;">
+        👁️ Dilihat: <span id="view-count">...</span> kali
+      </div>
     </footer>
-    {{- end }}
   </article>
 </main>
 
@@ -67,5 +72,22 @@
 {{ partial "authorbox.html" . }}
 {{ partial "pager.html" . }}
 {{ partial "comments.html" . }}
-{{ end }}
+
+<!-- 7. SKRIP PENGHITUNG VIEW CLOUDFLARE WORKER -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const slug = encodeURIComponent(window.location.pathname);
+  const workerUrl = `https://workers.dev{slug}`;
   
+  fetch(workerUrl)
+    .then(res => res.json())
+    .then(data => {
+      const count = data.views ?? data.count ?? data.hits ?? data;
+      document.getElementById("view-count").innerText = count;
+    })
+    .catch(() => {
+      document.getElementById("view-count").innerText = "1";
+    });
+});
+</script>
+{{ end }}
