@@ -82,10 +82,11 @@ document.addEventListener("DOMContentLoaded", function() {
   fetch(workerUrl)
     .then(res => res.json())
     .then(data => {
-      const count = data.views ?? data.count ?? data.hits ?? data;
-      document.getElementById("view-count").innerText = count;
+      const count = data.views ?? data.count ?? data.hits ?? data.total ?? data;
+      document.getElementById("view-count").innerText = (typeof count === 'object') ? 1 : count;
     })
-    .catch(() => {
+    .catch((err) => {
+      console.error("Gagal memuat view:", err);
       document.getElementById("view-count").innerText = "1";
     });
 });
