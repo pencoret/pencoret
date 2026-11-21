@@ -8,9 +8,7 @@ author: PenCoret
 description: Simak 5 fakta unik Hari Anak Sedunia 20 November 2026 yang jarang
   diketahui, mulai dari sejarah pasca-Perang Dunia II hingga tradisi Kids
   Takeover.
-categories:
-  - Fakta Unik
-  - Fakta Unik
+categories: Fakta Unik
 populer: true
 pilihan: false
 tags:
