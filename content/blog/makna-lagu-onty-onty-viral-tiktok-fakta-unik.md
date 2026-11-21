@@ -15,12 +15,12 @@ pilihan: false
 tags:
   - lagu viral tiktok, makna lagu onty onty, fakta unik, hiburan, tren media
     sosial
+banner: /images/image_deacfb02 (1).jpg
+banner_alt: headphone dan ponsel dengan notasi musik serta ikon hati sebagai
+  simbol lagu Onty Onty yang viral di TikTok
 banner_caption: Lagu "Onty Onty" mendominasi linimasa media sosial berkat irama
   energik dan lirik jenaka yang dekat dengan bahasa gaul warganet.
 ---
-- `headphone dan ponsel dengan notasi musik serta ikon hati sebagai simbol lagu Onty Onty yang viral di TikTok`
-- **Deskripsi / Caption Gambar (Opsional, jika muncul di bawah foto):** 
-
 Tren audio di media sosial seperti TikTok dan Instagram Reels selalu berganti dengan cepat. Salah satu sound yang berhasil mendominasi linimasa atau For You Page (FYP) adalah lagu "Onty Onty" atau yang sering dikenal melalui penggalan lirik "Anak muda sakit lagi, dicari Onty Onty".
 
 Iramanya yang energik dan liriknya yang jenaka membuat lagu ini langsung digemari banyak kreator konten. Di balik kepopulerannya, terdapat makna khusus, proses produksi yang unik, serta alasan kuat mengapa lagu ini begitu cepat viral.
@@ -40,9 +40,7 @@ Bagaimana Proses Penciptaan Lagu Onty Onty?
 Berbeda dengan lagu industri rekaman besar yang memakan waktu produksi berbulan-bulan, lahirnya lagu "Onty Onty" mengikuti pola musik viral era digital:
 
 1. Berawal dari Hook yang Sederhana: Penciptaan lagu berfokus pada satu bagian pengait yang diulang-ulang—yakni frasa "onty-onty"—agar langsung menempel di ingatan pendengar dalam hitungan detik.
-
 2. Produksi Musik Digital Mandiri: Aransemen musik dibuat menggunakan perangkat lunak studio digital dengan tempo cepat dan ketukan bass yang kuat.
-
 3. Penyebaran Melalui Kolaborasi Remix: Setelah audio dasarnya beredar, sejumlah produser dan DJ lokal seperti DJ Haning, DJ Rangel Solace, hingga Zia Devita meracik ulang lagunya ke dalam berbagai versi. Ragam versi remix inilah yang mempercepat penyebarannya di TikTok dan aplikasi edit video seperti CapCut.
 
 Tujuan Utama Diciptakannya Lagu Ini
