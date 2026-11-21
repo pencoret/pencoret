@@ -1,6 +1,13 @@
 <footer class="footer">
 	<div class="container footer__container flex">
-		{{ partial "footer_links.html" . }}
+		{{- if .Site.Menus.footer }}
+		<div class="footer__links">
+			{{- range $index, $item := .Site.Menus.footer }}
+				{{- if gt $index 0 }} | {{ end -}}
+				<a class="footer__link" href="{{ $item.URL | relURL }}">{{ $item.Name }}</a>
+			{{- end }}
+		</div>
+		{{- end }}
 		<div class="footer__copyright">
 			&copy; {{ now.Format "2006" }} {{ .Site.Params.copyright | default .Site.Title }}. Hak Cipta Dilindungi.
 		</div>
