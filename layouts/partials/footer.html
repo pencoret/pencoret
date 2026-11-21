@@ -1,90 +1,16 @@
-<footer id="footer">
-    <div class="container">
-
-        {{ if isset .Site.Params "about_us" }}
-        <div class="col-md-4 col-sm-6">
-            <h4>Tentang PenCoret</h4>
-            {{ .Site.Params.about_us | safeHTML }}
-            <hr class="hidden-md hidden-lg hidden-sm">
-        </div>
-        {{ end }}
-
-        <div class="col-md-4 col-sm-6">
-            {{ if .Site.Params.recent_posts.enable }}
-            <h4>Postingan Terbaru</h4>
-            <div class="blog-entries">
-                {{ range first 3 (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="{{ .Permalink }}">
-                          {{ if isset .Params "banner" }}
-                            <img src="{{ .Params.banner | relURL }}" class="img-responsive" alt="{{ .Params.banner_alt | default .Title }}">
-                          {{ else }}
-                            <img src="{{ "img/placeholder.png" | relURL }}" class="img-responsive" alt="{{ .Title }}">
-                          {{ end }}
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="{{ .Permalink }}">{{ .Title }}</a></h5>
-                    </div>
-                </div>
-                {{ end }}
-            </div>
-            <hr class="hidden-md hidden-lg">
-            {{ end }}
-        </div>
-
-        {{ if isset .Site.Params "address" }}
-        <div class="col-md-4 col-sm-6">
-            <h4>Kontak</h4>
-            {{ .Site.Params.address | safeHTML }}
-            <a href="{{ "/contact/" | relURL }}" class="btn btn-small btn-template-main">Hubungi Kami</a>
-            <hr class="hidden-md hidden-lg hidden-sm">
-        </div>
-        {{ end }}
-
-    </div>
-</footer>
-
-<!-- BINGKAI PENUTUP / COPYRIGHT BAR + 4 HALAMAN WAJIB SATU BARIS -->
-<div id="copyright" style="background-color: #1a2536 !important; color: #f4d08c !important; padding: 14px 8px !important; border-top: 1px solid rgba(255,255,255,0.12) !important; position: relative !important;">
-    <div class="container" style="padding-left: 5px; padding-right: 5px;">
-        <div class="col-md-12 text-center" style="padding-left: 0; padding-right: 0;">
-            <!-- 4 HALAMAN WAJIB DIPAKSA SATU BARIS -->
-            <p style="margin: 0 0 10px 0 !important; font-size: 11.5px !important; float: none !important; display: flex !important; justify-content: center !important; align-items: center !important; flex-wrap: nowrap !important; white-space: nowrap !important; overflow-x: auto !important; gap: 6px !important;">
-                {{ range $index, $element := .Site.Menus.footer }}
-                    {{ if $index }}<span style="color: rgba(255,255,255,0.3);">|</span>{{ end }}
-                    <a href="{{ .URL | relURL }}" style="color: #ffffff !important; text-decoration: none; font-weight: 600;">{{ .Name }}</a>
-                {{ end }}
-            </p>
-            <p style="margin: 0 0 2px 0 !important; font-size: 13.5px !important; font-weight: 700 !important; color: #f4d08c !important; float: none !important; text-align: center !important;">
-                Terima kasih atas kunjungannya
-            </p>
-            <p style="margin: 0 0 8px 0 !important; font-size: 13px !important; color: #f4d08c !important; float: none !important; text-align: center !important;">
-                Semoga setiap coretan memberi wawasan dan inspirasi
-            </p>
-            <p style="margin: 0 !important; font-size: 12px !important; color: #d1d5db !important; float: none !important; text-align: center !important;">
-                © {{ now.Format "2006" }} PenCoret
-            </p>
-        </div>
-    </div>
-
-    <!-- PENGHITUNG KLIK OTOMATIS DI POJOK KANAN BAWAH -->
-    <div style="position: absolute; bottom: 8px; right: 12px; font-size: 11px; color: #9ca3af; opacity: 0.85;">
-        👁️ <span id="view-counter">...</span>
-    </div>
-</div>
-
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const slug = window.location.pathname.replace(/[^a-zA-Z0-9]/g, "-") || "beranda";
+    const workerUrl = "https://workers.dev";
+    const slug = encodeURIComponent(window.location.pathname || "/");
     const counterEl = document.getElementById("view-counter");
 
-    fetch(`https://counterapi.dev{slug}/up`)
+    fetch(`${workerUrl}?slug=${slug}`, {
+      method: "POST"
+    })
       .then(res => res.json())
       .then(data => {
-        if (data && data.count) {
-          counterEl.textContent = data.count.toLocaleString("id-ID");
+        if (data && data.views !== undefined) {
+          counterEl.textContent = data.views.toLocaleString("id-ID");
         } else {
           counterEl.textContent = "1";
         }
