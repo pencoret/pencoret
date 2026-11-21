@@ -1,6 +1,6 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const workerUrl = "https://workers.dev";
+    const workerUrl = "https://hitung-klik.coretpen4.workers.dev";
     const slug = encodeURIComponent(window.location.pathname || "/");
     const counterEl = document.getElementById("view-counter");
 
@@ -12,11 +12,11 @@
         if (data && data.views !== undefined) {
           counterEl.textContent = data.views.toLocaleString("id-ID");
         } else {
-          counterEl.textContent = "1";
+          counterEl.textContent = "https://hitung-klik.coretpen4.workers.dev";
         }
       })
       .catch(() => {
-        counterEl.textContent = "1";
+        counterEl.textContent = "https://hitung-klik.coretpen4.workers.dev;
       });
   });
 </script>
