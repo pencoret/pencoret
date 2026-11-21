@@ -1,5 +1,4 @@
 <style>
-  /* 1. LOGO TRANSPARAN DI ATAS BANNER DENGAN ANIMASI ESTETIK */
   @keyframes penaEstetik {
     0%, 100% {
       transform: translateY(0px) rotate(0deg);
@@ -12,16 +11,26 @@
     }
   }
 
-  .top-mini-logo {
+  /* BARIS LOGO DI DEPAN BANNER & BANNER GESER KE KANAN */
+  .header-logo-banner-row {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 8px 2px 6px;
+    gap: 12px;
+    padding: 8px 0;
+  }
+
+  .front-logo-link {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
   }
 
   .logo-animasi-estetik {
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
     object-fit: contain;
     mix-blend-mode: multiply;
     background: transparent;
@@ -31,121 +40,48 @@
     display: block;
   }
 
-  .top-mini-logo a:hover .logo-animasi-estetik,
-  .top-mini-logo a:active .logo-animasi-estetik {
+  .front-logo-link:hover .logo-animasi-estetik,
+  .front-logo-link:active .logo-animasi-estetik {
     animation-play-state: paused;
     transform: scale(1.15) rotate(-6deg);
   }
 
-  /* 2. POSISI TOMBOL TITIK 3 DI BAWAH KATEGORI / RUNNING TEXT SEBELAH KANAN */
-  .dots-bar-right {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: relative;
-    margin-top: 6px;
-    margin-bottom: 4px;
+  /* BANNER DIGESER KE KANAN SEDIKIT */
+  .banner-shifted-right {
+    flex-grow: 1;
+    margin-left: 6px;
+    overflow: hidden;
+    border-radius: 8px;
   }
 
-  .custom-dots-trigger {
-    background: #38a7bb;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    width: 34px;
-    height: 34px;
-    font-size: 20px;
-    font-weight: 800;
-    line-height: 1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(56, 167, 187, 0.3);
-    transition: background 0.2s ease, transform 0.15s ease;
-  }
-
-  .custom-dots-trigger:hover,
-  .custom-dots-trigger:active {
-    background: #2c8a9b;
-    transform: scale(1.05);
-  }
-
-  /* 3. DROPDOWN MENU SAAT TOMBOL TITIK 3 DIKLIK (WARNA SAMA DENGAN RUNNING TEXT #38a7bb) */
-  @media (max-width: 767px) {
-    #navigation {
-      position: absolute !important;
-      top: 100% !important;
-      right: 15px !important;
-      width: 215px !important;
-      background-color: #38a7bb !important;
-      border: 1px solid #2e8f9f !important;
-      border-radius: 10px !important;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18) !important;
-      z-index: 9999 !important;
-      padding: 6px 0 !important;
-      margin-top: 4px !important;
-    }
-    #navigation ul, #navigation .nav {
-      display: flex !important;
-      flex-direction: column !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      list-style: none !important;
-    }
-    #navigation li {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
-      width: 100% !important;
-    }
-    #navigation li:last-child {
-      border-bottom: none !important;
-    }
-    #navigation a {
-      display: block !important;
-      padding: 10px 16px !important;
-      color: #ffffff !important;
-      font-size: 13.5px !important;
-      font-weight: 700 !important;
-      text-decoration: none !important;
-      text-align: left !important;
-      background: transparent !important;
-    }
-    #navigation a:hover,
-    #navigation a:active {
-      background: rgba(255, 255, 255, 0.16) !important;
-      color: #ffffff !important;
-    }
+  .banner-shifted-right img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 </style>
 
 <div class="global-top-wrap">
-  <div class="container" style="position: relative;">
-    <!-- LOGO SAJA DI ATAS BANNER (TANPA TEKS PENCORET, BACKGROUND TRANSPARAN, UKURAN LEBIH BESAR) -->
-    <div class="top-mini-logo">
-      <a href="{{ "/" | relURL }}" title="Beranda {{ .Site.Title }}" style="display: inline-block; text-decoration: none;">
-        <img src="{{ "/images/image_d634cfff.jpg" | relURL }}" alt="Logo {{ .Site.Title }}" width="46" height="46" class="logo-animasi-estetik">
+  <div class="container">
+    <div class="header-logo-banner-row">
+      <!-- LOGO TRANSPARAN DI DEPAN BANNER -->
+      <a href="{{ "/" | relURL }}" class="front-logo-link" title="Beranda {{ .Site.Title }}">
+        <img src="{{ "/images/image_d634cfff.jpg" | relURL }}" alt="Logo {{ .Site.Title }}" width="48" height="48" class="logo-animasi-estetik">
       </a>
+
+      <!-- BANNER UTAMA GESER KE KANAN -->
+      <div class="banner-shifted-right">
+        <a href="{{ "/" | relURL }}" class="global-top-banner" title="Kembali ke Beranda PenCoret">
+          <img src="{{ "/images/image_dacac6d.jpeg" | relURL }}" alt="{{ .Site.Title }}">
+        </a>
+      </div>
     </div>
 
-    <!-- BANNER UTAMA -->
-    <div class="banner-box-relative">
-      <a href="{{ "/" | relURL }}" class="global-top-banner" title="Kembali ke Beranda PenCoret">
-        <img src="{{ "/images/image_dacac6d.jpeg" | relURL }}" alt="{{ .Site.Title }}">
-      </a>
-    </div>
-
-    <!-- RUNNING TEXT -->
+    <!-- RUNNING TEXT ATAS -->
     <div class="global-running-bar">
       <div class="global-running-text">
         SELAMAT DATANG & MEMBACA | Terima kasih telah meluangkan waktu untuk berkunjung. Jangan lupa tinggalkan kritik dan saran, serta pendapat Anda di kolom komentar bawah!
       </div>
-    </div>
-
-    <!-- TOMBOL TITIK 3 DI BAWAH KATEGORI / RUNNING TEXT SEBELAH KANAN (DI ATAS JUDUL) -->
-    <div class="dots-bar-right">
-      <button type="button" class="custom-dots-trigger" data-toggle="collapse" data-target="#navigation" aria-label="Buka Menu">
-        ⋮
-      </button>
     </div>
   </div>
 </div>
