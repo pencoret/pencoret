@@ -46,21 +46,22 @@
     </div>
 </footer>
 
-<!-- BINGKAI PENUTUP / COPYRIGHT BAR + 4 HALAMAN WAJIB -->
-<div id="copyright" style="background-color: #1a2536 !important; color: #f4d08c !important; padding: 14px 0 !important; border-top: 1px solid rgba(255,255,255,0.12) !important; position: relative !important;">
-    <div class="container">
-        <div class="col-md-12 text-center">
-            <p style="margin: 0 0 8px 0 !important; font-size: 13px !important; float: none !important; text-align: center !important;">
+<!-- BINGKAI PENUTUP / COPYRIGHT BAR + 4 HALAMAN WAJIB SATU BARIS -->
+<div id="copyright" style="background-color: #1a2536 !important; color: #f4d08c !important; padding: 14px 8px !important; border-top: 1px solid rgba(255,255,255,0.12) !important; position: relative !important;">
+    <div class="container" style="padding-left: 5px; padding-right: 5px;">
+        <div class="col-md-12 text-center" style="padding-left: 0; padding-right: 0;">
+            <!-- 4 HALAMAN WAJIB DIPAKSA SATU BARIS -->
+            <p style="margin: 0 0 10px 0 !important; font-size: 11.5px !important; float: none !important; display: flex !important; justify-content: center !important; align-items: center !important; flex-wrap: nowrap !important; white-space: nowrap !important; overflow-x: auto !important; gap: 6px !important;">
                 {{ range $index, $element := .Site.Menus.footer }}
-                    {{ if $index }} <span style="color: rgba(255,255,255,0.3); margin: 0 6px;">|</span> {{ end }}
+                    {{ if $index }}<span style="color: rgba(255,255,255,0.3);">|</span>{{ end }}
                     <a href="{{ .URL | relURL }}" style="color: #ffffff !important; text-decoration: none; font-weight: 600;">{{ .Name }}</a>
                 {{ end }}
             </p>
             <p style="margin: 0 0 2px 0 !important; font-size: 13.5px !important; font-weight: 700 !important; color: #f4d08c !important; float: none !important; text-align: center !important;">
                 Terima kasih atas kunjungannya
             </p>
-            <p style="margin: 0 0 6px 0 !important; font-size: 13px !important; color: #f4d08c !important; float: none !important; text-align: center !important;">
-                Semoga setiap coretan memberi wawasan dan inspirasi baru!
+            <p style="margin: 0 0 8px 0 !important; font-size: 13px !important; color: #f4d08c !important; float: none !important; text-align: center !important;">
+                Semoga setiap coretan memberi wawasan dan inspirasi
             </p>
             <p style="margin: 0 !important; font-size: 12px !important; color: #d1d5db !important; float: none !important; text-align: center !important;">
                 © {{ now.Format "2006" }} PenCoret
@@ -69,7 +70,7 @@
     </div>
 
     <!-- PENGHITUNG KLIK OTOMATIS DI POJOK KANAN BAWAH -->
-    <div style="position: absolute; bottom: 8px; right: 14px; font-size: 11px; color: #9ca3af; opacity: 0.85;">
+    <div style="position: absolute; bottom: 8px; right: 12px; font-size: 11px; color: #9ca3af; opacity: 0.85;">
         👁️ <span id="view-counter">...</span>
     </div>
 </div>
