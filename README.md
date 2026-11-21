@@ -1,1 +1,2 @@
-![Total Klik](https://komarev.com)
+![Pengunjung](https://komarev.com)
+![Repo Views](https://gitviews.com)
