@@ -47,7 +47,7 @@
 </footer>
 
 <!-- BINGKAI PENUTUP / COPYRIGHT BAR + 4 HALAMAN WAJIB -->
-<div id="copyright" style="background-color: #1a2536 !important; color: #f4d08c !important; padding: 14px 0 !important; border-top: 1px solid rgba(255,255,255,0.12) !important;">
+<div id="copyright" style="background-color: #1a2536 !important; color: #f4d08c !important; padding: 14px 0 !important; border-top: 1px solid rgba(255,255,255,0.12) !important; position: relative !important;">
     <div class="container">
         <div class="col-md-12 text-center">
             <p style="margin: 0 0 8px 0 !important; font-size: 13px !important; float: none !important; text-align: center !important;">
@@ -56,12 +56,20 @@
                     <a href="{{ .URL | relURL }}" style="color: #ffffff !important; text-decoration: none; font-weight: 600;">{{ .Name }}</a>
                 {{ end }}
             </p>
-            <p style="margin: 0 0 4px 0 !important; font-size: 13.5px !important; font-weight: 700 !important; color: #f4d08c !important; float: none !important; text-align: center !important;">
-                Terima kasih telah berkunjung dan membaca di PenCoret. Semoga setiap coretan membawa wawasan dan inspirasi baru!
+            <p style="margin: 0 0 2px 0 !important; font-size: 13.5px !important; font-weight: 700 !important; color: #f4d08c !important; float: none !important; text-align: center !important;">
+                Terima kasih atas kunjungannya
+            </p>
+            <p style="margin: 0 0 6px 0 !important; font-size: 13px !important; color: #f4d08c !important; float: none !important; text-align: center !important;">
+                Semoga setiap coretan memberi wawasan dan inspirasi baru!
             </p>
             <p style="margin: 0 !important; font-size: 12px !important; color: #d1d5db !important; float: none !important; text-align: center !important;">
-                © {{ now.Format "2006" }} PenCoret. Hak Cipta Dilindungi.
+                © {{ now.Format "2006" }} PenCoret
             </p>
         </div>
+    </div>
+
+    <!-- PENGHITUNG KLIK DI POJOK KANAN BAWAH -->
+    <div style="position: absolute; bottom: 8px; right: 14px; font-size: 11px; color: #9ca3af; opacity: 0.85;">
+        👁️ <span id="view-counter" class="count">0</span>
     </div>
 </div>
