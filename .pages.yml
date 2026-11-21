@@ -50,6 +50,7 @@ content:
             - Hiburan
             - Olahraga
             - Gaya Hidup
+            - Bisnis & Cuan
       - name: populer
         label: Tampilkan di Slider Populer (Utama)
         type: boolean
@@ -75,4 +76,3 @@ content:
       - name: body
         label: Isi Artikel
         type: rich-text
- 
