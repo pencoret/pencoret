@@ -1,0 +1,78 @@
+name: Perbaiki Semua Kategori Otomatis
+
+on:
+  push:
+    paths:
+      - 'content/**' # Otomatis jalan setiap ada postingan baru/diedit
+  workflow_dispatch: # Bisa juga diklik manual di tab Actions
+
+permissions:
+  contents: write
+
+jobs:
+  fix-categories:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Bersihkan dan Standarkan Kategori
+        run: |
+          python3 -c '
+          import os, re
+
+          # Daftar mapping kategori yang rusak (kode ASCII / typo) ke nama standar
+          mapping = {
+              "70": "Fakta Unik",
+              "fakta unik": "Fakta Unik",
+              "84": "Teknologi",
+              "teknologi": "Teknologi",
+              "72": "Hiburan",
+              "hiburan": "Hiburan",
+              "79": "Olahraga",
+              "olahraga": "Olahraga",
+              "71": "Gaya Hidup",
+              "gaya hidup": "Gaya Hidup"
+          }
+
+          def fix_frontmatter(text):
+              # Tangani format YAML (---) maupun TOML (+++)
+              match = re.match(r"^(\-\-\-|\+\+\+)\s*\n(.*?)\n\1", text, re.DOTALL)
+              if not match:
+                  return text
+              
+              sep, fm = match.group(1), match.group(2)
+              
+              def replace_cat(m):
+                  val = m.group(1).strip().strip("\"\x27")
+                  clean = mapping.get(val.lower(), val)
+                  return f"\"{clean}\""
+
+              # Perbaiki kategori di dalam kurung siku [...] atau format list YAML (-)
+              fm_new = re.sub(r"(?<=categories\s*[:=]\s*\[)(.*?)(?=\])", 
+                              lambda m: ", ".join([replace_cat(x) for x in re.finditer(r"[^,]+", m.group(1))]), fm)
+              
+              fm_new = re.sub(r"(?m)^(\s*-\s*)([\"\x27]?[a-zA-Z0-9\s]+[\"\x27]?)\s*$", 
+                              lambda m: f"{m.group(1)}{replace_cat(re.match(r\"(.*)\", m.group(2)))}", fm_new)
+
+              return text.replace(fm, fm_new, 1)
+
+          for root, _, files in os.walk("content"):
+              for file in files:
+                  if file.endswith(".md"):
+                      path = os.path.join(root, file)
+                      with open(path, "r", encoding="utf-8") as f:
+                          content = f.read()
+                      new_content = fix_frontmatter(content)
+                      if new_content != content:
+                          with open(path, "w", encoding="utf-8") as f:
+                              f.write(new_content)
+          '
+
+      - name: Simpan Perubahan Otomatis
+        run: |
+          git config --local user.email "github-actions[bot]@://github.com"
+          git config --local user.name "github-actions[bot]"
+          git add content/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "fix: rapikan semua kategori otomatis" && git push)
+          
