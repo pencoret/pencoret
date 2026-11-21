@@ -15,7 +15,7 @@
     position: relative !important;
   }
 
-  /* LOGO KECIL MENIMPA DI DEPAN BANNER */
+  /* LOGO TRANSPARAN MENIMPA DI DEPAN BANNER */
   .logo-overlay-banner {
     position: absolute;
     top: 6px;
@@ -31,8 +31,6 @@
     width: 58px;
     height: 58px;
     object-fit: contain;
-    mix-blend-mode: multiply;
-    filter: contrast(1.18) brightness(1.08);
     background: transparent !important;
     animation: penaEstetik 3.8s ease-in-out infinite;
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -50,9 +48,9 @@
 <div class="global-top-wrap">
   <div class="container">
     <div class="banner-box-relative">
-      <!-- LOGO TRANSPARAN MENIMPA DI DEPAN BANNER -->
+      <!-- LOGO PNG TRANSPARAN MENIMPA DI DEPAN BANNER -->
       <a href="{{ "/" | relURL }}" class="logo-overlay-banner" title="Beranda {{ .Site.Title }}">
-        <img src="{{ "/images/image_d634cfff.jpg" | relURL }}" alt="Logo {{ .Site.Title }}" width="58" height="58" class="logo-animasi-estetik">
+        <img src="{{ "/images/logo-transparan.png" | relURL }}" alt="Logo {{ .Site.Title }}" width="58" height="58" class="logo-animasi-estetik">
       </a>
 
       <!-- BANNER UTAMA ASLI -->
