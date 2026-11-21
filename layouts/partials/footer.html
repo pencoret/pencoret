@@ -68,8 +68,28 @@
         </div>
     </div>
 
-    <!-- PENGHITUNG KLIK DI POJOK KANAN BAWAH -->
+    <!-- PENGHITUNG KLIK OTOMATIS DI POJOK KANAN BAWAH -->
     <div style="position: absolute; bottom: 8px; right: 14px; font-size: 11px; color: #9ca3af; opacity: 0.85;">
-        👁️ <span id="view-counter" class="count">0</span>
+        👁️ <span id="view-counter">...</span>
     </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const slug = window.location.pathname.replace(/[^a-zA-Z0-9]/g, "-") || "beranda";
+    const counterEl = document.getElementById("view-counter");
+
+    fetch(`https://counterapi.dev{slug}/up`)
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.count) {
+          counterEl.textContent = data.count.toLocaleString("id-ID");
+        } else {
+          counterEl.textContent = "1";
+        }
+      })
+      .catch(() => {
+        counterEl.textContent = "1";
+      });
+  });
+</script>
