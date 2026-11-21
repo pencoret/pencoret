@@ -75,3 +75,4 @@ content:
       - name: body
         label: Isi Artikel
         type: rich-text
+ 
