@@ -1,4 +1,28 @@
 <div class="content post__content clearfix">
   {{ .Content }}
   {{ partial "baca_juga.html" . }}
+
+  <p style="margin-top: 20px; font-size: 0.9em; color: #666;">
+    Dilihat: <span id="view-count">...</span> kali
+  </p>
 </div>
+
+<script>
+  const workerUrl = "https://workers.dev";
+  const slug = encodeURIComponent(window.location.pathname);
+
+  fetch(`${workerUrl}?slug=${slug}`, {
+    method: "POST"
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.views !== undefined) {
+        document.getElementById("view-count").innerText = data.views;
+      }
+    })
+    .catch(err => {
+      console.error("Gagal memuat jumlah lihat:", err);
+      document.getElementById("view-count").innerText = "1";
+    });
+        </script>
+        
