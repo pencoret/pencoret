@@ -1,6 +1,5 @@
 {{ define "main" }}
 <style>
-  /* Menyembunyikan ikon mata / view counter bawaan dari JS/CSS */
   #view-count, .post__views, .view-counter, .floating-views, #floating-view-counter {
     display: none !important;
   }
@@ -8,7 +7,6 @@
 
 <main class="main" role="main">
 
-  <!-- 1. BANNER & RUNNING TEXT KHAS PENCORET -->
   <div class="custom-banner" style="margin-bottom: 12px; text-align: center;">
     <a href="/">
       <img src="{{ .Site.Params.logo | relURL }}" alt="Banner PenCoret" style="max-width: 100%; height: auto;">
@@ -22,7 +20,6 @@
     <header class="post__header">
       <h1 class="post__title">{{ .Title }}</h1>
 
-      <!-- 2. KATEGORI, TANGGAL, & META -->
       {{- with .Params.lead }}
       <p class="post__lead">{{ . }}</p>
       {{- end }}
@@ -31,7 +28,6 @@
       {{- end }}
     </header>
 
-    <!-- 3. FOTO THUMBNAIL / FEATURED IMAGE -->
     {{- $thumb := .Params.thumbnail | default .Params.image -}}
     {{- if and (not $thumb) .Params.images -}}
       {{- $thumb = index .Params.images 0 -}}
@@ -42,12 +38,10 @@
     </figure>
     {{- end }}
 
-    <!-- 4. KONTEN ARTIKEL + BACA JUGA OTOMATIS DI ATAS SUB JUDUL -->
     <div class="content post__content clearfix">
       {{- $parts := split .Content "<h2" -}}
       {{- $total := len $parts -}}
       {{- $related := .Site.RegularPages.Related . | first 3 -}}
-      {{- /* Menentukan posisi di atas subjudul ke-2 (tengah), atau subjudul ke-1 jika subjudul cuma 1 */ -}}
       {{- $targetIdx := 2 -}}
       {{- if le $total 2 -}}
         {{- $targetIdx = 1 -}}
@@ -72,7 +66,6 @@
       {{- end -}}
     </div>
 
-    <!-- 5. TAGS BAGIAN BAWAH -->
     {{- if .Params.tags }}
     <footer class="post__footer">
       {{ partial "post_tags.html" . }}
@@ -81,8 +74,8 @@
   </article>
 </main>
 
-<!-- 6. AUTHOR BOX, NEXT/PREV NAVIGASI, & KOMENTAR BAGIAN BAWAH -->
 {{ partial "authorbox.html" . }}
 {{ partial "pager.html" . }}
 {{ partial "comments.html" . }}
 {{ end }}
+            
