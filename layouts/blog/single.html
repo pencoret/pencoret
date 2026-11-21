@@ -61,7 +61,7 @@
             </ul>
           </div>
           {{- end -}}
-          {{ printf "<h2%s" $part | safeHTML }}
+          <h2{{ $part | safeHTML }}
         {{- end -}}
       {{- end -}}
     </div>
@@ -78,4 +78,3 @@
 {{ partial "pager.html" . }}
 {{ partial "comments.html" . }}
 {{ end }}
-            
