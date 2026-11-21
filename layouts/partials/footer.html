@@ -1,16 +1,16 @@
-<footer class="footer" style="margin-top: 30px;">
-	<div class="container footer__container" style="padding: 15px 15px 10px; text-align: center;">
+<footer class="footer" style="margin-top: 30px; background-color: #38a7bb; color: #ffffff;">
+	<div class="container footer__container" style="padding: 12px 10px 8px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.2);">
 		{{- if .Site.Menus.footer }}
-		<div class="footer__links" style="margin-bottom: 8px; font-size: 13px;">
+		<div class="footer__links" style="display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; gap: 8px; font-size: 12px; overflow-x: auto; white-space: nowrap;">
 			{{- range $index, $item := .Site.Menus.footer }}
-				{{- if gt $index 0 }} &nbsp;|&nbsp; {{ end -}}
-				<a class="footer__link" href="{{ $item.URL | relURL }}" style="color: #1a2536; font-weight: 600; text-decoration: none;">{{ $item.Name }}</a>
+				{{- if gt $index 0 }} <span style="opacity: 0.7;">|</span> {{ end -}}
+				<a class="footer__link" href="{{ $item.URL | relURL }}" style="color: #ffffff; font-weight: 700; text-decoration: none;">{{ $item.Name }}</a>
 			{{- end }}
 		</div>
 		{{- end }}
 	</div>
 
-	<div class="footer__copyright" style="background-color: #38a7bb; color: #ffffff; padding: 10px 0; font-size: 13.5px; font-weight: 600; overflow: hidden;">
+	<div class="footer__copyright" style="background-color: #2f93a5; color: #ffffff; padding: 9px 0; font-size: 13px; font-weight: 600; overflow: hidden;">
 		<marquee behavior="scroll" direction="left" scrollamount="5">
 			&copy; {{ now.Format "2006" }} PenCoret | Terimakasih telah berkunjung di Ruang Baca Digital, semoga setiap coretan dapat memberi wawasan dan inspirasi baru.
 		</marquee>
