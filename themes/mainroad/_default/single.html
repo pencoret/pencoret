@@ -1,10 +1,11 @@
 <div class="content post__content clearfix">
   {{ .Content }}
   {{ partial "baca_juga.html" . }}
+</div>
 
-  <p style="margin-top: 20px; font-size: 0.9em; color: #666;">
-    Dilihat: <span id="view-count">...</span> kali
-  </p>
+<!-- Kotak Penghitung di Pojok Kanan Bawah -->
+<div style="position: fixed; bottom: 15px; right: 15px; background: #222; color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; z-index: 9999; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+  Dilihat: <span id="view-count">...</span> kali
 </div>
 
 <script>
@@ -24,4 +25,5 @@
       console.error("Gagal memuat jumlah lihat:", err);
       document.getElementById("view-count").innerText = "1";
     });
-</script>
+      </script>
+      
