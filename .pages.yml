@@ -38,6 +38,7 @@ content:
       - name: description
         label: Meta Description (Deskripsi Singkat SEO)
         type: text
+        required: true
         description: "Ringkasan artikel untuk hasil pencarian Google (ideal 120-155 karakter)"
       - name: categories
         label: Kategori
@@ -69,6 +70,7 @@ content:
       - name: banner_alt
         label: Alt Text Foto Utama (SEO)
         type: string
+        required: true
         description: "Deskripsi singkat isi gambar untuk SEO Google Images dan pembaca layar"
       - name: banner_caption
         label: Keterangan / Sumber Foto Utama
