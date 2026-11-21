@@ -1,0 +1,67 @@
+name: Optimasi Gambar SEO Otomatis
+
+on:
+  push:
+    paths:
+      - 'static/images/**' # Sesuaikan jika folder gambar Anda di assets/images/**
+      - 'assets/images/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  optimize-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Pillow (Pengolah Gambar Python)
+        run: pip install Pillow
+
+      - name: Resize & Kompres Gambar ke Standar SEO (1200x630)
+        run: |
+          python3 -c '
+          import os
+          from PIL import Image, ImageOps
+
+          # Folder target gambar (bisa ditambah jika ada folder lain)
+          folders = ["static/images", "assets/images"]
+          MAX_WIDTH = 1200
+          MAX_HEIGHT = 630
+
+          for folder in folders:
+              if not os.path.exists(folder):
+                  continue
+              for root, _, files in os.walk(folder):
+                  for file in files:
+                      if file.lower().endswith((".jpg", ".jpeg", ".png")):
+                          path = os.path.join(root, file)
+                          try:
+                              with Image.open(path) as img:
+                                  # Lewati jika ukuran file sudah kecil (< 250 KB) dan lebar <= 1200px
+                                  if os.path.getsize(path) < 250 * 1024 and img.width <= MAX_WIDTH:
+                                      continue
+
+                                  # Ubah mode warna ke RGB (wajib untuk simpan ke JPG)
+                                  if img.mode in ("RGBA", "P"):
+                                      img = img.convert("RGB")
+
+                                  # Crop & resize proporsional ke 1200x630 (standar OpenGraph / WA / Google Discover)
+                                  img_resized = ImageOps.fit(img, (MAX_WIDTH, MAX_HEIGHT), Image.Resampling.LANCZOS)
+
+                                  # Simpan ulang dengan kompresi SEO optimal
+                                  img_resized.save(path, format="JPEG", quality=82, optimize=True)
+                                  print(f"Berhasil dioptimasi: {path}")
+                          except Exception as e:
+                              print(f"Gagal memproses {path}: {e}")
+          '
+
+      - name: Simpan Gambar Terkompresi ke GitHub
+        run: |
+          git config --local user.email "github-actions[bot]@://github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git diff --quiet && git diff --staged --quiet || (git commit -m "perf: optimasi ukuran & dimensi gambar SEO" && git push)
+          
