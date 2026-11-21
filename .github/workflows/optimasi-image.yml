@@ -3,9 +3,8 @@ name: Optimasi Gambar SEO Otomatis
 on:
   push:
     paths:
-      - 'static/images/**' # Sesuaikan jika folder gambar Anda di assets/images/**
-      - 'assets/images/**'
-  workflow_dispatch:
+      - 'static/images/**' # Hanya jalan saat ada gambar baru/diubah di static/images
+  workflow_dispatch: # Bisa juga diklik manual untuk mengompres gambar lama
 
 permissions:
   contents: write
@@ -17,41 +16,37 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Pillow (Pengolah Gambar Python)
+      - name: Install Pillow (Pengolah Gambar)
         run: pip install Pillow
 
-      - name: Resize & Kompres Gambar ke Standar SEO (1200x630)
+      - name: Resize & Kompres Gambar di static/images
         run: |
           python3 -c '
           import os
           from PIL import Image, ImageOps
 
-          # Folder target gambar (bisa ditambah jika ada folder lain)
-          folders = ["static/images", "assets/images"]
+          folder = "static/images"
           MAX_WIDTH = 1200
           MAX_HEIGHT = 630
 
-          for folder in folders:
-              if not os.path.exists(folder):
-                  continue
+          if os.path.exists(folder):
               for root, _, files in os.walk(folder):
                   for file in files:
                       if file.lower().endswith((".jpg", ".jpeg", ".png")):
                           path = os.path.join(root, file)
                           try:
                               with Image.open(path) as img:
-                                  # Lewati jika ukuran file sudah kecil (< 250 KB) dan lebar <= 1200px
-                                  if os.path.getsize(path) < 250 * 1024 and img.width <= MAX_WIDTH:
+                                  # Lewati jika ukuran file sudah ringan (< 250 KB) dan dimensi sudah pas
+                                  if os.path.getsize(path) < 250 * 1024 and img.width == MAX_WIDTH and img.height == MAX_HEIGHT:
                                       continue
 
-                                  # Ubah mode warna ke RGB (wajib untuk simpan ke JPG)
                                   if img.mode in ("RGBA", "P"):
                                       img = img.convert("RGB")
 
-                                  # Crop & resize proporsional ke 1200x630 (standar OpenGraph / WA / Google Discover)
+                                  # Potong tengah & sesuaikan ke 1200x630 piksel tanpa gepeng
                                   img_resized = ImageOps.fit(img, (MAX_WIDTH, MAX_HEIGHT), Image.Resampling.LANCZOS)
 
-                                  # Simpan ulang dengan kompresi SEO optimal
+                                  # Simpan ulang dengan kualitas 82% (ringan & tetap tajam)
                                   img_resized.save(path, format="JPEG", quality=82, optimize=True)
                                   print(f"Berhasil dioptimasi: {path}")
                           except Exception as e:
@@ -62,6 +57,6 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@://github.com"
           git config --local user.name "github-actions[bot]"
-          git add .
+          git add static/images/
           git diff --quiet && git diff --staged --quiet || (git commit -m "perf: optimasi ukuran & dimensi gambar SEO" && git push)
           
