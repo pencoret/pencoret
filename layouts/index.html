@@ -4,16 +4,63 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ .Site.Title }} — {{ .Site.Params.description }}</title>
-  <link rel="icon" type="image/jpeg" href="{{ "images/image_d634cfff.jpg" | relURL }}">
-  <link rel="apple-touch-icon" href="{{ "images/image_d634cfff.jpg" | relURL }}">
+  <link rel="icon" type="image/png" sizes="48x48" href="{{ "/images/logo-transparan.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ "/images/logo-transparan.png" | relURL }}">
+  <link rel="apple-touch-icon" href="{{ "/images/logo-transparan.png" | relURL }}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "PenCoret",
+        "alternateName": ["PenCoret.my.id", "Ruang Baca PenCoret"],
+        "url": "https://pencoret.my.id"
+      },
+      {
+        "@type": "Organization",
+        "name": "PenCoret",
+        "url": "https://pencoret.my.id",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ "/images/logo-transparan.png" | absURL }}"
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     * { box-sizing: border-box; }
     body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #fff; color: #333; margin: 0; }
     .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 15px; }
     .home-wrap { padding-bottom: 35px; }
     .sec-label { font-size: 15px; font-weight: 800; text-transform: uppercase; color: #222; border-left: 4px solid #38a7bb; padding-left: 10px; margin: 14px 0 8px; }
+
+    @keyframes penaEstetik {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25% { transform: translateY(-3.5px) rotate(-4deg); }
+      75% { transform: translateY(2px) rotate(3deg); }
+    }
+    .home-logo-overlay {
+      position: absolute;
+      top: 8px;
+      left: 12px;
+      z-index: 20;
+      display: inline-flex;
+      text-decoration: none;
+    }
+    .home-logo-animasi {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      background: transparent !important;
+      animation: penaEstetik 3.8s ease-in-out infinite;
+      transform-origin: bottom center;
+      display: block;
+    }
     
-    /* KATEGORI (SATU BARIS SLIDE OTOMATIS) */
     .cat-menu-bar {
       display: flex;
       flex-wrap: nowrap;
@@ -41,7 +88,6 @@
     }
     .cat-menu-btn:hover { background: #38a7bb; color: #fff !important; border-color: #38a7bb; }
 
-    /* 1. SLIDER BESAR POPULER */
     .pop-slider { position: relative; overflow: hidden; border-radius: 8px; background: #111; margin-top: 6px; }
     .pop-track { display: flex; transition: transform 0.45s ease; will-change: transform; }
     .pop-slide { min-width: 100%; position: relative; height: 240px; }
@@ -52,7 +98,6 @@
     .pop-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.55); color: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; cursor: pointer; z-index: 5; }
     .pop-prev { left: 10px; } .pop-next { right: 10px; }
 
-    /* 2. KOTAK KECIL SLIDE OTOMATIS (HALUS & MODERN) */
     .mini-row {
       display: flex;
       gap: 14px;
@@ -98,7 +143,7 @@
     }
     .mini-card-body h4 a { color: #222; text-decoration: none; transition: color 0.2s ease; }
     .mini-card:hover .mini-card-body h4 a { color: #38a7bb; }
-        /* 3. GRID 2x2 TERBARU & TOMBOL */
+
     .latest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
     .big-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
     .big-card img { width: 100%; height: 115px; object-fit: cover; }
@@ -111,14 +156,13 @@
     .btn-all-post { display: inline-flex; align-items: center; justify-content: center; width: 100%; max-width: 320px; background: #38a7bb; color: #fff !important; font-weight: 700; font-size: 14px; padding: 12px 20px; border-radius: 6px; text-decoration: none !important; transition: 0.2s; }
     .btn-all-post:hover { background: #2c8a9b; }
 
-    /* FOOTER (SUSUNAN 2x2 SEJAJAR) */
-    .site-footer { background: #1a2536; color: #ccc; padding: 20px 0 16px; margin-top: 36px; font-size: 13px; }
+    .site-footer { background: #1a2536; color: #ccc; padding: 18px 0 0; margin-top: 36px; font-size: 13px; }
     .footer-top-flex { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
-    .footer-logo img { max-height: 36px; border-radius: 6px; display: block; background: #fff; padding: 2px; }
+    .footer-logo img { max-height: 38px; display: block; background: transparent; }
     .footer-nav { display: grid; grid-template-columns: repeat(2, auto); gap: 6px; justify-content: end; text-align: center; }
     .footer-btn { background: rgba(255,255,255,0.1); color: #fff !important; border: 1px solid rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 14px; font-size: 11px; font-weight: 600; text-decoration: none !important; white-space: nowrap; transition: 0.2s; }
     .footer-btn:hover { background: #38a7bb; border-color: #38a7bb; }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; text-align: center; font-size: 11.5px; color: #aaa; }
+    .footer-running-bottom { background: #38a7bb; color: #ffffff; padding: 9px 0; font-size: 13px; font-weight: 600; overflow: hidden; }
 
     @keyframes jalanTeks { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
     @media (min-width: 768px) {
@@ -129,9 +173,11 @@
   </style>
 </head>
 <body>
-  <!-- HANYA BANNER & RUNTEXT YANG MEPET KIRI-KANAN -->
-  <div style="width: 100%; overflow: hidden; margin-top: 8px;">
-    <img src="{{ "images/image_dacac6d.jpeg" | relURL }}" alt="Banner PenCoret" style="width: 100%; display: block; transform: scale(1.12);">
+  <div style="width: 100%; overflow: hidden; margin-top: 8px; position: relative;">
+    <a href="{{ "/" | relURL }}" class="home-logo-overlay" title="Beranda {{ .Site.Title }}">
+      <img src="{{ "/images/logo-transparan.png" | relURL }}" alt="Logo {{ .Site.Title }}" width="56" height="56" class="home-logo-animasi">
+    </a>
+    <img src="{{ "/images/image_dacac6d.jpeg" | relURL }}" alt="Banner PenCoret" style="width: 100%; display: block; transform: scale(1.12);">
   </div>
   <div style="width: 100%; background: #1a2536; color: #f4d08c; padding: 5px 0; overflow: hidden; white-space: nowrap; font-weight: bold; font-size: 13px;">
     <div style="display: inline-block; padding-left: 100%; animation: jalanTeks 22s linear infinite;">
@@ -139,9 +185,7 @@
     </div>
   </div>
 
-  <!-- WADAH ISI POSTINGAN TETAP RAPI SEPERTI SEMULA -->
   <div class="container home-wrap">
-    <!-- MENU KATEGORI (SATU BARIS SLIDE OTOMATIS) -->
     <nav class="cat-menu-bar" id="catMenuBar">
       {{ range .Site.Menus.main }}<a href="{{ .URL | relURL }}" class="cat-menu-btn">{{ .Name }}</a>{{ end }}
     </nav>
@@ -149,13 +193,12 @@
     {{ $allPosts := where .Site.RegularPages "Section" "blog" }}
     {{ $populerPosts := where $allPosts "Params.populer" true | default (first 5 $allPosts) }}
 
-    <!-- 1. POSTINGAN POPULER (OTOMATIS 3.5 DETIK) -->
-    {{ if $populerPosts }}
+          {{ if $populerPosts }}
     <div class="sec-label">Postingan Populer</div>
     <div class="pop-slider" id="popSliderBox">
       <div class="pop-track" id="popTrack">
         {{ range first 5 $populerPosts }}
-        {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "images/image_d634cfff.jpg" }}
+        {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" }}
         <div class="pop-slide">
           <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
           <div class="pop-overlay"><h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2></div>
@@ -167,11 +210,10 @@
     </div>
     {{ end }}
 
-    <!-- 2. POSTINGAN TERBARU (4 KOTAK + SLIDE OTOMATIS 7 DETIK) -->
     <div class="sec-label">Postingan Terbaru</div>
     <div class="latest-grid">
       {{ range first 4 $allPosts }}
-      {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "images/image_d634cfff.jpg" }}
+      {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" }}
       <article class="big-card">
         <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
         <div class="big-card-body">
@@ -186,7 +228,7 @@
     {{ with after 4 $allPosts }}
     <div class="mini-row" id="terbaruRow" style="margin-top: 10px;">
       {{ range first 6 . }}
-      {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "images/image_d634cfff.jpg" }}
+      {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" }}
       <div class="mini-card">
         <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
         <div class="mini-card-body"><h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4></div>
@@ -195,17 +237,20 @@
     </div>
     {{ end }}
 
-    <div class="all-post-box"><a href="{{ "blog/" | relURL }}" class="btn-all-post">Tampilkan Semua</a></div>
+    <div class="all-post-box"><a href="{{ "/blog/" | relURL }}" class="btn-all-post">Tampilkan Semua</a></div>
   </div>
 
-  <!-- FOOTER (MENU BAWAH: 4 HALAMAN WAJIB 2x2) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top-flex">
-        <div class="footer-logo"><a href="{{ "/" | relURL }}"><img src="{{ "images/image_d634cfff.jpg" | relURL }}" alt="{{ .Site.Title }}" loading="lazy"></a></div>
+        <div class="footer-logo"><a href="{{ "/" | relURL }}"><img src="{{ "/images/logo-transparan.png" | relURL }}" alt="{{ .Site.Title }}" loading="lazy"></a></div>
         <div class="footer-nav">{{ range .Site.Menus.footer }}<a href="{{ .URL | relURL }}" class="footer-btn">{{ .Name }}</a>{{ end }}</div>
       </div>
-      <div class="footer-bottom">&copy; {{ now.Year }} {{ .Site.Title }}. Hak Cipta Dilindungi.</div>
+    </div>
+    <div class="footer-running-bottom">
+      <marquee behavior="scroll" direction="left" scrollamount="5">
+        &copy; {{ now.Format "2006" }} PenCoret | Terimakasih telah berkunjung di Ruang Baca Digital, semoga setiap coretan dapat memberi wawasan dan inspirasi baru.
+      </marquee>
     </div>
   </footer>
 
@@ -247,4 +292,3 @@
   </script>
 </body>
 </html>
-    
