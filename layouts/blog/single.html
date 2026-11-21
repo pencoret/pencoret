@@ -24,7 +24,7 @@
       .post-body img { max-width: 100%; height: auto; border-radius: 8px; margin: 14px 0; }
       .post-body h2 { font-size: 20px; font-weight: 700; color: #1a2536; margin: 26px 0 10px; }
       .post-body h3 { font-size: 18px; font-weight: 700; color: #1a2536; margin: 22px 0 8px; }
-      .baca-juga-box { background: #f4f6f8; border-left: 4px solid #38a7bb; padding: 14px 16px; margin: 22px 0; border-radius: 0 8px 8px 0; }
+      .baca-juga-box { background: #f4f6f8; border-left: 4px solid #38a7bb; padding: 14px 16px; margin: 24px 0; border-radius: 0 8px 8px 0; }
       .baca-juga-box strong { color: #1a2536; font-size: 14px; display: block; margin-bottom: 6px; }
       .baca-juga-box ul { margin: 0; padding-left: 18px; }
       .baca-juga-box li { margin-bottom: 4px; font-size: 14px; }
@@ -64,34 +64,43 @@
             </figure>
             {{- end }}
 
-            {{- $related := where .Site.RegularPages "Section" "blog" | first 4 -}}
-            {{- $bacaJugaHTML := "" -}}
-            {{- if gt (len $related) 1 -}}
-              {{- $items := "" -}}
-              {{- $shown := 0 -}}
-              {{- range $related }}
-                {{- if and (ne .RelPermalink $.RelPermalink) (lt $shown 3) }}
-                  {{- $items = printf "%s<li><a href=\"%s\">%s</a></li>" $items .RelPermalink .Title -}}
-                  {{- $shown = add $shown 1 -}}
-                {{- end }}
-              {{- end -}}
-              {{- $bacaJugaHTML = printf "<div class=\"baca-juga-box\"><strong>Baca Juga:</strong><ul>%s</ul></div>" $items -}}
+            <!-- MENYIAPKAN ARTIKEL TERKAIT RELEVAN UNTUK GOOGLE SEO -->
+            {{- $related := .Site.RegularPages.Related . | first 3 -}}
+            {{- if eq (len $related) 0 -}}
+              {{- $related = where .Site.RegularPages "Section" "blog" | first 4 -}}
             {{- end -}}
 
+            {{- $bacaJugaHTML := "" -}}
+            {{- $items := "" -}}
+            {{- $shown := 0 -}}
+            {{- range $related }}
+              {{- if and (ne .RelPermalink $.RelPermalink) (lt $shown 3) }}
+                {{- $items = printf "%s<li><a href=\"%s\">%s</a></li>" $items .RelPermalink .Title -}}
+                {{- $shown = add $shown 1 -}}
+              {{- end }}
+            {{- end -}}
+            {{- if gt $shown 0 -}}
+              {{- $bacaJugaHTML = printf "<aside class=\"baca-juga-box\" aria-label=\"Baca Juga\"><strong>Baca Juga:</strong><ul>%s</ul></aside>" $items -}}
+            {{- end -}}
+
+            <!-- KONTEN ARTIKEL + SISIPAN DI TENGAH PARAGRAF -->
             <div class="post-body">
-              {{- $parts := split .Content "<h2" -}}
-              {{- if gt (len $parts) 2 -}}
-                {{- $first := printf "%s<h2%s" (index $parts 0) (index $parts 1) -}}
-                {{- $rest := slice -}}
-                {{- range $i, $p := $parts -}}
-                  {{- if ge $i 2 -}}
-                    {{- $rest = $rest | append $p -}}
+              {{- $paras := split .Content "</p>" -}}
+              {{- $count := len $paras -}}
+              {{- if gt $count 3 -}}
+                {{- $mid := div (sub $count 1) 2 -}}
+                {{- $before := slice -}}
+                {{- $after := slice -}}
+                {{- range $i, $p := $paras -}}
+                  {{- if le $i $mid -}}
+                    {{- $before = $before | append $p -}}
+                  {{- else -}}
+                    {{- $after = $after | append $p -}}
                   {{- end -}}
                 {{- end -}}
-                {{- $after := delimit $rest "<h2" -}}
-                {{ printf "%s%s<h2%s" $first $bacaJugaHTML $after | safeHTML }}
-              {{- else if eq (len $parts) 2 -}}
-                {{ printf "%s%s<h2%s" (index $parts 0) $bacaJugaHTML (index $parts 1) | safeHTML }}
+                {{- $part1 := delimit $before "</p>" -}}
+                {{- $part2 := delimit $after "</p>" -}}
+                {{ printf "%s</p>%s%s" $part1 $bacaJugaHTML $part2 | safeHTML }}
               {{- else -}}
                 {{ .Content }}
                 {{ $bacaJugaHTML | safeHTML }}
@@ -115,5 +124,4 @@
     </div>
     {{ partial "scripts.html" . }}
   </body>
-                </html>
-                  
+</html>
