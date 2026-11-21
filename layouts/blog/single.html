@@ -64,36 +64,37 @@
             </figure>
             {{- end }}
 
-            <!-- ISI ARTIKEL + BACA JUGA OTOMATIS DI ATAS SUB JUDUL -->
+            {{- $related := where .Site.RegularPages "Section" "blog" | first 4 -}}
+            {{- $bacaJugaHTML := "" -}}
+            {{- if gt (len $related) 1 -}}
+              {{- $items := "" -}}
+              {{- $shown := 0 -}}
+              {{- range $related }}
+                {{- if and (ne .RelPermalink $.RelPermalink) (lt $shown 3) }}
+                  {{- $items = printf "%s<li><a href=\"%s\">%s</a></li>" $items .RelPermalink .Title -}}
+                  {{- $shown = add $shown 1 -}}
+                {{- end }}
+              {{- end -}}
+              {{- $bacaJugaHTML = printf "<div class=\"baca-juga-box\"><strong>Baca Juga:</strong><ul>%s</ul></div>" $items -}}
+            {{- end -}}
+
             <div class="post-body">
               {{- $parts := split .Content "<h2" -}}
-              {{- $total := len $parts -}}
-              {{- $related := where .Site.RegularPages "Section" "blog" | first 4 -}}
-              {{- $targetIdx := 2 -}}
-              {{- if le $total 2 -}}
-                {{- $targetIdx = 1 -}}
-              {{- end -}}
-
-              {{- range $index, $part := $parts -}}
-                {{- if eq $index 0 -}}
-                  {{ $part | safeHTML }}
-                {{- else -}}
-                  {{- if and (eq $index $targetIdx) (gt (len $related) 1) -}}
-                  <div class="baca-juga-box">
-                    <strong>Baca Juga:</strong>
-                    <ul>
-                      {{- $shown := 0 -}}
-                      {{- range $related }}
-                        {{- if and (ne .RelPermalink $.RelPermalink) (lt $shown 3) }}
-                        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-                        {{- $shown = add $shown 1 -}}
-                        {{- end }}
-                      {{- end }}
-                    </ul>
-                  </div>
+              {{- if gt (len $parts) 2 -}}
+                {{- $first := printf "%s<h2%s" (index $parts 0) (index $parts 1) -}}
+                {{- $rest := slice -}}
+                {{- range $i, $p := $parts -}}
+                  {{- if ge $i 2 -}}
+                    {{- $rest = $rest | append $p -}}
                   {{- end -}}
-                  <h2{{ $part | safeHTML }}
                 {{- end -}}
+                {{- $after := delimit $rest "<h2" -}}
+                {{ printf "%s%s<h2%s" $first $bacaJugaHTML $after | safeHTML }}
+              {{- else if eq (len $parts) 2 -}}
+                {{ printf "%s%s<h2%s" (index $parts 0) $bacaJugaHTML (index $parts 1) | safeHTML }}
+              {{- else -}}
+                {{ .Content }}
+                {{ $bacaJugaHTML | safeHTML }}
               {{- end -}}
             </div>
 
@@ -114,5 +115,5 @@
     </div>
     {{ partial "scripts.html" . }}
   </body>
- </html>
-                    
+                </html>
+                  
