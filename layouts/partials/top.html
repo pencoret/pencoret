@@ -4,7 +4,7 @@
       transform: translateY(0px) rotate(0deg);
     }
     25% {
-      transform: translateY(-3px) rotate(-4deg);
+      transform: translateY(-3.5px) rotate(-4deg);
     }
     75% {
       transform: translateY(2px) rotate(3deg);
@@ -15,10 +15,10 @@
     position: relative !important;
   }
 
-  /* LOGO KECIL MENIMPA DI DEPAN BANNER (SUDUT KIRI ATAS) */
+  /* LOGO KECIL MENIMPA DI DEPAN BANNER */
   .logo-overlay-banner {
     position: absolute;
-    top: 8px;
+    top: 6px;
     left: 10px;
     z-index: 20;
     display: inline-flex;
@@ -28,11 +28,12 @@
   }
 
   .logo-animasi-estetik {
-    width: 44px;
-    height: 44px;
+    width: 58px;
+    height: 58px;
     object-fit: contain;
     mix-blend-mode: multiply;
-    background: transparent;
+    filter: contrast(1.18) brightness(1.08);
+    background: transparent !important;
     animation: penaEstetik 3.8s ease-in-out infinite;
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     transform-origin: bottom center;
@@ -51,7 +52,7 @@
     <div class="banner-box-relative">
       <!-- LOGO TRANSPARAN MENIMPA DI DEPAN BANNER -->
       <a href="{{ "/" | relURL }}" class="logo-overlay-banner" title="Beranda {{ .Site.Title }}">
-        <img src="{{ "/images/image_d634cfff.jpg" | relURL }}" alt="Logo {{ .Site.Title }}" width="44" height="44" class="logo-animasi-estetik">
+        <img src="{{ "/images/image_d634cfff.jpg" | relURL }}" alt="Logo {{ .Site.Title }}" width="58" height="58" class="logo-animasi-estetik">
       </a>
 
       <!-- BANNER UTAMA ASLI -->
