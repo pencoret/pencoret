@@ -43,12 +43,13 @@ content:
         label: Kategori
         type: select
         options:
-          multiple: false
+          multiple: true
           values:
             - Fakta Unik
-            - Teknologi & Digital
+            - Teknologi
+            - Hiburan
+            - Olahraga
             - Gaya Hidup
-            - Bisnis & Cuan
       - name: populer
         label: Tampilkan di Slider Populer (Utama)
         type: boolean
@@ -74,4 +75,3 @@ content:
       - name: body
         label: Isi Artikel
         type: rich-text
-        
