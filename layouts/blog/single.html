@@ -1,4 +1,11 @@
 {{ define "main" }}
+<style>
+  /* Menyembunyikan ikon mata / view counter bawaan dari JS/CSS */
+  #view-count, .post__views, .view-counter, .floating-views, #floating-view-counter {
+    display: none !important;
+  }
+</style>
+
 <main class="main" role="main">
 
   <!-- 1. BANNER & RUNNING TEXT KHAS PENCORET -->
@@ -35,27 +42,32 @@
     </figure>
     {{- end }}
 
-    <!-- 4. KONTEN ARTIKEL + BACA JUGA OTOMATIS DI TENGAH -->
+    <!-- 4. KONTEN ARTIKEL + BACA JUGA OTOMATIS DI ATAS SUB JUDUL -->
     <div class="content post__content clearfix">
-      {{- $paragraphs := split .Content "</p>" -}}
-      {{- $total := len $paragraphs -}}
-      {{- $mid := div $total 2 -}}
+      {{- $parts := split .Content "<h2" -}}
+      {{- $total := len $parts -}}
       {{- $related := .Site.RegularPages.Related . | first 3 -}}
+      {{- /* Menentukan posisi di atas subjudul ke-2 (tengah), atau subjudul ke-1 jika subjudul cuma 1 */ -}}
+      {{- $targetIdx := 2 -}}
+      {{- if le $total 2 -}}
+        {{- $targetIdx = 1 -}}
+      {{- end -}}
 
-      {{- range $index, $p := $paragraphs -}}
-        {{- if ne (trim $p " \n\r\t") "" -}}
-          {{ $p | safeHTML }}</p>
-        {{- end -}}
-
-        {{- if and (eq $index $mid) (gt (len $related) 0) -}}
-        <div class="baca-juga-tengah" style="background: #f9f9f9; border-left: 4px solid #e22d30; padding: 12px 15px; margin: 20px 0;">
-          <strong>Baca Juga:</strong>
-          <ul style="margin: 8px 0 0 20px;">
-            {{- range $related }}
-            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-            {{- end }}
-          </ul>
-        </div>
+      {{- range $index, $part := $parts -}}
+        {{- if eq $index 0 -}}
+          {{ $part | safeHTML }}
+        {{- else -}}
+          {{- if and (eq $index $targetIdx) (gt (len $related) 0) -}}
+          <div class="baca-juga-atas-subjudul" style="background: #f9f9f9; border-left: 4px solid #e22d30; padding: 12px 15px; margin: 22px 0;">
+            <strong>Baca Juga:</strong>
+            <ul style="margin: 8px 0 0 20px;">
+              {{- range $related }}
+              <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+              {{- end }}
+            </ul>
+          </div>
+          {{- end -}}
+          {{ printf "<h2%s" $part | safeHTML }}
         {{- end -}}
       {{- end -}}
     </div>
