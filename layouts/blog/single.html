@@ -14,8 +14,62 @@
     {{ partial "headers.html" . }}
     {{ partial "custom_headers.html" . }}
     <style>
-      .post-wrap { padding: 20px 0 40px; max-width: 820px; margin: 0 auto; }
-      .post-cat { display: inline-block; font-size: 11px; font-weight: 700; color: #38a7bb; text-transform: uppercase; margin-bottom: 6px; }
+      .post-wrap { padding: 16px 0 40px; max-width: 820px; margin: 0 auto; position: relative; }
+      
+      /* BARIS ATAS JUDUL: KATEGORI DI KIRI & TOMBOL TITIK TIGA DI KANAN PAS ATAS JUDUL */
+      .above-title-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        position: relative;
+      }
+      .post-cat { display: inline-block; font-size: 11px; font-weight: 700; color: #38a7bb; text-transform: uppercase; text-decoration: none; }
+      
+      .title-dots-btn {
+        background: #38a7bb;
+        color: #ffffff;
+        border: none;
+        border-radius: 6px;
+        width: 32px;
+        height: 32px;
+        font-size: 19px;
+        font-weight: 800;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(56, 167, 187, 0.3);
+      }
+
+      /* DROPDOWN MENU SAAT TOMBOL TITIK 3 DIKLIK */
+      .title-dots-menu {
+        display: none;
+        position: absolute;
+        top: 38px;
+        right: 0;
+        width: 210px;
+        background-color: #38a7bb;
+        border: 1px solid #2e8f9f;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+        z-index: 9999;
+        padding: 6px 0;
+      }
+      .title-dots-menu.show { display: block; }
+      .title-dots-menu a {
+        display: block;
+        padding: 9px 16px;
+        color: #ffffff;
+        font-size: 13.5px;
+        font-weight: 700;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      }
+      .title-dots-menu a:last-child { border-bottom: none; }
+      .title-dots-menu a:hover { background: rgba(255, 255, 255, 0.16); }
+
       .post-title { font-size: 24px; font-weight: 800; line-height: 1.3; color: #1a2536; margin: 0 0 10px; }
       .post-meta { font-size: 12px; color: #777; margin-bottom: 16px; border-bottom: 1px solid #eee; padding-bottom: 12px; }
       .post-thumb { margin: 0 0 20px; border-radius: 10px; overflow: hidden; }
@@ -44,9 +98,25 @@
       <div id="content">
         <div class="container post-wrap">
           <article class="single-post">
-            {{ with .Params.categories }}
-              <a href="{{ "/categories/" | relURL }}{{ index . 0 | urlize }}/" class="post-cat">{{ index . 0 }}</a>
-            {{ end }}
+            
+            <!-- BARIS PAS DI ATAS JUDUL: KATEGORI DI KIRI, TOMBOL TITIK TIGA DI KANAN -->
+            <div class="above-title-bar">
+              <div>
+                {{ with .Params.categories }}
+                  <a href="{{ "/categories/" | relURL }}{{ index . 0 | urlize }}/" class="post-cat">{{ index . 0 }}</a>
+                {{ end }}
+              </div>
+              <div>
+                <button type="button" class="title-dots-btn" onclick="document.getElementById('titleDotsDropdown').classList.toggle('show')" aria-label="Menu Kategori">
+                  ⋮
+                </button>
+                <div id="titleDotsDropdown" class="title-dots-menu">
+                  {{- range .Site.Menus.main }}
+                    <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+                  {{- end }}
+                </div>
+              </div>
+            </div>
 
             <h1 class="post-title">{{ .Title }}</h1>
 
@@ -64,7 +134,6 @@
             </figure>
             {{- end }}
 
-            <!-- MENYIAPKAN ARTIKEL TERKAIT RELEVAN UNTUK GOOGLE SEO -->
             {{- $related := .Site.RegularPages.Related . | first 3 -}}
             {{- if eq (len $related) 0 -}}
               {{- $related = where .Site.RegularPages "Section" "blog" | first 4 -}}
@@ -83,7 +152,6 @@
               {{- $bacaJugaHTML = printf "<aside class=\"baca-juga-box\" aria-label=\"Baca Juga\"><strong>Baca Juga:</strong><ul>%s</ul></aside>" $items -}}
             {{- end -}}
 
-            <!-- KONTEN ARTIKEL + SISIPAN DI TENGAH PARAGRAF -->
             <div class="post-body">
               {{- $paras := split .Content "</p>" -}}
               {{- $count := len $paras -}}
