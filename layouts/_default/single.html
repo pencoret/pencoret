@@ -1,18 +1,20 @@
 {{ define "main" }}
 <main class="main" role="main">
-  
-  <!-- 1. BANNER & RUNNING TEXT OTOMATIS -->
-  <div class="custom-banner" style="margin-bottom: 15px; text-align: center;">
-    <img src="{{ "/img/banner.jpg" | relURL }}" alt="Banner" style="max-width: 100%; height: auto;">
+
+  <!-- 1. BANNER & RUNNING TEXT KHAS PENCORET -->
+  <div class="custom-banner" style="margin-bottom: 12px; text-align: center;">
+    <a href="/">
+      <img src="{{ .Site.Params.logo | relURL }}" alt="Banner PenCoret" style="max-width: 100%; height: auto;">
+    </a>
   </div>
-  <div class="running-text" style="background: #f4f4f4; padding: 8px; margin-bottom: 20px; border-left: 4px solid #e22d30;">
-    <marquee behavior="scroll" direction="left">Selamat datang! Baca informasi dan artikel terbaru kami di sini.</marquee>
+  <div class="running-text" style="background: #f4f4f4; padding: 8px 12px; margin-bottom: 20px; border-left: 4px solid #e22d30; font-size: 0.95em;">
+    <marquee behavior="scroll" direction="left">Selamat Datang di Ruang Baca dari sudut pandang yang berbeda, menyelami ide, mengurai cerita, dan menulis makna baru di setiap coretan pena.</marquee>
   </div>
 
   <article class="post">
     <header class="post__header">
       <h1 class="post__title">{{ .Title }}</h1>
-      
+
       <!-- 2. KATEGORI, TANGGAL, & META -->
       {{- with .Params.lead }}
       <p class="post__lead">{{ . }}</p>
@@ -22,10 +24,14 @@
       {{- end }}
     </header>
 
-    <!-- 3. FOTO THUMBNAIL UTAMA -->
-    {{- if .Params.thumbnail }}
+    <!-- 3. FOTO THUMBNAIL / FEATURED IMAGE -->
+    {{- $thumb := .Params.thumbnail | default .Params.image -}}
+    {{- if and (not $thumb) .Params.images -}}
+      {{- $thumb = index .Params.images 0 -}}
+    {{- end -}}
+    {{- if $thumb }}
     <figure class="post__thumbnail thumbnail">
-      <img class="thumbnail__image" src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}">
+      <img class="thumbnail__image" src="{{ $thumb | relURL }}" alt="{{ .Title }}">
     </figure>
     {{- end }}
 
@@ -62,7 +68,7 @@
         {{- end }}
       </div>
       <div class="post__views" style="margin-left: auto; font-size: 0.9em; color: #666;">
-        👁️ Dilihat: <span id="view-count">...</span> kali
+        Dilihat: <span id="view-count">...</span> kali
       </div>
     </footer>
   </article>
@@ -76,17 +82,17 @@
 <!-- 7. SKRIP PENGHITUNG VIEW CLOUDFLARE WORKER -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const slug = encodeURIComponent(window.location.pathname);
-  const workerUrl = `https://https://hitung-klik.coretpen4.workers.dev{slug}`;
-  
+  var slug = encodeURIComponent(window.location.pathname);
+  var workerHost = "hitung-klik.coretpen4.workers.dev";
+  var workerUrl = "https://" + workerHost + "/?slug=" + slug;
+
   fetch(workerUrl)
-    .then(res => res.json())
-    .then(data => {
-      const count = data.views ?? data.count ?? data.hits ?? data.total ?? data;
-      document.getElementById("view-count").innerText = (typeof count === 'object') ? 1 : count;
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      var count = data.views || data.count || data.hits || data.total || data;
+      document.getElementById("view-count").innerText = (typeof count === "object") ? "1" : count;
     })
-    .catch((err) => {
-      console.error("Gagal memuat view:", err);
+    .catch(function() {
       document.getElementById("view-count").innerText = "1";
     });
 });
