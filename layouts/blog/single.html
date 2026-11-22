@@ -143,7 +143,7 @@
                 </div>
               </div>
             </div>
-                        <h1 class="post-title">{{ .Title }}</h1>
+                                    <h1 class="post-title">{{ .Title }}</h1>
 
             <div class="post-meta">
               Oleh: <strong>{{ .Params.author | default "PenCoret" }}</strong> • {{ .Date.Format "02 Jan 2006" }}
@@ -180,21 +180,26 @@
               {{- $totalBoxes := len $bacaBoxes -}}
 
               {{- range $i, $p := $paras -}}
-                {{- /* Hanya bagian sebelum </p> terakhir yang merupakan paragraf utuh */ -}}
                 {{- if lt $i (sub $totalParts 1) -}}
                   {{ printf "%s</p>" $p | safeHTML }}
-                  {{- /* Sisipkan tepat DI LUAR setelah </p> pada paragraf ke-2 (1), ke-5 (4), dan ke-8 (7) */ -}}
-                  {{- if and (lt $boxIdx $totalBoxes) (or (eq $i 1) (eq $i 4) (eq $i 7)) -}}
-                    {{ index $bacaBoxes $boxIdx | safeHTML }}
-                    {{- $boxIdx = add $boxIdx 1 -}}
+                  
+                  {{- /* Cek apakah bagian berikutnya aman (bukan penutup list </li> atau kutipan </blockquote>) */ -}}
+                  {{- $nextPart := trim (index $paras (add $i 1)) " \n\r\t" -}}
+                  {{- $isSafeOutside := and (not (hasPrefix $nextPart "</li>")) (not (hasPrefix $nextPart "</blockquote>")) (not (hasPrefix $nextPart "</ul>")) (not (hasPrefix $nextPart "</ol>")) -}}
+
+                  {{- /* Target muncul setelah paragraf ke-2 (>=1), ke-5 (>=4), dan ke-8 (>=7) hanya jika posisinya aman di luar */ -}}
+                  {{- if and $isSafeOutside (lt $boxIdx $totalBoxes) -}}
+                    {{- if or (and (eq $boxIdx 0) (ge $i 1)) (and (eq $boxIdx 1) (ge $i 4)) (and (eq $boxIdx 2) (ge $i 7)) -}}
+                      {{ index $bacaBoxes $boxIdx | safeHTML }}
+                      {{- $boxIdx = add $boxIdx 1 -}}
+                    {{- end -}}
                   {{- end -}}
                 {{- else -}}
-                  {{- /* Bagian sisa setelah </p> terakhir (jika ada) tanpa menambah </p> */ -}}
                   {{ $p | safeHTML }}
                 {{- end -}}
               {{- end -}}
 
-              {{- /* Jika artikel pendek, tampilkan sisa Baca Juga di bawah akhir artikel */ -}}
+              {{- /* Jika artikel pendek, tampilkan sisa Baca Juga di akhir artikel */ -}}
               {{- if lt $boxIdx $totalBoxes -}}
                 {{- range $j := seq $boxIdx (sub $totalBoxes 1) -}}
                   {{ index $bacaBoxes $j | safeHTML }}
