@@ -27,7 +27,7 @@ Pergerakan harga logam mulia kembali menyita perhatian publik pada akhir pekan i
 
 Level harga tersebut menjadi sorotan karena bertahan di bawah angka psikologis Rp2,5 juta per gram. Posisi ini melandai cukup dalam dibandingkan rekor tertinggi sepanjang masa (*all-time high*) pada akhir Januari 2026 lalu yang sempat menyentuh Rp3.168.000 per gram.
 
-# Daftar Lengkap Harga Dasar Emas Antam di Logam Mulia (22 November 2026)
+## Daftar Lengkap Harga Dasar Emas Antam di Logam Mulia (22 November 2026)
 
 Bagi Anda yang sedang memantau momen beli untuk tabungan jangka panjang, berikut adalah rincian harga dasar emas batangan Antam di butik resmi Logam Mulia (belum termasuk potongan pajak PPh Pasal 22 sebesar 0,25% bagi pemilik NPWP/NIK terverifikasi):
 
