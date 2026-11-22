@@ -3,7 +3,7 @@ title: "Tentang Kami"
 description: "Mengenal lebih dekat PenCoret, media digital independen yang menyajikan informasi tren terkini, fakta unik, dan ulasan menarik."
 ---
 
-Selamat datang di **PenCoret** (`https://pencoret.my.id`), ruang baca digital yang hadir untuk menyajikan berbagai informasi menarik, fenomena yang sedang tren, serta fakta-fakta unik yang jarang dibahas secara mendalam.
+Selamat datang di **PenCoret** (`https://pencoret.pencoret.web.id`), ruang baca digital yang hadir untuk menyajikan berbagai informasi menarik, fenomena yang sedang tren, serta fakta-fakta unik yang jarang dibahas secara mendalam.
 
 ### Apa yang Kami Bahas?
 Di tengah derasnya arus informasi di internet dan media sosial setiap hari, PenCoret hadir untuk menyaring dan merangkum cerita-cerita paling relevan ke dalam tulisan yang ringan, informatif, dan mudah dipahami. Topik utama yang kami sajikan meliputi:

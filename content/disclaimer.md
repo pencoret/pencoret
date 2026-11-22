@@ -3,7 +3,7 @@ title: "Disclaimer"
 description: "Penafian resmi terkait keakuratan informasi, status media independen, hak cipta ilustrasi, dan batasan tanggung jawab di situs PenCoret."
 ---
 
-Seluruh informasi di **PenCoret** (`https://pencoret.my.id`) diterbitkan dengan iktikad baik untuk tujuan informasi dan edukasi umum.
+Seluruh informasi di **PenCoret** (`https://pencoret.pencoret.web.id`) diterbitkan dengan iktikad baik untuk tujuan informasi dan edukasi umum.
 
 * **Status Media Independen:** Dikelola secara independen sebagai media informasi warga (*citizen journalism*), bukan korporasi pers berbadan hukum.
 * **Keakuratan & Bukan Nasihat Profesional:** Tidak ada jaminan mutlak atas keakuratan informasi. Konten kesehatan, keuangan, maupun hukum tidak menggantikan nasihat profesional.

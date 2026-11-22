@@ -2,7 +2,7 @@ backend:
   name: github
   repo: pencoret/pencoret
   branch: main
-  base_url: https://pencoret.my.id
+  base_url: https://pencoret.pencoret.web.id
   auth_endpoint: auth
 collections:
   - name: "post"

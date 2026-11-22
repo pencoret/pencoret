@@ -4,11 +4,11 @@ url: "/contact/"
 description: "Hubungi Kami untuk koreksi informasi, hak jawab, atau kerja sama."
 ---
 
-Terima kasih telah mengunjungi **PenCoret** (`https://pencoret.my.id`). 
+Terima kasih telah mengunjungi **PenCoret** (`https://pencoret.pencoret.web.id`). 
 
 Jika Anda memiliki pertanyaan, saran topik pembahasan, koreksi informasi, pengajuan hak jawab, atau ingin menjalin kerja sama, silakan hubungi kami melalui saluran resmi di bawah ini:
 
-* **Email:** [admin@pencoret.my.id](coretpen4@gmail.com)
-* **Situs Web:** [https://pencoret.my.id](https://pencoret.my.id)
+* **Email:** [admin@pencoret.pencoret.web.id](coretpen4@gmail.com)
+* **Situs Web:** [https://pencoret.pencoret.web.id](https://pencoret.pencoret.web.id)
 
 Kami akan meninjau setiap pesan yang masuk dan berusaha merespons secepat mungkin pada hari kerja (umumnya dalam **1x24 hingga 2x24 jam**).

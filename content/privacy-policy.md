@@ -4,7 +4,7 @@ url: "/privacy-policy/"
 description: "Kebijakan Privasi resmi PenCoret terkait pengelolaan data pengunjung, penggunaan cookie, dan mitra periklanan Google AdSense."
 ---
 
-Privasi pengunjung sangat penting bagi **PenCoret** (`https://pencoret.my.id`). Dokumen Kebijakan Privasi ini menjelaskan jenis informasi yang dikumpulkan dan dicatat oleh situs kami serta bagaimana kami menggunakannya.
+Privasi pengunjung sangat penting bagi **PenCoret** (`https://pencoret.pencoret.web.id`). Dokumen Kebijakan Privasi ini menjelaskan jenis informasi yang dikumpulkan dan dicatat oleh situs kami serta bagaimana kami menggunakannya.
 
 ### File Log dan Cookie
 Seperti kebanyakan situs web lainnya, PenCoret menggunakan file log standar dan *cookie* untuk menganalisis tren, mengelola situs, serta mengumpulkan informasi demografis umum (seperti jenis browser, penyedia layanan internet, dan halaman rujukan) guna meningkatkan pengalaman membaca pengunjung. Informasi ini tidak terhubung dengan data identitas pribadi apa pun.
