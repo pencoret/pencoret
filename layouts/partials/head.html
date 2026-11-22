@@ -13,8 +13,9 @@
 <meta name="description" content="{{ $desc_plain }}">
 {{ hugo.Generator }}
 
-<!-- STYLESHEET BOOTSTRAP (Disesuaikan dengan class .in pada tema Anda / Bootstrap 3) & TEMA -->
-<link rel="stylesheet" href="https://jsdelivr.net" crossorigin="anonymous">
+<!-- STYLESHEET BOOTSTRAP 3 & FONT AWESOME (SESUAI TEMA HUGO UNIVERSAL) -->
+<link rel="stylesheet" href="https://cloudflare.com">
+<link rel="stylesheet" href="https://bootstrapcdn.com">
 <link href="{{ "css/style.default.css" | relURL }}" rel="stylesheet" id="theme-stylesheet">
 
 <!-- LOGO SITUS / FAVICON PNG TRANSPARAN UNTUK BROWSER & GOOGLE SEARCH -->
@@ -46,9 +47,9 @@
     "@type": "WebPage",
     "@id": "{{ .Permalink | absURL }}"
   },
-  "headline": {{ $title_plain }},
-  "description": {{ $desc_plain }},
-  {{ with .Params.banner }}"image": [{{ . | absURL }}],{{ end }}
+  "headline": "{{ $title_plain }}",
+  "description": "{{ $desc_plain }}",
+  {{ with .Params.banner }}"image": ["{{ . | absURL }}"],{{ end }}
   "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
   "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
   "author": {
@@ -87,7 +88,7 @@
   #all .navbar-header { display: none !important; }
   #all .navbar { min-height: 0 !important; margin: 0 !important; border: none !important; background: transparent !important; }
   #navigation.navbar-collapse.collapse { display: none !important; }
-  #navigation.navbar-collapse.collapse.in { display: block !important; background: #1a2536; padding: 10px 15px; position: absolute; right: 12px; top: 52px; z-index: 999; min-width: 220px; border-radius: 6px; box-shadow: 0 6px 16px rgba(0,0,0,0.35); }
+  #navigation.navbar-collapse.collapse.in { display: block !important; background: #1a2536; padding: 10px 15px; position: absolute; right: 12px; top: 52px; z-index: 99999; min-width: 220px; border-radius: 6px; box-shadow: 0 6px 16px rgba(0,0,0,0.35); }
   #navigation .navbar-nav, #navigation .navbar-nav > li { float: none !important; display: block !important; margin: 0 !important; }
   #navigation .navbar-nav > li > a { color: #fff !important; padding: 8px 12px !important; border-bottom: 1px solid rgba(255,255,255,0.1); }
   #navigation .navbar-nav > li > a:hover { background: #38a7bb !important; border-radius: 4px; }
