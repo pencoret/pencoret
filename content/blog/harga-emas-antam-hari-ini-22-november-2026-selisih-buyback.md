@@ -31,7 +31,7 @@ Level harga tersebut menjadi sorotan karena bertahan di bawah angka psikologis R
 
 Bagi Anda yang sedang memantau momen beli untuk tabungan jangka panjang, berikut adalah rincian harga dasar emas batangan Antam di butik resmi Logam Mulia (belum termasuk potongan pajak PPh Pasal 22 sebesar 0,25% bagi pemilik NPWP/NIK terverifikasi):
 
-Logam Mulia +2
+Logam Mulia
 
 - **0,5 gram:** Rp1.297.500
 - **1 gram:** Rp2.495.000
