@@ -3,7 +3,7 @@ title: Harga Emas Antam Bertahan di Bawah Rp2,5 Juta Hari Ini (22/11), tapi Cek
   Selisih Buyback-nya Sebelum Beli!
 seo_title: harga emas antam hari ini, perbandingan harga emas antam galeri 24
   ubs, harga buyback emas antam
-slug: harga-emas-antam-hari-ini-22-november-2026-selisih-buyback
+slug: harga-emas-antam-hari-ini-22-november-2026
 date: 2026-11-22
 author: PenCoret
 description: Update harga emas Antam hari ini (22/11/2026) bertahan di
@@ -50,7 +50,7 @@ Logam Mulia
 
 Selain membeli langsung di Butik Emas Antam, masyarakat juga kerap memburu logam mulia melalui gerai Pegadaian yang menyediakan cetakan Antam, Galeri 24, dan UBS. Mengutip data resmi Pegadaian per Minggu (22/11/2026), harga emas Galeri 24 dan UBS terpantau berada di kisaran Rp2,3 jutaan per gram.
 
-Berikut tabel perbandingan harga jual ketiga merek logam mulia tersebut di Pegadaian untuk pecahan populer:
+### Berikut tabel perbandingan harga jual ketiga merek logam mulia tersebut di Pegadaian untuk pecahan populer:
 
 
 | Ukuran | Emas Antam (Pegadaian) | Emas Galeri 24 | Emas UBS |
@@ -65,7 +65,7 @@ Berikut tabel perbandingan harga jual ketiga merek logam mulia tersebut di Pegad
 | **100 gram** | Rp247.368.000 | Rp226.745.000 | Rp228.886.000 |
 
 
-## Fakta Penting: Selisih Harga Beli dan *Buyback* yang Lebar
+### Fakta Penting: Selisih Harga Beli dan *Buyback* yang Lebar
 
 Hal paling krusial yang perlu dicermati pada pembaruan harga kali ini bukan hanya koreksi harga jualnya, melainkan selisih dengan harga pembelian kembali (*buyback*).
 
