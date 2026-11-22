@@ -41,22 +41,30 @@
     .nav-dropdown-select {
       appearance: none;
       -webkit-appearance: none;
-      background-color: #f4f6f8;
-      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://w3.org' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-      background-repeat: no-repeat;
-      background-position: right 10px center;
-      background-size: 14px;
-      color: #222;
-      border: 1px solid #dce1e7;
-      padding: 5px 28px 5px 14px;
-      border-radius: 20px;
-      font-size: 12.5px;
+      background-color: #38a7bb;
+      background-image: none;
+      color: #ffffff;
+      border: 1px solid #38a7bb;
+      padding: 5px 14px;
+      border-radius: 16px;
+      font-size: 12px;
       font-weight: 700;
+      text-align: center;
+      width: auto;
       cursor: pointer;
       outline: none;
       transition: 0.2s;
     }
-    .nav-dropdown-select:hover, .nav-dropdown-select:focus { border-color: #38a7bb; background-color: #eef8fa; }
+    .nav-dropdown-select:hover, .nav-dropdown-select:focus {
+      background-color: #2c8a9b;
+      border-color: #2c8a9b;
+    }
+    .nav-dropdown-select option {
+      background-color: #ffffff;
+      color: #222222;
+      font-weight: 600;
+      text-align: left;
+    }
 
     @keyframes penaEstetik {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -163,7 +171,7 @@
     }
     .mini-card-body h4 a { color: #222; text-decoration: none; transition: color 0.2s ease; }
     .mini-card:hover .mini-card-body h4 a { color: #38a7bb; }
-        .latest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
+    .latest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
     .big-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
     .big-card img { width: 100%; height: 115px; object-fit: cover; }
     .big-card-body { padding: 9px 10px; flex-grow: 1; }
@@ -220,6 +228,7 @@
     <div class="sec-header-row">
       <div class="sec-label">Postingan Populer</div>
       <select class="nav-dropdown-select" aria-label="Menu Navigasi Halaman" onchange="if(this.value) window.location.href=this.value">
+        <option value="" selected disabled hidden>Menu</option>
         <option value="{{ "/" | relURL }}">Beranda</option>
         {{ range .Site.Menus.footer }}
           <option value="{{ .URL | relURL }}">{{ .Name }}</option>
