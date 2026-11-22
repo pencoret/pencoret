@@ -26,45 +26,44 @@
 <meta name="twitter:description" content="{{ $desc_plain | truncate 200 }}">
 
 <style>
-  /* Menghilangkan ruang jarak di atas banner */
+  /* Menghilangkan ruang jarak bawaan tema */
   html, body, #all, header, .header {
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
 
-  /* Menarik banner ke atas (-22px) untuk menghilangkan blok putih di atasnya */
   .global-top-wrap, .article-top-wrap { 
     background: transparent !important; 
     padding-top: 0 !important; 
-    margin-top: -22px !important; 
+    margin-top: 0 !important; 
   }
   .global-top-wrap .container, .article-top-wrap .container { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
-  .banner-box-relative { position: relative; width: 100%; }
+  .banner-box-relative { position: relative; width: 100%; overflow: hidden; }
   
-  /* Tinggi Banner HP 130px */
+  /* Tinggi Banner HP 125px & Zoom 1.4x dengan titik pusat digeser untuk membuang ruang putih atas */
   .global-top-banner, .article-top-banner { 
     display: block; 
     width: 100%; 
-    height: 130px !important; 
+    height: 125px !important; 
     overflow: hidden !important; 
     border-radius: 0 !important; 
     position: relative !important;
   }
   .global-top-banner img, .article-top-banner img { 
     width: 100% !important; 
-    height: 130px !important; 
-    max-height: 130px !important; 
+    height: 125px !important; 
+    max-height: 125px !important; 
     object-fit: cover !important; 
-    object-position: center center !important; 
-    transform: scale(1.15) !important; 
+    transform: scale(1.4) translateY(4%) !important; 
+    transform-origin: center center !important;
     display: block; 
   }
   
-  .banner-dots-btn { position: absolute; top: 26px; right: 12px; z-index: 20; width: 36px; height: 36px; border-radius: 50%; background: rgba(26,37,54,0.85); color: #fff; border: 1px solid rgba(255,255,255,0.35); font-size: 20px; font-weight: bold; display: flex !important; align-items: center; justify-content: center; cursor: pointer; }
+  .banner-dots-btn { position: absolute; top: 10px; right: 12px; z-index: 20; width: 36px; height: 36px; border-radius: 50%; background: rgba(26,37,54,0.85); color: #fff; border: 1px solid rgba(255,255,255,0.35); font-size: 20px; font-weight: bold; display: flex !important; align-items: center; justify-content: center; cursor: pointer; }
   #all .navbar-header { display: none !important; }
   #all .navbar { min-height: 0 !important; margin: 0 !important; border: none !important; background: transparent !important; }
   #navigation.navbar-collapse.collapse { display: none !important; }
-  #navigation.navbar-collapse.collapse.in { display: block !important; background: #1a2536; padding: 10px 15px; position: absolute; right: 12px; top: 68px; z-index: 999; min-width: 220px; border-radius: 6px; box-shadow: 0 6px 16px rgba(0,0,0,0.35); }
+  #navigation.navbar-collapse.collapse.in { display: block !important; background: #1a2536; padding: 10px 15px; position: absolute; right: 12px; top: 52px; z-index: 999; min-width: 220px; border-radius: 6px; box-shadow: 0 6px 16px rgba(0,0,0,0.35); }
   #navigation .navbar-nav, #navigation .navbar-nav > li { float: none !important; display: block !important; margin: 0 !important; }
   #navigation .navbar-nav > li > a { color: #fff !important; padding: 8px 12px !important; border-bottom: 1px solid rgba(255,255,255,0.1); }
   #navigation .navbar-nav > li > a:hover { background: #38a7bb !important; border-radius: 4px; }
@@ -82,13 +81,13 @@
     .global-top-banner, .global-top-banner img, .article-top-banner, .article-top-banner img { 
       height: 180px !important; 
       max-height: 180px !important; 
-      transform: scale(1.1) !important;
+      transform: scale(1.25) !important;
     } 
   }
 
   /* 1. MENU DROPDOWN PAS DI BAWAH TOMBOL TITIK 3 */
   .navbar-affixed-top, .navbar-default, header { position: static !important; }
-  #navigation { position: absolute !important; top: 64px !important; right: 12px !important; left: auto !important; width: 210px !important; background: #1a2536 !important; border-radius: 6px !important; z-index: 99999 !important; box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important; }
+  #navigation { position: absolute !important; top: 48px !important; right: 12px !important; left: auto !important; width: 210px !important; background: #1a2536 !important; border-radius: 6px !important; z-index: 99999 !important; box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important; }
 
   /* 2. JUDUL RAPAT DENGAN "OLEH: PENCORET" */
   #heading-breadcrumbs, .heading-breadcrumbs { padding: 10px 0 2px 0 !important; margin: 0 !important; }
