@@ -1,7 +1,6 @@
 /* === Memperhalus Tampilan Kolom Postingan Pilihan === */
 
 /* 1. Mengatur tata letak grid agar rapi dan sejajar */
-/* Ganti '.featured-posts-grid' dengan nama class pembungkus (wrapper) di HTML Anda jika berbeda */
 .featured-posts-grid, 
 .postingan-pilihan-grid {
   display: grid;
@@ -11,14 +10,13 @@
 }
  
 /* 2. Styling kartu artikel agar terlihat halus & modern */
-/* Ganti '.featured-card' dengan class item kartu Anda jika berbeda */
 .featured-card,
 .postingan-pilihan-item {
   background: #ffffff;
   border: 1px solid #eaeaea;
-  border-radius: 12px; /* Sudut melengkung halus */
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Bayangan sangat lembut */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   display: flex;
   flex-direction: column;
@@ -27,8 +25,8 @@
 /* 3. Efek melayang halus saat kursor diarahkan (Hover) */
 .featured-card:hover,
 .postingan-pilihan-item:hover {
-  transform: translateY(-4px); /* Sedikit terangkat */
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08); /* Bayangan menyebar halus */
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   border-color: #d0d0d0;
 }
 
@@ -36,12 +34,11 @@
 .featured-card img,
 .postingan-pilihan-item img {
   width: 100%;
-  aspect-ratio: 16 / 9; /* Rasio gambar seragam */
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
 
-/* Efek zoom gambar sangat pelan saat di-hover */
 .featured-card:hover img,
 .postingan-pilihan-item:hover img {
   transform: scale(1.03);
@@ -55,7 +52,6 @@
   line-height: 1.45;
   margin: 14px 16px 16px;
   color: #222222;
-  /* Membatasi judul maksimal 3 baris agar tinggi kartu rata */
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -70,5 +66,21 @@
 
 .featured-card:hover h4,
 .postingan-pilihan-item:hover h4 {
-  color: #e22d30; /* Warna aksen merah khas tema Mainroad */
+  color: #e22d30;
 }
+
+/* === Menyesuaikan Banner Header PenCoret === */
+.logo__img,
+.header img {
+  width: 100%;
+  max-height: 110px; /* Mengatur tinggi agar ramping seperti gambar kedua */
+  object-fit: cover;
+  object-position: center;
+}
+
+@media screen and (max-width: 767px) {
+  .logo,
+  .header__inner {
+    padding: 0;
+  }
+  }
