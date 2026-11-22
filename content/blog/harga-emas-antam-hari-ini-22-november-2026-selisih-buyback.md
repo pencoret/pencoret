@@ -71,10 +71,10 @@ Hal paling krusial yang perlu dicermati pada pembaruan harga kali ini bukan hany
 
 Harga *buyback* emas Antam di Logam Mulia hari ini, berada di posisi **Rp2.095.000 per gram**. Artinya, terdapat selisih sebesar **Rp400.000 per gram** antara harga saat Anda membeli emas di gerai resmi dengan harga saat Anda menjualnya kembali ke Antam.
 
-Fakta ini menegaskan bahwa emas batangan fisik sangat tidak disarankan untuk instrumen spekulasi jangka pendek (minggu atau bulan). Dengan selisih yang mencapai Rp 400 ribu per gram itu, pemilik emas membutuhkan kenaikan harga yang cukup signifikan hanya untuk mencapai titik impas (*break-even point*).
+Fakta ini menegaskan bahwa emas batangan fisik sangat tidak disarankan untuk instrumen spekulasi jangka pendek (minggu atau bulan). Dengan selisih yang mencapai Rp400 ribu per gram itu, pemilik emas membutuhkan kenaikan harga yang cukup signifikan hanya untuk mencapai titik impas (*break-even point*).
 
 ### Pemicu Utama Harga Emas Tertekan
 
 Koreksi harga emas domestik dalam sepekan terakhir, dipicu oleh melemahnya harga emas spot dunia. Penguatan indeks dolar Amerika Serikat serta meningkatnya ekspektasi pasar terhadap arah kebijakan suku bunga bank sentral AS (*The Fed*), membuat sebagian investor global mengalihkan dananya dari logam mulia ke instrumen berbasis dolar.
 
-Sebagai catatan tambahan sebelum bertransaksi, setiap penjualan kembali (*buyback*) emas batangan ke PT Antam Tbk dengan nominal di atas Rp 10 juta, akan dikenakan potongan PPh Pasal 22 sebesar 1,5% bagi pemegang NPWP dan 3% untuk non-NPWP yang dipotong langsung dari total nilai pencairan.
+Sebagai catatan tambahan sebelum bertransaksi, setiap penjualan kembali (*buyback*) emas batangan ke PT Antam Tbk dengan nominal di atas Rp10 juta, akan dikenakan potongan PPh Pasal 22 sebesar 1,5% bagi pemegang NPWP dan 3% untuk non-NPWP yang dipotong langsung dari total nilai pencairan.
