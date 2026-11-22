@@ -26,7 +26,10 @@
 <meta name="twitter:description" content="{{ $desc_plain | truncate 200 }}">
 
 <style>
-  /* Menghilangkan ruang jarak bawaan tema */
+  /* Sembunyikan bar atas bawaan tema jika ada */
+  #top, .top-bar { display: none !important; }
+
+  /* Menghilangkan ruang jarak bawaan tema di atas halaman */
   html, body, #all, header, .header {
     margin-top: 0 !important;
     padding-top: 0 !important;
@@ -38,9 +41,9 @@
     margin-top: 0 !important; 
   }
   .global-top-wrap .container, .article-top-wrap .container { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
-  .banner-box-relative { position: relative; width: 100%; overflow: hidden; }
+  .banner-box-relative { position: relative; width: 100%; overflow: hidden !important; }
   
-  /* Tinggi Banner HP 125px & Zoom 1.4x dengan titik pusat digeser untuk membuang ruang putih atas */
+  /* Tinggi Banner HP 125px & Zoom 1.45x + geser ke atas (-6%) agar putih atas keluar bingkai */
   .global-top-banner, .article-top-banner { 
     display: block; 
     width: 100%; 
@@ -54,7 +57,7 @@
     height: 125px !important; 
     max-height: 125px !important; 
     object-fit: cover !important; 
-    transform: scale(1.4) translateY(4%) !important; 
+    transform: scale(1.45) translateY(-6%) !important; 
     transform-origin: center center !important;
     display: block; 
   }
@@ -81,7 +84,7 @@
     .global-top-banner, .global-top-banner img, .article-top-banner, .article-top-banner img { 
       height: 180px !important; 
       max-height: 180px !important; 
-      transform: scale(1.25) !important;
+      transform: scale(1.25) translateY(-4%) !important;
     } 
   }
 
@@ -110,7 +113,7 @@
     }, 'google_translate_element');
 
     // Deteksi bahasa browser/perangkat pengunjung
-    var userLang = (navigator.language || navigator.userLanguage || 'id').toLowerCase().split('-');
+    var userLang = (navigator.language || navigator.userLanguage || 'id').toLowerCase().split('-')[0];
     
     // Jika bahasa pengunjung bukan Indonesia ('id'), otomatis terjemahkan
     if (userLang && userLang !== 'id') {
