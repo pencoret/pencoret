@@ -198,9 +198,10 @@
 
                 if (topParas.length >= 3) {
                   // Bagi posisi sebaran secara proporsional di sepanjang artikel (awal, tengah, akhir)
-                  var idx1 = Math.min(1, topParas.length - 1);
-                  var idx2 = Math.max(idx1 + 1, Math.floor(topParas.length * 0.5));
-                  var idx3 = Math.max(idx2 + 1, Math.floor(topParas.length * 0.8));
+                                    // Atur jarak sebaran lebih rapat ke atas (awal, sepertiga, dua pertiga artikel)
+                  var idx1 = Math.min(1, topParas.length - 1); // Setelah paragraf ke-2
+                  var idx2 = Math.max(idx1 + 1, Math.floor(topParas.length * 0.32)); // Dinaikkan dari 0.5 ke 0.32
+                  var idx3 = Math.max(idx2 + 1, Math.floor(topParas.length * 0.65)); // Ikut naik dari 0.8 ke 0.65
                   var targets = [idx1, idx2, idx3];
 
                   boxes.forEach(function(box, i) {
