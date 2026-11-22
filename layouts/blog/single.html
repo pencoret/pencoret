@@ -143,7 +143,8 @@
                 </div>
               </div>
             </div>
-                                    <h1 class="post-title">{{ .Title }}</h1>
+        
+            <h1 class="post-title">{{ .Title }}</h1>
 
             <div class="post-meta">
               Oleh: <strong>{{ .Params.author | default "PenCoret" }}</strong> • {{ .Date.Format "02 Jan 2006" }}
@@ -164,48 +165,61 @@
               {{- $related = where .Site.RegularPages "Section" "blog" | first 4 -}}
             {{- end -}}
 
-            {{- /* Kumpulkan maksimal 3 kotak Baca Juga secara terpisah */ -}}
-            {{- $bacaBoxes := slice -}}
-            {{- range $related }}
-              {{- if and (ne .RelPermalink $.RelPermalink) (lt (len $bacaBoxes) 3) }}
-                {{- $box := printf "\n<aside class=\"baca-juga-box\" aria-label=\"Baca Juga\"><strong>Baca Juga:</strong> <a href=\"%s\">%s</a></aside>\n" .RelPermalink .Title -}}
-                {{- $bacaBoxes = $bacaBoxes | append $box -}}
-              {{- end }}
-            {{- end -}}
-
-            <div class="post-body">
-              {{- $paras := split .Content "</p>" -}}
-              {{- $totalParts := len $paras -}}
-              {{- $boxIdx := 0 -}}
-              {{- $totalBoxes := len $bacaBoxes -}}
-
-              {{- range $i, $p := $paras -}}
-                {{- if lt $i (sub $totalParts 1) -}}
-                  {{ printf "%s</p>" $p | safeHTML }}
-                  
-                  {{- /* Cek apakah bagian berikutnya aman (bukan penutup list </li> atau kutipan </blockquote>) */ -}}
-                  {{- $nextPart := trim (index $paras (add $i 1)) " \n\r\t" -}}
-                  {{- $isSafeOutside := and (not (hasPrefix $nextPart "</li>")) (not (hasPrefix $nextPart "</blockquote>")) (not (hasPrefix $nextPart "</ul>")) (not (hasPrefix $nextPart "</ol>")) -}}
-
-                  {{- /* Target muncul setelah paragraf ke-2 (>=1), ke-5 (>=4), dan ke-8 (>=7) hanya jika posisinya aman di luar */ -}}
-                  {{- if and $isSafeOutside (lt $boxIdx $totalBoxes) -}}
-                    {{- if or (and (eq $boxIdx 0) (ge $i 1)) (and (eq $boxIdx 1) (ge $i 4)) (and (eq $boxIdx 2) (ge $i 7)) -}}
-                      {{ index $bacaBoxes $boxIdx | safeHTML }}
-                      {{- $boxIdx = add $boxIdx 1 -}}
-                    {{- end -}}
-                  {{- end -}}
-                {{- else -}}
-                  {{ $p | safeHTML }}
-                {{- end -}}
-              {{- end -}}
-
-              {{- /* Jika artikel pendek, tampilkan sisa Baca Juga di akhir artikel */ -}}
-              {{- if lt $boxIdx $totalBoxes -}}
-                {{- range $j := seq $boxIdx (sub $totalBoxes 1) -}}
-                  {{ index $bacaBoxes $j | safeHTML }}
-                {{- end -}}
-              {{- end -}}
+            <div class="post-body" id="artikelBody">
+              {{ .Content }}
             </div>
+
+            {{- /* Wadah tersembunyi untuk 3 kotak Baca Juga yang akan disebar otomatis di luar paragraf */ -}}
+            <div id="bacaJugaPool" style="display:none;">
+              {{- $shown := 0 -}}
+              {{- range $related }}
+                {{- if and (ne .RelPermalink $.RelPermalink) (lt $shown 3) }}
+                  <aside class="baca-juga-box" aria-label="Baca Juga">
+                    <strong>Baca Juga:</strong> <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                  </aside>
+                  {{- $shown = add $shown 1 -}}
+                {{- end }}
+              {{- end }}
+            </div>
+
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                var bodyEl = document.getElementById("artikelBody");
+                var poolEl = document.getElementById("bacaJugaPool");
+                if (!bodyEl || !poolEl) return;
+
+                var boxes = Array.prototype.slice.call(poolEl.querySelectorAll(".baca-juga-box"));
+                if (boxes.length === 0) return;
+
+                // Ambil hanya paragraf <p> tingkat atas (di luar <li> dan <blockquote>)
+                var topParas = Array.prototype.slice.call(bodyEl.children).filter(function(el) {
+                  return el.tagName === "P" && el.textContent.trim().length > 20;
+                });
+
+                if (topParas.length >= 3) {
+                  // Bagi posisi sebaran secara proporsional di sepanjang artikel (awal, tengah, akhir)
+                  var idx1 = Math.min(1, topParas.length - 1);
+                  var idx2 = Math.max(idx1 + 1, Math.floor(topParas.length * 0.5));
+                  var idx3 = Math.max(idx2 + 1, Math.floor(topParas.length * 0.8));
+                  var targets = [idx1, idx2, idx3];
+
+                  boxes.forEach(function(box, i) {
+                    var targetIdx = targets[i];
+                    if (targetIdx !== undefined && topParas[targetIdx]) {
+                      topParas[targetIdx].insertAdjacentElement("afterend", box);
+                    } else {
+                      bodyEl.appendChild(box);
+                    }
+                  });
+                } else {
+                  // Jika artikel sangat pendek, taruh di akhir artikel
+                  boxes.forEach(function(box) {
+                    bodyEl.appendChild(box);
+                  });
+                }
+                poolEl.remove();
+              });
+            </script>
 
             {{- with .Params.tags }}
             <div class="post-tags">
