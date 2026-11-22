@@ -23,7 +23,7 @@ banner_alt: Deretan logam mulia emas batangan berbagai ukuran di atas meja gelap
   sebagai ilustrasi pembaruan harga emas Antam, Galeri 24, dan UBS hari ini.
 banner_caption: "Ilustrasi: AI Generated Nano Banana 2 Gemini"
 ---
-Pergerakan harga logam mulia kembali menyita perhatian publik pada akhir pekan ini. Berdasarkan pantauan dari laman resmi Logam Mulia PT Aneka Tambang Tbk (Antam) pada Minggu (22/11/2026), harga emas batangan Antam ukuran 1 gram tercatat stagnan di level **Rp2.495.000** per gram setelah mengalami koreksi beruntun dalam lima hari perdagangan terakhir.
+Pergerakan harga logam mulia kembali menyita perhatian publik pada akhir pekan ini. Berdasarkan pantauan dari laman resmi Logam Mulia, PT Aneka Tambang Tbk (Antam) pada Minggu,(22/11/2026), harga emas batangan Antam ukuran 1 gram tercatat stagnan di level **Rp2.495.000** per gram setelah mengalami koreksi beruntun dalam lima hari perdagangan terakhir.
 
 Level harga tersebut menjadi sorotan karena bertahan di bawah angka psikologis Rp2,5 juta per gram. Posisi ini melandai cukup dalam dibandingkan rekor tertinggi sepanjang masa (*all-time high*) pada akhir Januari 2026 lalu yang sempat menyentuh Rp3.168.000 per gram.
 
