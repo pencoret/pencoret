@@ -142,7 +142,18 @@
     var rawLang = navigator.language || navigator.userLanguage || 'id';
     var userLang = rawLang.toLowerCase().split('-')[0];
     
-    // Jika bahasa pengunjung bukan Indonesia ('id'), otomatis terjemahkan
+    <!-- AUTO TRANSLATE SESUAI BAHASA BROWSER PENGUNJUNG -->
+<div id="google_translate_element" style="display:none;"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'id',
+      autoDisplay: false
+    }, 'google_translate_element');
+
+    var rawLang = navigator.language || navigator.userLanguage || 'id';
+    var userLang = rawLang.toLowerCase().split('-')[0];
+
     if (userLang && userLang !== 'id') {
       setTimeout(function() {
         var selectField = document.querySelector("#google_translate_element select");
@@ -160,3 +171,4 @@
   }
 </script>
 <script type="text/javascript" src="https://google.com"></script>
+
