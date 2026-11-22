@@ -1,7 +1,7 @@
-<header class="navbar-affixed-top" data-spy="affix" data-offset-top="62">
-    <div class="navbar navbar-default yamm" role="navigation" id="navbar" style="margin-bottom: 0; border-bottom: none;">
-        <div class="container">
-            <div class="navbar-header">
+<header class="navbar-affixed-top" data-spy="affix" data-offset-top="62" style="margin: 0 !important; padding: 0 !important; min-height: 0 !important; background: transparent !important;">
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar" style="margin: 0 !important; padding: 0 !important; min-height: 0 !important; border: none !important; background: transparent !important;">
+        <div class="container" style="padding: 0 !important; margin: 0 !important;">
+            <div class="navbar-header" style="display: none !important;">
                 <a class="navbar-brand home" href="{{ "/" | relLangURL }}" style="padding: 12px 15px; height: auto;">
                     <span style="font-weight: 800; font-size: 18px; color: #222; letter-spacing: -0.3px;">Selamat Datang di {{ .Site.Title }}</span>
                 </a>
@@ -37,6 +37,15 @@
 </header>
 
 <style>
+  /* Menghapus ruang kosong putih di atas banner dari pembungkus navbar */
+  .navbar-affixed-top, #navbar, #navbar .container {
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
   .kat-strip {
     background-color: #f8f9fa;
     border-top: 1px solid #e7e7e7;
