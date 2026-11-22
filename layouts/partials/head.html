@@ -1,6 +1,109 @@
+<meta charset="utf-8">
+<meta name="robots" content="all,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <!-- Title Tag untuk Google & Browser -->
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Params.seo_title | default .Title }} | {{ .Site.Title }}{{ end }}</title>
 
-<!-- Meta Title untuk Share Media Sosial (WhatsApp, Facebook, X) -->
+<link rel="canonical" href="{{ .Permalink | absURL }}" />
+<meta name="description" content="{{ default .Site.Params.defaultDescription .Description | markdownify | plainify }}">
+{{ hugo.Generator }}
+<link rel="stylesheet" href="https://cloudflare.com">
+<link rel="stylesheet" href="https://bootstrapcdn.com">
+<link href="{{ "css/style.default.css" | relURL }}" rel="stylesheet" id="theme-stylesheet">
+<link rel="shortcut icon" href="{{ "img/favicon.ico" | relURL }}" type="image/x-icon" />
+
+{{ $desc_plain := (default .Site.Params.defaultDescription .Description) | markdownify | plainify }}
+
+<!-- Meta Title & OpenGraph untuk Share Media Sosial (WhatsApp, Facebook, X) -->
 <meta property="og:title" content="{{ .Params.seo_title | default .Title }}">
+<meta property="og:description" content="{{ $desc_plain }}">
+<meta property="og:url" content="{{ .Permalink }}" />
+{{ with .Params.banner }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+{{ with .Params.banner_alt }}<meta property="og:image:alt" content="{{ . | markdownify | plainify }}">{{ end }}
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ .Params.seo_title | default .Title }}">
+<meta name="twitter:description" content="{{ $desc_plain | truncate 200 }}">
+
+<style>
+  .global-top-wrap, .article-top-wrap { background: transparent !important; padding-top: 0 !important; margin-top: 0 !important; }
+  .global-top-wrap .container, .article-top-wrap .container { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
+  .banner-box-relative { position: relative; width: 100%; }
+  
+  /* Tinggi Banner HP disetel ke 130px agar garis lengkung bawah logo utuh seperti gambar 2 */
+  .global-top-banner, .article-top-banner { display: block; width: 100%; height: 130px !important; overflow: hidden; border-radius: 0 !important; }
+  .global-top-banner img, .article-top-banner img { width: 100% !important; height: 130px !important; max-height: 130px !important; object-fit: cover !important; object-position: center !important; display: block; }
+  
+  .banner-dots-btn { position: absolute; top: 10px; right: 12px; z-index: 20; width: 36px; height: 36px; border-radius: 50%; background: rgba(26,37,54,0.85); color: #fff; border: 1px solid rgba(255,255,255,0.35); font-size: 20px; font-weight: bold; display: flex !important; align-items: center; justify-content: center; cursor: pointer; }
+  #all .navbar-header { display: none !important; }
+  #all .navbar { min-height: 0 !important; margin: 0 !important; border: none !important; background: transparent !important; }
+  #navigation.navbar-collapse.collapse { display: none !important; }
+  #navigation.navbar-collapse.collapse.in { display: block !important; background: #1a2536; padding: 10px 15px; position: absolute; right: 12px; top: 52px; z-index: 999; min-width: 220px; border-radius: 6px; box-shadow: 0 6px 16px rgba(0,0,0,0.35); }
+  #navigation .navbar-nav, #navigation .navbar-nav > li { float: none !important; display: block !important; margin: 0 !important; }
+  #navigation .navbar-nav > li > a { color: #fff !important; padding: 8px 12px !important; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  #navigation .navbar-nav > li > a:hover { background: #38a7bb !important; border-radius: 4px; }
+  .global-running-bar, .article-running-bar { background: #1a2536; color: #f4d08c; padding: 7px 0; overflow: hidden; white-space: nowrap; font-weight: 800; font-size: 13px; }
+  .global-running-text, .article-running-text { display: inline-block; padding-left: 100%; animation: jalanGlobal 16s linear infinite; }
+  @keyframes jalanGlobal { 0% { transform: translate(0,0); } 100% { transform: translate(-100%,0); } }
+  #footer { padding: 18px 0 12px 0 !important; }
+  #footer .container, #blog-post ~ div, .bar.background-white, #recent-posts { max-width: 960px; margin-left: auto; margin-right: auto; }
+  #footer h4 { margin: 0 0 6px 0 !important; font-size: 15px !important; }
+  #footer p { margin: 0 0 6px 0 !important; font-size: 13.5px !important; line-height: 1.5 !important; }
+  .box-image-text .image img, .post .image img { width: 100% !important; height: 180px !important; object-fit: cover !important; border-radius: 6px; }
+  
+  /* Tinggi Banner Layar PC/Desktop */
+  @media (min-width: 768px) { 
+    .global-top-banner, .global-top-banner img, .article-top-banner, .article-top-banner img { height: 180px !important; max-height: 180px !important; } 
+  }
+
+  /* 1. MENU DROPDOWN PAS DI BAWAH TOMBOL TITIK 3 */
+  .navbar-affixed-top, .navbar-default, header { position: static !important; }
+  #navigation { position: absolute !important; top: 48px !important; right: 12px !important; left: auto !important; width: 210px !important; background: #1a2536 !important; border-radius: 6px !important; z-index: 99999 !important; box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important; }
+
+  /* 2. JUDUL RAPAT DENGAN "OLEH: PENCORET" */
+  #heading-breadcrumbs, .heading-breadcrumbs { padding: 10px 0 2px 0 !important; margin: 0 !important; }
+  #heading-breadcrumbs h1 { margin: 0 0 2px 0 !important; font-size: 24px !important; }
+  #content > .container > .row { margin-top: 0 !important; }
+  .info-penulis { margin-top: 2px !important; padding-top: 0 !important; }
+
+  /* 3. GAMBAR & POSTINGAN DI BAWAH KOMENTAR SEJAJAR DENGAN ISI ARTIKEL */
+  #footer .container { max-width: 945px !important; padding: 0 15px !important; }
+  #footer img, .footer img { max-width: 100% !important; height: auto !important; border-radius: 6px !important; }
+</style>
+
+<!-- AUTO TRANSLATE SESUAI BAHASA BROWSER PENGUNJUNG -->
+<div id="google_translate_element" style="display:none;"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'id',
+      autoDisplay: false
+    }, 'google_translate_element');
+
+    // Deteksi bahasa browser/perangkat pengunjung
+    var userLang = (navigator.language || navigator.userLanguage || 'id').toLowerCase().split('-')[0];
+    
+    // Jika bahasa pengunjung bukan Indonesia ('id'), otomatis terjemahkan
+    if (userLang && userLang !== 'id') {
+      setTimeout(function() {
+        var selectField = document.querySelector("#google_translate_element select");
+        if (selectField) {
+          for (var i = 0; i < selectField.options.length; i++) {
+            if (selectField.options[i].value.indexOf(userLang) === 0) {
+              selectField.selectedIndex = i;
+              selectField.dispatchEvent(new Event("change"));
+              break;
+            }
+          }
+        }
+      }, 1000);
+    }
+  }
+</script>
+<script type="text/javascript" src="https://google.com"></script>
+
+<style>
+  /* Sembunyikan bar atas bawaan Google Translate agar desain blog tetap bersih */
+  .skiptranslate iframe, .goog-te-banner-frame { display: none !important; }
+  body { top: 0px !important; }
+</style>
