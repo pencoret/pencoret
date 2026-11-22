@@ -34,6 +34,7 @@ timeZone = 'Asia/Jakarta'
   date_format = '02 January 2006'
   logo = '/images/image_b36997e3.jpeg'
   logo_small = '/images/image_b36997e3.jpeg'
+  favicon = 'favicon.png'
   images = ['/images/image_d634cfff.jpg']
   opengraph = true
   twitter_cards = true
