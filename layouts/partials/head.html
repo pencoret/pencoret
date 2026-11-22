@@ -1,26 +1,23 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817"
      crossorigin="anonymous"></script>
 <meta charset="utf-8">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {{ $raw_title := .Params.seo_title | default .Title }}
 {{ $title_plain := $raw_title | markdownify | plainify }}
 {{ $desc_plain := (default .Site.Params.defaultDescription .Description) | markdownify | plainify }}
+{{- $thumb := .Params.banner | default .Params.thumbnail -}}
 
 <title>{{ $title_plain }}</title>
 <link rel="canonical" href="{{ .Permalink | absURL }}" />
 <meta name="description" content="{{ $desc_plain }}">
 {{ hugo.Generator }}
-<link rel="stylesheet" href="https://bootstrapcdn.com">
-<link rel="stylesheet" href="https://cloudflare.com">
-<link href="{{ "css/style.default.css" | relURL }}" rel="stylesheet" id="theme-stylesheet">
 
-<!-- STYLESHEET BOOTSTRAP 3 & FONT AWESOME (SESUAI TEMA HUGO UNIVERSAL) -->
-<link rel="stylesheet" href="https://cloudflare.com">
-<link rel="stylesheet" href="https://bootstrapcdn.com">
+<!-- STYLESHEET BOOTSTRAP 3 & FONT AWESOME (VALID & TIDAK DOBEL) -->
+<link rel="stylesheet" href="https://bootstrapcdn.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous">
 <link href="{{ "css/style.default.css" | relURL }}" rel="stylesheet" id="theme-stylesheet">
-
 
 <!-- LOGO SITUS / FAVICON PNG TRANSPARAN UNTUK BROWSER & GOOGLE SEARCH -->
 <link rel="icon" href="{{ "/images/logo-transparan.png" | relURL }}" type="image/png">
@@ -33,13 +30,13 @@
 <meta property="og:description" content="{{ $desc_plain }}">
 <meta property="og:url" content="{{ .Permalink | absURL }}" />
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
-{{ with .Params.banner }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+{{ with $thumb }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
 {{ with .Params.banner_alt }}<meta property="og:image:alt" content="{{ . | markdownify | plainify }}">{{ end }}
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $title_plain | truncate 70 }}">
 <meta name="twitter:description" content="{{ $desc_plain | truncate 200 }}">
-{{ with .Params.banner }}<meta name="twitter:image" content="{{ . | absURL }}">{{ end }}
+{{ with $thumb }}<meta name="twitter:image" content="{{ . | absURL }}">{{ end }}
 
 <!-- SCHEMA MARKUP UNTUK GOOGLE DISCOVER & RICH RESULTS -->
 {{ if .IsPage }}
@@ -49,23 +46,23 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "{{ .Permalink | absURL }}"
+    "@id": {{ .Permalink | absURL | jsonify }}
   },
-  "headline": "{{ $title_plain }}",
-  "description": "{{ $desc_plain }}",
-  {{ with .Params.banner }}"image": ["{{ . | absURL }}"],{{ end }}
+  "headline": {{ $title_plain | jsonify }},
+  "description": {{ $desc_plain | jsonify }},
+  {{ with $thumb }}"image": [{{ . | absURL | jsonify }}],{{ end }}
   "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
   "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
   "author": {
     "@type": "Person",
-    "name": "{{ .Params.author | default "Pencoret" }}"
+    "name": {{ (.Params.author | default "Pencoret") | jsonify }}
   },
   "publisher": {
     "@type": "Organization",
-    "name": "{{ .Site.Title }}",
+    "name": {{ .Site.Title | jsonify }},
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ "/images/logo-transparan.png" | absURL }}"
+      "url": {{ "/images/logo-transparan.png" | absURL | jsonify }}
     }
   }
 }
@@ -123,52 +120,5 @@
   /* 3. GAMBAR & POSTINGAN DI BAWAH KOMENTAR SEJAJAR DENGAN ISI ARTIKEL */
   #footer .container { max-width: 945px !important; padding: 0 15px !important; }
   #footer img, .footer img { max-width: 100% !important; height: auto !important; border-radius: 6px !important; }
-
-  /* Sembunyikan bar atas bawaan Google Translate agar desain blog tetap bersih */
-  .skiptranslate iframe, .goog-te-banner-frame { display: none !important; }
-  body { top: 0px !important; }
-</style>
-
-<!-- AUTO TRANSLATE SESUAI BAHASA BROWSER PENGUNJUNG -->
-<div id="google_translate_element" style="display:none;"></div>
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'id',
-      autoDisplay: false
-    }, 'google_translate_element');
-
-    // Deteksi bahasa utama browser/perangkat pengunjung
-    var rawLang = navigator.language || navigator.userLanguage || 'id';
-    var userLang = rawLang.toLowerCase().split('-')[0];
-    
-    <!-- AUTO TRANSLATE SESUAI BAHASA BROWSER PENGUNJUNG -->
-<div id="google_translate_element" style="display:none;"></div>
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'id',
-      autoDisplay: false
-    }, 'google_translate_element');
-
-    var rawLang = navigator.language || navigator.userLanguage || 'id';
-    var userLang = rawLang.toLowerCase().split('-')[0];
-
-    if (userLang && userLang !== 'id') {
-      setTimeout(function() {
-        var selectField = document.querySelector("#google_translate_element select");
-        if (selectField) {
-          for (var i = 0; i < selectField.options.length; i++) {
-            if (selectField.options[i].value.indexOf(userLang) === 0) {
-              selectField.selectedIndex = i;
-              selectField.dispatchEvent(new Event("change"));
-              break;
-            }
-          }
-        }
-      }, 1000);
-    }
-  }
-</script>
-<script type="text/javascript" src="https://google.com"></script>
-
+     </style>
+     
