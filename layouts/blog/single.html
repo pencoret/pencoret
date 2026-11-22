@@ -106,10 +106,8 @@
       .post-body img { max-width: 100%; height: auto; border-radius: 8px; margin: 14px 0; }
       .post-body h2 { font-size: 20px; font-weight: 700; color: #1a2536; margin: 26px 0 10px; }
       .post-body h3 { font-size: 18px; font-weight: 700; color: #1a2536; margin: 22px 0 8px; }
-      .baca-juga-box { background: #f4f6f8; border-left: 4px solid #38a7bb; padding: 14px 16px; margin: 24px 0; border-radius: 0 8px 8px 0; }
-      .baca-juga-box strong { color: #1a2536; font-size: 14px; display: block; margin-bottom: 6px; }
-      .baca-juga-box ul { margin: 0; padding-left: 18px; }
-      .baca-juga-box li { margin-bottom: 4px; font-size: 14px; }
+      .baca-juga-box { background: #f4f6f8; border-left: 4px solid #38a7bb; padding: 12px 16px; margin: 18px 0; border-radius: 0 8px 8px 0; font-size: 14.5px; line-height: 1.45; }
+      .baca-juga-box strong { color: #1a2536; margin-right: 4px; }
       .baca-juga-box a { color: #38a7bb; font-weight: 700; text-decoration: none; }
       .baca-juga-box a:hover { text-decoration: underline; }
       .post-tags { margin-top: 24px; padding-top: 14px; border-top: 1px solid #eee; font-size: 12px; color: #666; }
@@ -145,8 +143,7 @@
                 </div>
               </div>
             </div>
-
-            <h1 class="post-title">{{ .Title }}</h1>
+                        <h1 class="post-title">{{ .Title }}</h1>
 
             <div class="post-meta">
               Oleh: <strong>{{ .Params.author | default "PenCoret" }}</strong> • {{ .Date.Format "02 Jan 2006" }}
@@ -162,44 +159,46 @@
             </figure>
             {{- end }}
 
-            {{- $related := .Site.RegularPages.Related . | first 3 -}}
+            {{- $related := .Site.RegularPages.Related . | first 4 -}}
             {{- if eq (len $related) 0 -}}
               {{- $related = where .Site.RegularPages "Section" "blog" | first 4 -}}
             {{- end -}}
 
-            {{- $bacaJugaHTML := "" -}}
-            {{- $items := "" -}}
-            {{- $shown := 0 -}}
+            {{- /* Kumpulkan maksimal 3 kotak Baca Juga secara terpisah */ -}}
+            {{- $bacaBoxes := slice -}}
             {{- range $related }}
-              {{- if and (ne .RelPermalink $.RelPermalink) (lt $shown 3) }}
-                {{- $items = printf "%s<li><a href=\"%s\">%s</a></li>" $items .RelPermalink .Title -}}
-                {{- $shown = add $shown 1 -}}
+              {{- if and (ne .RelPermalink $.RelPermalink) (lt (len $bacaBoxes) 3) }}
+                {{- $box := printf "\n<aside class=\"baca-juga-box\" aria-label=\"Baca Juga\"><strong>Baca Juga:</strong> <a href=\"%s\">%s</a></aside>\n" .RelPermalink .Title -}}
+                {{- $bacaBoxes = $bacaBoxes | append $box -}}
               {{- end }}
-            {{- end -}}
-            {{- if gt $shown 0 -}}
-              {{- $bacaJugaHTML = printf "<aside class=\"baca-juga-box\" aria-label=\"Baca Juga\"><strong>Baca Juga:</strong><ul>%s</ul></aside>" $items -}}
             {{- end -}}
 
             <div class="post-body">
               {{- $paras := split .Content "</p>" -}}
-              {{- $count := len $paras -}}
-              {{- if gt $count 3 -}}
-                {{- $mid := div (sub $count 1) 2 -}}
-                {{- $before := slice -}}
-                {{- $after := slice -}}
-                {{- range $i, $p := $paras -}}
-                  {{- if le $i $mid -}}
-                    {{- $before = $before | append $p -}}
-                  {{- else -}}
-                    {{- $after = $after | append $p -}}
+              {{- $totalParts := len $paras -}}
+              {{- $boxIdx := 0 -}}
+              {{- $totalBoxes := len $bacaBoxes -}}
+
+              {{- range $i, $p := $paras -}}
+                {{- /* Hanya bagian sebelum </p> terakhir yang merupakan paragraf utuh */ -}}
+                {{- if lt $i (sub $totalParts 1) -}}
+                  {{ printf "%s</p>" $p | safeHTML }}
+                  {{- /* Sisipkan tepat DI LUAR setelah </p> pada paragraf ke-2 (1), ke-5 (4), dan ke-8 (7) */ -}}
+                  {{- if and (lt $boxIdx $totalBoxes) (or (eq $i 1) (eq $i 4) (eq $i 7)) -}}
+                    {{ index $bacaBoxes $boxIdx | safeHTML }}
+                    {{- $boxIdx = add $boxIdx 1 -}}
                   {{- end -}}
+                {{- else -}}
+                  {{- /* Bagian sisa setelah </p> terakhir (jika ada) tanpa menambah </p> */ -}}
+                  {{ $p | safeHTML }}
                 {{- end -}}
-                {{- $part1 := delimit $before "</p>" -}}
-                {{- $part2 := delimit $after "</p>" -}}
-                {{ printf "%s</p>%s%s" $part1 $bacaJugaHTML $part2 | safeHTML }}
-              {{- else -}}
-                {{ .Content }}
-                {{ $bacaJugaHTML | safeHTML }}
+              {{- end -}}
+
+              {{- /* Jika artikel pendek, tampilkan sisa Baca Juga di bawah akhir artikel */ -}}
+              {{- if lt $boxIdx $totalBoxes -}}
+                {{- range $j := seq $boxIdx (sub $totalBoxes 1) -}}
+                  {{ index $bacaBoxes $j | safeHTML }}
+                {{- end -}}
               {{- end -}}
             </div>
 
