@@ -27,7 +27,7 @@ Pergerakan harga logam mulia kembali menyita perhatian publik pada akhir pekan i
 
 Level harga tersebut menjadi sorotan karena bertahan di bawah angka psikologis Rp2,5 juta per gram. Posisi ini melandai cukup dalam dibandingkan rekor tertinggi sepanjang masa (*all-time high*) pada akhir Januari 2026 lalu yang sempat menyentuh Rp3.168.000 per gram.
 
-#### Daftar Lengkap Harga Dasar Emas Antam di Logam Mulia (22 November 2026)
+# Daftar Lengkap Harga Dasar Emas Antam di Logam Mulia (22 November 2026)
 
 Bagi Anda yang sedang memantau momen beli untuk tabungan jangka panjang, berikut adalah rincian harga dasar emas batangan Antam di butik resmi Logam Mulia (belum termasuk potongan pajak PPh Pasal 22 sebesar 0,25% bagi pemilik NPWP/NIK terverifikasi):
 
@@ -65,16 +65,16 @@ Berikut tabel perbandingan harga jual ketiga merek logam mulia tersebut di Pegad
 | **100 gram** | Rp247.368.000 | Rp226.745.000 | Rp228.886.000 |
 
 
-#### Fakta Penting: Selisih Harga Beli dan *Buyback* yang Lebar
+## Fakta Penting: Selisih Harga Beli dan *Buyback* yang Lebar
 
-Hal paling krusial yang perlu dicermati pada pembaruan harga kali ini bukan hanya koreksi harga jualnya, melainkan selisih (*spread*) dengan harga pembelian kembali (*buyback*).
+Hal paling krusial yang perlu dicermati pada pembaruan harga kali ini bukan hanya koreksi harga jualnya, melainkan selisih dengan harga pembelian kembali (*buyback*).
 
-Harga *buyback* emas Antam di Logam Mulia hari ini berada di posisi **Rp2.095.000 per gram**. Artinya, terdapat selisih sebesar **Rp400.000 per gram** antara harga saat Anda membeli emas di gerai resmi dengan harga saat Anda menjualnya kembali ke Antam.
+Harga *buyback* emas Antam di Logam Mulia hari ini, berada di posisi **Rp2.095.000 per gram**. Artinya, terdapat selisih sebesar **Rp400.000 per gram** antara harga saat Anda membeli emas di gerai resmi dengan harga saat Anda menjualnya kembali ke Antam.
 
-Fakta ini menegaskan bahwa emas batangan fisik sangat tidak disarankan untuk instrumen spekulasi jangka pendek (hitungan minggu atau bulan). Dengan selisih mencapai Rp400 ribu per gram, pemilik emas membutuhkan kenaikan harga yang cukup signifikan hanya untuk mencapai titik impas (*break-even point*).
+Fakta ini menegaskan bahwa emas batangan fisik sangat tidak disarankan untuk instrumen spekulasi jangka pendek (minggu atau bulan). Dengan selisih yang mencapai Rp 400 ribu per gram itu, pemilik emas membutuhkan kenaikan harga yang cukup signifikan hanya untuk mencapai titik impas (*break-even point*).
 
-#### Pemicu Utama Harga Emas Tertekan
+### Pemicu Utama Harga Emas Tertekan
 
-Koreksi harga emas domestik dalam sepekan terakhir dipicu oleh melemahnya harga emas spot dunia. Penguatan indeks dolar Amerika Serikat serta meningkatnya ekspektasi pasar terhadap arah kebijakan suku bunga bank sentral AS (*The Fed*) membuat sebagian investor global mengalihkan dananya dari logam mulia ke instrumen berbasis dolar.
+Koreksi harga emas domestik dalam sepekan terakhir, dipicu oleh melemahnya harga emas spot dunia. Penguatan indeks dolar Amerika Serikat serta meningkatnya ekspektasi pasar terhadap arah kebijakan suku bunga bank sentral AS (*The Fed*), membuat sebagian investor global mengalihkan dananya dari logam mulia ke instrumen berbasis dolar.
 
-Sebagai catatan tambahan sebelum bertransaksi, setiap penjualan kembali (*buyback*) emas batangan ke PT Antam Tbk dengan nominal di atas Rp10 juta akan dikenakan potongan PPh Pasal 22 sebesar 1,5% bagi pemegang NPWP dan 3% untuk non-NPWP yang dipotong langsung dari total nilai pencairan.
+Sebagai catatan tambahan sebelum bertransaksi, setiap penjualan kembali (*buyback*) emas batangan ke PT Antam Tbk dengan nominal di atas Rp 10 juta, akan dikenakan potongan PPh Pasal 22 sebesar 1,5% bagi pemegang NPWP dan 3% untuk non-NPWP yang dipotong langsung dari total nilai pencairan.
