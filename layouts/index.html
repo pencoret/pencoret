@@ -1,233 +1,326 @@
-{{ define "main" }}
-<style>
-  .home-wrap { padding-bottom: 35px; }
-  .sec-header-row { display: flex; justify-content: space-between; align-items: center; margin: 14px 0 8px; }
-  .sec-label { font-size: 15px; font-weight: 800; text-transform: uppercase; color: #222; border-left: 4px solid #38a7bb; padding-left: 10px; margin: 0; }
-  .nav-dropdown-select {
-    appearance: none;
-    -webkit-appearance: none;
-    background-color: #f4f6f8;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://w3.org' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 14px;
-    color: #222;
-    border: 1px solid #dce1e7;
-    padding: 5px 28px 5px 14px;
-    border-radius: 20px;
-    font-size: 12.5px;
-    font-weight: 700;
-    cursor: pointer;
-    outline: none;
-    transition: 0.2s;
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Site.Title }} — {{ .Site.Params.description }}</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="{{ "/images/logo-transparan.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ "/images/logo-transparan.png" | relURL }}">
+  <link rel="apple-touch-icon" href="{{ "/images/logo-transparan.png" | relURL }}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "PenCoret",
+        "alternateName": ["PenCoret.my.id", "Ruang Baca PenCoret"],
+        "url": "https://pencoret.my.id"
+      },
+      {
+        "@type": "Organization",
+        "name": "PenCoret",
+        "url": "https://pencoret.my.id",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ "/images/logo-transparan.png" | absURL }}"
+        }
+      }
+    ]
   }
-  .nav-dropdown-select:hover, .nav-dropdown-select:focus { border-color: #38a7bb; background-color: #eef8fa; }
+  </script>
 
-  .cat-menu-bar {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 8px;
-    margin: 10px 0 12px;
-    padding: 2px 2px 6px;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-  }
-  .cat-menu-bar::-webkit-scrollbar { display: none; }
-  .cat-menu-btn {
-    flex-shrink: 0;
-    white-space: nowrap;
-    background: #f4f6f8;
-    color: #222 !important;
-    border: 1px solid #dce1e7;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 12.5px;
-    font-weight: 700;
-    text-decoration: none !important;
-    text-transform: uppercase;
-    transition: 0.2s;
-  }
-  .cat-menu-btn:hover { background: #38a7bb; color: #fff !important; border-color: #38a7bb; }
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #fff; color: #333; margin: 0; }
+    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+    .home-wrap { padding-bottom: 35px; }
+    .sec-header-row { display: flex; justify-content: space-between; align-items: center; margin: 14px 0 8px; }
+    .sec-label { font-size: 15px; font-weight: 800; text-transform: uppercase; color: #222; border-left: 4px solid #38a7bb; padding-left: 10px; margin: 0; }
+    .nav-dropdown-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-color: #f4f6f8;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://w3.org' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 14px;
+      color: #222;
+      border: 1px solid #dce1e7;
+      padding: 5px 28px 5px 14px;
+      border-radius: 20px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      outline: none;
+      transition: 0.2s;
+    }
+    .nav-dropdown-select:hover, .nav-dropdown-select:focus { border-color: #38a7bb; background-color: #eef8fa; }
 
-  .pop-slider { position: relative; overflow: hidden; border-radius: 8px; background: #111; margin-top: 6px; }
-  .pop-track { display: flex; transition: transform 0.45s ease; will-change: transform; }
-  .pop-slide { min-width: 100%; position: relative; height: 240px; }
-  .pop-slide img { width: 100%; height: 100%; object-fit: cover; opacity: 0.78; }
-  .pop-overlay { position: absolute; bottom: 0; inset-inline: 0; padding: 18px 16px; background: linear-gradient(transparent, rgba(0,0,0,0.92)); }
-  .pop-overlay h2 { margin: 0; font-size: 18px; font-weight: 700; line-height: 1.35; }
-  .pop-overlay h2 a { color: #fff; text-decoration: none; }
-  .pop-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.55); color: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; cursor: pointer; z-index: 5; }
-  .pop-prev { left: 10px; } .pop-next { right: 10px; }
+    @keyframes penaEstetik {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25% { transform: translateY(-3.5px) rotate(-4deg); }
+      75% { transform: translateY(2px) rotate(3deg); }
+    }
+    .home-logo-overlay {
+      position: absolute;
+      top: 8px;
+      left: 12px;
+      z-index: 20;
+      display: inline-flex;
+      text-decoration: none;
+    }
+    .home-logo-animasi {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      background: transparent !important;
+      animation: penaEstetik 3.8s ease-in-out infinite;
+      transform-origin: bottom center;
+      display: block;
+    }
+    
+    .cat-menu-bar {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 8px;
+      margin: 10px 0 12px;
+      padding: 2px 2px 6px;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+    }
+    .cat-menu-bar::-webkit-scrollbar { display: none; }
+    .cat-menu-btn {
+      flex-shrink: 0;
+      white-space: nowrap;
+      background: #f4f6f8;
+      color: #222 !important;
+      border: 1px solid #dce1e7;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-decoration: none !important;
+      text-transform: uppercase;
+      transition: 0.2s;
+    }
+    .cat-menu-btn:hover { background: #38a7bb; color: #fff !important; border-color: #38a7bb; }
 
-  .mini-row {
-    display: flex;
-    gap: 14px;
-    overflow-x: auto;
-    padding: 6px 2px 14px;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-  .mini-row::-webkit-scrollbar { display: none; }
+    .pop-slider { position: relative; overflow: hidden; border-radius: 8px; background: #111; margin-top: 6px; }
+    .pop-track { display: flex; transition: transform 0.45s ease; will-change: transform; }
+    .pop-slide { min-width: 100%; position: relative; height: 240px; }
+    .pop-slide img { width: 100%; height: 100%; object-fit: cover; opacity: 0.78; }
+    .pop-overlay { position: absolute; bottom: 0; inset-inline: 0; padding: 18px 16px; background: linear-gradient(transparent, rgba(0,0,0,0.92)); }
+    .pop-overlay h2 { margin: 0; font-size: 18px; font-weight: 700; line-height: 1.35; }
+    .pop-overlay h2 a { color: #fff; text-decoration: none; }
+    .pop-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.55); color: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; cursor: pointer; z-index: 5; }
+    .pop-prev { left: 10px; } .pop-next { right: 10px; }
 
-  .mini-card {
-    width: 175px;
-    flex-shrink: 0;
-    scroll-snap-align: start;
-    border: 1px solid #edf0f3;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #ffffff;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-  .mini-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(56, 167, 187, 0.14);
-    border-color: #bfe3ea;
-  }
+    .mini-row {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding: 6px 2px 14px;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .mini-row::-webkit-scrollbar { display: none; }
 
-  .mini-card > a { display: block; overflow: hidden; }
-  .mini-card img { width: 100%; height: 105px; object-fit: cover; display: block; transition: transform 0.35s ease; }
-  .mini-card:hover img { transform: scale(1.05); }
+    .mini-card {
+      width: 175px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      border: 1px solid #edf0f3;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .mini-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(56, 167, 187, 0.14);
+      border-color: #bfe3ea;
+    }
 
-  .mini-card-body { padding: 10px 12px 12px; }
-  .mini-card-body h4 {
-    margin: 0;
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  .mini-card-body h4 a { color: #222; text-decoration: none; transition: color 0.2s ease; }
-  .mini-card:hover .mini-card-body h4 a { color: #38a7bb; }
+    .mini-card > a { display: block; overflow: hidden; }
+    .mini-card img { width: 100%; height: 105px; object-fit: cover; display: block; transition: transform 0.35s ease; }
+    .mini-card:hover img { transform: scale(1.05); }
 
-  .latest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
-  .big-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
-  .big-card img { width: 100%; height: 115px; object-fit: cover; }
-  .big-card-body { padding: 9px 10px; flex-grow: 1; }
-  .big-cat { font-size: 10px; font-weight: 700; color: #38a7bb; text-transform: uppercase; }
-  .big-card-body h3 { margin: 3px 0 5px; font-size: 13.5px; font-weight: 700; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .big-card-body h3 a { color: #222; text-decoration: none; }
-  .big-meta { font-size: 10.5px; color: #777; }
-  .all-post-box { margin-top: 16px; text-align: center; }
-  .btn-all-post { display: inline-flex; align-items: center; justify-content: center; width: 100%; max-width: 320px; background: #38a7bb; color: #fff !important; font-weight: 700; font-size: 14px; padding: 12px 20px; border-radius: 6px; text-decoration: none !important; transition: 0.2s; }
-  .btn-all-post:hover { background: #2c8a9b; }
+    .mini-card-body { padding: 10px 12px 12px; }
+    .mini-card-body h4 {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .mini-card-body h4 a { color: #222; text-decoration: none; transition: color 0.2s ease; }
+    .mini-card:hover .mini-card-body h4 a { color: #38a7bb; }
+        .latest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
+    .big-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+    .big-card img { width: 100%; height: 115px; object-fit: cover; }
+    .big-card-body { padding: 9px 10px; flex-grow: 1; }
+    .big-cat { font-size: 10px; font-weight: 700; color: #38a7bb; text-transform: uppercase; }
+    .big-card-body h3 { margin: 3px 0 5px; font-size: 13.5px; font-weight: 700; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .big-card-body h3 a { color: #222; text-decoration: none; }
+    .big-meta { font-size: 10.5px; color: #777; }
+    .all-post-box { margin-top: 16px; text-align: center; }
+    .btn-all-post { display: inline-flex; align-items: center; justify-content: center; width: 100%; max-width: 320px; background: #38a7bb; color: #fff !important; font-weight: 700; font-size: 14px; padding: 12px 20px; border-radius: 6px; text-decoration: none !important; transition: 0.2s; }
+    .btn-all-post:hover { background: #2c8a9b; }
 
-  @media (min-width: 768px) {
-    .pop-slide { height: 360px; } .pop-overlay h2 { font-size: 24px; }
-    .latest-grid { gap: 16px; } .big-card img { height: 185px; } .big-card-body h3 { font-size: 16px; }
-    .mini-card { width: 225px; } .mini-card img { height: 135px; }
-  }
-</style>
-<div class="home-wrap">
-  <nav class="cat-menu-bar" id="catMenuBar">
-    {{ range .Site.Menus.main }}
-      {{ if ne (lower .Name) "beranda" }}
-        <a href="{{ .URL | relURL }}" class="cat-menu-btn">{{ .Name }}</a>
-      {{ end }}
-    {{ end }}
-  </nav>
+    .site-footer { background: #1a2536; color: #ccc; padding: 18px 0 0; margin-top: 36px; font-size: 13px; }
+    .footer-top-flex { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+    .footer-logo img { max-height: 38px; display: block; background: transparent; }
+    .footer-nav { display: grid; grid-template-columns: repeat(2, auto); gap: 6px; justify-content: end; text-align: center; }
+    .footer-btn { background: rgba(255,255,255,0.1); color: #fff !important; border: 1px solid rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 14px; font-size: 11px; font-weight: 600; text-decoration: none !important; white-space: nowrap; transition: 0.2s; }
+    .footer-btn:hover { background: #38a7bb; border-color: #38a7bb; }
+    .footer-running-bottom { background: #38a7bb; color: #ffffff; padding: 9px 0; font-size: 13px; font-weight: 600; overflow: hidden; }
 
-  {{ $allPosts := where .Site.RegularPages "Section" "blog" }}
-  {{ $populerPosts := where $allPosts "Params.populer" true | default (first 5 $allPosts) }}
-
-  {{ if $populerPosts }}
-  <div class="sec-header-row">
-    <div class="sec-label">Postingan Populer</div>
-    <select class="nav-dropdown-select" aria-label="Menu Navigasi Halaman" onchange="if(this.value) window.location.href=this.value">
-      <option value="{{ "/" | relURL }}">Beranda</option>
-      {{ range .Site.Menus.footer }}
-        <option value="{{ .URL | relURL }}">{{ .Name }}</option>
-      {{ end }}
-    </select>
+    @keyframes jalanTeks { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
+    @media (min-width: 768px) {
+      .pop-slide { height: 360px; } .pop-overlay h2 { font-size: 24px; }
+      .latest-grid { gap: 16px; } .big-card img { height: 185px; } .big-card-body h3 { font-size: 16px; }
+      .mini-card { width: 225px; } .mini-card img { height: 135px; }
+    }
+  </style>
+</head>
+<body>
+  <div style="width: 100%; overflow: hidden; margin-top: 8px; position: relative;">
+    <a href="{{ "/" | relURL }}" class="home-logo-overlay" title="Beranda {{ .Site.Title }}">
+      <img src="{{ "/images/logo-transparan.png" | relURL }}" alt="Logo {{ .Site.Title }}" width="56" height="56" class="home-logo-animasi">
+    </a>
+    <img src="{{ "/images/image_dacac6d.jpeg" | relURL }}" alt="Banner PenCoret" style="width: 100%; display: block; transform: scale(1.12);">
   </div>
-  <div class="pop-slider" id="popSliderBox">
-    <div class="pop-track" id="popTrack">
-      {{ range first 5 $populerPosts }}
+  <div style="width: 100%; background: #1a2536; color: #f4d08c; padding: 5px 0; overflow: hidden; white-space: nowrap; font-weight: bold; font-size: 13px;">
+    <div style="display: inline-block; padding-left: 100%; animation: jalanTeks 22s linear infinite;">
+      Selamat Datang di Ruang Baca dari sudut pandang yang berbeda, menyelami ide, mengurai cerita, dan menulis makna baru di setiap coretan pena.
+    </div>
+  </div>
+
+  <div class="container home-wrap">
+    <nav class="cat-menu-bar" id="catMenuBar">
+      {{ range .Site.Menus.main }}
+        {{ if ne (lower .Name) "beranda" }}
+          <a href="{{ .URL | relURL }}" class="cat-menu-btn">{{ .Name }}</a>
+        {{ end }}
+      {{ end }}
+    </nav>
+
+    {{ $allPosts := where .Site.RegularPages "Section" "blog" }}
+    {{ $populerPosts := where $allPosts "Params.populer" true | default (first 5 $allPosts) }}
+
+    {{ if $populerPosts }}
+    <div class="sec-header-row">
+      <div class="sec-label">Postingan Populer</div>
+      <select class="nav-dropdown-select" aria-label="Menu Navigasi Halaman" onchange="if(this.value) window.location.href=this.value">
+        <option value="{{ "/" | relURL }}">Beranda</option>
+        {{ range .Site.Menus.footer }}
+          <option value="{{ .URL | relURL }}">{{ .Name }}</option>
+        {{ end }}
+      </select>
+    </div>
+    <div class="pop-slider" id="popSliderBox">
+      <div class="pop-track" id="popTrack">
+        {{ range first 5 $populerPosts }}
+        {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" }}
+        <div class="pop-slide">
+          <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
+          <div class="pop-overlay"><h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2></div>
+        </div>
+        {{ end }}
+      </div>
+      <button class="pop-nav pop-prev" onclick="moveSlide(-1)">❮</button>
+      <button class="pop-nav pop-next" onclick="moveSlide(1)">❯</button>
+    </div>
+    {{ end }}
+
+    <div class="sec-label" style="margin: 14px 0 8px;">Postingan Terbaru</div>
+    <div class="latest-grid">
+      {{ range first 4 $allPosts }}
       {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" }}
-      <div class="pop-slide">
+      <article class="big-card">
         <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
-        <div class="pop-overlay"><h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2></div>
+        <div class="big-card-body">
+          {{ with .Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
+          <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <div class="big-meta">{{ .Date.Format "02 Jan 2006" }}</div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+
+    {{ with after 4 $allPosts }}
+    <div class="mini-row" id="terbaruRow" style="margin-top: 10px;">
+      {{ range first 6 . }}
+      {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" }}
+      <div class="mini-card">
+        <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
+        <div class="mini-card-body"><h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4></div>
       </div>
       {{ end }}
     </div>
-    <button class="pop-nav pop-prev" onclick="moveSlide(-1)">❮</button>
-    <button class="pop-nav pop-next" onclick="moveSlide(1)">❯</button>
-  </div>
-  {{ end }}
+    {{ end }}
 
-  <div class="sec-header-row">
-    <div class="sec-label">Postingan Terbaru</div>
+    <div class="all-post-box"><a href="{{ "/blog/" | relURL }}" class="btn-all-post">Tampilkan Semua</a></div>
   </div>
-  <div class="latest-grid">
-    {{ range first 4 $allPosts }}
-    {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" }}
-    <article class="big-card">
-      <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
-      <div class="big-card-body">
-        {{ with .Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
-        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        <div class="big-meta">{{ .Date.Format "02 Jan 2006" }}</div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-flex">
+        <div class="footer-logo"><a href="{{ "/" | relURL }}"><img src="{{ "/images/logo-transparan.png" | relURL }}" alt="{{ .Site.Title }}" loading="lazy"></a></div>
+        <div class="footer-nav">{{ range .Site.Menus.footer }}<a href="{{ .URL | relURL }}" class="footer-btn">{{ .Name }}</a>{{ end }}</div>
       </div>
-    </article>
-    {{ end }}
-  </div>
-
-  {{ with after 4 $allPosts }}
-  <div class="mini-row" id="terbaruRow" style="margin-top: 10px;">
-    {{ range first 6 . }}
-    {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" }}
-    <div class="mini-card">
-      <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
-      <div class="mini-card-body"><h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4></div>
     </div>
-    {{ end }}
-  </div>
-  {{ end }}
+    <div class="footer-running-bottom">
+      <marquee behavior="scroll" direction="left" scrollamount="5">
+        &copy; {{ now.Format "2006" }} PenCoret | Terimakasih telah berkunjung di Ruang Baca Digital, semoga setiap coretan dapat memberi wawasan dan inspirasi baru.
+      </marquee>
+    </div>
+  </footer>
 
-  <div class="all-post-box"><a href="{{ "/blog/" | relURL }}" class="btn-all-post">Tampilkan Semua</a></div>
-</div>
+  <script>
+    let currentSlide = 0, popTimer;
+    function moveSlide(step) {
+      const track = document.getElementById('popTrack');
+      if (!track || track.children.length <= 1) return;
+      currentSlide = (currentSlide + step + track.children.length) % track.children.length;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    const popBox = document.getElementById('popSliderBox');
+    if (popBox) {
+      const startPop = () => popTimer = setInterval(() => moveSlide(1), 3500);
+      popBox.addEventListener('mouseenter', () => clearInterval(popTimer));
+      popBox.addEventListener('mouseleave', startPop);
+      startPop();
+    }
 
-<script>
-  let currentSlide = 0, popTimer;
-  function moveSlide(step) {
-    const track = document.getElementById('popTrack');
-    if (!track || track.children.length <= 1) return;
-    currentSlide = (currentSlide + step + track.children.length) % track.children.length;
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
-  }
-  const popBox = document.getElementById('popSliderBox');
-  if (popBox) {
-    const startPop = () => popTimer = setInterval(() => moveSlide(1), 3500);
-    popBox.addEventListener('mouseenter', () => clearInterval(popTimer));
-    popBox.addEventListener('mouseleave', startPop);
-    startPop();
-  }
-
-  function autoScrollRow(id, selector, speed) {
-    const row = document.getElementById(id);
-    if (!row) return;
-    let timer;
-    const step = () => {
-      const item = row.querySelector(selector);
-      if (!item) return;
-      if (row.scrollLeft + row.clientWidth >= row.scrollWidth - 5) row.scrollTo({ left: 0, behavior: 'smooth' });
-      else row.scrollBy({ left: item.offsetWidth + 12, behavior: 'smooth' });
-    };
-    const start = () => timer = setInterval(step, speed);
-    row.addEventListener('mouseenter', () => clearInterval(timer));
-    row.addEventListener('mouseleave', start);
-    row.addEventListener('touchstart', () => clearInterval(timer), { passive: true });
-    row.addEventListener('touchend', start);
-    start();
-  }
-  autoScrollRow('catMenuBar', '.cat-menu-btn', 3200);
-  autoScrollRow('terbaruRow', '.mini-card', 4000);
-</script>
-{{ end }}
-                              
+    function autoScrollRow(id, selector, speed) {
+      const row = document.getElementById(id);
+      if (!row) return;
+      let timer;
+      const step = () => {
+        const item = row.querySelector(selector);
+        if (!item) return;
+        if (row.scrollLeft + row.clientWidth >= row.scrollWidth - 5) row.scrollTo({ left: 0, behavior: 'smooth' });
+        else row.scrollBy({ left: item.offsetWidth + 12, behavior: 'smooth' });
+      };
+      const start = () => timer = setInterval(step, speed);
+      row.addEventListener('mouseenter', () => clearInterval(timer));
+      row.addEventListener('mouseleave', start);
+      row.addEventListener('touchstart', () => clearInterval(timer), { passive: true });
+      row.addEventListener('touchend', start);
+      start();
+    }
+    autoScrollRow('catMenuBar', '.cat-menu-btn', 3200);
+    autoScrollRow('terbaruRow', '.mini-card', 4000);
+  </script>
+</body>
+</html>
+  
