@@ -78,3 +78,15 @@ Fakta ini menegaskan bahwa emas batangan fisik sangat tidak disarankan untuk ins
 Koreksi harga emas domestik dalam sepekan terakhir, dipicu oleh melemahnya harga emas spot dunia. Penguatan indeks dolar Amerika Serikat serta meningkatnya ekspektasi pasar terhadap arah kebijakan suku bunga bank sentral AS (*The Fed*), membuat sebagian investor global mengalihkan dananya dari logam mulia ke instrumen berbasis dolar.
 
 Sebagai catatan tambahan sebelum bertransaksi, setiap penjualan kembali (*buyback*) emas batangan ke PT Antam Tbk dengan nominal di atas Rp10 juta, akan dikenakan potongan PPh Pasal 22 sebesar 1,5% bagi pemegang NPWP dan 3% untuk non-NPWP yang dipotong langsung dari total nilai pencairan.
+
+
+
+"Catatan: Informasi harga dapat berubah sewaktu-waktu dan artikel ini bertujuan sebagai edukasi, bukan ajakan mutlak berinvestasi."
+
+---
+
+**Sumber Referensi Data:**- PT Aneka Tambang Tbk (Logam Mulia) – *Pembaruan harga dasar dan buyback emas batangan per 23 November 2026.*
+
+- PT Pegadaian (Persero) & Galeri 24 – *Referensi perbandingan harga ritel logam mulia domestik.*
+
+- Direktorat Jenderal Pajak (Kementerian Keuangan RI) – *Ketentuan tarif PPh Pasal  22 atas transaksi emas batangan.*
