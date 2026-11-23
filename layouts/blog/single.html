@@ -12,33 +12,6 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{{ "/images/logo-transparan.png" | relURL }}">
     <link rel="apple-touch-icon" href="{{ "/images/logo-transparan.png" | relURL }}">
 
-    <!-- SCHEMA LOGO & ARTIKEL UNTUK GOOGLE SEARCH -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": {{ .Title | jsonify }},
-      "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
-      "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
-      "author": {
-        "@type": "Person",
-        "name": {{ (.Params.author | default "PenCoret") | jsonify }}
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "PenCoret",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "{{ "/images/logo-transparan.png" | absURL }}"
-        }
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{{ .Permalink }}"
-      }
-    }
-    </script>
-
     {{ partial "headers.html" . }}
     {{ partial "custom_headers.html" . }}
     <style>
@@ -174,17 +147,32 @@
               Oleh: <strong>{{ .Params.author | default "PenCoret" }}</strong> • {{ .Date.Format "02 Jan 2006" }}
             </div>
 
-            {{- $img := .Params.banner | default .Params.image | default .Params.thumbnail -}}
-            {{- if and (not $img) .Params.images -}}
-              {{- $img = index .Params.images 0 -}}
+            {{- $rawImg := .Params.banner | default .Params.image | default .Params.thumbnail -}}
+            {{- if and (not $rawImg) .Params.images -}}
+              {{- $rawImg = index .Params.images 0 -}}
             {{- end -}}
-            {{- if $img }}
-            <figure class="post-thumb">
-              <img src="{{ $img | relURL }}" alt="{{ .Title }}" fetchpriority="high">
-            </figure>
-            {{- end }}
 
-            {{- $related := .Site.RegularPages.Related . | first 4 -}}
+            {{- if $rawImg }}
+              {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+              {{- $res := resources.Get $cleanPath -}}
+              {{- if not $res -}}
+                {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+              {{- end -}}
+
+              {{- $finalSrc := $rawImg | relURL -}}
+              {{- if $res -}}
+                {{- $webp := $res.Resize "900x webp q85" -}}
+                {{- $finalSrc = $webp.RelPermalink -}}
+              {{- end -}}
+
+              <figure class="post-thumb">
+                <img src="{{ $finalSrc }}" alt="{{ .Params.banner_alt | default .Title }}" fetchpriority="high">
+                {{- with .Params.banner_caption -}}
+                  <figcaption style="font-size:12px; color:#666; margin-top:6px; text-align:center;">{{ . }}</figcaption>
+                {{- end -}}
+              </figure>
+            {{- end }}
+                        {{- $related := .Site.RegularPages.Related . | first 4 -}}
             {{- if eq (len $related) 0 -}}
               {{- $related = where .Site.RegularPages "Section" "blog" | first 4 -}}
             {{- end -}}
@@ -205,7 +193,8 @@
                 {{- end }}
               {{- end }}
             </div>
-                        <script>
+
+            <script>
               document.addEventListener("DOMContentLoaded", function() {
                 var bodyEl = document.getElementById("artikelBody");
                 var poolEl = document.getElementById("bacaJugaPool");
