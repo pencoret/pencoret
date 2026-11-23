@@ -7,8 +7,7 @@
 <meta name="description" content="{{ default .Site.Params.defaultDescription .Description | markdownify | plainify }}">
 {{ hugo.Generator }}
 
-<link rel="stylesheet" href="{{ printf "https://%s/%s" "://cloudflare.com" "ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" }}">
-<link rel="stylesheet" href="{{ printf "https://%s/%s" "://bootstrapcdn.com" "bootstrap/3.3.7/css/bootstrap.min.css" }}">
+<!-- Ambil 2 baris link CSS FontAwesome & Bootstrap dari themes/hugo-universal-theme/layouts/partials/headers.html -->
 <link href="{{ "css/style.default.css" | relURL }}" rel="stylesheet" id="theme-stylesheet">
 <link rel="shortcut icon" href="{{ "img/favicon.ico" | relURL }}" type="image/x-icon" />
 
@@ -23,7 +22,7 @@
 <meta name="twitter:title" content="{{ $title_plain | truncate 70 }}">
 <meta name="twitter:description" content="{{ $desc_plain | truncate 200 }}">
 
-<script async src="{{ printf "https:"//googlesyndication.com" "pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817" }}" crossorigin="anonymous"></script>
+<!-- TEMPEL KODE SCRIPT ADSENSE ASLI DARI DASHBOARD ADSENSE ANDA DI SINI -->
 
 <style>
   .global-top-wrap, .article-top-wrap { background: transparent !important; padding-top: 0 !important; margin-top: 0 !important; }
@@ -67,4 +66,4 @@
 
   .skiptranslate iframe, .goog-te-banner-frame { display: none !important; }
   body { top: 0px !important; }
-</style>
+               </style>
