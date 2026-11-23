@@ -1,5 +1,5 @@
 media:
-  input: static/images
+  input: assets/images
   output: /images
 
 content:
