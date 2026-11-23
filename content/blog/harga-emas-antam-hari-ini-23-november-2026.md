@@ -15,6 +15,7 @@ pilihan: false
 tags:
   - Harga Emas Antam, Harga Emas Hari Ini, Harga Emas Pegadaian, Harga Buyback
     Emas, Logam Mulia, Investasi Emas
+banner: /images/image_16dc1685.jpg
 banner_alt: Ilustrasi tumpukan emas batangan murni 999.9 dengan latar grafik
   pergerakan harga naik untuk berita update harga emas Antam 23 November 2026
 banner_caption: "Ilustrasi pergerakan harga emas batangan murni yang kembali
