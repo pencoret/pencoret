@@ -20,3 +20,16 @@ header img {
     max-height: 180px !important;
   }
 }
+
+/* === Memberi Sela Kanan & Kiri Isi Artikel === */
+.post__content {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .post__content {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
