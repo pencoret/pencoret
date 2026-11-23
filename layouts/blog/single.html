@@ -45,26 +45,19 @@
       .post-wrap { padding: 16px 0 40px; max-width: 820px; margin: 0 auto; position: relative; }
       
             /* BARIS KATEGORI DIBUAT FULL, SEMENTARA JUDUL SAMPAI TAG DIBERI SELA */
-      .post-title,
-      .post-meta,
-      .post-thumb,
-      .post-body,
-      .post-tags {
-        margin-left: 12px !important;
-        margin-right: 12px !important;
+      .post-      /* SELA KANAN DAN KIRI DARI JUDUL SAMPAI TAG */
+      .single-post {
+        padding-left: 12px;
+        padding-right: 12px;
+        box-sizing: border-box;
       }
-
       @media screen and (min-width: 768px) {
-        .post-title,
-        .post-meta,
-        .post-thumb,
-        .post-body,
-        .post-tags {
-          margin-left: 20px !important;
-          margin-right: 20px !important;
+        .single-post {
+          padding-left: 20px;
+          padding-right: 20px;
         }
       }
-      
+
       /* BARIS ATAS JUDUL: KATEGORI DI KIRI & TOMBOL TITIK TIGA DI KANAN PAS ATAS JUDUL */
       .above-title-bar {
         display: flex;
