@@ -47,8 +47,8 @@
         .latest-grid.mode-all .big-card:first-child .big-card-body { padding: 20px; justify-content: center; }
         .latest-grid.mode-all .big-card:first-child h3 { font-size: 21px; }
       }
-    </style>
-  </head>
+                     </style>
+                       </head>
   <body>
     <div id="all">
 
@@ -71,10 +71,20 @@
                 {{ if gt (len .Pages) 0 }}
                   <div class="latest-grid mode-all" id="postGrid">
                     {{ range $index, $page := .Pages }}
-                    {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "images/image_d634cfff.jpg" }}
+                    {{- $rawImg := .Params.banner | default .Params.image | default .Params.thumbnail | default "images/image_d634cfff.jpg" -}}
+                    {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+                    {{- $res := resources.Get $cleanPath -}}
+                    {{- if not $res -}}
+                      {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+                    {{- end -}}
+                    {{- $finalSrc := $rawImg | relURL -}}
+                    {{- if $res -}}
+                      {{- $webp := $res.Fill "600x338 webp q80" -}}
+                      {{- $finalSrc = $webp.RelPermalink -}}
+                    {{- end -}}
                     <article class="big-card" data-cats="{{ with .Params.categories }}{{ delimit . "|" }}{{ end }}">
                       <a href="{{ .Permalink }}">
-                        <img src="{{ $img | relURL }}" alt="{{ .Title }}" {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}>
+                        <img src="{{ $finalSrc }}" alt="{{ .Title }}" {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}>
                       </a>
                       <div class="big-card-body">
                         {{ with .Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
@@ -121,5 +131,4 @@
       }
     </script>
   </body>
-                      </html>
-                      
+</html>
