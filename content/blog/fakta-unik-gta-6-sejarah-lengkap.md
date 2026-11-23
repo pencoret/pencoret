@@ -9,9 +9,9 @@ description: GTA 6 resmi rilis 19 November 2026. Telusuri perjalanan GTA 1
   hingga GTA VI beserta fakta produksi Rp30 triliun tanpa AI yang jarang
   diketahui publik.
 categories:
+  - Hiburan
   - Fakta Unik
-  - Fakta Unik
-  - Teknologi & Digital
+  - Teknologi
 populer: true
 pilihan: true
 tags:
