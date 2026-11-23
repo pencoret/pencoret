@@ -15,9 +15,10 @@ pilihan: false
 tags:
   - Garuda Indonesia, GOTF 2026, Promo Tiket Pesawat, Tips Traveling, Fakta
     Unik, Tiket Murah
+banner: /images/image_9b0bca0d.jpg
 banner_alt: Ilustrasi memesan tiket pesawat promo GOTF 2026 melalui laptop dan
   ponsel di ruang tunggu bandara
-banner_caption: "• Ilustrasi berburu tiket promo penerbangan dalam gelaran GOTF
+banner_caption: "Ilustrasi berburu tiket promo penerbangan dalam gelaran GOTF
   2026. (Foto: PenCoret)"
 ---
 Garuda Indonesia kembali menggelar ajang berburu tiket pesawat murah bertajuk **Garuda Indonesia Online Travel Fair (GOTF) 2026** mulai **23 November hingga 2 Desember 2026**. Dalam gelaran akhir tahun yang bekerja sama dengan Bank Mandiri ini, penumpang berkesempatan mengamankan kursi penerbangan domestik maupun internasional dengan periode terbang fleksibel hingga **1 Desember 2027**.
