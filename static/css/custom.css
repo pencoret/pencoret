@@ -22,14 +22,17 @@ header img {
 }
 
 /* === Memberi Sela Kanan & Kiri Isi Artikel === */
+.post,
 .post__content {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  box-sizing: border-box !important;
 }
 
 @media screen and (min-width: 768px) {
+  .post,
   .post__content {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 45px !important;
+    padding-right: 45px !important;
   }
 }
