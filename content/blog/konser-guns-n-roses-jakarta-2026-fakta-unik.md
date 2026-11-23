@@ -9,7 +9,7 @@ description: Konser Guns N' Roses World Tour 2026 siap mengguncang Stadion Madya
   GBK Jakarta pada 21 November 2026. Cek fakta unik, rundown, harga tiket,
   hingga kolaborasi Rhoma Irama!
 categories:
-  - Fakta Unik
+  - Hiburan
   - Fakta Unik
 populer: true
 pilihan: true
