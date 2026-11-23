@@ -6,10 +6,13 @@
 <link rel="canonical" href="{{ .Permalink | absURL }}" />
 <meta name="description" content="{{ default .Site.Params.defaultDescription .Description | markdownify | plainify }}">
 {{ hugo.Generator }}
+
+<!-- CDN CSS LENGKAP (Pastikan link berakhiran .min.css) -->
 <link rel="stylesheet" href="https://cloudflare.com">
 <link rel="stylesheet" href="https://bootstrapcdn.com">
 <link href="{{ "css/style.default.css" | relURL }}" rel="stylesheet" id="theme-stylesheet">
 <link rel="shortcut icon" href="{{ "img/favicon.ico" | relURL }}" type="image/x-icon" />
+
 {{ $title_plain := (.Params.seo_title | default .Title) | markdownify | plainify }}
 {{ $desc_plain := (default .Site.Params.defaultDescription .Description) | markdownify | plainify }}
 <meta property="og:title" content="{{ $title_plain }}">
@@ -21,12 +24,17 @@
 <meta name="twitter:title" content="{{ $title_plain | truncate 70 }}">
 <meta name="twitter:description" content="{{ $desc_plain | truncate 200 }}">
 
+<!-- TEMPATKAN KODE VERIFIKASI / AUTO ADS ADSENSE DI SINI (Ganti ca-pub-XXXXXXXXXXXXXXXX dengan ID Anda) -->
+<!--
+<script async src="https://googlesyndication.com" crossorigin="anonymous"></script>
+-->
+
 <style>
   .global-top-wrap, .article-top-wrap { background: transparent !important; padding-top: 0 !important; margin-top: 0 !important; }
   .global-top-wrap .container, .article-top-wrap .container { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
   .banner-box-relative { position: relative; width: 100%; }
   
-  /* Penyesuaian Tinggi Banner di HP (110px) agar proporsional seperti gambar kedua */
+  /* Penyesuaian Tinggi Banner di HP (110px) */
   .global-top-banner, .article-top-banner { display: block; width: 100%; height: 110px !important; overflow: hidden; border-radius: 0 !important; }
   .global-top-banner img, .article-top-banner img { width: 100% !important; height: 110px !important; max-height: 110px !important; object-fit: cover !important; object-position: center !important; display: block; }
   
@@ -65,40 +73,7 @@
   /* 3. GAMBAR & POSTINGAN DI BAWAH KOMENTAR SEJAJAR DENGAN ISI ARTIKEL */
   #footer .container { max-width: 945px !important; padding: 0 15px !important; }
   #footer img, .footer img { max-width: 100% !important; height: auto !important; border-radius: 6px !important; }
-</style>
 
-<!-- AUTO TRANSLATE SESUAI BAHASA BROWSER PENGUNJUNG -->
-<div id="google_translate_element" style="display:none;"></div>
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'id',
-      autoDisplay: false
-    }, 'google_translate_element');
-
-    // Deteksi bahasa browser/perangkat pengunjung
-    var userLang = (navigator.language || navigator.userLanguage || 'id').toLowerCase().split('-')[0];
-    
-    // Jika bahasa pengunjung bukan Indonesia ('id'), otomatis terjemahkan
-    if (userLang && userLang !== 'id') {
-      setTimeout(function() {
-        var selectField = document.querySelector("#google_translate_element select");
-        if (selectField) {
-          for (var i = 0; i < selectField.options.length; i++) {
-            if (selectField.options[i].value.indexOf(userLang) === 0) {
-              selectField.selectedIndex = i;
-              selectField.dispatchEvent(new Event("change"));
-              break;
-            }
-          }
-        }
-      }, 1000);
-    }
-  }
-</script>
-<script type="text/javascript" src="https://google.com"></script>
-
-<style>
   /* Sembunyikan bar atas bawaan Google Translate agar desain blog tetap bersih */
   .skiptranslate iframe, .goog-te-banner-frame { display: none !important; }
   body { top: 0px !important; }
