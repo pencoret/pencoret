@@ -21,16 +21,17 @@ header img {
   }
 }
 
-/* === Memberi Sela Sejajar untuk Judul, Foto, dan Isi Artikel === */
-.post {
+/* === Memberi Sela Sejajar untuk Halaman Artikel === */
+.primary .post {
   padding-left: 24px !important;
   padding-right: 24px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   box-sizing: border-box !important;
 }
 
-/* Sela lebih lebar saat dibuka di layar Laptop / PC */
 @media screen and (min-width: 768px) {
-  .post {
+  .primary .post {
     padding-left: 45px !important;
     padding-right: 45px !important;
   }
