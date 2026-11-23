@@ -18,6 +18,9 @@ tags:
 banner_alt: Ilustrasi persaingan atlet renang perairan terbuka dan aquathlon
   berlari masuk ke laut dengan latar pesisir pantai dan gedung pencakar langit
   Jakarta pada ajang PON Pantai I 2026
+banner_caption: "Ilustrasi persaingan ketat para atlet pada cabang olahraga
+  perairan terbuka dan aquathlon dalam perhelatan PON Pantai I 2026 di kawasan
+  pesisir Jakarta. (Foto: Ilustrasi/PenCoret)"
 ---
 Perhelatan perdana Pekan Olahraga Nasional (PON) Pantai I 2026 yang terpusat di kawasan wisata Ancol, Jakarta Utara, memasuki fase persaingan yang semakin sengit. Ajang olahraga pantai pertama dalam sejarah Indonesia yang diikuti lebih dari seribu atlet dari berbagai provinsi ini menjadi panggung pembuktian ketangguhan fisik sekaligus strategi bertanding di arena pasir dan perairan terbuka.
 
@@ -28,8 +31,6 @@ Hingga Senin sore (23/11/2026), kontingen tuan rumah DKI Jakarta berhasil mengam
 
 
 ## Rekapitulasi Klasemen Sementara Papan Atas
-
-
 
 Berdasarkan data perolehan medali dari Panitia Besar (PB) PON Pantai 2026 per Senin (23/11/2026) sore, berikut adalah lima besar kontingen dengan raihan medali tertinggi:
 
@@ -53,8 +54,6 @@ Berdasarkan data perolehan medali dari Panitia Besar (PB) PON Pantai 2026 per Se
 
 ## 3 Fakta Menarik Persaingan di Arena Ancol
 
-
-
 ### 1. Dominasi DKI Jakarta di Perairan Terbuka dan Pentathlon
 
 Sebagai tuan rumah yang menurunkan kekuatan penuh sebanyak 133 atlet di seluruh cabang olahraga, DKI Jakarta langsung tancap gas di nomor-nomor perairan. Jakarta tampil perkasa pada cabang renang perairan terbuka nomor bergengsi 5.000 meter. Di sektor putri, Gusti Ayu Made Nadya Saraswati sukses merebut emas dengan catatan waktu 1 jam 6 menit 10,9 detik, disusul Sang Arka Ning Jaladri Prawatya yang juga menyumbang emas di sektor putra dengan waktu 1 jam 3 menit 26,9 detik. Jakarta juga menambah pundi-pundi emasnya lewat nomor *Mix Relay* Pentathlon.
@@ -75,8 +74,6 @@ Selain nomor individu, persaingan pada cabang beregu juga mulai mengerucut ke fa
 
 ## Menuju Penutupan 27 November 2026
 
-
-
 Perhelatan PON Pantai I 2026 masih menyisakan banyak nomor pertandingan hingga acara penutupan pada 27 November 2026 mendatang. Dengan total 67 nomor pertandingan yang diperebutkan dari 10 cabang olahraga—mulai dari akuatik, voli pantai, layar, hingga rugby pantai—selisih dua medali emas di papan atas masih sangat mungkin berubah dalam hitungan jam.
 
 
@@ -91,10 +88,8 @@ Kontingen mana yang menurutmu bakal mengunci gelar juara umum perdana di ajang b
 
 **Sumber Referensi Data:**
 
-* Kementerian Pemuda dan Olahraga RI (Kemenpora) – *Data penyelenggaraan dan jumlah cabang olahraga PON Pantai I 2026.*
+- Kementerian Pemuda dan Olahraga RI (Kemenpora) – *Data penyelenggaraan dan jumlah cabang olahraga PON Pantai I 2026.*
+- Portal Berita Nasional InfoPublik.id – *Laporan resmi catatan waktu dan hasil pertandingan cabang Triathlon–Aquathlon Super Sprint (23/11/2026).*
+- Antara News & Tribunnews – *Rekapitulasi klasemen sementara perolehan medali per 23 November 2026.*
+- Komite Olahraga Nasional Indonesia (KONI) Jawa Timur – *Data prestasi atlet Jawa Timur pada nomor Aquathlon.*
 
-* Portal Berita Nasional InfoPublik.id – *Laporan resmi catatan waktu dan hasil pertandingan cabang Triathlon–Aquathlon Super Sprint (23/11/2026).*
-
-* Antara News & Tribunnews – *Rekapitulasi klasemen sementara perolehan medali per 23 November 2026.*
-
-* Komite Olahraga Nasional Indonesia (KONI) Jawa Timur – *Data prestasi atlet Jawa Timur pada nomor Aquathlon.*
