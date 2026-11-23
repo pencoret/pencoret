@@ -5,7 +5,29 @@
 {{ $raw_title := .Params.seo_title | default .Title }}
 {{ $title_plain := $raw_title | markdownify | plainify }}
 {{ $desc_plain := (default .Site.Params.defaultDescription .Description) | markdownify | plainify }}
+
+{{- /* LOGIKA OTOMATISASI GAMBAR GOOGLE DISCOVER (1200x675 WEBP) */ -}}
 {{- $thumb := .Params.banner | default .Params.thumbnail -}}
+{{- $ogImage := "" -}}
+{{- $ogWidth := "" -}}
+{{- $ogHeight := "" -}}
+
+{{- if $thumb -}}
+  {{- $cleanPath := strings.TrimPrefix "/" $thumb -}}
+  {{- $img := resources.Get $cleanPath -}}
+  {{- if not $img -}}
+    {{- $img = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+  {{- end -}}
+
+  {{- if $img -}}
+    {{- $resized := $img.Fill "1200x675 webp q85" -}}
+    {{- $ogImage = $resized.Permalink -}}
+    {{- $ogWidth = "1200" -}}
+    {{- $ogHeight = "675" -}}
+  {{- else -}}
+    {{- $ogImage = $thumb | absURL -}}
+  {{- end -}}
+{{- end -}}
 
 <title>{{ $title_plain }}</title>
 <link rel="canonical" href="{{ .Permalink | absURL }}" />
@@ -26,13 +48,15 @@
 <meta property="og:description" content="{{ $desc_plain }}">
 <meta property="og:url" content="{{ .Permalink | absURL }}" />
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
-{{ with $thumb }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+{{ with $ogImage }}<meta property="og:image" content="{{ . }}">{{ end }}
+{{ with $ogWidth }}<meta property="og:image:width" content="{{ . }}">{{ end }}
+{{ with $ogHeight }}<meta property="og:image:height" content="{{ . }}">{{ end }}
 {{ with .Params.banner_alt }}<meta property="og:image:alt" content="{{ . | markdownify | plainify }}">{{ end }}
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $title_plain | truncate 70 }}">
 <meta name="twitter:description" content="{{ $desc_plain | truncate 200 }}">
-{{ with $thumb }}<meta name="twitter:image" content="{{ . | absURL }}">{{ end }}
+{{ with $ogImage }}<meta name="twitter:image" content="{{ . }}">{{ end }}
 
 <!-- KODE GOOGLE ADSENSE -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817"
@@ -50,12 +74,18 @@
   },
   "headline": {{ $title_plain | jsonify }},
   "description": {{ $desc_plain | jsonify }},
-  {{ with $thumb }}"image": [{{ . | absURL | jsonify }}],{{ end }}
+  {{ with $ogImage }}"image": [{
+    "@type": "ImageObject",
+    "url": {{ . | jsonify }},
+    "width": 1200,
+    "height": 675
+  }],{{ end }}
   "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
   "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
   "author": {
     "@type": "Person",
-    "name": {{ (.Params.author | default "Pencoret") | jsonify }}
+    "name": {{ (.Params.author | default "Pencoret") | jsonify }},
+    "url": {{ "tentang-kami/" | absURL | jsonify }}
   },
   "publisher": {
     "@type": "Organization",
