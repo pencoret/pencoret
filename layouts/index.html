@@ -244,14 +244,15 @@
     </div>
     <div class="pop-slider" id="popSliderBox">
       <div class="pop-track" id="popTrack">
-        {{ range first 5 $populerPosts }}
-        {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" }}
-        <div class="pop-slide">
-          <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
-          <div class="pop-overlay"><h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2></div>
-        </div>
-        {{ end }}
-      </div>
+  {{ range $index, $page := first 5 $populerPosts }}
+  {{ $img := $page.Params.banner | default $page.Params.image | default $page.Params.thumbnail | default "/images/image_d634cfff.jpg" }}
+  <div class="pop-slide">
+    <a href="{{ $page.Permalink }}"><img src="{{ $img | relURL }}" alt="{{ $page.Title }}" width="800" height="400" {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}></a>
+    <div class="pop-overlay"><h2><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></h2></div>
+  </div>
+  {{ end }}
+</div>
+
       <button class="pop-nav pop-prev" onclick="moveSlide(-1)">❮</button>
       <button class="pop-nav pop-next" onclick="moveSlide(1)">❯</button>
     </div>
