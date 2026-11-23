@@ -263,7 +263,7 @@
       {{ range first 4 $allPosts }}
       {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" }}
       <article class="big-card">
-        <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
+        <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" width="400" height="220"></a>
         <div class="big-card-body">
           {{ with .Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
           <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
