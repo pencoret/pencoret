@@ -24,15 +24,7 @@ header img {
 /* === Memberi Sela Kanan & Kiri Isi Artikel === */
 .post,
 .post__content {
-  padding-left: 20px !important;
-  padding-right: 20px !important;
+  padding-left: 28px !important; /* Ubah angka ini sesuai selera */
+  padding-right: 28px !important;
   box-sizing: border-box !important;
-}
-
-@media screen and (min-width: 768px) {
-  .post,
-  .post__content {
-    padding-left: 45px !important;
-    padding-right: 45px !important;
-  }
 }
