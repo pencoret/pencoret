@@ -42,9 +42,9 @@ jobs:
 
       - name: Simpan dan Push perubahan
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@://github.com"
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
           git add -A
-          git diff-index --quiet HEAD || git commit -m "Pindahkan semua foto artikel ke assets/images"
+          git diff-index --quiet HEAD || git commit -m "Pindah foto ke assets/images"
           git push
           
