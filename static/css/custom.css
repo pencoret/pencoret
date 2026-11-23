@@ -61,4 +61,12 @@ body:not(.single) .posts-grid {
   margin-right: 0 !important;
   box-sizing: border-box !important;
 }
+/* === Menyejajarkan Baris Kategori Halaman Depan dengan Postingan Populer === */
+body:not(.single) .menu,
+body:not(.single) nav ul,
+body:not(.single) .category-bar,
+body:not(.single) .categories-scroll {
+  padding-left: 4px !important;
+  margin-left: 0 !important;
+}
 
