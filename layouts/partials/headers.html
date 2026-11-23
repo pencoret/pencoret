@@ -66,9 +66,11 @@
   #footer .container { max-width: 945px !important; padding: 0 15px !important; }
   #footer img, .footer img { max-width: 100% !important; height: auto !important; border-radius: 6px !important; }
 
-  .skiptranslate iframe, .goog-te-banner-frame { display: none !important; }
+    .skiptranslate iframe, .goog-te-banner-frame { display: none !important; }
   body { top: 0px !important; }
-       /* 4. BERI JARAK (PADDING) KIRI & KANAN PADA JUDUL DAN KONTEN ARTIKEL DI HP */
+
+  {{ if .IsPage }}
+  /* 4. BERI SELA KIRI & KANAN KHUSUS UNTUK HALAMAN ISI ARTIKEL DI HP */
   @media (max-width: 767px) {
     #heading-breadcrumbs .container,
     #content > .container {
@@ -84,4 +86,5 @@
       padding-right: 0 !important;
     }
   }
-               </style>
+  {{ end }}
+</style>
