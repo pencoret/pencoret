@@ -20,13 +20,23 @@ header img {
   }
 }
 
-/* === 2. Membuat Kontainer Halaman Depan Full-Width === */
-body:not(.single) #content .container,
-body:not(.single) .container {
+/* === 2. Halaman Depan Mainroad Full-Width (Tanpa Sela Samping) === */
+body:not(.single) .container,
+body:not(.single) .wrapper,
+body:not(.single) .main,
+body:not(.single) .primary {
   width: 100% !important;
   max-width: 100% !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+
+/* Meratakan baris menu/kategori atas di halaman depan ke sisi kiri */
+body:not(.single) .menu,
+body:not(.single) .menu__list,
+body:not(.single) .nav {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
 }
