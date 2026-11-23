@@ -1,0 +1,33 @@
+name: Pindah Gambar ke Assets
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  move-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Pindahkan foto artikel ke assets/images
+        run: |
+          mkdir -p assets/images
+          cd static/images
+          for file in *; do
+            if [ -f "$file" ] && [ "$file" != "logo-transparan.png" ] && [ "$file" != "image_dacac6d.jpeg" ] && [ "$file" != "image_d634cfff.jpg" ]; then
+              git mv "$file" "../../assets/images/$file"
+            fi
+          done
+
+      - name: Simpan dan Push perubahan
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@://github.com"
+          git add -A
+          git diff-index --quiet HEAD || git commit -m "Otomatis pindahkan foto artikel ke assets/images"
+          git push
+          
