@@ -7,10 +7,8 @@
 <meta name="description" content="{{ default .Site.Params.defaultDescription .Description | markdownify | plainify }}">
 {{ hugo.Generator }}
 
-<!-- CDN CSS LENGKAP (Pastikan link berakhiran .min.css) -->
-<!-- CDN CSS LENGKAP (FontAwesome 4.7.0 & Bootstrap 3.3.7 untuk tema Universal) -->
-<link rel="stylesheet" href="https://cloudflare.com">
-<link rel="stylesheet" href="https://bootstrapcdn.com">
+<link rel="stylesheet" href="{{ printf "https://%s/%s" "://cloudflare.com" "ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" }}">
+<link rel="stylesheet" href="{{ printf "https://%s/%s" "://bootstrapcdn.com" "bootstrap/3.3.7/css/bootstrap.min.css" }}">
 <link href="{{ "css/style.default.css" | relURL }}" rel="stylesheet" id="theme-stylesheet">
 <link rel="shortcut icon" href="{{ "img/favicon.ico" | relURL }}" type="image/x-icon" />
 
@@ -25,16 +23,13 @@
 <meta name="twitter:title" content="{{ $title_plain | truncate 70 }}">
 <meta name="twitter:description" content="{{ $desc_plain | truncate 200 }}">
 
-<!-- KODE GOOGLE ADSENSE (Sudah aktif tanpa tag komentar) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817" crossorigin="anonymous"></script>
+<script async src="{{ printf "https:"//googlesyndication.com" "pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817" }}" crossorigin="anonymous"></script>
 
 <style>
-  .global-top-wrap, .article-top-wrap { background: transparent !important; padding-top: 0 !important; margin-top: 0 !important; }
   .global-top-wrap, .article-top-wrap { background: transparent !important; padding-top: 0 !important; margin-top: 0 !important; }
   .global-top-wrap .container, .article-top-wrap .container { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
   .banner-box-relative { position: relative; width: 100%; }
   
-  /* Penyesuaian Tinggi Banner di HP (110px) */
   .global-top-banner, .article-top-banner { display: block; width: 100%; height: 110px !important; overflow: hidden; border-radius: 0 !important; }
   .global-top-banner img, .article-top-banner img { width: 100% !important; height: 110px !important; max-height: 110px !important; object-fit: cover !important; object-position: center !important; display: block; }
   
@@ -55,26 +50,21 @@
   #footer p { margin: 0 0 6px 0 !important; font-size: 13.5px !important; line-height: 1.5 !important; }
   .box-image-text .image img, .post .image img { width: 100% !important; height: 180px !important; object-fit: cover !important; border-radius: 6px; }
   
-  /* Penyesuaian Tinggi Banner di Layar PC/Desktop */
   @media (min-width: 768px) { 
     .global-top-banner, .global-top-banner img, .article-top-banner, .article-top-banner img { height: 165px !important; max-height: 165px !important; } 
   }
 
-  /* 1. MENU DROPDOWN PAS DI BAWAH TOMBOL TITIK 3 */
   .navbar-affixed-top, .navbar-default, header { position: static !important; }
   #navigation { position: absolute !important; top: 48px !important; right: 12px !important; left: auto !important; width: 210px !important; background: #1a2536 !important; border-radius: 6px !important; z-index: 99999 !important; box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important; }
 
-  /* 2. JUDUL RAPAT DENGAN "OLEH: PENCORET" */
   #heading-breadcrumbs, .heading-breadcrumbs { padding: 10px 0 2px 0 !important; margin: 0 !important; }
   #heading-breadcrumbs h1 { margin: 0 0 2px 0 !important; font-size: 24px !important; }
   #content > .container > .row { margin-top: 0 !important; }
   .info-penulis { margin-top: 2px !important; padding-top: 0 !important; }
 
-  /* 3. GAMBAR & POSTINGAN DI BAWAH KOMENTAR SEJAJAR DENGAN ISI ARTIKEL */
   #footer .container { max-width: 945px !important; padding: 0 15px !important; }
   #footer img, .footer img { max-width: 100% !important; height: auto !important; border-radius: 6px !important; }
 
-  /* Sembunyikan bar atas bawaan Google Translate agar desain blog tetap bersih */
   .skiptranslate iframe, .goog-te-banner-frame { display: none !important; }
   body { top: 0px !important; }
 </style>
