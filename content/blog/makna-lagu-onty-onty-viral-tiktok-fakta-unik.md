@@ -10,7 +10,7 @@ description: Penasaran arti lirik Dicari Onty Onty yang viral di TikTok? Simak
   makna sebenarnya, proses penciptaan, tujuan dibuat, serta 5 fakta uniknya di
   sini!
 categories:
-  - Fakta Unik
+  - Hiburan
 populer: true
 pilihan: false
 tags:
