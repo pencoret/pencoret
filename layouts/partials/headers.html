@@ -68,4 +68,20 @@
 
   .skiptranslate iframe, .goog-te-banner-frame { display: none !important; }
   body { top: 0px !important; }
+       /* 4. BERI JARAK (PADDING) KIRI & KANAN PADA JUDUL DAN KONTEN ARTIKEL DI HP */
+  @media (max-width: 767px) {
+    #heading-breadcrumbs .container,
+    #content > .container {
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+    }
+    #content > .container > .row {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    #blog-post {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
                </style>
