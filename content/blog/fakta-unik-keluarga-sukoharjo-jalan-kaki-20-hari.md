@@ -1,5 +1,5 @@
 ---
-title: Fakta di Balik Kisa Keluarga Sukoharjo yang Berjalan Kaki 20 Hari
+title: 3 Fakta Unik di Balik Kisa Keluarga Sukoharjo yang Berjalan Kaki 20 Hari
 seo_title: 3 Fakta Unik Kisah Keluarga Sukoharjo Jalan Kaki 20 Hari Demi Bertahan Hidup
 slug: fakta-unik-keluarga-sukoharjo-jalan-kaki-20-hari
 date: 2026-11-23
