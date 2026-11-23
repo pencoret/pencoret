@@ -13,21 +13,37 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Pindahkan foto artikel ke assets/images
+      - name: Rapikan dan pindahkan foto ke assets/images
         run: |
           mkdir -p assets/images
-          cd static/images
-          for file in *; do
-            if [ -f "$file" ] && [ "$file" != "logo-transparan.png" ] && [ "$file" != "image_dacac6d.jpeg" ] && [ "$file" != "image_d634cfff.jpg" ]; then
-              git mv "$file" "../../assets/images/$file"
+          mkdir -p static/images
+
+          if [ -d ".static/images" ]; then
+            for file in .static/images/*; do
+              [ -f "$file" ] && git mv "$file" "assets/images/$(basename "$file")"
+            done
+          fi
+
+          if [ -d "static/images" ]; then
+            for file in static/images/*; do
+              fname=$(basename "$file")
+              if [ -f "$file" ] && [ "$fname" != "logo-transparan.png" ] && [ "$fname" != "image_dacac6d.jpeg" ] && [ "$fname" != "image_d634cfff.jpg" ]; then
+                git mv "$file" "assets/images/$fname"
+              fi
+            done
+          fi
+
+          for aset in logo-transparan.png image_dacac6d.jpeg image_d634cfff.jpg; do
+            if [ -f "assets/images/$aset" ]; then
+              git mv "assets/images/$aset" "static/images/$aset"
             fi
           done
 
       - name: Simpan dan Push perubahan
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@://github.com"
+          git config user.email "41898282+github-actions[bot]@://github.com"
           git add -A
-          git diff-index --quiet HEAD || git commit -m "Otomatis pindahkan foto artikel ke assets/images"
+          git diff-index --quiet HEAD || git commit -m "Rapikan dan pindahkan foto artikel ke assets/images"
           git push
           
