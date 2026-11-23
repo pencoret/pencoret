@@ -15,6 +15,7 @@ pilihan: false
 tags:
   - PON Pantai 2026, Klasemen PON Pantai, Olahraga Nasional, DKI Jakarta, Jawa
     Timur, Jawa Barat, Berita Olahraga, Ancol Jakarta
+banner: /images/image_56138d71.jpg
 banner_alt: Ilustrasi persaingan atlet renang perairan terbuka dan aquathlon
   berlari masuk ke laut dengan latar pesisir pantai dan gedung pencakar langit
   Jakarta pada ajang PON Pantai I 2026
