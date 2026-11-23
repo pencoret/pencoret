@@ -313,18 +313,29 @@
 
     <div class="sec-label" style="margin: 14px 0 8px;">Postingan Terbaru</div>
     <div class="latest-grid">
-      {{ range first 4 $allPosts }}
-      {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" }}
-      <article class="big-card">
-        <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" width="400" height="220"></a>
-        <div class="big-card-body">
-          {{ with .Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
-          <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-          <div class="big-meta">{{ .Date.Format "02 Jan 2006" }}</div>
-        </div>
-      </article>
-      {{ end }}
+  {{ range first 4 $allPosts }}
+  {{- $rawImg := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+  {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+  {{- $res := resources.Get $cleanPath -}}
+  {{- if not $res -}}
+    {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+  {{- end -}}
+  {{- $finalSrc := $rawImg | relURL -}}
+  {{- if $res -}}
+    {{- $webp := $res.Fill "500x280 webp q80" -}}
+    {{- $finalSrc = $webp.RelPermalink -}}
+  {{- end -}}
+  <article class="big-card">
+    <a href="{{ .Permalink }}"><img src="{{ $finalSrc }}" alt="{{ .Title }}" width="400" height="220"></a>
+    <div class="big-card-body">
+      {{ with .Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
+      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+      <div class="big-meta">{{ .Date.Format "02 Jan 2006" }}</div>
     </div>
+  </article>
+  {{ end }}
+</div>
+
 
     {{ with after 4 $allPosts }}
     <div class="mini-row" id="terbaruRow" style="margin-top: 10px;">
