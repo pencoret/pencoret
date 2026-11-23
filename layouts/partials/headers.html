@@ -67,37 +67,6 @@
     .skiptranslate iframe, .goog-te-banner-frame { display: none !important; }
   body { top: 0px !important; }
 
-    {{ if .IsHome }}
-  /* HALAMAN DEPAN (BERANDA) FULL MENTOK KIRI-KANAN DI HP */
-  @media (max-width: 767px) {
-    #content > .container,
-    .bar.background-white > .container,
-    #recent-posts > .container {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-      width: 100% !important;
-    }
-    .row {
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-    }
-  }
-  {{ else if .IsPage }}
-  /* HALAMAN ISI ARTIKEL DIBERI SELA KIRI-KANAN 18PX DI HP */
-  @media (max-width: 767px) {
-    #heading-breadcrumbs .container,
-    #content > .container {
-      padding-left: 18px !important;
-      padding-right: 18px !important;
-    }
-    #content > .container > .row {
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-    }
-    #blog-post {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
-  }
-  {{ end }}
+{{ if .IsHome }}
+  
 </style>
