@@ -20,11 +20,12 @@ header img {
   }
 }
 
-/* === 2. Halaman Depan Full-Width (Tanpa Sela Luar) === */
+/* === 2. Halaman Depan Full-Width (Menghapus Semua Sela Pembungkus Utama) === */
 body:not(.single) .container,
 body:not(.single) .wrapper,
 body:not(.single) .primary,
-body:not(.single) .main {
+body:not(.single) .main,
+body:not(.single) .main__content {
   width: 100% !important;
   max-width: 100% !important;
   padding-left: 0 !important;
@@ -33,35 +34,42 @@ body:not(.single) .main {
   margin-right: 0 !important;
 }
 
-/* === 3. Meratakan Menu/Kategori Atas Mepet ke Pinggir === */
-body:not(.single) .menu,
-body:not(.single) .menu__list,
-body:not(.single) .menu__item:first-child .menu__link,
-body:not(.single) .nav {
+/* === 3. Memepetkan Garis Biru "POSTINGAN POPULER" ke Tepi Kiri === */
+body:not(.single) [style*="border-left"],
+body:not(.single) .section-title,
+body:not(.single) .category-title,
+body:not(.single) .popular-header,
+body:not(.single) .main__header,
+body:not(.single) .main__title,
+body:not(.single) h2,
+body:not(.single) h3 {
+  margin-left: 0 !important;
+}
+
+/* Menghapus padding kiri pada pembungkus baris judul agar garis biru menempel ke tepi */
+body:not(.single) .wrapper > div,
+body:not(.single) .container > div,
+body:not(.single) section {
   padding-left: 0 !important;
   margin-left: 0 !important;
 }
 
-/* === 4. Membuat "Postingan Populer" Mepet ke Garis Pinggir === */
-body:not(.single) .widget,
-body:not(.single) .widget__title,
-body:not(.single) .widget__content,
-body:not(.single) .widget__item,
-body:not(.single) .main__header,
-body:not(.single) .main__title {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+/* === 4. Menjaga Posisi Tombol "Menu" di Kanan Tetap pada Tempatnya === */
+body:not(.single) .menu-toggle,
+body:not(.single) .nav-toggle,
+body:not(.single) .menu-btn,
+body:not(.single) .btn-menu,
+body:not(.single) button {
+  margin-right: 15px !important;
 }
 
 /* === 5. Menghilangkan Sela Kanan-Kiri pada "Postingan Terbaru" === */
-body:not(.single) .main__content,
 body:not(.single) .list,
 body:not(.single) .list__item,
 body:not(.single) .list__header,
 body:not(.single) .list__content,
-body:not(.single) .list__footer {
+body:not(.single) .list__footer,
+body:not(.single) article {
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: 0 !important;
