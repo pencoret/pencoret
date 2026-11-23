@@ -36,11 +36,10 @@ header img {
     padding-right: 45px !important;
   }
 }
-/* === Membuat Halaman Depan Full-Width (Tanpa Sela Samping) === */
-body.home #content .container,
-body.home .wrapper,
-body.home .main,
-body.home .primary {
+
+/* === Membuat Halaman Depan Full-Width (Populer & Terbaru Mepet Samping) === */
+body:not(.single) #content .container,
+body:not(.single) .container {
   width: 100% !important;
   max-width: 100% !important;
   padding-left: 0 !important;
@@ -48,3 +47,18 @@ body.home .primary {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+
+/* Memastikan judul "POSTINGAN POPULER" & "POSTINGAN TERBARU" mepet ke samping */
+body:not(.single) h2,
+body:not(.single) h3,
+body:not(.single) .section-title,
+body:not(.single) .popular-header,
+body:not(.single) .latest-grid,
+body:not(.single) .posts-grid {
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
