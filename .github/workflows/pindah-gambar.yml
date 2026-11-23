@@ -19,6 +19,7 @@ jobs:
           mkdir -p static/images
 
           if [ -d ".static/images" ]; then
+            git rm -f ".static/images/.gitkeep" 2>/dev/null || rm -f ".static/images/.gitkeep"
             for file in .static/images/*; do
               [ -f "$file" ] && git mv "$file" "assets/images/$(basename "$file")"
             done
@@ -42,8 +43,8 @@ jobs:
       - name: Simpan dan Push perubahan
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@://github.com"
+          git config user.email "github-actions[bot]@://github.com"
           git add -A
-          git diff-index --quiet HEAD || git commit -m "Rapikan dan pindahkan foto artikel ke assets/images"
+          git diff-index --quiet HEAD || git commit -m "Pindahkan semua foto artikel ke assets/images"
           git push
           
