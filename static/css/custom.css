@@ -21,10 +21,17 @@ header img {
   }
 }
 
-/* === Memberi Sela Kanan & Kiri Isi Artikel === */
-.post,
+/* === Memberi Sela Khusus pada Isi Artikel agar Nyaman Dibaca === */
 .post__content {
-  padding-left: 28px !important; /* Ubah angka ini sesuai selera */
-  padding-right: 28px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
   box-sizing: border-box !important;
+}
+
+/* Sela lebih lebar saat dibuka di layar Laptop / PC */
+@media screen and (min-width: 768px) {
+  .post__content {
+    padding-left: 35px !important;
+    padding-right: 35px !important;
+  }
 }
