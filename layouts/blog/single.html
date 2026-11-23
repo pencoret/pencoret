@@ -44,21 +44,28 @@
     <style>
       .post-wrap { padding: 16px 0 40px; max-width: 820px; margin: 0 auto; position: relative; }
       
-      /* SELA KANAN DAN KIRI DARI JUDUL SAMPAI TAG */
-   .post-title,
-   .post-meta,
-   .post-thumb,
-   .post-body,
-   .post-tags {
-     margin-left: 12px !important;
-     margin-right: 12px !important;
-   }
-      @media screen and (min-width: 768px) {
-        .single-post {
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-      }
+      /* SELA KIRI & KANAN UNTUK KATEGORI, TITIK TIGA, JUDUL, HINGGA TAG DI DALAM ARTIKEL */
+.above-title-bar,
+.post-title,
+.post-meta,
+.post-thumb,
+.post-body,
+.post-tags {
+  margin-left: 16px !important;
+  margin-right: 16px !important;
+}
+
+@media screen and (min-width: 768px) {
+  .above-title-bar,
+  .post-title,
+  .post-meta,
+  .post-thumb,
+  .post-body,
+  .post-tags {
+    margin-left: 24px !important;
+    margin-right: 24px !important;
+  }
+}
 
       /* BARIS ATAS JUDUL: KATEGORI DI KIRI & TOMBOL TITIK TIGA DI KANAN PAS ATAS JUDUL */
       .above-title-bar {
