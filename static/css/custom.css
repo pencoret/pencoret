@@ -69,4 +69,14 @@ body:not(.single) .categories-scroll {
   padding-left: 4px !important;
   margin-left: 0 !important;
 }
-
+/* === Meratakan Baris Kategori & Konten Halaman Depan ke Tepi Kiri === */
+body:not(.single) header + div,
+body:not(.single) #all > div:nth-child(2),
+body:not(.single) .nav,
+body:not(.single) nav,
+body:not(.single) [class*="cat"],
+body:not(.single) [class*="menu"],
+body:not(.single) [class*="scroll"] {
+  padding-left: 4px !important;
+  margin-left: 0 !important;
+}
