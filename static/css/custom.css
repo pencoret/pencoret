@@ -1,4 +1,4 @@
-/* === Menyesuaikan Banner Header PenCoret === */
+/* === 1. Menyesuaikan Banner Header PenCoret === */
 img[alt*="Banner PenCoret"],
 img[alt*="Logo PenCoret"],
 header img {
@@ -11,7 +11,6 @@ header img {
   display: block !important;
 }
 
-/* Penyesuaian khusus layar PC / Desktop */
 @media screen and (min-width: 768px) {
   img[alt*="Banner PenCoret"],
   img[alt*="Logo PenCoret"],
@@ -21,23 +20,7 @@ header img {
   }
 }
 
-/* === Memberi Sela Sejajar untuk Halaman Artikel === */
-.primary .post {
-  padding-left: 24px !important;
-  padding-right: 24px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  box-sizing: border-box !important;
-}
-
-@media screen and (min-width: 768px) {
-  .primary .post {
-    padding-left: 45px !important;
-    padding-right: 45px !important;
-  }
-}
-
-/* === Membuat Halaman Depan Full-Width (Populer & Terbaru Mepet Samping) === */
+/* === 2. Membuat Kontainer Halaman Depan Full-Width === */
 body:not(.single) #content .container,
 body:not(.single) .container {
   width: 100% !important;
@@ -46,37 +29,4 @@ body:not(.single) .container {
   padding-right: 0 !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
-}
-
-/* Memastikan judul "POSTINGAN POPULER" & "POSTINGAN TERBARU" mepet ke samping */
-body:not(.single) h2,
-body:not(.single) h3,
-body:not(.single) .section-title,
-body:not(.single) .popular-header,
-body:not(.single) .latest-grid,
-body:not(.single) .posts-grid {
-  padding-left: 4px !important;
-  padding-right: 4px !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  box-sizing: border-box !important;
-}
-/* === Menyejajarkan Baris Kategori Halaman Depan dengan Postingan Populer === */
-body:not(.single) .menu,
-body:not(.single) nav ul,
-body:not(.single) .category-bar,
-body:not(.single) .categories-scroll {
-  padding-left: 4px !important;
-  margin-left: 0 !important;
-}
-/* === Meratakan Baris Kategori & Konten Halaman Depan ke Tepi Kiri === */
-body:not(.single) header + div,
-body:not(.single) #all > div:nth-child(2),
-body:not(.single) .nav,
-body:not(.single) nav,
-body:not(.single) [class*="cat"],
-body:not(.single) [class*="menu"],
-body:not(.single) [class*="scroll"] {
-  padding-left: 4px !important;
-  margin-left: 0 !important;
 }
