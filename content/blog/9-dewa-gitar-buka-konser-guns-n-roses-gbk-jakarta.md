@@ -9,7 +9,7 @@ description: Bukan band biasa, konser Guns N' Roses di Stadion Madya GBK besok
   bakal dibuka oleh 9 Dewa Gitar. Simak daftar lengkap gitaris, vokalis, dan
   fakta uniknya!
 categories:
-  - Fakta Unik
+  - Hiburan
   - Fakta Unik
 populer: true
 pilihan: false
