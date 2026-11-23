@@ -64,6 +64,8 @@ Kenaikan harga domestik didorong oleh dinamika pasar global, di mana pelemahan i
 
 
 
+"Catatan: Informasi harga dapat berubah sewaktu-waktu dan artikel ini bertujuan sebagai edukasi, bukan ajakan mutlak berinvestasi."
+
 ---
 
 
