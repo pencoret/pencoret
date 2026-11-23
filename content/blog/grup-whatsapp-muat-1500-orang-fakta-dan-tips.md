@@ -74,4 +74,4 @@ Bagi Anda yang tergabung dalam banyak grup aktif beranggotakan ratusan hingga ri
 
 
 
-*Catatan: Ketersediaan fitur baru pada setiap akun bergantung pada jadwal perilisan bertahap dari pihak pengembang aplikasi.*
+*Catatan: Ketersediaan fitur baru pada setiap akun bergantung pada jadwal perilisan bertahap dari pihak pengembang aplikasi.* 
