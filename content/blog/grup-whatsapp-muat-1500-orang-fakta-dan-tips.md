@@ -15,7 +15,7 @@ pilihan: false
 tags:
   - WhatsApp, Fitur Baru WhatsApp, Grup WhatsApp, Tips Teknologi, Aplikasi Chat,
     Memori HP Penuh
-banner: /images/image_67359928.jpg
+banner: /images/image_67359928-1.jpg
 banner_alt: Ilustrasi pembaruan batas maksimal anggota grup WhatsApp menjadi 1500 orang
 banner_caption: "Ilustrasi pembaruan batas maksimal anggota grup WhatsApp
   menjadi 1500 orang (Foto: AI Generated)"
