@@ -20,7 +20,7 @@ banner_alt: Ilustrasi fungsi zeta Hipotesis Riemann, deretan bilangan prima, dan
   kode pemrograman bercahaya untuk pembuktian AI Claude
 banner_caption: "Ilustrasi fungsi zeta Hipotesis Riemann, distribusi bilangan
   prima, dan jutaan baris kode pemrograman yang digunakan dalam klaim pembuktian
-  berbasis AI Claude. (Foto: Ilustrasi PenCoret)"
+  berbasis AI Claude. (Foto: AI Generated/PenCoret)"
 ---
 Dunia sains dan teknologi tengah dihebohkan oleh kabar mengejutkan dari dunia kecerdasan buatan (AI). Sebuah teka-teki matematika paling tersohor di dunia yang gagal dipecahkan manusia selama 167 tahun, **Hipotesis Riemann (*Riemann Hypothesis*)**, diklaim berhasil dibuktikan dengan bantuan model AI **Claude**.
 
