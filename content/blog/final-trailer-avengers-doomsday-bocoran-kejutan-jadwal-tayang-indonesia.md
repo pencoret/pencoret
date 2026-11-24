@@ -3,6 +3,9 @@ title: "Final Trailer Avengers: Doomsday Bikin Heboh!"
 date: 2026-11-24T10:00:00+07:00
 categories: ["Hiburan"]
 tags: ["Avengers Doomsday", "Marvel Studios", "Film 2026"]
+media:
+  input: assets/images
+  output: images
 ---
 
 Jagat media sosial dan para penggemar film pahlawan super mendadak riuh setelah Marvel Studios resmi merilis *final trailer* untuk film **Avengers: Doomsday**. Cuplikan berdurasi lebih dari tiga menit ini langsung memicu gelombang antusiasme tinggi karena bukan sekadar memamerkan aksi pertarungan, melainkan juga membocorkan benang merah konflik utama film tersebut.
