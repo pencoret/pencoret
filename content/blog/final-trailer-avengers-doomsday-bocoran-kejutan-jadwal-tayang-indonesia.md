@@ -1,28 +1,10 @@
 ---
-title: "Final Trailer Avengers: Doomsday Bikin Heboh! Ini Bocoran Kejutan dan
-  Jadwal Tayangnya di Bioskop Indonesia"
-seo_title: "Final Trailer Avengers: Doomsday Bikin Heboh! Bocoran Kejutan &
-  Jadwal Tayang Indonesia"
-slug: final-trailer-avengers-doomsday-bocoran-kejutan-jadwal-tayang-indonesia
-date: 2026-11-24
-author: PenCoret
-description: "Marvel Studios resmi merilis final trailer Avengers: Doomsday.
-  Simak bocoran kejutan kembalinya Steve Rogers hingga jadwal tayang resminya di
-  bioskop Indonesia."
-categories:
-  - Hiburan
-populer: true
-pilihan: false
-tags:
-  - Avengers Doomsday, Marvel Studios, Film Terbaru 2026, Bioskop Indonesia,
-    Robert Downey Jr, Chris Evans
-banner: /images/Screenshot_2026-11-24-19-56-18-25_40deb401b9ffe8e1df2f1cc5ba480b12.jpg
-banner_alt: Adegan pertemuan Fantastic Four, pasukan Wakanda, dan tim Avengers
-  di trailer resmi Avengers Doomsday
-banner_caption: "Pertemuan lintas semesta antara tim Fantastic Four, pasukan
-  Wakanda, dan jajaran pahlawan Avengers dalam cuplikan resmi Avengers:
-  Doomsday. (Foto: Tangkapan layar YouTube/Marvel Indonesia)"
+title: "Final Trailer Avengers: Doomsday Bikin Heboh!"
+date: 2026-11-24T10:00:00+07:00
+categories: ["Hiburan"]
+tags: ["Avengers Doomsday", "Marvel Studios", "Film 2026"]
 ---
+
 Jagat media sosial dan para penggemar film pahlawan super mendadak riuh setelah Marvel Studios resmi merilis *final trailer* untuk film **Avengers: Doomsday**. Cuplikan berdurasi lebih dari tiga menit ini langsung memicu gelombang antusiasme tinggi karena bukan sekadar memamerkan aksi pertarungan, melainkan juga membocorkan benang merah konflik utama film tersebut.
 
 
