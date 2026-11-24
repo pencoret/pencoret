@@ -15,6 +15,8 @@ tags:
     spbu khusus perempuan, pertamina patra niaga, berita viral november 2026
 banner_alt: Ilustrasi antrean pengendara sepeda motor laki-laki dan perempuan di
   SPBU setelah uji coba jalur khusus wanita resmi dihentikan.
+banner_caption: "Ilustrasi suasana antrean pengisian BBM sepeda motor di SPBU
+  pasca-penghentian uji coba jalur khusus wanita (Ilustrasi: PenCoret)."
 ---
 Layanan pengisian bahan bakar minyak (BBM) khusus perempuan atau *Ladies Line* yang sempat viral dan memicu pro-kontra di media sosial kini resmi dihentikan. Pantauan di sejumlah Stasiun Pengisian Bahan Bakar Umum (SPBU) hingga Selasa (24/11/2026) menunjukkan aktivitas pengisian BBM telah kembali normal tanpa pemisahan jalur berdasarkan gender.
 
@@ -26,8 +28,6 @@ Salah satu titik yang paling menjadi sorotan adalah SPBU Pertamina di kawasan Ja
 
 ## Hanya Bertahan 2,5 Jam
 
-
-
 Mengutip laporan *Kompas.com*, program uji coba *Ladies Line* sebelumnya diterapkan pada Jumat (20/11/2026) di enam titik SPBU wilayah Jakarta, Depok, dan Bogor. Namun, alih-alih berjalan panjang, uji coba di lokasi Depok tersebut ternyata hanya berlangsung sekitar 2,5 jam—mulai pukul 09.00 WIB hingga tutup sementara menjelang waktu salat Jumat pada pukul 11.30 WIB.
 
 
@@ -38,8 +38,6 @@ Berdasarkan penelusuran di lapangan, seluruh atribut khusus seperti papan penand
 
 ## Kendala Antrean dan Rasio Pengendara
 
-
-
 Pihak pengelola SPBU menjelaskan bahwa penghentian dilakukan karena kendala operasional di lapangan. Pada SPBU dengan volume kendaraan roda dua yang tinggi, pengalihan satu dari tiga jalur motor untuk kategori khusus berdampak langsung pada kelancaran arus kendaraan.
 
 
@@ -49,8 +47,6 @@ Karena jumlah pengendara sepeda motor laki-laki jauh lebih mendominasi, jalur um
 
 
 ## Penegasan Kesetaraan Layanan dari Pertamina
-
-
 
 Menanggapi polemik yang berkembang di masyarakat, Pjs Area Manager Communication, Relations & CSR Regional Jawa Bagian Barat PT Pertamina Patra Niaga, Agustina Mandayati, memastikan bahwa program uji coba *Ladies Line* telah dihentikan setelah mempertimbangkan berbagai masukan serta respons masyarakat sebagai bagian dari evaluasi layanan.
 
@@ -70,10 +66,8 @@ Sementara itu, warga sekitar lokasi uji coba menyambut baik kembalinya sistem an
 
 ### Sumber Referensi:
 
-* **Kompas.com (24/11/2026):** [Di balik Viral Jalur Khusus Wanita di SPBU Depok](https://megapolitan.kompas.com/read/2026/11/24/08222401/di-balik-viral-jalur-khusus-wanita-di-spbu-depok)
+- **Kompas.com (24/11/2026):** [Di balik Viral Jalur Khusus Wanita di SPBU Depok](https://megapolitan.kompas.com/read/2026/11/24/08222401/di-balik-viral-jalur-khusus-wanita-di-spbu-depok)
+- **Kompas.com (23/11/2026):** [Antrean Pengendara Pria Mengular, Uji Coba Jalur Khusus Wanita di SPBU Depok Dihentikan](https://megapolitan.kompas.com/read/2026/11/23/15333371/antrean-pengendara-pria-mengular-uji-coba-jalur-khusus-wanita-di-spbu)
+- **Kompas.com (21/11/2026):** [SPBU Depok Punya Jalur Antrean BBM Khusus Perempuan, Ini Kata Pertamina](https://amp.kompas.com/tren/read/2026/11/21/193000365/spbu-depok-punya-jalur-antrean-bbm-khusus-perempuan-ini-kata-pertamina)
+- **Netralnews (22/11/2026):** [Pertamina Hentikan Uji Coba Ladies Line di 6 SPBU Jabode Mulai 20 November 2026](https://www.netralnews.com/nncbisnis/pertamina-hentikan-uji-coba-ladies-line-di-6-spbu-jabode-mulai-20-november-2026)
 
-* **Kompas.com (23/11/2026):** [Antrean Pengendara Pria Mengular, Uji Coba Jalur Khusus Wanita di SPBU Depok Dihentikan](https://megapolitan.kompas.com/read/2026/11/23/15333371/antrean-pengendara-pria-mengular-uji-coba-jalur-khusus-wanita-di-spbu)
-
-* **Kompas.com (21/11/2026):** [SPBU Depok Punya Jalur Antrean BBM Khusus Perempuan, Ini Kata Pertamina](https://amp.kompas.com/tren/read/2026/11/21/193000365/spbu-depok-punya-jalur-antrean-bbm-khusus-perempuan-ini-kata-pertamina)
-
-* **Netralnews (22/11/2026):** [Pertamina Hentikan Uji Coba Ladies Line di 6 SPBU Jabode Mulai 20 November 2026](https://www.netralnews.com/nncbisnis/pertamina-hentikan-uji-coba-ladies-line-di-6-spbu-jabode-mulai-20-november-2026)
