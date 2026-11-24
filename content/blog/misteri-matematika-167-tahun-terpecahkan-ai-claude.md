@@ -18,6 +18,9 @@ tags:
 banner: /images/image_d02ff546.jpg
 banner_alt: Ilustrasi fungsi zeta Hipotesis Riemann, deretan bilangan prima, dan
   kode pemrograman bercahaya untuk pembuktian AI Claude
+banner_caption: "Ilustrasi fungsi zeta Hipotesis Riemann, distribusi bilangan
+  prima, dan jutaan baris kode pemrograman yang digunakan dalam klaim pembuktian
+  berbasis AI Claude. (Foto: Ilustrasi PenCoret)"
 ---
 Dunia sains dan teknologi tengah dihebohkan oleh kabar mengejutkan dari dunia kecerdasan buatan (AI). Sebuah teka-teki matematika paling tersohor di dunia yang gagal dipecahkan manusia selama 167 tahun, **Hipotesis Riemann (*Riemann Hypothesis*)**, diklaim berhasil dibuktikan dengan bantuan model AI **Claude**.
 
@@ -75,10 +78,8 @@ Para matematikawan manusia kini menghadapi tantangan baru untuk membedah dan men
 
 
 
-* Catatan Resmi Levent Alpöge (The Riemann Hypothesis is the classic problem in number theory)
+- Catatan Resmi Levent Alpöge (The Riemann Hypothesis is the classic problem in number theory)
+- Pernyataan Resmi Komunitas Lean & Mathlib (Lean Community Blog)
+- The New York Times, Scientific American, The Guardian, The Next Web (TNW)
+- Kompas.com & IBM Indonesia
 
-* Pernyataan Resmi Komunitas Lean & Mathlib (Lean Community Blog)
-
-* The New York Times, Scientific American, The Guardian, The Next Web (TNW)
-
-* Kompas.com & IBM Indonesia
