@@ -11,6 +11,20 @@
 </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Syarat Wajib Gambar Besar Google Discover -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- Open Graph & Twitter Card Otomatis -->
+  {{- $ogImg := .Params.image | default .Params.banner | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.description }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ $ogImg | absURL }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta name="twitter:image" content="{{ $ogImg | absURL }}">
+  
   <title>{{ .Site.Title }} — {{ .Site.Params.description }}</title>
   <link rel="icon" type="image/png" sizes="48x48" href="{{ "/images/logo-transparan.png" | relURL }}">
   <link rel="icon" type="image/png" sizes="192x192" href="{{ "/images/logo-transparan.png" | relURL }}">
