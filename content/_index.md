@@ -3,7 +3,7 @@
   
   <div style="background-color: #1a2536; color: #f4d08c; padding: 10px 0; overflow: hidden; white-space: nowrap; border-radius: 0 0 8px 8px; font-weight: bold; font-size: 15px;">
     <div style="display: inline-block; padding-left: 100%; animation: jalanTeks 22s linear infinite;">
-      Selamat Datang di PenCoret | Ruang Baca Digital dari sudut pandang yang berbeda • menyelami ide, mengurai cerita, dan menulis makna baru di setiap Coretan Pena.
+      Selamat Datang di PenCoret | Ruang Baca Digital | Membaca dari Sudut Pandang yang Berbeda • Menyelami Ide, Mengurai Cerita, dan Menulis Makna Baru di Setiap Coretan Pena.
     </div>
   </div>
 </div>
