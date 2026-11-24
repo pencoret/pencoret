@@ -25,11 +25,9 @@ Badan Meteorologi, Klimatologi, dan Geofisika (BMKG) mencatat puncak fase bulan 
 
 
 
-* **21.53 WIB** untuk wilayah Indonesia bagian barat
-
-* **22.53 WITA** untuk wilayah Indonesia bagian tengah
-
-* **23.53 WIT** untuk wilayah Indonesia bagian timur
+- **21.53 WIB** untuk wilayah Indonesia bagian barat
+- **22.53 WITA** untuk wilayah Indonesia bagian tengah
+- **23.53 WIT** untuk wilayah Indonesia bagian timur
 
 
 
@@ -65,17 +63,12 @@ Sebagai contoh, Balai Besar Meteorologi, Klimatologi, dan Geofisika (BBMKG) Wila
 
 
 
-* **Kabupaten Badung:** Kuta, Kuta Selatan, Kuta Utara, dan Mengwi
-
-* **Kabupaten Gianyar:** Blahbatuh, Gianyar, dan Sukawati
-
-* **Kabupaten Jembrana:** Jembrana, Melaya, Mendoyo, Negara, dan Pekutatan
-
-* **Kabupaten Klungkung:** Banjarangkan, Dawan, Klungkung, dan Nusa Penida
-
-* **Kota Denpasar:** Denpasar Selatan dan Denpasar Timur
-
-* **Kabupaten Tabanan:** Kediri, Kerambitan, Selemadeg, Selemadeg Barat, Selemadeg Timur, dan Tabanan
+- **Kabupaten Badung:** Kuta, Kuta Selatan, Kuta Utara, dan Mengwi
+- **Kabupaten Gianyar:** Blahbatuh, Gianyar, dan Sukawati
+- **Kabupaten Jembrana:** Jembrana, Melaya, Mendoyo, Negara, dan Pekutatan
+- **Kabupaten Klungkung:** Banjarangkan, Dawan, Klungkung, dan Nusa Penida
+- **Kota Denpasar:** Denpasar Selatan dan Denpasar Timur
+- **Kabupaten Tabanan:** Kediri, Kerambitan, Selemadeg, Selemadeg Barat, Selemadeg Timur, dan Tabanan
 
 
 
