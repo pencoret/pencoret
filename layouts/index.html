@@ -299,9 +299,19 @@
     <div class="pop-slider" id="popSliderBox">
       <div class="pop-track" id="popTrack">
         {{ range $index, $page := first 5 $populerPosts }}
-        {{ $img := $page.Params.banner | default $page.Params.image | default $page.Params.thumbnail | default "/images/image_d634cfff.jpg" }}
-        <div class="pop-slide">
-          <a href="{{ $page.Permalink }}"><img src="{{ $img | relURL }}" alt="{{ $page.Title }}" width="800" height="400" {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}></a>
+{{- $rawImg := $page.Params.image | default $page.Params.banner | default $page.Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+{{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+{{- $res := resources.Get $cleanPath -}}
+{{- if not $res -}}
+  {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+{{- end -}}
+{{- $finalSrc := $rawImg | relURL -}}
+{{- if $res -}}
+  {{- $webp := $res.Fill "1140x480 webp q85 Smart" -}}
+  {{- $finalSrc = $webp.RelPermalink -}}
+{{- end -}}
+<div class="pop-slide">
+  <a href="{{ $page.Permalink }}"><img src="{{ $finalSrc }}" alt="{{ $page.Title }}" width="1140" height="480" {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}></a>
           <div class="pop-overlay"><h2><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></h2></div>
         </div>
         {{ end }}
