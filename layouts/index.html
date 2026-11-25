@@ -260,31 +260,37 @@
     .footer-btn:hover { background: #38a7bb; border-color: #38a7bb; }
     .footer-running-bottom { background: #38a7bb; color: #ffffff; padding: 9px 0; font-size: 13px; font-weight: 600; overflow: hidden; }
 
-    @keyframes jalanTeks { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
+        @keyframes jalanTeks { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
     @media (min-width: 768px) {
       .pop-slide { height: 360px; } .pop-overlay h2 { font-size: 24px; }
       .latest-grid { gap: 14px; } .big-card img { height: 185px; } .big-card-body h3 { font-size: 16px; }
       .mini-card { width: 225px; } .mini-card img { height: 135px; }
     }
 
-        .home-theme-btn {
+    /* TEMPELKAN MULAI DARI SINI (TEPAT DI ATAS </style>) */
+    .home-theme-btn {
       position: absolute;
-      top: 68px;
-      left: 12px;
+      top: 18px;
+      right: 12px;
+      left: auto;
       z-index: 25;
-      padding: 3px 9px;
-      font-size: 10.5px;
+      padding: 5px 12px;
+      font-size: 11px;
       font-weight: 700;
-      border-radius: 14px;
-      background: rgba(26, 37, 54, 0.88);
+      border-radius: 20px;
+      background: rgba(26, 37, 54, 0.85);
       color: #f4d08c !important;
       border: 1px solid rgba(255, 255, 255, 0.4);
       cursor: pointer;
       backdrop-filter: blur(4px);
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
       line-height: 1.2;
+      transition: all 0.25s ease;
     }
-    .home-theme-btn:hover { background: #38a7bb; color: #fff !important; }
+    .home-theme-btn:hover {
+      background: #38a7bb;
+      color: #ffffff !important;
+    }
 
     html[data-theme="dark"] body,
     html[data-theme="dark"] .home-wrap {
@@ -310,9 +316,9 @@
     }
     .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon, .skiptranslate iframe { display: none !important; }
     body { top: 0px !important; }
-    
   </style>
 </head>
+
 <body>
   <!-- Kolom Pencarian di Atas Banner -->
   <div class="top-search-wrap">
