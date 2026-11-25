@@ -16,7 +16,7 @@ pilihan: false
 tags:
   - jalur khusus wanita spbu, ladies line pertamina, spbu depok viral, antrean
     spbu khusus perempuan, pertamina patra niaga, berita viral november 2026
-banner: /images/image_6105a581.jpg
+banner: /images/image_6105a581-1.jpg
 banner_alt: Ilustrasi antrean pengendara sepeda motor laki-laki dan perempuan di
   SPBU setelah uji coba jalur khusus wanita resmi dihentikan.
 banner_caption: "Ilustrasi suasana antrean pengisian BBM sepeda motor di SPBU
