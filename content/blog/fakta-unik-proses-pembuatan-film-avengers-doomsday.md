@@ -1,5 +1,6 @@
 ---
-title: Syuting Tanpa Naskah Final hingga Momen Haru Patrick Stewart!
+title: "Di Balik Layar Avengers: Doomsday, Syuting Tanpa Naskah Final hingga
+  Momen Haru Patrick Stewart!"
 seo_title: "5 Fakta Unik di Balik Layar Avengers: Doomsday, Syuting Tanpa Naskah
   Final hingga Momen Haru Patrick Stewart!"
 slug: fakta-unik-proses-pembuatan-film-avengers-doomsday
@@ -32,8 +33,6 @@ Di balik skala pertarungan megah melawan Doctor Doom yang diperankan Robert Down
 
 ## Memakai Judul Samaran "Apple Pie 1" Saat Syuting di Inggris
 
-
-
 Untuk mencegah kebocoran cerita dan menghindari serbuan paparazi selama proses pengambilan gambar utama di Pinewood Studios, Inggris, Marvel Studios menggunakan kode proyek rahasia. Selama periode syuting yang berlangsung dari April hingga September 2025, seluruh kru lapangan bekerja di bawah judul produksi samaran bernama **"Apple Pie 1"**.
 
 
@@ -43,8 +42,6 @@ Penggunaan judul sandi ini menjadi bagian dari protokol keamanan ketat studio, m
 
 
 ## Proses Syuting Dimulai Tanpa Naskah yang Selesai 100 Persen
-
-
 
 Sutradara Joe Russo mengungkap fakta mengejutkan bahwa pengambilan gambar *Avengers: Doomsday* dimulai ketika naskah film belum rampung sepenuhnya. Alih-alih terpaku pada skenario kaku, Russo Brothers menerapkan pendekatan *evolving script* atau memperlakukan naskah sebagai organisme hidup yang terus berkembang di lokasi syuting.
 
@@ -56,8 +53,6 @@ Metode berbasis improvisasi dan latihan langsung ini sengaja dipilih agar para a
 
 ## Mendobrak Tradisi Layar Biru dengan Membangun Set Fisik Megah
 
-
-
 Film-film pahlawan super modern identik dengan penggunaan layar hijau (*green screen*) atau layar biru (*blue screen*) secara menyeluruh. Namun, desainer produksi *Avengers: Doomsday*, Gavin Bocquet, mengungkapkan bahwa film ini mematahkan kebiasaan tersebut dengan membangun banyak interior fisik berskala besar secara nyata di dalam studio.
 
 
@@ -68,8 +63,6 @@ Tim desain membangun ulang sejumlah lokasi ikonik seperti Gedung Baxter milik Fa
 
 ## Latihan Fisik Ekstrem hingga Insiden Cedera di Lokasi Syuting
 
-
-
 Untuk mengimbangi adegan pertarungan lintas semesta yang jauh lebih intens dan brutal, seluruh pemeran diwajibkan menjalani pelatihan fisik dan koreografi *stunt* ketat selama berbulan-bulan sebelum kamera mulai merekam.
 
 
@@ -79,8 +72,6 @@ Saking beratnya intensitas adegan aksi yang digabungkan antara efek praktis dan 
 
 
 ## Momen Perpisahan Penuh Haru di Hari Terakhir Patrick Stewart
-
-
 
 Salah satu kisah paling menyentuh dari proses pembuatan film ini datang dari aktor legendaris pemeran Professor Charles Xavier, Patrick Stewart. Presiden Marvel Studios Kevin Feige dan Russo Brothers mengenang bahwa hari terakhir syuting utama *Avengers: Doomsday* ternyata menjadi penampilan terakhir Stewart di lokasi syuting film mana pun sebelum ia berpulang pada Oktober 2026.
 
