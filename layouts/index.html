@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817"
-     crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W8M8KC6Q"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-</script>
+  <script async src="https://googlesyndication.com" crossorigin="anonymous"></script>
+  <script async src="https://googletagmanager.com"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Syarat Wajib Gambar Besar Google Discover -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-  <!-- Open Graph & Twitter Card Otomatis -->
   {{- $ogImg := .Params.image | default .Params.banner | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
   <meta property="og:site_name" content="{{ .Site.Title }}">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
@@ -24,8 +21,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
   <meta name="twitter:image" content="{{ $ogImg | absURL }}">
-  
-    <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.description }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+  <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.description }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
   <link rel="icon" type="image/png" sizes="48x48" href="{{ "/images/logo-transparan.png" | relURL }}">
   <link rel="icon" type="image/png" sizes="192x192" href="{{ "/images/logo-transparan.png" | relURL }}">
   <link rel="apple-touch-icon" href="{{ "/images/logo-transparan.png" | relURL }}">
@@ -56,8 +53,7 @@
   <style>
     * { box-sizing: border-box; }
     body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #fff; color: #333; margin: 0; }
-    
-    /* Kolom Pencarian di Atas Banner */
+
     .top-search-wrap {
       width: 100%;
       background: #1a2536;
@@ -95,15 +91,12 @@
     }
     .top-search-btn:hover { background: #2c8a9b; }
 
-    /* Pembungkus Utama Full-Width Tanpa Sela Samping */
     .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0; }
     .home-wrap { padding-bottom: 35px; }
-    
-    /* Baris Judul Kategori Mepet Kiri */
+
     .sec-header-row { display: flex; justify-content: space-between; align-items: center; margin: 14px 0 8px; padding: 0; }
     .sec-label { font-size: 15px; font-weight: 800; text-transform: uppercase; color: #222; border-left: 4px solid #38a7bb; padding-left: 10px; margin: 0; }
-    
-    /* Tombol Menu Tetap di Posisi Kanan */
+
     .nav-dropdown-select {
       appearance: none;
       -webkit-appearance: none;
@@ -155,7 +148,7 @@
       transform-origin: bottom center;
       display: block;
     }
-    
+
     .cat-menu-bar {
       display: flex;
       flex-wrap: nowrap;
@@ -192,7 +185,6 @@
     .pop-overlay h2 a { color: #fff; text-decoration: none; }
     .pop-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.55); color: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; cursor: pointer; z-index: 5; }
     .pop-prev { left: 10px; } .pop-next { right: 10px; }
-
     .mini-row {
       display: flex;
       gap: 10px;
@@ -239,7 +231,6 @@
     .mini-card-body h4 a { color: #222; text-decoration: none; transition: color 0.2s ease; }
     .mini-card:hover .mini-card-body h4 a { color: #38a7bb; }
 
-    /* Grid Postingan Terbaru Tanpa Sela Samping */
     .latest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px; padding: 0; }
     .big-card { border: 1px solid #eaeaea; border-radius: 6px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
     .big-card img { width: 100%; height: 115px; object-fit: cover; }
@@ -252,7 +243,7 @@
     .all-post-box { margin-top: 16px; text-align: center; padding: 0 12px; }
     .btn-all-post { display: inline-flex; align-items: center; justify-content: center; width: 100%; max-width: 320px; background: #38a7bb; color: #fff !important; font-weight: 700; font-size: 14px; padding: 12px 20px; border-radius: 6px; text-decoration: none !important; transition: 0.2s; }
     .btn-all-post:hover { background: #2c8a9b; }
-        .site-footer { background: #1a2536; color: #ccc; padding: 18px 0 0; margin-top: 36px; font-size: 13px; }
+    .site-footer { background: #1a2536; color: #ccc; padding: 18px 0 0; margin-top: 36px; font-size: 13px; }
     .footer-top-flex { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; padding: 0 12px; }
     .footer-logo img { max-height: 38px; display: block; background: transparent; }
     .footer-nav { display: grid; grid-template-columns: repeat(2, auto); gap: 6px; justify-content: end; text-align: center; }
@@ -260,14 +251,13 @@
     .footer-btn:hover { background: #38a7bb; border-color: #38a7bb; }
     .footer-running-bottom { background: #38a7bb; color: #ffffff; padding: 9px 0; font-size: 13px; font-weight: 600; overflow: hidden; }
 
-        @keyframes jalanTeks { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
+    @keyframes jalanTeks { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
     @media (min-width: 768px) {
       .pop-slide { height: 360px; } .pop-overlay h2 { font-size: 24px; }
       .latest-grid { gap: 14px; } .big-card img { height: 185px; } .big-card-body h3 { font-size: 16px; }
       .mini-card { width: 225px; } .mini-card img { height: 135px; }
     }
 
-    /* TEMPELKAN MULAI DARI SINI (TEPAT DI ATAS </style>) */
     .home-theme-btn {
       position: absolute;
       top: 18px;
@@ -287,56 +277,50 @@
       line-height: 1.2;
       transition: all 0.25s ease;
     }
-    .home-theme-btn:hover {
-      background: #38a7bb;
-      color: #ffffff !important;
-    }
+    .home-theme-btn:hover { background: #38a7bb; color: #ffffff !important; }
 
     html[data-theme="dark"] body,
-    html[data-theme="dark"] .home-wrap {
-      background-color: #121212 !important;
-      color: #e4e4e4 !important;
-    }
+    html[data-theme="dark"] .home-wrap { background-color: #121212 !important; color: #e4e4e4 !important; }
     html[data-theme="dark"] .sec-label,
     html[data-theme="dark"] .mini-card-body h4 a,
-    html[data-theme="dark"] .big-card-body h3 a {
-      color: #e4e4e4 !important;
-    }
+    html[data-theme="dark"] .big-card-body h3 a { color: #e4e4e4 !important; }
     html[data-theme="dark"] .big-meta { color: #aaaaaa !important; }
     html[data-theme="dark"] .cat-menu-btn,
     html[data-theme="dark"] .mini-card,
-    html[data-theme="dark"] .big-card {
-      background-color: #1e1e1e !important;
-      border-color: #333333 !important;
-      color: #e4e4e4 !important;
-    }
-    html[data-theme="dark"] .cat-menu-btn:hover {
-      background-color: #38a7bb !important;
-      color: #ffffff !important;
-    }
-    .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon, .skiptranslate iframe { display: none !important; }
-    body { top: 0px !important; }
-      /* --- TEMPELKAN KODE INI TEPAT DI ATAS </style> --- */
+    html[data-theme="dark"] .big-card { background-color: #1e1e1e !important; border-color: #333333 !important; color: #e4e4e4 !important; }
+    html[data-theme="dark"] .cat-menu-btn:hover { background-color: #38a7bb !important; color: #ffffff !important; }
+
     .goog-te-banner-frame,
     .goog-te-banner-frame.skiptranslate,
     iframe.goog-te-banner-frame,
     iframe.skiptranslate,
-    body > .skiptranslate {
+    iframe[id^=":"][class*="skiptranslate"],
+    .VIpgJd-ZVi9od-ORHb-OEVmcd,
+    .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+    body > .skiptranslate,
+    #goog-gt-tt,
+    .goog-te-balloon-frame {
       display: none !important;
       visibility: hidden !important;
       height: 0 !important;
+      max-height: 0 !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
     }
-
     html, body {
       top: 0px !important;
       margin-top: 0px !important;
+      padding-top: 0px !important;
       position: static !important;
     }
   </style>
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
 </head>
-
 <body>
-  <!-- Kolom Pencarian di Atas Banner -->
   <div class="top-search-wrap">
     <form class="top-search-form" action="https://google.com" method="get" target="_blank" onsubmit="this.q.value='site:pencoret.web.id ' + document.getElementById('homeSearchInput').value;">
       <input type="hidden" name="q" value="">
@@ -345,7 +329,6 @@
     </form>
   </div>
 
-    <!-- Banner Header -->
   <div style="width: 100%; overflow: hidden; margin-top: 0; position: relative;">
     <a href="{{ "/" | relURL }}" class="home-logo-overlay" title="Beranda {{ .Site.Title }}">
       <img src="{{ "/images/logo-transparan.png" | relURL }}" alt="Logo {{ .Site.Title }}" width="56" height="56" class="home-logo-animasi">
@@ -356,7 +339,6 @@
     <img src="{{ "/images/image_dacac6d.jpeg" | relURL }}" alt="Banner PenCoret" width="1200" height="300" fetchpriority="high" decoding="sync" style="width: 100%; height: auto; display: block; transform: scale(1.12);">
   </div>
 
-  <!-- Running Text Selamat Datang -->
   <div style="width: 100%; background: #1a2536; color: #f4d08c; padding: 5px 0; overflow: hidden; white-space: nowrap; font-weight: bold; font-size: 13px;">
     <div style="display: inline-block; padding-left: 100%; animation: jalanTeks 22s linear infinite;">
       Selamat Datang di Ruang Baca dari sudut pandang yang berbeda, menyelami ide, mengurai cerita, dan menulis makna baru di setiap coretan pena.
@@ -389,19 +371,19 @@
     <div class="pop-slider" id="popSliderBox">
       <div class="pop-track" id="popTrack">
         {{ range $index, $page := first 5 $populerPosts }}
-{{- $rawImg := $page.Params.image | default $page.Params.banner | default $page.Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
-{{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
-{{- $res := resources.Get $cleanPath -}}
-{{- if not $res -}}
-  {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
-{{- end -}}
-{{- $finalSrc := $rawImg | relURL -}}
-{{- if $res -}}
-  {{- $webp := $res.Fill "1140x480 webp q85 Smart" -}}
-  {{- $finalSrc = $webp.RelPermalink -}}
-{{- end -}}
-<div class="pop-slide">
-  <a href="{{ $page.Permalink }}"><img src="{{ $finalSrc }}" alt="{{ $page.Title }}" width="1140" height="480" {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}></a>
+        {{- $rawImg := $page.Params.image | default $page.Params.banner | default $page.Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+        {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+        {{- $res := resources.Get $cleanPath -}}
+        {{- if not $res -}}
+          {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+        {{- end -}}
+        {{- $finalSrc := $rawImg | relURL -}}
+        {{- if $res -}}
+          {{- $webp := $res.Fill "1140x480 webp q85 Smart" -}}
+          {{- $finalSrc = $webp.RelPermalink -}}
+        {{- end -}}
+        <div class="pop-slide">
+          <a href="{{ $page.Permalink }}"><img src="{{ $finalSrc }}" alt="{{ $page.Title }}" width="1140" height="480" {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}></a>
           <div class="pop-overlay"><h2><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></h2></div>
         </div>
         {{ end }}
@@ -413,28 +395,28 @@
 
     <div class="sec-label" style="margin: 14px 0 8px;">Postingan Terbaru</div>
     <div class="latest-grid">
-  {{ range first 4 $allPosts }}
-  {{- $rawImg := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
-  {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
-  {{- $res := resources.Get $cleanPath -}}
-  {{- if not $res -}}
-    {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
-  {{- end -}}
-  {{- $finalSrc := $rawImg | relURL -}}
-  {{- if $res -}}
-    {{- $webp := $res.Fill "500x280 webp q80" -}}
-    {{- $finalSrc = $webp.RelPermalink -}}
-  {{- end -}}
-  <article class="big-card">
-    <a href="{{ .Permalink }}"><img src="{{ $finalSrc }}" alt="{{ .Title }}" width="400" height="220"></a>
-    <div class="big-card-body">
-      {{ with .Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
-      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-      <div class="big-meta">{{ .Date.Format "02 Jan 2006" }}</div>
+      {{ range first 4 $allPosts }}
+      {{- $rawImg := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+      {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+      {{- $res := resources.Get $cleanPath -}}
+      {{- if not $res -}}
+        {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+      {{- end -}}
+      {{- $finalSrc := $rawImg | relURL -}}
+      {{- if $res -}}
+        {{- $webp := $res.Fill "500x280 webp q80" -}}
+        {{- $finalSrc = $webp.RelPermalink -}}
+      {{- end -}}
+      <article class="big-card">
+        <a href="{{ .Permalink }}"><img src="{{ $finalSrc }}" alt="{{ .Title }}" width="400" height="220"></a>
+        <div class="big-card-body">
+          {{ with .Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
+          <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <div class="big-meta">{{ .Date.Format "02 Jan 2006" }}</div>
+        </div>
+      </article>
+      {{ end }}
     </div>
-  </article>
-  {{ end }}
-</div>
 
     {{ with after 4 $allPosts }}
     <div class="mini-row" id="terbaruRow" style="margin-top: 10px;">
@@ -477,6 +459,7 @@
       </marquee>
     </div>
   </footer>
+  <div id="google_translate_element" style="display:none;"></div>
 
   <script>
     let currentSlide = 0, popTimer;
@@ -513,9 +496,7 @@
     }
     autoScrollRow('catMenuBar', '.cat-menu-btn', 3200);
     autoScrollRow('terbaruRow', '.mini-card', 4000);
-  </script>
-    <div id="google_translate_element" style="display:none;"></div>
-  <script>
+
     const toggleBtn = document.getElementById('theme-toggle');
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
@@ -536,6 +517,22 @@
       });
     }
 
+    function hideGoogleBar() {
+      if (document.body) {
+        document.body.style.setProperty('top', '0px', 'important');
+        document.body.style.setProperty('margin-top', '0px', 'important');
+        document.body.style.setProperty('position', 'static', 'important');
+      }
+      document.documentElement.style.setProperty('top', '0px', 'important');
+      const banners = document.querySelectorAll('.goog-te-banner-frame, iframe.skiptranslate, .VIpgJd-ZVi9od-ORHb-OEVmcd, body > .skiptranslate');
+      banners.forEach(el => {
+        el.style.setProperty('display', 'none', 'important');
+        el.style.setProperty('visibility', 'hidden', 'important');
+        el.style.setProperty('height', '0px', 'important');
+      });
+    }
+    new MutationObserver(hideGoogleBar).observe(document.documentElement, { attributes: true, childList: true, subtree: true });
+
     window.addEventListener('load', function() {
       const fullLang = navigator.language || navigator.userLanguage || 'id';
       const userLang = fullLang.substring(0, 2).toLowerCase();
@@ -548,6 +545,7 @@
               selectField.value = userLang;
               selectField.dispatchEvent(new Event('change'));
             }
+            hideGoogleBar();
           }, 1000);
         };
         const gtScript = document.createElement('script');
@@ -560,4 +558,3 @@
   </script>
 </body>
 </html>
-                                                    
