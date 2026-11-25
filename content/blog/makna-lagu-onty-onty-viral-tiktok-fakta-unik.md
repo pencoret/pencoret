@@ -31,7 +31,7 @@ Makna Sebenarnya di Balik Lagu "Dicari Onty Onty"
 
 Lirik lagu "Dicari Onty Onty" tidak dirancang sebagai lagu cinta yang serius, melainkan sebuah komedi audio dan satir terhadap budaya pergaulan di media sosial.
 
-> **Baca juga:** Jika kamu penasaran bagaimana istilah ini diangkat ke dalam lirik yang ramai dipakai warganet, simak pembahasan lengkapnya di artikel **[Arti Kata Ounty-Ounty yang Viral di TikTok]**.
+> **Baca juga:** Jika kamu penasaran bagaimana istilah ini diangkat ke dalam lirik yang ramai dipakai warganet, simak pembahasan lengkapnya di artikel **[[Arti Kata Ounty-Ounty yang Viral di TikTok](https://pencoret.web.id/arti-kata-onty-onty-viral-tiktok/)]**.
 
 • Arti Kata "Onty": Istilah onty merupakan pelesetan dari kata bahasa Inggris aunty yang berarti tante atau bibi. Dalam konteks lirik lagu ini, onty merujuk pada sosok perempuan dewasa atau wanita yang lebih tua.
 
