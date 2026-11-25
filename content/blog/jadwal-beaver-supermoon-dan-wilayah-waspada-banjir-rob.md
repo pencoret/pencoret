@@ -11,7 +11,7 @@ categories:
   - Fakta Unik
 populer: true
 pilihan: false
-banner: /images/IMG-20261124-WA5288.jpg
+banner: /images/IMG-20261124-WA5288-1.jpg
 banner_alt: Ilustrasi Beaver Supermoon di Atas Pesisir
 banner_caption: "Ilustrasi Beaver Supermoon di atas pesisir (Visual: AI Generated/PenCoret)"
 ---
