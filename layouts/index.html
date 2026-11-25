@@ -449,4 +449,148 @@
       {{ end }}
     </div>
 
-    
+    {{ with after 4 $allPosts }}
+    <div class="mini-row" id="terbaruRow" style="margin-top: 10px;">
+      {{ range first 6 . }}
+      {{- $rawImg := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+      {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+      {{- $res := resources.Get $cleanPath -}}
+      {{- if not $res -}}
+        {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+      {{- end -}}
+      {{- if not $res -}}
+        {{- $res = .Resources.GetMatch (printf "*%s*" (path.Base $cleanPath)) -}}
+      {{- end -}}
+      {{- $finalSrc := $rawImg | relURL -}}
+      {{- if $res -}}
+        {{- $webp := $res.Fill "400x240 webp q80" -}}
+        {{- $finalSrc = $webp.RelPermalink -}}
+      {{- end -}}
+      <div class="mini-card">
+        <a href="{{ .Permalink }}"><img src="{{ $finalSrc }}" alt="{{ .Title }}" width="225" height="135" loading="lazy"></a>
+        <div class="mini-card-body"><h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4></div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <div class="all-post-box"><a href="{{ "/blog/" | relURL }}" class="btn-all-post">Tampilkan Semua</a></div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-flex">
+        <div class="footer-logo"><a href="{{ "/" | relURL }}"><img src="{{ "/images/logo-transparan.png" | relURL }}" alt="{{ .Site.Title }}" loading="lazy"></a></div>
+        <div class="footer-nav">{{ range .Site.Menus.footer }}<a href="{{ .URL | relURL }}" class="footer-btn">{{ .Name }}</a>{{ end }}</div>
+      </div>
+    </div>
+    <div class="footer-running-bottom">
+      <marquee behavior="scroll" direction="left" scrollamount="5">
+        &copy; {{ now.Format "2006" }} PenCoret | Terimakasih telah berkunjung di Ruang Baca Digital, semoga setiap coretan dapat memberi wawasan dan inspirasi baru.
+      </marquee>
+    </div>
+  </footer>
+  <div id="google_translate_element" style="display:none;"></div>
+
+  <script>
+    let currentSlide = 0, popTimer;
+    function moveSlide(step) {
+      const track = document.getElementById('popTrack');
+      if (!track || track.children.length <= 1) return;
+      currentSlide = (currentSlide + step + track.children.length) % track.children.length;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    const popBox = document.getElementById('popSliderBox');
+    if (popBox) {
+      const startPop = () => popTimer = setInterval(() => moveSlide(1), 3500);
+      popBox.addEventListener('mouseenter', () => clearInterval(popTimer));
+      popBox.addEventListener('mouseleave', startPop);
+      startPop();
+    }
+
+    function autoScrollRow(id, selector, speed) {
+      const row = document.getElementById(id);
+      if (!row) return;
+      let timer;
+      const step = () => {
+        const item = row.querySelector(selector);
+        if (!item) return;
+        if (row.scrollLeft + row.clientWidth >= row.scrollWidth - 5) row.scrollTo({ left: 0, behavior: 'smooth' });
+        else row.scrollBy({ left: item.offsetWidth + 10, behavior: 'smooth' });
+      };
+      const start = () => timer = setInterval(step, speed);
+      row.addEventListener('mouseenter', () => clearInterval(timer));
+      row.addEventListener('mouseleave', start);
+      row.addEventListener('touchstart', () => clearInterval(timer), { passive: true });
+      row.addEventListener('touchend', start);
+      start();
+    }
+    autoScrollRow('catMenuBar', '.cat-menu-btn', 3200);
+    autoScrollRow('terbaruRow', '.mini-card', 4000);
+
+    (function () {
+      const toggleBtn = document.getElementById('theme-toggle');
+      const rootEl = document.documentElement;
+
+      function applyTheme(theme) {
+        if (theme === 'dark') {
+          rootEl.setAttribute('data-theme', 'dark');
+          if (toggleBtn) toggleBtn.textContent = '☀️ Terang';
+        } else {
+          rootEl.removeAttribute('data-theme');
+          if (toggleBtn) toggleBtn.textContent = '🌙 Gelap';
+        }
+      }
+
+      applyTheme(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+          const nextTheme = rootEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          localStorage.setItem('theme', nextTheme);
+          applyTheme(nextTheme);
+        });
+      }
+    })();
+
+    function hideGoogleBar() {
+      if (document.body) {
+        document.body.style.setProperty('top', '0px', 'important');
+        document.body.style.setProperty('margin-top', '0px', 'important');
+        document.body.style.setProperty('position', 'static', 'important');
+      }
+      document.documentElement.style.setProperty('top', '0px', 'important');
+      const banners = document.querySelectorAll('.goog-te-banner-frame, iframe.skiptranslate, .VIpgJd-ZVi9od-ORHb-OEVmcd, body > .skiptranslate');
+      banners.forEach(el => {
+        el.style.setProperty('display', 'none', 'important');
+        el.style.setProperty('visibility', 'hidden', 'important');
+        el.style.setProperty('height', '0px', 'important');
+      });
+    }
+    new MutationObserver(hideGoogleBar).observe(document.documentElement, { attributes: true, childList: true, subtree: true });
+
+    window.addEventListener('load', function() {
+      const fullLang = navigator.language || navigator.userLanguage || 'id';
+      const userLang = fullLang.substring(0, 2).toLowerCase();
+      if (userLang && userLang !== 'id') {
+        window.googleTranslateElementInit = function() {
+          new google.translate.TranslateElement({ pageLanguage: 'id', autoDisplay: false }, 'google_translate_element');
+          setTimeout(() => {
+            const selectField = document.querySelector('select.goog-te-combo');
+            if (selectField) {
+              selectField.value = userLang;
+              selectField.dispatchEvent(new Event('change'));
+            }
+            hideGoogleBar();
+          }, 1000);
+        };
+        const gtScript = document.createElement('script');
+        const hostGT = 'translate' + '.googleapis' + '.com';
+        gtScript.src = 'https://' + hostGT + '/translate_a/element.js?cb=googleTranslateElementInit';
+        gtScript.async = true;
+        document.body.appendChild(gtScript);
+      }
+    });
+  </script>
+</body>
+</html>
