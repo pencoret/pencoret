@@ -16,11 +16,10 @@
 		</marquee>
 	</div>
 </footer>
-
 <div id="google_translate_element" style="display:none;"></div>
 
 <script>
-  // 1. Fungsi Klik Tombol Terang / Gelap
+  // 1. Tombol Tema Terang / Gelap
   const toggleBtn = document.getElementById('theme-toggle');
   if (localStorage.getItem('theme') === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
@@ -42,23 +41,31 @@
     });
   }
 
-  // 2. Fungsi Terjemahan Otomatis Sesuai Bahasa Perangkat Pengunjung
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'id',
-      autoDisplay: false
-    }, 'google_translate_element');
+  // 2. Terjemahan Otomatis (Hanya dimuat jika bahasa browser bukan Indonesia agar situs tetap ringan)
+  window.addEventListener('load', function() {
+    const fullLang = navigator.language || navigator.userLanguage || 'id';
+    const userLang = fullLang.substring(0, 2).toLowerCase();
 
-    const userLang = (navigator.language || navigator.userLanguage || 'id').split('-')[0];
     if (userLang && userLang !== 'id') {
-      setTimeout(() => {
-        const selectField = document.querySelector('select.goog-te-combo');
-        if (selectField) {
-          selectField.value = userLang;
-          selectField.dispatchEvent(new Event('change'));
-        }
-      }, 1000);
+      window.googleTranslateElementInit = function() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'id',
+          autoDisplay: false
+        }, 'google_translate_element');
+
+        setTimeout(() => {
+          const selectField = document.querySelector('select.goog-te-combo');
+          if (selectField) {
+            selectField.value = userLang;
+            selectField.dispatchEvent(new Event('change'));
+          }
+        }, 1000);
+      };
+
+      const gtScript = document.createElement('script');
+      gtScript.src = 'https://google.com';
+      gtScript.async = true;
+      document.body.appendChild(gtScript);
     }
-  }
+  });
 </script>
-<script src="gtScript.src = 'https://google.com';"></script>
