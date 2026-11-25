@@ -159,54 +159,73 @@
   /* 3. GAMBAR & POSTINGAN DI BAWAH KOMENTAR SEJAJAR DENGAN ISI ARTIKEL */
   #footer .container { max-width: 945px !important; padding: 0 15px !important; }
   #footer img, .footer img { max-width: 100% !important; height: auto !important; border-radius: 6px !important; }
-  /* --- MODE GELAP (DARK MODE) --- */
-  [data-theme="dark"] body,
-  [data-theme="dark"] #all,
-  [data-theme="dark"] .bar.background-white,
-  [data-theme="dark"] #content,
-  [data-theme="dark"] #blog-post {
+    /* --- MODE GELAP MENYELURUH (HALAMAN DEPAN, ARTIKEL & SIDEBAR) --- */
+  html[data-theme="dark"],
+  html[data-theme="dark"] body,
+  html[data-theme="dark"] #all,
+  html[data-theme="dark"] #content,
+  html[data-theme="dark"] .bar,
+  html[data-theme="dark"] .bar.background-white,
+  html[data-theme="dark"] .bar.background-pentagon,
+  html[data-theme="dark"] .bar.background-gray,
+  html[data-theme="dark"] #blog-listing-medium,
+  html[data-theme="dark"] #blog-post,
+  html[data-theme="dark"] .box-simple,
+  html[data-theme="dark"] .box-image-text,
+  html[data-theme="dark"] .panel,
+  html[data-theme="dark"] .panel-default,
+  html[data-theme="dark"] .panel-heading,
+  html[data-theme="dark"] .panel-body,
+  html[data-theme="dark"] .well,
+  html[data-theme="dark"] .post,
+  html[data-theme="dark"] #heading-breadcrumbs,
+  html[data-theme="dark"] .breadcrumb {
     background-color: #121212 !important;
+    background-image: none !important;
+    color: #e4e4e4 !important;
+    border-color: #2c2c2c !important;
+  }
+
+  /* Kartu artikel, kotak sidebar & kolom komentar */
+  html[data-theme="dark"] .post,
+  html[data-theme="dark"] .box-image-text,
+  html[data-theme="dark"] .panel,
+  html[data-theme="dark"] .well,
+  html[data-theme="dark"] #comments {
+    background-color: #1c1c1c !important;
+    padding: 12px;
+    border-radius: 6px;
+  }
+
+  /* Semua teks judul, paragraf, tautan, tanggal & label */
+  html[data-theme="dark"] h1,
+  html[data-theme="dark"] h2,
+  html[data-theme="dark"] h3,
+  html[data-theme="dark"] h4,
+  html[data-theme="dark"] h5,
+  html[data-theme="dark"] p,
+  html[data-theme="dark"] li,
+  html[data-theme="dark"] span,
+  html[data-theme="dark"] div,
+  html[data-theme="dark"] .lead,
+  html[data-theme="dark"] .author-category,
+  html[data-theme="dark"] .date-comments {
     color: #e4e4e4 !important;
   }
 
-  [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3,
-  [data-theme="dark"] h4, [data-theme="dark"] a, [data-theme="dark"] p,
-  [data-theme="dark"] li, [data-theme="dark"] span {
-    color: #e4e4e4 !important;
+  html[data-theme="dark"] a {
+    color: #64c5d6 !important;
+  }
+  html[data-theme="dark"] a:hover {
+    color: #9be3f0 !important;
   }
 
-  [data-theme="dark"] .box-image-text,
-  [data-theme="dark"] .panel,
-  [data-theme="dark"] .well,
-  [data-theme="dark"] .post {
-    background-color: #1e1e1e !important;
-    border-color: #333333 !important;
-  }
-
-  /* --- TOMBOL TEMA DI BAWAH LOGO ATAS --- */
-  .banner-theme-btn {
-    position: absolute;
-    top: 62px; /* Posisi vertikal tepat di bawah logo animasi */
-    left: 15px; /* Sejajar rata kiri dengan logo */
-    z-index: 25;
-    padding: 4px 10px;
-    font-size: 11px;
-    font-weight: 700;
-    border-radius: 20px;
-    background: rgba(26, 37, 54, 0.85);
-    color: #f4d08c !important;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    cursor: pointer;
-    backdrop-filter: blur(4px);
-    transition: all 0.25s ease;
-  }
-
-  .banner-theme-btn:hover {
-    background: #38a7bb;
+  /* Kotak input pencarian / komentar */
+  html[data-theme="dark"] input,
+  html[data-theme="dark"] textarea,
+  html[data-theme="dark"] .form-control {
+    background-color: #252525 !important;
     color: #ffffff !important;
+    border-color: #444444 !important;
   }
-
-  /* Sembunyikan bar Google Translate atas agar tidak merusak tampilan banner */
-  .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display: none !important; }
   
-</style>
