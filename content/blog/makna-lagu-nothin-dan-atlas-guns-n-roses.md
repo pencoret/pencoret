@@ -16,6 +16,7 @@ pilihan: false
 tags:
   - Guns N Roses, Makna Lagu, Nothin, Atlas, Konser Guns N Roses Jakarta, Musik,
     Hiburan
+banner: /images/makna-lagu-atlas-nothin-guns-n-roses.jpg
 banner_alt: Sampul resmi lagu terbaru Guns N' Roses berjudul Atlas dengan
   ilustrasi sepasang tangan bernuansa hitam putih
 banner_caption: "*Sampul visual resmi single terbaru Guns N' Roses bertajuk
