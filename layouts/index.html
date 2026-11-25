@@ -366,13 +366,25 @@
   {{ end }}
 </div>
 
-
     {{ with after 4 $allPosts }}
     <div class="mini-row" id="terbaruRow" style="margin-top: 10px;">
       {{ range first 6 . }}
-      {{ $img := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" }}
+      {{- $rawImg := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+      {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+      {{- $res := resources.Get $cleanPath -}}
+      {{- if not $res -}}
+        {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+      {{- end -}}
+      {{- if not $res -}}
+        {{- $res = .Resources.GetMatch (printf "*%s*" (path.Base $cleanPath)) -}}
+      {{- end -}}
+      {{- $finalSrc := $rawImg | relURL -}}
+      {{- if $res -}}
+        {{- $webp := $res.Fill "400x240 webp q80" -}}
+        {{- $finalSrc = $webp.RelPermalink -}}
+      {{- end -}}
       <div class="mini-card">
-        <a href="{{ .Permalink }}"><img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
+        <a href="{{ .Permalink }}"><img src="{{ $finalSrc }}" alt="{{ .Title }}" width="225" height="135" loading="lazy"></a>
         <div class="mini-card-body"><h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4></div>
       </div>
       {{ end }}
