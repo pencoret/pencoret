@@ -9,6 +9,8 @@ author: PenCoret
 description: Simak rekap hasil Liga Champions UEFA 2026/2027 tadi malam
   (25/11/2026)! Klub milik pengusaha Indonesia Como 1907 menang 1-0, Real Madrid
   pesta gol, Man City & Arsenal gagal menang.
+categories:
+  - Olahraga
 populer: false
 pilihan: false
 tags:
@@ -31,8 +33,6 @@ Di sisi lain, sang raja Eropa Real Madrid tampil trengginas dengan pesta gol di 
 
 ## Como 1907 Lanjutkan Kejutan di Panggung Eropa
 
-
-
 Bertanding di hadapan pendukung sendiri di Stadion Giuseppe Sinigaglia, Como 1907 tampil disiplin saat menjamu wakil Yunani, AEK Athens. Klub berjuluk *I Lariani* tersebut berhasil mengunci kemenangan tipis 1-0 berkat gol tunggal yang dicetak oleh gelandang senior Luis Milla.
 
 
@@ -43,8 +43,6 @@ Tambahan tiga poin ini mempertegas status Como 1907 sebagai salah satu kuda hita
 
 ## Real Madrid Mengamuk di Bernabeu, Mbappe Cetak Brace
 
-
-
 Pesta gol terjadi di Stadion Santiago Bernabeu saat tuan rumah Real Madrid menjamu juara Belanda, PSV Eindhoven. Sempat dikejutkan di awal laga, *Los Blancos* berbalik mengamuk dan menutup pertandingan dengan kemenangan telak 5-1.
 
 
@@ -54,8 +52,6 @@ Penyerang bintang Kylian Mbappe menjadi aktor utama lewat sumbangan dua gol (*br
 
 
 ## Manchester City dan Arsenal Gagal Manfaatkan Laga Kandang
-
-
 
 Nasib kurang beruntung dialami dua raksasa Premier League yang sama-sama bermain di depan publik sendiri. Manchester City harus puas berbagi angka setelah ditahan imbang 2-2 oleh wakil Italia, Napoli, di Stadion Etihad.
 
@@ -71,29 +67,19 @@ Hasil serupa juga dialami Arsenal di Stadion Emirates saat menjamu wakil Jerman,
 
 ## Rekap Lengkap Hasil Liga Champions Rabu (25/11/2026) Dini Hari WIB
 
-
-
 Berikut daftar lengkap skor akhir sembilan pertandingan pembuka *matchday* kelima Liga Champions UEFA 2026/2027:
 
 
 
-*   **Galatasaray 1-0 Aston Villa** (Deniz Gul)
-
-*   **Bodo/Glimt 1-0 LASK Linz**
-
-*   **Como 1907 1-0 AEK Athens** (Luis Milla)
-
-*   **Feyenoord 0-1 FC Porto**
-
-*   **Arsenal 1-1 Borussia Dortmund** (Viktor Gyokeres / Maximilian Beier)
-
-*   **Slovan Bratislava 0-2 Real Betis**
-
-*   **Real Madrid 5-1 PSV Eindhoven** (Kylian Mbappe 2, Federico Valverde, Jude Bellingham, Vinicius Junior / Ivan Perisic)
-
-*   **RB Leipzig 3-1 RC Lens**
-
-*   **Manchester City 2-2 Napoli** (Ayyoub Bouaddi, Rayan Cherki / Rasmus Hojlund, Noa Lang)
+- **Galatasaray 1-0 Aston Villa** (Deniz Gul)
+- **Bodo/Glimt 1-0 LASK Linz**
+- **Como 1907 1-0 AEK Athens** (Luis Milla)
+- **Feyenoord 0-1 FC Porto**
+- **Arsenal 1-1 Borussia Dortmund** (Viktor Gyokeres / Maximilian Beier)
+- **Slovan Bratislava 0-2 Real Betis**
+- **Real Madrid 5-1 PSV Eindhoven** (Kylian Mbappe 2, Federico Valverde, Jude Bellingham, Vinicius Junior / Ivan Perisic)
+- **RB Leipzig 3-1 RC Lens**
+- **Manchester City 2-2 Napoli** (Ayyoub Bouaddi, Rayan Cherki / Rasmus Hojlund, Noa Lang)
 
 
 
