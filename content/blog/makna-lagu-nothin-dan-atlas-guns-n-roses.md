@@ -18,6 +18,9 @@ tags:
     Hiburan
 banner_alt: Sampul resmi lagu terbaru Guns N' Roses berjudul Atlas dengan
   ilustrasi sepasang tangan bernuansa hitam putih
+banner_caption: "*Sampul visual resmi single terbaru Guns N' Roses bertajuk
+  \"Atlas\" yang dibawakan dalam rangkaian tur dunia 2026. (Sumber: YouTube/Guns
+  N' Roses)*"
 ---
 Penampilan spektakuler band rock legendaris asal Amerika Serikat, Guns N' Roses, di Stadion Madya Gelora Bung Karno (GBK), Jakarta, pada 21 November 2026 lalu masih menyisakan euforia bagi para penggemar musik Tanah Air. Selain membawakan deretan lagu klasik seperti *Sweet Child O' Mine* dan *November Rain*, Axl Rose, Slash, dan Duff McKagan juga membawakan dua single terbaru mereka, yakni **"Nothin'"** dan **"Atlas"**.
 
@@ -28,8 +31,6 @@ Kehadiran dua lagu yang pertama kali dirilis ke publik menjelang tur dunia 2026 
 
 
 ## 1. Makna Lagu "Nothin'" — Balada Emosional tentang Kehampaan dan Penyesalan
-
-
 
 Berbeda dari citra musik rock keras yang identik dengan Guns N' Roses, *"Nothin'"* hadir dalam format balada piano yang menyayat hati dengan sentuhan solo gitar blues khas Slash di pertengahan lagu.
 
@@ -45,8 +46,6 @@ Vokal Axl Rose yang terdengar penuh gejolak emosional memperkuat pesan tentang k
 
 ## 2. Makna Lagu "Atlas" — Beban Berat Menopang Dunia dan Tekad Bertahan
 
-
-
 Jika *"Nothin'"* terasa sendu, maka *"Atlas"* justru hadir dengan tempo cepat dan energi rock bombastis sejak detik pertama. Judul lagu ini terinspirasi dari sosok Atlas dalam mitologi Yunani yang dihukum untuk memikul beban langit di atas pundaknya selamanya.
 
 
@@ -60,8 +59,6 @@ Namun alih-alih menyerah, *"Atlas"* membawa semangat perlawanan. Lagu ini mengaj
 
 
 ## Sisi Kontras yang Saling Melengkapi
-
-
 
 Dirilis secara bersamaan, *"Nothin'"* dan *"Atlas"* memperlihatkan dua sisi musikalitas Guns N' Roses yang saling melengkapi. Satu lagu mewakili sisi rapuh dan kontemplatif, sementara lagu lainnya membakar semangat lewat dentuman distorsi gitar yang bertenaga.
 
