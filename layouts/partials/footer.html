@@ -14,4 +14,49 @@
 		<marquee behavior="scroll" direction="left" scrollamount="5">
 			&copy; {{ now.Format "2006" }} PenCoret | Terimakasih telah berkunjung di Ruang Baca Digital, semoga setiap coretan dapat memberi wawasan dan inspirasi baru.
 		</marquee>
+		<div id="google_translate_element" style="display:none;"></div>
+
+<script>
+  // 1. Fungsi Klik Tombol Terang / Gelap
+  const toggleBtn = document.getElementById('theme-toggle');
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Terang';
+  }
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Gelap';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Terang';
+      }
+    });
+  }
+
+  // 2. Fungsi Terjemahan Otomatis Sesuai Bahasa Perangkat Pengunjung
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'id',
+      autoDisplay: false
+    }, 'google_translate_element');
+
+    const userLang = (navigator.language || navigator.userLanguage || 'id').split('-')[0];
+    if (userLang && userLang !== 'id') {
+      setTimeout(() => {
+        const selectField = document.querySelector('select.goog-te-combo');
+        if (selectField) {
+          selectField.value = userLang;
+          selectField.dispatchEvent(new Event('change'));
+        }
+      }, 1000);
+    }
+  }
+</script>
+<script src="//://google.com"></script>
 		
