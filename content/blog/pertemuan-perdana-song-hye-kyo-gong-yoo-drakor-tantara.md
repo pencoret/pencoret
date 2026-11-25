@@ -17,9 +17,9 @@ tags:
 banner: /images/daftar-drakor-terbaru-tayang-desember-2026.jpg
 banner_alt: Deretan drama Korea terbaru tayang Desember 2026 mulai dari Tantara
   hingga The Second Signal
-banner_caption: "*Ilustrasi deretan drama Korea terbaru bertabur bintang papan
-  atas yang dijadwalkan tayang sepanjang Desember 2026. (Sumber: Kolase
-  Istimewa/Netflix/tvN)*"
+banner_caption: "*Cuplikan adegan Song Hye-kyo dan Gong Yoo dalam teaser resmi
+  serial Tantara yang tayang perdana pada 11 Desember 2026. (Sumber:
+  YouTube/Netflix Indonesia)*"
 ---
 Kabar yang dinantikan pecinta drama Korea selama bertahun-tahun akhirnya terwujud. Netflix baru saja merilis jajaran foto perdana untuk serial orisinal terbarunya berjudul *Tantara*, yang untuk pertama kalinya mempertemukan dua megabintang papan atas Korea Selatan, Song Hye-kyo dan Gong Yoo, sebagai pemeran utama.
 
