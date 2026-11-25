@@ -299,7 +299,7 @@
     html[data-theme="dark"] .mini-card,
     html[data-theme="dark"] .big-card { background-color: #1e1e1e !important; border-color: #333333 !important; color: #e4e4e4 !important; }
     html[data-theme="dark"] .cat-menu-btn:hover { background-color: #38a7bb !important; color: #ffffff !important; }
-
+<style>
     .goog-te-banner-frame,
     .goog-te-banner-frame.skiptranslate,
     iframe.goog-te-banner-frame,
@@ -323,45 +323,44 @@
       padding-top: 0px !important;
       position: static !important;
     }
+
+    .sec-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .sec-header-row .home-theme-btn {
+      position: static !important;
+      top: auto !important;
+      right: auto !important;
+      left: auto !important;
+      bottom: auto !important;
+      margin: 0 auto !important;
+      flex-shrink: 0;
+      z-index: 25;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 20px;
+      background: rgba(26, 37, 54, 0.85);
+      color: #f4d08c !important;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      line-height: 1.2;
+      transition: all 0.25s ease;
+    }
+
+    .sec-header-row .home-theme-btn:hover {
+      background: #38a7bb;
+      color: #ffffff !important;
+    }
   </style>
-  <style>
-  .sec-header-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-  }
 
-  .sec-header-row .home-theme-btn {
-    position: static !important;
-    top: auto !important;
-    right: auto !important;
-    left: auto !important;
-    bottom: auto !important;
-    margin: 0 auto !important;
-    flex-shrink: 0;
-    z-index: 25;
-    padding: 5px 12px;
-    font-size: 11px;
-    font-weight: 700;
-    border-radius: 20px;
-    background: rgba(26, 37, 54, 0.85);
-    color: #f4d08c !important;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    cursor: pointer;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    line-height: 1.2;
-    transition: all 0.25s ease;
-  }
-
-  .sec-header-row .home-theme-btn:hover {
-    background: #38a7bb;
-    color: #ffffff !important;
-  }
-</style>
-
-<script>
+  <script>
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
     }
