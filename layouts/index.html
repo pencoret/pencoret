@@ -489,6 +489,50 @@
     autoScrollRow('catMenuBar', '.cat-menu-btn', 3200);
     autoScrollRow('terbaruRow', '.mini-card', 4000);
   </script>
+    <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      if (toggleBtn) toggleBtn.textContent = '☀️ Terang';
+    }
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'light');
+          toggleBtn.textContent = '🌙 Gelap';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+          toggleBtn.textContent = '☀️ Terang';
+        }
+      });
+    }
+
+    window.addEventListener('load', function() {
+      const fullLang = navigator.language || navigator.userLanguage || 'id';
+      const userLang = fullLang.substring(0, 2).toLowerCase();
+      if (userLang && userLang !== 'id') {
+        window.googleTranslateElementInit = function() {
+          new google.translate.TranslateElement({ pageLanguage: 'id', autoDisplay: false }, 'google_translate_element');
+          setTimeout(() => {
+            const selectField = document.querySelector('select.goog-te-combo');
+            if (selectField) {
+              selectField.value = userLang;
+              selectField.dispatchEvent(new Event('change'));
+            }
+          }, 1000);
+        };
+        const gtScript = document.createElement('script');
+        const hostGT = 'translate' + '.googleapis' + '.com';
+        gtScript.src = 'https://' + hostGT + '/translate_a/element.js?cb=googleTranslateElementInit';
+        gtScript.async = true;
+        document.body.appendChild(gtScript);
+      }
+    });
+  </script>
 </body>
 </html>
                                                     
