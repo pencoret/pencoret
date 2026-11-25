@@ -159,5 +159,54 @@
   /* 3. GAMBAR & POSTINGAN DI BAWAH KOMENTAR SEJAJAR DENGAN ISI ARTIKEL */
   #footer .container { max-width: 945px !important; padding: 0 15px !important; }
   #footer img, .footer img { max-width: 100% !important; height: auto !important; border-radius: 6px !important; }
+  /* --- MODE GELAP (DARK MODE) --- */
+  [data-theme="dark"] body,
+  [data-theme="dark"] #all,
+  [data-theme="dark"] .bar.background-white,
+  [data-theme="dark"] #content,
+  [data-theme="dark"] #blog-post {
+    background-color: #121212 !important;
+    color: #e4e4e4 !important;
+  }
 
+  [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3,
+  [data-theme="dark"] h4, [data-theme="dark"] a, [data-theme="dark"] p,
+  [data-theme="dark"] li, [data-theme="dark"] span {
+    color: #e4e4e4 !important;
+  }
+
+  [data-theme="dark"] .box-image-text,
+  [data-theme="dark"] .panel,
+  [data-theme="dark"] .well,
+  [data-theme="dark"] .post {
+    background-color: #1e1e1e !important;
+    border-color: #333333 !important;
+  }
+
+  /* --- TOMBOL TEMA DI BAWAH LOGO ATAS --- */
+  .banner-theme-btn {
+    position: absolute;
+    top: 62px; /* Posisi vertikal tepat di bawah logo animasi */
+    left: 15px; /* Sejajar rata kiri dengan logo */
+    z-index: 25;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 20px;
+    background: rgba(26, 37, 54, 0.85);
+    color: #f4d08c !important;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: all 0.25s ease;
+  }
+
+  .banner-theme-btn:hover {
+    background: #38a7bb;
+    color: #ffffff !important;
+  }
+
+  /* Sembunyikan bar Google Translate atas agar tidak merusak tampilan banner */
+  .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display: none !important; }
+  
 </style>
