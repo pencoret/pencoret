@@ -62,10 +62,12 @@
         }, 1000);
       };
 
-            const gtScript = document.createElement('script');
-      gtScript.src = '//://google.com';
+		const gtScript = document.createElement('script');
+      const hostGT = 'translate' + '.googleapis' + '.com';
+      gtScript.src = 'https://' + hostGT + '/translate_a/element.js?cb=googleTranslateElementInit';
       gtScript.async = true;
       document.body.appendChild(gtScript);
+
     }
   });
 </script>
