@@ -161,17 +161,18 @@
 
               {{- $finalSrc := $rawImg | relURL -}}
               {{- if $res -}}
-                {{- $webp := $res.Resize "900x webp q85" -}}
+                {{- $webp := $res.Resize "1200x webp q85" -}}
                 {{- $finalSrc = $webp.RelPermalink -}}
               {{- end -}}
 
               <figure class="post-thumb">
-                <img src="{{ $finalSrc }}" alt="{{ .Params.banner_alt | default .Title }}" fetchpriority="high">
+                <img src="{{ $finalSrc }}" alt="{{ .Params.banner_alt | default .Title }}" fetchpriority="high" style="width:100%; height:auto;">
                 {{- with .Params.banner_caption -}}
                   <figcaption style="font-size:12px; color:#666; margin-top:6px; text-align:center;">{{ . }}</figcaption>
                 {{- end -}}
               </figure>
             {{- end }}
+
                         {{- $related := .Site.RegularPages.Related . | first 4 -}}
             {{- if eq (len $related) 0 -}}
               {{- $related = where .Site.RegularPages "Section" "blog" | first 4 -}}
