@@ -54,7 +54,7 @@ Fenomena kata *onty-onty* menunjukkan bagaimana bahasa di internet terus berevol
 
 
 
-> **Baca juga:** Jika kamu penasaran bagaimana istilah ini diangkat ke dalam lirik yang ramai dipakai warganet, simak pembahasan lengkapnya di artikel **[Makna Lagu Onty Onty yang Viral di TikTok](/makna-lagu-onty-onty-yang-viral/)**. *([https://pencoret.web.id/makna-lagu-onty-onty-viral-tiktok-fakta-unik/](https://pencoret.web.id/makna-lagu-onty-onty-viral-tiktok-fakta-unik/))*
+> **Baca juga:** Jika kamu penasaran bagaimana istilah ini diangkat ke dalam lirik yang ramai dipakai warganet, simak pembahasan lengkapnya di artikel **[Makna Lagu Onty Onty yang Viral di TikTok](https://pencoret.web.id/makna-lagu-onty-onty-viral-tiktok-fakta-unik/)**. *([https://pencoret.web.id/makna-lagu-onty-onty-viral-tiktok-fakta-unik/](https://pencoret.web.id/makna-lagu-onty-onty-viral-tiktok-fakta-unik/))*
 
 
 
