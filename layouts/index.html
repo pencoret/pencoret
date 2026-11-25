@@ -352,4 +352,101 @@
   </script>
 </head>
 
-  
+  <body>
+  <div class="top-search-wrap">
+    <form class="top-search-form" action="https://google.com" method="get" target="_blank" onsubmit="this.q.value='site:pencoret.web.id ' + document.getElementById('homeSearchInput').value;">
+      <input type="hidden" name="q" value="">
+      <input type="text" id="homeSearchInput" class="top-search-input" placeholder="Cari artikel atau topik di PenCoret..." aria-label="Cari artikel" required>
+      <button type="submit" class="top-search-btn">Cari</button>
+    </form>
+  </div>
+
+  <div style="width: 100%; overflow: hidden; margin-top: 0; position: relative;">
+    <a href="{{ "/" | relURL }}" class="home-logo-overlay" title="Beranda {{ .Site.Title }}">
+      <img src="{{ "/images/logo-transparan.png" | relURL }}" alt="Logo {{ .Site.Title }}" width="56" height="56" class="home-logo-animasi">
+    </a>
+
+    <img src="{{ "/images/image_dacac6d.jpeg" | relURL }}" alt="Banner PenCoret" width="1200" height="300" fetchpriority="high" decoding="sync" style="width: 100%; height: auto; display: block; transform: scale(1.12);">
+  </div>
+
+  <div style="width: 100%; background: #1a2536; color: #f4d08c; padding: 5px 0; overflow: hidden; white-space: nowrap; font-weight: bold; font-size: 13px;">
+    <div style="display: inline-block; padding-left: 100%; animation: jalanTeks 22s linear infinite;">
+      Selamat Datang di Ruang Baca dari sudut pandang yang berbeda, menyelami ide, mengurai cerita, dan menulis makna baru di setiap coretan pena.
+    </div>
+  </div>
+
+  <div class="container home-wrap">
+    <nav class="cat-menu-bar" id="catMenuBar">
+      {{ range .Site.Menus.main }}
+        {{ if ne (lower .Name) "beranda" }}
+          <a href="{{ .URL | relURL }}" class="cat-menu-btn">{{ .Name }}</a>
+        {{ end }}
+      {{ end }}
+    </nav>
+
+    {{ $allPosts := where .Site.RegularPages "Section" "blog" }}
+    {{ $populerPosts := where $allPosts "Params.populer" true | default (first 5 $allPosts) }}
+
+    {{ if $populerPosts }}
+    <div class="sec-header-row">
+      <div class="sec-label">Postingan Populer</div>
+      <button type="button" id="theme-toggle" class="home-theme-btn" aria-label="Ganti Tema">🌙 Gelap</button>
+      <select class="nav-dropdown-select" aria-label="Menu Navigasi Halaman" onchange="if(this.value) window.location.href=this.value">
+        <option value="" selected disabled hidden>Menu</option>
+        <option value="{{ "/" | relURL }}">Beranda</option>
+        {{ range .Site.Menus.footer }}
+          <option value="{{ .URL | relURL }}">{{ .Name }}</option>
+        {{ end }}
+      </select>
+    </div>
+    <div class="pop-slider" id="popSliderBox">
+      <div class="pop-track" id="popTrack">
+        {{ range $index, $page := first 5 $populerPosts }}
+        {{- $rawImg := $page.Params.image | default $page.Params.banner | default $page.Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+        {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+        {{- $res := resources.Get $cleanPath -}}
+        {{- if not $res -}}
+          {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+        {{- end -}}
+        {{- $finalSrc := $rawImg | relURL -}}
+        {{- if $res -}}
+          {{- $webp := $res.Fill "1140x480 webp q85 Smart" -}}
+          {{- $finalSrc = $webp.RelPermalink -}}
+        {{- end -}}
+        <div class="pop-slide">
+          <a href="{{ $page.Permalink }}"><img src="{{ $finalSrc }}" alt="{{ $page.Title }}" width="1140" height="480" {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}></a>
+          <div class="pop-overlay"><h2><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></h2></div>
+        </div>
+        {{ end }}
+      </div>
+      <button class="pop-nav pop-prev" onclick="moveSlide(-1)">❮</button>
+      <button class="pop-nav pop-next" onclick="moveSlide(1)">❯</button>
+    </div>
+    {{ end }}
+
+    <div class="sec-label" style="margin: 14px 0 8px;">Postingan Terbaru</div>
+    <div class="latest-grid">
+      {{ range first 4 $allPosts }}
+      {{- $rawImg := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+      {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+      {{- $res := resources.Get $cleanPath -}}
+      {{- if not $res -}}
+        {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+      {{- end -}}
+      {{- $finalSrc := $rawImg | relURL -}}
+      {{- if $res -}}
+        {{- $webp := $res.Fill "500x280 webp q80" -}}
+        {{- $finalSrc = $webp.RelPermalink -}}
+      {{- end -}}
+      <article class="big-card">
+        <a href="{{ .Permalink }}"><img src="{{ $finalSrc }}" alt="{{ .Title }}" width="400" height="220"></a>
+        <div class="big-card-body">
+          {{ with .Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
+          <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <div class="big-meta">{{ .Date.Format "02 Jan 2006" }}</div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+
+    
