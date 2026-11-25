@@ -83,4 +83,22 @@
     margin-top: 0px !important;
     position: static !important;
   }
+{{ if .IsHome }}
+  .banner-box-relative {
+    position: relative !important;
+  }
+
+  .banner-box-relative .theme-toggle,
+  .banner-box-relative .theme-btn,
+  .banner-box-relative .theme-switch,
+  .banner-box-relative [class*="theme-toggle"],
+  .banner-box-relative [id*="theme-toggle"] {
+    position: absolute !important;
+    top: auto !important;
+    bottom: 8px !important;
+    right: 12px !important;
+    left: auto !important;
+    z-index: 25 !important;
+  }
+{{ end }}
 </style>
