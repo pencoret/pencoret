@@ -34,7 +34,7 @@ Jika 5G fokus pada kecepatan tinggi dan konektivitas perangkat *Internet of Thin
 
 
 
-## 5 Keunggulan Utama Jaringan 6G
+## Keunggulan Utama Jaringan 6G
 
 Kehadiran jaringan generasi keenam diprediksi akan mengubah cara manusia berinteraksi dengan teknologi. Berikut adalah beberapa lompatan besar yang ditawarkan:
 
