@@ -54,23 +54,19 @@ Kehadiran jaringan generasi keenam diprediksi akan mengubah cara manusia berinte
 
   Dengan kapasitas transfer data yang masif, panggilan video konvensional berpotensi tergantikan oleh komunikasi hologram tiga dimensi secara langsung. Selain itu, teknologi *digital twin* (kembaran digital dari kota atau pabrik di dunia nyata) dapat berjalan mulus tanpa hambatan sinyal.
 
-## Perbandingan Internet 5G vs 6G
+## ## Perbandingan Internet 5G vs 6G
 
-Untuk melihat seberapa jauh lompatan teknologinya, simak tabel perbandingan singkat antara jaringan 5G dan 6G berikut ini:
+Untuk melihat seberapa jauh lompatan teknologinya, simak perbandingan singkat antara jaringan 5G dan 6G berikut ini:
 
-| Fitur Utama | Jaringan 5G | Jaringan 6G (Proyeksi) |
+* **Kecepatan Puncak:** Jaringan 5G mencapai hingga 10–20 Gbps, sedangkan 6G diproyeksikan menembus hingga 1.000 Gbps (1 Tbps).
 
-| :--- | :--- | :--- |
+* **Latensi (Jeda Waktu):** Jaringan 5G berada di kisaran 1 milidetik, sementara 6G turun hingga di bawah 0,1 milidetik (skala mikrodetik).
 
-| **Kecepatan Puncak** | Hingga 10 – 20 Gbps | Hingga 1.000 Gbps (1 Tbps) |
+* **Spektrum Frekuensi:** 5G menggunakan Sub-6 GHz dan mmWave (hingga 100 GHz), sedangkan 6G memanfaatkan mmWave hingga Terahertz (300 GHz – 3 THz).
 
-| **Latensi** | Sekitar 1 milidetik | Di bawah 0,1 milidetik (mikrodetik) |
+* **Peran Kecerdasan Buatan (AI):** Pada 5G, AI hanya mengoptimalkan sebagian jaringan, sementara 6G terintegrasi penuh sejak awal (*AI-Native*).
 
-| **Spektrum Frekuensi** | Sub-6 GHz & mmWave (hingga 100 GHz) | mmWave & Terahertz (300 GHz – 3 THz) |
-
-| **Peran AI** | Optimasi sebagian jaringan | Terintegrasi penuh (*AI-Native*) |
-
-| **Cakupan Sinyal** | Fokus pada menara darat | Terintegrasi darat, udara, dan satelit |
+* **Cakupan Sinyal:** 5G fokus pada menara pemancar di darat, sedangkan 6G memadukan jaringan darat, udara, dan satelit orbit rendah.
 
 ## Kapan Internet 6G Rilis di Indonesia?
 
