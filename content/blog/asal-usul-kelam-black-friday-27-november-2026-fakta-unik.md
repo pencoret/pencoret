@@ -21,8 +21,8 @@ banner_alt: Ilustrasi perbandingan sejarah krisis pasar emas Wall Street abad
   ke-19 di sisi kiri dan suasana belanja diskon modern di pusat perbelanjaan di
   sisi kanan dengan papan gantung bertuliskan Black Friday
 banner_caption: "Ilustrasi transformasi makna Black Friday dari krisis pasar
-  emas masa lalu menjadi fenomena pesta diskon belanja modern. (Ilustrasi:
-  PenCoret)"
+  emas masa lalu menjadi fenomena pesta diskon belanja modern. (Ilustrasi: AI
+  Generated/PenCoret)"
 ---
 Menjelang akhir pekan terakhir di bulan November, kata kunci **Black Friday** mendadak melonjak tajam di jajaran pencarian populer Google Trends Indonesia. Tahun ini, perayaan pesta diskon global tersebut jatuh pada **Jumat, 27 November 2026**, bertepatan dengan momen gajian akhir bulan sekaligus pemanasan menuju musim belanja akhir tahun.
 
