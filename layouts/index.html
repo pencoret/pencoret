@@ -300,6 +300,12 @@
       .mini-card { width: 225px; } .mini-card img { height: 135px; }
     }
   </style>
+    {{- $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . -}}
+  {{- if $style }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  {{- else }}
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+  {{- end }}
 </head>
 
 <body>
