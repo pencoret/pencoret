@@ -55,6 +55,66 @@
 {{ if .IsPage }}
 <script type="application/ld+json">
 {
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Syarat Wajib Gambar Besar Google Discover -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+{{ $raw_title := .Params.seo_title | default .Title }}
+{{ $title_plain := $raw_title | markdownify | plainify }}
+{{ $desc_plain := (default .Site.Params.description .Description) | markdownify | plainify }}
+
+{{- $thumb := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+{{- $discoverImage := $thumb | absURL -}}
+{{- $ogImage := $thumb | absURL -}}
+{{- $ogWidth := "1200" -}}
+{{- $ogHeight := "630" -}}
+
+{{- if $thumb -}}
+  {{- $cleanPath := strings.TrimPrefix "/" $thumb -}}
+  {{- $img := resources.Get $cleanPath -}}
+  {{- if not $img -}}
+    {{- $img = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+  {{- end -}}
+
+  {{- if $img -}}
+    {{- /* 1. Gambar Khusus Google Discover (Lebar 1200px, Rasio 16:9 atau tanpa crop) */ -}}
+    {{- $discoverResized := $img.Resize "1200x jpg q85" -}}
+    {{- $discoverImage = $discoverResized.Permalink -}}
+
+    {{- /* 2. Gambar Khusus WhatsApp & Medsos (Lebar 800px JPG, dijamin < 300KB) */ -}}
+    {{- $ogResized := $img.Resize "800x jpg q75" -}}
+    {{- $ogImage = $ogResized.Permalink -}}
+    {{- $ogWidth = $ogResized.Width -}}
+    {{- $ogHeight = $ogResized.Height -}}
+  {{- end -}}
+{{- end -}}
+
+<!-- Tag Open Graph untuk WhatsApp & Facebook -->
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:title" content="{{ $title_plain }}" />
+<meta property="og:description" content="{{ $desc_plain }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+{{ with $ogImage }}
+  <meta property="og:image" content="{{ . }}" />
+  <meta property="og:image:secure_url" content="{{ . }}" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="{{ . }}" />
+{{ end }}
+{{ with $ogWidth }}<meta property="og:image:width" content="{{ . }}" />{{ end }}
+{{ with $ogHeight }}<meta property="og:image:height" content="{{ . }}" />{{ end }}
+
+<!-- Schema JSON-LD untuk Google Discover (Menggunakan gambar 1200px) -->
+{{ if .IsPage }}
+{{- $authorName := .Site.Params.author.name | default .Site.Title -}}
+{{- if reflect.IsMap .Params.author -}}
+  {{- $authorName = .Params.author.name | default $authorName -}}
+{{- else if .Params.author -}}
+  {{- $authorName = .Params.author -}}
+{{- end -}}
+<script type="application/ld+json">
+{
   "@context": "https://schema.org",
   "@type": "NewsArticle",
   "headline": {{ $title_plain }},
@@ -65,11 +125,24 @@
   "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
   "author": [{
     "@type": "Person",
-    "name": "{{ .Params.author | default .Site.Title }}"
+    "name": "{{ $authorName }}"
   }]
 }
 </script>
 {{ end }}
+
+<!-- Memuat CSS Utama Tema Mainroad & Custom CSS -->
+{{- $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . -}}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+{{- range .Site.Params.customCSS -}}
+  <link rel="stylesheet" href="{{ . | relURL }}">
+{{- end -}}
+
+<!-- Favicon -->
+{{- with .Site.Params.favicon -}}
+  <link rel="shortcut icon" href="{{ . | relURL }}">
+{{- end -}}
 
 <!-- KODE GOOGLE ADSENSE -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817"
