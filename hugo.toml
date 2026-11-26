@@ -55,6 +55,12 @@ timeZone = 'Asia/Jakarta'
     search = false
     categories = false
     tags = false
+    
+    [Params.author]
+  name = "PenCoret"
+  bio = "Ruang baca independen yang mengulas informasi terkini, tren viral, teknologi, dan fakta unik secara mendalam."
+  avatar = "images/image_b36997e3.jpeg"
+  
 
 [taxonomies]
   category = 'categories'
