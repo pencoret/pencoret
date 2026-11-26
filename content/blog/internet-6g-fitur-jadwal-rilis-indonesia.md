@@ -40,21 +40,33 @@ Kehadiran jaringan generasi keenam diprediksi akan mengubah cara manusia berinte
 
 
 
-1. **Kecepatan Hingga 1 Tbps**
+***Kecepatan Hingga 1 Tbps***
 
-  Kecepatan puncak internet 6G diperkirakan mampu menembus **1 Terabit per detik (Tbps)** atau sekitar 100 kali lebih cepat dari jaringan 5G tercepat saat ini. Sebagai gambaran, mengunduh film beresolusi 4K atau puluhan gigabita data hanya membutuhkan waktu kurang dari satu detik.
-2. **Latensi Nyaris Nol (Mikrodetik)**
+Kecepatan puncak internet 6G diperkirakan mampu menembus **1 Terabit per detik (Tbps)** atau sekitar 100 kali lebih cepat dari jaringan 5G tercepat saat ini. Sebagai gambaran, mengunduh film beresolusi 4K atau puluhan gigabita data hanya membutuhkan waktu kurang dari satu detik.
 
-  Jeda waktu pengiriman data (*latency*) pada 6G ditargetkan turun hingga skala mikrodetik. Respons yang nyaris instan ini sangat krusial untuk operasi bedah jarak jauh (*telemedicine*), kendaraan otonom penuh, hingga kendali robot industri secara *real-time*.
-3. **Jaringan Berbasis Kecerdasan Buatan (AI-Native)**
 
-  Berbeda dengan generasi sebelumnya yang hanya menambahkan AI sebagai fitur pendukung, arsitektur 6G dibangun dengan AI sejak awal. Jaringan mampu mengatur lalu lintas data, menghemat energi, dan memperbaiki gangguan secara otomatis tanpa campur tangan manusia.
-4. **Cakupan Global Lewat Integrasi Satelit**
 
-  6G akan menggabungkan jaringan terestrial (menara BTS di darat) dengan konstelasi satelit orbit rendah. Hasilnya, wilayah terpencil, lautan lepas, hingga area pegunungan yang sebelumnya sulit dijangkau sinyal seluler akan mendapatkan koneksi internet berkecepatan tinggi.
-5. **Komunikasi Hologram dan *Digital Twin***
+***Latensi Nyaris Nol (Mikrodetik)***
 
-  Dengan kapasitas transfer data yang masif, panggilan video konvensional berpotensi tergantikan oleh komunikasi hologram tiga dimensi secara langsung. Selain itu, teknologi *digital twin* (kembaran digital dari kota atau pabrik di dunia nyata) dapat berjalan mulus tanpa hambatan sinyal.
+Jeda waktu pengiriman data (*latency*) pada 6G ditargetkan turun hingga skala mikrodetik. Respons yang nyaris instan ini sangat krusial untuk operasi bedah jarak jauh (*telemedicine*), kendaraan otonom penuh, hingga kendali robot industri secara *real-time*.
+
+
+
+***Jaringan Berbasis Kecerdasan Buatan (AI-Native)***
+
+Berbeda dengan generasi sebelumnya yang hanya menambahkan AI sebagai fitur pendukung, arsitektur 6G dibangun dengan AI sejak awal. Jaringan mampu mengatur lalu lintas data, menghemat energi, dan memperbaiki gangguan secara otomatis tanpa campur tangan manusia.
+
+
+
+***Cakupan Global Lewat Integrasi Satelit***
+
+6G akan menggabungkan jaringan terestrial (menara BTS di darat) dengan konstelasi satelit orbit rendah. Hasilnya, wilayah terpencil, lautan lepas, hingga area pegunungan yang sebelumnya sulit dijangkau sinyal seluler akan mendapatkan koneksi internet berkecepatan tinggi.
+
+
+
+***Komunikasi Hologram dan Digital Twin***
+
+Dengan kapasitas transfer data yang masif, panggilan video konvensional berpotensi tergantikan oleh komunikasi hologram tiga dimensi secara langsung. Selain itu, teknologi *digital twin* (kembaran digital dari kota atau pabrik di dunia nyata) dapat berjalan mulus tanpa hambatan sinyal.
 
 ## ## Perbandingan Internet 5G vs 6G
 
