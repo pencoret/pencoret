@@ -174,6 +174,20 @@
   <link rel="stylesheet" href="{{ . | relURL }}">
 {{- end -}}
 
+          /* Paksa logo transparan mengecil & tidak pernah ditarik 100% */
+    img[src*="logo-transparan.png"] {
+      width: auto !important;
+      max-width: 160px !important;
+      max-height: 44px !important;
+      height: auto !important;
+      display: inline-block !important;
+    }
+
+    /* Pastikan pembungkus banner & logo tidak meluber ke samping */
+    header, nav, main, section, div {
+      max-width: 100%;
+    }
+
 <!-- Favicon -->
 {{- with .Site.Params.favicon -}}
   <link rel="shortcut icon" href="{{ . | relURL }}">
