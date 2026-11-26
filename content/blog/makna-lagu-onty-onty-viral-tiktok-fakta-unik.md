@@ -17,7 +17,7 @@ pilihan: false
 tags:
   - lagu viral tiktok, makna lagu onty onty, fakta unik, hiburan, tren media
     sosial
-banner: /images/image_deacfb02 (1).jpg
+banner: /images/makna lagu dicari onty-onty viral tiktok.jpg
 banner_alt: headphone dan ponsel dengan notasi musik serta ikon hati sebagai
   simbol lagu Onty Onty yang viral di TikTok
 banner_caption: Lagu "Onty Onty" mendominasi linimasa media sosial berkat irama
