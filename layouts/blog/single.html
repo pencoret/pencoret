@@ -86,3 +86,39 @@
   {{ partial "headers.html" . }}
   {{ partial "custom_headers.html" . }}
 </head>
+        <div class="post-content" id="article-body" style="line-height: 1.75; font-size: 1.05rem;">
+          {{ .Content }}
+        </div>
+
+        {{- $related := .Site.RegularPages.Related . | first 4 -}}
+        {{- if eq (len $related) 0 -}}
+          {{- $related = where .Site.RegularPages "Section" "blog" | first 4 -}}
+        {{- end -}}
+
+        <!-- Kotak Baca Juga -->
+        <div id="baca-juga-source" style="margin: 24px 0; padding: 14px 18px; background: #f8f9fa; border-left: 4px solid #007bff; border-radius: 4px;">
+          {{- $shown := 0 -}}
+          {{- range $related }}
+            {{- if and (ne .RelPermalink $.RelPermalink) (lt $shown 3) }}
+              <p style="margin: 6px 0;"><strong>Baca Juga:</strong> <a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+              {{- $shown = add $shown 1 -}}
+            {{- end }}
+          {{- end }}
+        </div>
+
+        {{- with .Params.tags }}
+        <div class="post-tags" style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; font-size: 0.9rem;">
+          <strong>Tag:</strong>
+          {{- range . }}
+            <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" style="display: inline-block; margin: 2px 4px; padding: 2px 8px; background: #f1f1f1; border-radius: 4px; text-decoration: none; color: #333;">#{{ . }}</a>
+          {{- end }}
+        </div>
+        {{- end }}
+      </article>
+    </main>
+
+    {{ partial "footer.html" . }}
+  </div>
+  {{ partial "scripts.html" . }}
+</body>
+</html>
