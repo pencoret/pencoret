@@ -18,8 +18,9 @@ tags:
 banner: /images/asal-usul-tren-brazil-dance-viral-tiktok-2026.jpg
 banner_alt: Ilustrasi anak muda menari Brazil Dance dan Passinho dengan gerakan
   kaki lincah di jalanan warna-warni Rio de Janeiro yang viral di TikTok 2026
-banner_caption: Ilustrasi tren tarian Brazil Dance atau Passinho yang pencarian
-  videonya melonjak 1.572 persen di TikTok Indonesia sepanjang 2026.
+banner_caption: "Ilustrasi tren tarian Brazil Dance atau Passinho yang pencarian
+  videonya melonjak 1.572 persen di TikTok Indonesia sepanjang 2026. (Visual: AI
+  Generated)"
 ---
 Jika linimasa media sosialmu sepanjang tahun ini dipenuhi oleh video orang berjoget dengan gerakan kaki lincah dan irama musik yang mengentak, kamu tidak sendirian. Fenomena bertajuk "Brazil Dance" secara resmi dinobatkan sebagai salah satu tren paling meledak di Indonesia sepanjang 2026.
 
