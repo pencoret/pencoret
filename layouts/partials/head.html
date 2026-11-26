@@ -86,6 +86,41 @@
     {{- $ogResized := $img.Resize "800x jpg q75" -}}
     {{- $ogImage = $ogResized.Permalink -}}
     {{- $ogWidth = $ogResized.Width -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Syarat Wajib Gambar Besar Google Discover -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+{{ $raw_title := .Params.seo_title | default .Title }}
+{{ $title_plain := $raw_title | markdownify | plainify }}
+{{ $desc_plain := (default .Site.Params.description .Description) | markdownify | plainify }}
+
+<!-- Meta Description & Canonical untuk Google SEO -->
+<meta name="description" content="{{ $desc_plain }}">
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{- $thumb := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+{{- $discoverImage := $thumb | absURL -}}
+{{- $ogImage := $thumb | absURL -}}
+{{- $ogWidth := "1200" -}}
+{{- $ogHeight := "630" -}}
+
+{{- if $thumb -}}
+  {{- $cleanPath := strings.TrimPrefix "/" $thumb -}}
+  {{- $img := resources.Get $cleanPath -}}
+  {{- if not $img -}}
+    {{- $img = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+  {{- end -}}
+
+  {{- if $img -}}
+    {{- /* 1. Gambar Khusus Google Discover (Lebar 1200px, Rasio 16:9 atau tanpa crop) */ -}}
+    {{- $discoverResized := $img.Resize "1200x jpg q85" -}}
+    {{- $discoverImage = $discoverResized.Permalink -}}
+
+    {{- /* 2. Gambar Khusus WhatsApp & Medsos (Lebar 800px JPG, dijamin < 300KB) */ -}}
+    {{- $ogResized := $img.Resize "800x jpg q75" -}}
+    {{- $ogImage = $ogResized.Permalink -}}
+    {{- $ogWidth = $ogResized.Width -}}
     {{- $ogHeight = $ogResized.Height -}}
   {{- end -}}
 {{- end -}}
