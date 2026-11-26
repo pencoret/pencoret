@@ -32,6 +32,8 @@ Saat ini, berbagai raksasa teknologi dan negara maju tengah berlomba mengembangk
 
 Jika 5G fokus pada kecepatan tinggi dan konektivitas perangkat *Internet of Things* (IoT), 6G dirancang untuk menyatukan dunia fisik, digital, dan biologis. Jaringan ini akan mengandalkan komputasi awan (*cloud*), kecerdasan buatan (AI), serta integrasi langsung antara menara pemancar di bumi dan satelit orbit rendah (LEO).
 
+
+
 ## 5 Keunggulan Utama Jaringan 6G
 
 Kehadiran jaringan generasi keenam diprediksi akan mengubah cara manusia berinteraksi dengan teknologi. Berikut adalah beberapa lompatan besar yang ditawarkan:
