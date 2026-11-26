@@ -68,7 +68,7 @@ Berbeda dengan generasi sebelumnya yang hanya menambahkan AI sebagai fitur pendu
 
 Dengan kapasitas transfer data yang masif, panggilan video konvensional berpotensi tergantikan oleh komunikasi hologram tiga dimensi secara langsung. Selain itu, teknologi *digital twin* (kembaran digital dari kota atau pabrik di dunia nyata) dapat berjalan mulus tanpa hambatan sinyal.
 
-## ## Perbandingan Internet 5G vs 6G
+## Perbandingan Internet 5G vs 6G
 
 Untuk melihat seberapa jauh lompatan teknologinya, simak perbandingan singkat antara jaringan 5G dan 6G berikut ini:
 
