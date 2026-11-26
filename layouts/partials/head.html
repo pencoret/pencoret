@@ -7,11 +7,11 @@
 {{ $title_plain := $raw_title | markdownify | plainify }}
 {{ $desc_plain := (default .Site.Params.defaultDescription .Description) | markdownify | plainify }}
 
-{{- /* LOGIKA OTOMATISASI GAMBAR GOOGLE DISCOVER (LEBAR 1200PX TANPA CROP) */ -}}
 {{- $thumb := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
-{{- $ogImage := "" -}}
-{{- $ogWidth := "" -}}
-{{- $ogHeight := "" -}}
+{{- $discoverImage := $thumb | absURL -}}
+{{- $ogImage := $thumb | absURL -}}
+{{- $ogWidth := "1200" -}}
+{{- $ogHeight := "630" -}}
 
 {{- if $thumb -}}
   {{- $cleanPath := strings.TrimPrefix "/" $thumb -}}
@@ -21,44 +21,55 @@
   {{- end -}}
 
   {{- if $img -}}
-    {{- $resized := $img.Resize "1200x webp q85" -}}
-    {{- $ogImage = $resized.Permalink -}}
-    {{- $ogWidth = $resized.Width -}}
-    {{- $ogHeight = $resized.Height -}}
-  {{- else -}}
-    {{- $ogImage = $thumb | absURL -}}
+    {{- /* 1. Gambar Khusus Google Discover (Lebar 1200px, Rasio 16:9 atau tanpa crop) */ -}}
+    {{- $discoverResized := $img.Resize "1200x jpg q85" -}}
+    {{- $discoverImage = $discoverResized.Permalink -}}
+
+    {{- /* 2. Gambar Khusus WhatsApp & Medsos (Lebar 800px JPG, dijamin < 300KB) */ -}}
+    {{- $ogResized := $img.Resize "800x jpg q75" -}}
+    {{- $ogImage = $ogResized.Permalink -}}
+    {{- $ogWidth = $ogResized.Width -}}
+    {{- $ogHeight = $ogResized.Height -}}
   {{- end -}}
 {{- end -}}
 
-<title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.description }}{{ else }}{{ $title_plain }}{{ end }}</title>
-<link rel="canonical" href="{{ .Permalink | absURL }}" />
-<meta name="description" content="{{ $desc_plain }}">
-{{ hugo.Generator }}
+<!-- Wajib untuk Google Discover -->
+<meta name="robots" content="index, follow, max-image-preview:large" />
 
-<!-- STYLESHEET TEMA -->
-<link href="{{ "css/style.default.css" | relURL }}" rel="stylesheet" id="theme-stylesheet">
-
-<!-- LOGO SITUS / FAVICON PNG TRANSPARAN UNTUK BROWSER & GOOGLE SEARCH -->
-<link rel="icon" href="{{ "/images/logo-transparan.png" | relURL }}" type="image/png">
-<link rel="icon" type="image/png" sizes="48x48" href="{{ "/images/logo-transparan.png" | relURL }}">
-<link rel="icon" type="image/png" sizes="192x192" href="{{ "/images/logo-transparan.png" | relURL }}">
-<link rel="apple-touch-icon" href="{{ "/images/logo-transparan.png" | relURL }}">
-
-<!-- OPEN GRAPH & TWITTER CARD -->
-<meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.description }}{{ else }}{{ $title_plain }}{{ end }}">
-<meta property="og:description" content="{{ $desc_plain }}">
-<meta property="og:url" content="{{ .Permalink | absURL }}" />
+<!-- Tag Open Graph untuk WhatsApp & Facebook -->
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
-{{ with $ogImage }}<meta property="og:image" content="{{ . }}">{{ end }}
-{{ with $ogWidth }}<meta property="og:image:width" content="{{ . }}">{{ end }}
-{{ with $ogHeight }}<meta property="og:image:height" content="{{ . }}">{{ end }}
-{{ with .Params.banner_alt }}<meta property="og:image:alt" content="{{ . | markdownify | plainify }}">{{ end }}
+<meta property="og:title" content="{{ $title_plain }}" />
+<meta property="og:description" content="{{ $desc_plain }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+{{ with $ogImage }}
+  <meta property="og:image" content="{{ . }}" />
+  <meta property="og:image:secure_url" content="{{ . }}" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="{{ . }}" />
+{{ end }}
+{{ with $ogWidth }}<meta property="og:image:width" content="{{ . }}" />{{ end }}
+{{ with $ogHeight }}<meta property="og:image:height" content="{{ . }}" />{{ end }}
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ $title_plain | truncate 70 }}{{ end }}">
-<meta name="twitter:description" content="{{ $desc_plain | truncate 200 }}">
-{{ with $ogImage }}<meta name="twitter:image" content="{{ . }}">{{ end }}
+<!-- Schema JSON-LD untuk Google Discover (Menggunakan gambar 1200px) -->
+{{ if .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": {{ $title_plain }},
+  "image": [
+    {{ $discoverImage }}
+  ],
+  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+  "author": [{
+    "@type": "Person",
+    "name": "{{ .Params.author | default .Site.Title }}"
+  }]
+}
+</script>
+{{ end }}
 
 <!-- KODE GOOGLE ADSENSE -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817"
