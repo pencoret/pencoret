@@ -38,6 +38,8 @@ Jika 5G fokus pada kecepatan tinggi dan konektivitas perangkat *Internet of Thin
 
 Kehadiran jaringan generasi keenam diprediksi akan mengubah cara manusia berinteraksi dengan teknologi. Berikut adalah beberapa lompatan besar yang ditawarkan:
 
+
+
 1. **Kecepatan Hingga 1 Tbps**
 
   Kecepatan puncak internet 6G diperkirakan mampu menembus **1 Terabit per detik (Tbps)** atau sekitar 100 kali lebih cepat dari jaringan 5G tercepat saat ini. Sebagai gambaran, mengunduh film beresolusi 4K atau puluhan gigabita data hanya membutuhkan waktu kurang dari satu detik.
