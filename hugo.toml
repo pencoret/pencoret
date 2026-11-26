@@ -36,11 +36,16 @@ timeZone = 'Asia/Jakarta'
   logo_small = '/images/image_b36997e3.jpeg'
   favicon = 'favicon.png'
   images = ['/images/image_d634cfff.jpg']
-  opengraph = true
-  twitter_cards = true
+  opengraph = false
+  twitter_cards = false
   schema = true
   post_meta = ['author', 'date', 'categories']
   about_us = '<p>PenCoret adalah ruang baca digital yang menyajikan informasi terkini, fenomena viral di media sosial, serta fakta-fakta unik yang jarang dibahas secara mendalam dari sudut pandang yang berbeda.</p>'
+
+  [Params.author]
+    name = "PenCoret"
+    bio = "Ruang baca independen yang mengulas informasi terkini, tren viral, teknologi, dan fakta unik secara mendalam."
+    avatar = "images/image_b36997e3.jpeg"
 
   [Params.carousel]
     enable = true
@@ -55,12 +60,6 @@ timeZone = 'Asia/Jakarta'
     search = false
     categories = false
     tags = false
-    
-    [Params.author]
-  name = "PenCoret"
-  bio = "Ruang baca independen yang mengulas informasi terkini, tren viral, teknologi, dan fakta unik secara mendalam."
-  avatar = "images/image_b36997e3.jpeg"
-  
 
 [taxonomies]
   category = 'categories'
@@ -137,3 +136,4 @@ timeZone = 'Asia/Jakarta'
   [[related.indices]]
     name = 'date'
     weight = 10
+    
