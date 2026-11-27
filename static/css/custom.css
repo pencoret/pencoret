@@ -1,13 +1,8 @@
 /* 1. Banner Atas & Logo (Beranda & Artikel) */
 .global-top-banner, .article-top-banner,
 .global-top-banner img, .article-top-banner img {
-  display: block !important;
-  width: 100% !important;
-  height: 110px !important;
-  max-height: 110px !important;
-  object-fit: cover !important;
-  overflow: hidden !important;
-  border-radius: 0 !important;
+  display: block !important; width: 100% !important; height: 110px !important; max-height: 110px !important;
+  object-fit: cover !important; overflow: hidden !important; border-radius: 0 !important;
 }
 .logo-animasi-estetik { width: 58px !important; height: 58px !important; object-fit: contain !important; }
 @media (min-width: 768px) {
@@ -17,8 +12,7 @@
 
 /* 2. Pita Running Text Ramping */
 .global-running-bar, .article-running-bar {
-  padding: 0 !important; margin: 0 !important;
-  height: 18px !important; line-height: 18px !important;
+  padding: 0 !important; margin: 0 !important; height: 18px !important; line-height: 18px !important;
   font-size: 11px !important; display: flex !important; align-items: center !important; overflow: hidden !important;
 }
 .global-running-text, .article-running-text { line-height: 18px !important; padding: 0 !important; }
@@ -30,13 +24,19 @@ body:not(.single) .list, body:not(.single) .list__item, body:not(.single) articl
 }
 body:not(.single) h2, body:not(.single) h3, body:not(.single) section { margin-left: 0 !important; padding-left: 0 !important; }
 
-/* 4. Tombol Menu Tipis & Tulisan Daftar Menu Hitam */
+/* 4. Tombol Menu Ramping & Tulisan Daftar Menu Putih di Atas Toska */
 header button:not(#theme-toggle), .menu-btn, .btn-menu {
   padding: 2px 11px !important; font-size: 12px !important; line-height: 1.2 !important; min-height: 0 !important; margin-right: 15px !important;
 }
-#navigation, #navigation.navbar-collapse.collapse.in { background: #fff !important; border: 1px solid #d1d5db !important; }
-#navigation a, #navigation a:visited { color: #111 !important; font-weight: 600 !important; border-bottom: 1px solid #eee !important; }
-#navigation a:hover { background: #38a7bb !important; color: #fff !important; }
+#navigation, #navigation.navbar-collapse.collapse.in, .dropdown-menu {
+  background: #38a7bb !important; border: 1px solid #2c8a9b !important;
+}
+#navigation a, #navigation a:visited, #navigation li a, .dropdown-menu a {
+  color: #ffffff !important; font-weight: 700 !important; border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+}
+#navigation a:hover, .dropdown-menu a:hover {
+  background: #2c8a9b !important; color: #ffffff !important;
+}
 
 /* 5. Kategori Slide (Transparan & Hitam) */
 .kat-scroll a, .kat-scroll a:visited { background: transparent !important; color: #111 !important; border: 1px solid #d1d5db !important; }
@@ -51,7 +51,23 @@ main a[href*="/categories/"], article a[href*="/categories/"], .category a {
 article h1, main h1 { margin: 2px 0 4px 0 !important; padding-top: 0 !important; line-height: 1.25 !important; }
 .info-penulis, .post-meta { margin: 0 0 8px 0 !important; }
 
-/* 7. Semua Link Lain Warna Biru Toska */
-body a:not(#navigation a):not(.kat-scroll a):not([href*="/categories/"]) { color: #38a7bb !important; }
-body a:hover:not(#navigation a):not(.kat-scroll a):not([href*="/categories/"]) { color: #2c8a9b !important; }
-           
+/* 7. Postingan Terbaru di Dalam Artikel (Beri Sela Pinggir & Background Judul) */
+#recent-posts, #blog-post ~ div {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+#recent-posts h3, #recent-posts h4, #recent-posts .content h4, #recent-posts .box-image-text .content {
+  background: #f4f6f8 !important;
+  padding: 8px 10px !important;
+  border-radius: 6px !important;
+  margin-top: 6px !important;
+  display: block !important;
+}
+[data-theme="dark"] #recent-posts h3, [data-theme="dark"] #recent-posts h4, [data-theme="dark"] #recent-posts .box-image-text .content {
+  background: #1f2937 !important;
+}
+
+/* 8. Semua Link Lain Warna Biru Toska */
+body a:not(#navigation a):not(.dropdown-menu a):not(.kat-scroll a):not([href*="/categories/"]) { color: #38a7bb !important; }
+body a:hover:not(#navigation a):not(.dropdown-menu a):not(.kat-scroll a):not([href*="/categories/"]) { color: #2c8a9b !important; }
+  
