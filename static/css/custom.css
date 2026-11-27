@@ -24,18 +24,21 @@ body:not(.single) .list, body:not(.single) .list__item, body:not(.single) articl
 }
 body:not(.single) h2, body:not(.single) h3, body:not(.single) section { margin-left: 0 !important; padding-left: 0 !important; }
 
-/* 4. Tombol Menu Ramping & Tulisan Daftar Menu Putih di Atas Toska */
+/* 4. Tombol Menu Ramping & Tulisan Daftar Menu HITAM di Atas Toska */
 header button:not(#theme-toggle), .menu-btn, .btn-menu {
   padding: 2px 11px !important; font-size: 12px !important; line-height: 1.2 !important; min-height: 0 !important; margin-right: 15px !important;
 }
 #navigation, #navigation.navbar-collapse.collapse.in, .dropdown-menu {
   background: #38a7bb !important; border: 1px solid #2c8a9b !important;
 }
-#navigation a, #navigation a:visited, #navigation li a, .dropdown-menu a {
-  color: #ffffff !important; font-weight: 700 !important; border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+#navigation a, #navigation a:visited, #navigation li a, .dropdown-menu a, .dropdown-menu li a,
+[class*="menu"] a, [class*="dropdown"] a {
+  color: #000000 !important; -webkit-text-fill-color: #000000 !important;
+  font-weight: 700 !important; border-bottom: 1px solid rgba(0, 0, 0, 0.15) !important;
 }
-#navigation a:hover, .dropdown-menu a:hover {
-  background: #2c8a9b !important; color: #ffffff !important;
+#navigation a:hover, #navigation a:focus, #navigation a:active, .dropdown-menu a:hover,
+[class*="menu"] a:hover, [class*="dropdown"] a:hover {
+  background: #2c8a9b !important; color: #000000 !important; -webkit-text-fill-color: #000000 !important;
 }
 
 /* 5. Kategori Slide (Transparan & Hitam) */
@@ -53,45 +56,15 @@ article h1, main h1 { margin: 2px 0 4px 0 !important; padding-top: 0 !important;
 
 /* 7. Postingan Terbaru di Dalam Artikel (Beri Sela Pinggir & Background Judul) */
 #recent-posts, #blog-post ~ div {
-  padding-left: 15px !important;
-  padding-right: 15px !important;
+  padding-left: 15px !important; padding-right: 15px !important;
 }
 #recent-posts h3, #recent-posts h4, #recent-posts .content h4, #recent-posts .box-image-text .content {
-  background: #f4f6f8 !important;
-  padding: 8px 10px !important;
-  border-radius: 6px !important;
-  margin-top: 6px !important;
-  display: block !important;
+  background: #f4f6f8 !important; padding: 8px 10px !important; border-radius: 6px !important; margin-top: 6px !important; display: block !important;
 }
 [data-theme="dark"] #recent-posts h3, [data-theme="dark"] #recent-posts h4, [data-theme="dark"] #recent-posts .box-image-text .content {
   background: #1f2937 !important;
 }
 
 /* 8. Semua Link Lain Warna Biru Toska */
-body a:not(#navigation a):not(.dropdown-menu a):not(.kat-scroll a):not([href*="/categories/"]) { color: #38a7bb !important; }
-body a:hover:not(#navigation a):not(.dropdown-menu a):not(.kat-scroll a):not([href*="/categories/"]) { color: #2c8a9b !important; }
-  
-/* Memaksa teks di dalam menu kustom di halaman artikel menjadi hitam */
-.content button + ul a,
-.content button + div a,
-.post__content button + ul a,
-.post__content button + div a,
-.entry__content a[href] {
-    color: #000000 !important;
-    text-shadow: none !important;
-    opacity: 1 !important;
-}
-
-/* Jika menu menggunakan elemen <details> dan <summary> */
-details ul li a,
-details div a {
-    color: #000000 !important;
-}
-
-/* Memastikan teks tetap hitam saat disentuh/hover */
-.content button + ul a:hover,
-.content button + div a:hover,
-details ul li a:hover {
-    color: #000000 !important;
-}
-
+body a:not(#navigation a):not(.dropdown-menu a):not([class*="menu"] a):not([class*="dropdown"] a):not(.kat-scroll a):not([href*="/categories/"]) { color: #38a7bb !important; }
+body a:hover:not(#navigation a):not(.dropdown-menu a):not([class*="menu"] a):not([class*="dropdown"] a):not(.kat-scroll a):not([href*="/categories/"]) { color: #2c8a9b !important; }
