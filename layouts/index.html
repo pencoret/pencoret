@@ -111,21 +111,29 @@
     <button type="submit" class="top-search-btn" style="padding: 8px 16px; background: #16a34a; color: #fff; border: none; border-radius: 6px; font-weight: bold;">Cari</button>
   </form>
 
+  <!-- Kotak Pencarian Atas (Internal Instan) -->
+<div class="top-search-wrap" style="position: relative;">
+  <form class="top-search-form" onsubmit="event.preventDefault(); jalankanPencarian();">
+    <input type="text" id="homeSearchInput" class="top-search-input" placeholder="Cari artikel atau topik di PenCoret..." aria-label="Cari artikel" onkeyup="jalankanPencarian()" autocomplete="off">
+    <button type="submit" class="top-search-btn">Cari</button>
+  </form>
+
   <!-- Kotak Hasil Pencarian Instan -->
-  <div id="hasilPencarianBox" style="display: none; background: #ffffff; border: 1px solid #ddd; border-radius: 8px; margin-top: 6px; max-height: 360px; overflow-y: auto; box-shadow: 0 6px 18px rgba(0,0,0,0.12); z-index: 9999; position: relative; text-align: left;"></div>
+  <div id="hasilPencarianBox" style="display: none; background: #ffffff; border: 1px solid #ddd; border-radius: 8px; margin-top: 6px; max-height: 360px; overflow-y: auto; box-shadow: 0 6px 18px rgba(0,0,0,0.15); z-index: 99999; position: absolute; left: 0; right: 0; text-align: left;"></div>
 </div>
 
 <script>
-  // Daftar seluruh artikel di situs PenCoret yang otomatis dibuat oleh Hugo
   const daftarArtikelPenCoret = [
-    {{- range where .Site.RegularPages "Type" "not in" (slice "page") -}}
+    {{- range .Site.RegularPages -}}
+    {{- if not (in (slice "about" "contact" "disclaimer" "privacy-policy") .File.ContentBaseName) -}}
     {
-      judul: {{ .Title | jsonify }},
-      url: {{ .Permalink | jsonify }},
-      kategori: {{ delimit (.Params.categories | default (slice "Artikel")) ", " | jsonify }},
-      tanggal: {{ .Date.Format "02 Jan 2006" | jsonify }},
-      ringkasan: {{ (.Description | default .Summary | plainify | truncate 110) | jsonify }}
+      judul: "{{ .Title }}",
+      url: "{{ .Permalink }}",
+      kategori: "{{ with .Params.categories }}{{ index . 0 }}{{ else }}Artikel{{ end }}",
+      tanggal: "{{ .Date.Format "02 Jan 2006" }}",
+      ringkasan: "{{ .Summary | plainify | truncate 100 }}"
     },
+    {{- end -}}
     {{- end -}}
   ];
 
@@ -159,7 +167,6 @@
     box.style.display = 'block';
   }
 
-  // Tutup kotak hasil jika klik di luar area pencarian
   document.addEventListener('click', function(e) {
     const wrap = document.querySelector('.top-search-wrap');
     if (wrap && !wrap.contains(e.target)) {
