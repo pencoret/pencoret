@@ -463,5 +463,26 @@
     {{- if templates.Exists "partials/scripts.html" -}}
       {{ partial "scripts.html" . }}
     {{- end -}}
+        <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var allDiv = document.getElementById("all");
+        if (!allDiv) return;
+        var nodes = allDiv.querySelectorAll("p, div, span");
+        for (var i = 0; i < nodes.length; i++) {
+          var el = nodes[i];
+          if (el.children.length === 0 && el.textContent.indexOf("SELAMAT DATANG & MEMBACA") !== -1) {
+            var teks = el.textContent.trim();
+            var bar = document.createElement("div");
+            bar.className = "salam-marquee-bar";
+            var inner = document.createElement("div");
+            inner.className = "salam-marquee-inner";
+            inner.textContent = teks;
+            bar.appendChild(inner);
+            el.parentNode.replaceChild(bar, el);
+            break;
+          }
+        }
+      });
+        </script>
   </body>
 </html>
