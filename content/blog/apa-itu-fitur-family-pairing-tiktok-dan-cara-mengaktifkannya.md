@@ -17,9 +17,9 @@ tags:
 banner_alt: Seorang ibu dan anak laki-laki remaja di Indonesia tersenyum saat
   melihat dasbor pemantauan Family Pairing TikTok di layar laptop dan ponsel
   pintar
-banner_caption: Ilustrasi orang tua dan remaja meninjau pengaturan waktu layar
+banner_caption: "Ilustrasi orang tua dan remaja meninjau pengaturan waktu layar
   serta keamanan akun melalui dasbor web fitur Family Pairing (Pelibatan
-  Keluarga) TikTok yang diperbarui pada November 2026.
+  Keluarga) TikTok yang diperbarui pada November 2026. (Visual: AI Generated)"
 ---
 Belakangan ini, istilah **Family Pairing** di TikTok kembali ramai diperbincangkan di media sosial. Fitur ini menjadi sorotan setelah TikTok resmi merilis pembaruan besar pada akhir November 2026 yang membuat orang tua bisa memantau aktivitas akun remaja langsung lewat komputer.
 
@@ -92,15 +92,3 @@ Untuk menggunakan fitur ini, baik orang tua maupun anak harus memiliki akun TikT
 5. **Pindai Kode QR:** Gunakan kamera HP anak untuk memindai kode QR yang muncul di layar HP orang tua, lalu ketuk **Tautkan akun**.
 
 Setelah kedua akun berhasil ditautkan, seluruh pengaturan keamanan dan batas waktu yang dikunci oleh orang tua tidak akan bisa diubah sendiri oleh anak.
-
-
-
----
-
-
-
-**Rekomendasi Penamaan File Gambar (*Slug Image*) untuk PenCoret.web.id:**
-
-Agar senada dengan struktur gambar di situs Anda (seperti `asal-usul-tren-brazil-dance-viral-tiktok-2026.webp`), simpan gambar utama artikel ini dengan nama:
-
-`apa-itu-fitur-family-pairing-tiktok-2026.webp` (ukuran ideal `1140x480` atau rasio `16:9` agar tampil tajam di *slider* utama PenCoret).
