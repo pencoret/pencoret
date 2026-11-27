@@ -1,10 +1,10 @@
 <meta charset="utf-8">
 
-<!-- CEK BARIS INI: gabungkan https://googlesyndication.com dengan /pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817 -->
+<!-- Google AdSense -->
 <script async src="{{ printf "https://googlesyndication.com%s" "/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817" | safeHTMLAttr }}"
      crossorigin="anonymous"></script>
 
-<!-- CEK BARIS INI: gabungkan https://googletagmanager.com dengan /gtm.js?id=GTM-W8M8KC6Q -->
+<!-- Google Tag Manager -->
 <script async src="{{ printf "https://googletagmanager.com%s" "/gtm.js?id=GTM-W8M8KC6Q" | safeHTMLAttr }}"></script>
 
 <script>
@@ -71,13 +71,13 @@
 <meta name="twitter:description" content="{{ $desc_plain }}">
 <meta name="twitter:image" content="{{ $discoverImg }}">
 
-<!-- Favicon -->
+<!-- Favicon (Menggunakan file kotak static/favicon.png) -->
 <link rel="icon" type="image/png" sizes="48x48" href="{{ "favicon.png" | absURL }}">
 <link rel="icon" type="image/png" sizes="192x192" href="{{ "favicon.png" | absURL }}">
 <link rel="shortcut icon" href="{{ "favicon.png" | absURL }}">
 <link rel="apple-touch-icon" href="{{ "favicon.png" | absURL }}">
 
- <!-- Schema JSON-LD WebSite & NewsArticle -->
+<!-- Schema JSON-LD WebSite & NewsArticle -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -138,47 +138,3 @@
   ]
 }
 </script>
-
-<!-- Memuat CSS Utama Tema Mainroad -->
-{{- $style := resources.Get "css/style.css" -}}
-{{- if $style -}}
-  {{- $style = $style | resources.ExecuteAsTemplate "css/style.css" . -}}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-{{- else -}}
-  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
-{{- end -}}
-
-{{- range .Site.Params.customCSS -}}
-  <link rel="stylesheet" href="{{ . | relURL }}">
-{{- end -}}
-
-<!-- Kunci Anti-Melebar di Layar HP (Termasuk Iklan AdSense) -->
-<style>
-  * { box-sizing: border-box !important; }
-  html, body {
-    width: 100% !important;
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
-    background: #ffffff;
-    color: #222222;
-  }
-  img, video, iframe, figure {
-    max-width: 100% !important;
-    height: auto;
-  }
-  img[src*="logo-transparan.png"] {
-    width: auto !important;
-    max-width: 150px !important;
-    max-height: 44px !important;
-    height: auto !important;
-  }
-  ins.adsbygoogle,
-  .google-auto-placed,
-  iframe[id^="aswift_"],
-  iframe[id^="google_ads_frame"] {
-    max-width: 100vw !important;
-    width: 100% !important;
-    overflow: hidden !important;
-  }
-     </style>
-     
