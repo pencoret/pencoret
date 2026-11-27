@@ -437,7 +437,6 @@
             </div>
             {{- end }}
 
-            {{- $latestPosts := where .Site.RegularPages "Section" "blog" | first 6 -}}
                         {{- $related := .Site.RegularPages.Related . | first 5 -}}
             {{- if eq (len $related) 0 -}}
               {{- $related = where (where .Site.RegularPages "Section" "blog") "RelPermalink" "ne" .RelPermalink | first 5 -}}
