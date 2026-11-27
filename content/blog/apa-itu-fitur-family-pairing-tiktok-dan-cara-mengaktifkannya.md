@@ -9,11 +9,14 @@ author: PenCoret
 description: Mengenal apa itu fitur Family Pairing (Pelibatan Keluarga) di
   TikTok yang baru saja diperbarui pada November 2026, lengkap dengan fungsi dan
   cara mengaktifkannya.
-populer: false
+categories:
+  - Teknologi
+populer: true
 pilihan: false
 tags:
   - TikTok, Family Pairing, Pelibatan Keluarga TikTok, Fitur Baru TikTok 2026,
     Keamanan Digital, Parenting, Teknologi
+banner: /images/apa-itu-fitur-family-pairing-tiktok-2026.jpg
 banner_alt: Seorang ibu dan anak laki-laki remaja di Indonesia tersenyum saat
   melihat dasbor pemantauan Family Pairing TikTok di layar laptop dan ponsel
   pintar
