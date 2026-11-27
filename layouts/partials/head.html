@@ -77,50 +77,66 @@
 <link rel="shortcut icon" href="{{ "favicon.png" | absURL }}">
 <link rel="apple-touch-icon" href="{{ "favicon.png" | absURL }}">
 
-<!-- Schema JSON-LD WebSite & NewsArticle (1200px untuk Google Discover) -->
+<!-- Schema JSON-LD WebSite & NewsArticle -->
 <script type="application/ld+json">
 {
-  "@context": "{{ printf "https://%s" "schema.org" }}",
+  "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebSite",
+      "@id": "https://pencoret.web.id",
       "name": "PenCoret",
       "alternateName": ["pencoret.web.id", "Ruang Baca PenCoret"],
       "url": "https://pencoret.web.id",
+      "inLanguage": "id-ID",
+      "publisher": {
+        "@id": "https://pencoret.web.id#organization"
+      },
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "{{ printf "https://pencoret.web.id" "{search_term_string}" }}",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://pencoret.web.id?s={search_term_string}"
+        },
         "query-input": "required name=search_term_string"
       }
     },
     {
       "@type": "Organization",
+      "@id": "https://pencoret.web.id#organization",
       "name": "PenCoret",
       "url": "https://pencoret.web.id",
       "logo": {
         "@type": "ImageObject",
-        "url": "{{ "/images/logo-transparan.png" | absURL }}"
+        "@id": "https://pencoret.web.id#logo",
+        "url": "https://pencoret.web.idimages/logo-transparan.png",
+        "contentUrl": "https://pencoret.web.idimages/logo-transparan.png",
+        "caption": "PenCoret"
+      },
+      "image": {
+        "@id": "https://pencoret.web.id#logo"
       }
     }{{ if $isArticle }},
     {
       "@type": "NewsArticle",
+      "@id": "{{ .Permalink }}#article",
       "headline": {{ $title_plain | jsonify }},
       "description": {{ $desc_plain | jsonify }},
       "image": [{{ $discoverImg | jsonify }}],
       "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
       "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+      "inLanguage": "id-ID",
       "author": {
         "@type": "Organization",
+        "@id": "https://pencoret.web.id#organization",
         "name": {{ .Site.Title | jsonify }},
         "url": "https://pencoret.web.id"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": {{ .Site.Title | jsonify }},
-        "logo": {
-          "@type": "ImageObject",
-          "url": "{{ "/images/logo-transparan.png" | absURL }}"
-        }
+        "@id": "https://pencoret.web.id#organization"
+      },
+      "isPartOf": {
+        "@id": "https://pencoret.web.id"
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
