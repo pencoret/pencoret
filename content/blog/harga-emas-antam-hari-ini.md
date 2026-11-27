@@ -17,7 +17,7 @@ tags:
 banner: /images/harga-emas-antam-hari-ini.jpg
 banner_alt: Ilustrasi tumpukan emas batangan Antam Fine Gold 999.9 di atas meja
   batu sebagai gambaran investasi logam mulia
-banner_caption: "• Ilustrasi emas batangan Logam Mulia Antam kemurnian 999.9
+banner_caption: "Ilustrasi emas batangan Logam Mulia Antam kemurnian 999.9
   sebagai instrumen investasi dan lindung nilai. (Visual: AI Generated)"
 ---
 **Harga emas batangan PT Aneka Tambang Tbk (Antam) pada hari ini, Jumat, 27 November 2026, terpantau stagnan di level Rp2.501.000 per gram.** Berdasarkan pembaruan resmi laman [Logam Mulia Antam](https://logammulia.com/ "Logam Mulia Antam"), harga jual emas batangan tidak mengalami perubahan dibandingkan perdagangan Kamis (26/11/2026).
@@ -29,8 +29,6 @@ Berbeda dengan harga jual yang bertahan, harga jual kembali (*buyback*) emas Ant
 
 
 ## Daftar Lengkap Harga Emas Antam Hari Ini (27 November 2026)
-
-
 
 Produk emas batangan Logam Mulia tersedia mulai dari ukuran terkecil 0,5 gram hingga 1.000 gram (1 kilogram). Berikut rincian harga dasar emas Antam hari ini:
 
@@ -72,15 +70,12 @@ Produk emas batangan Logam Mulia tersedia mulai dari ukuran terkecil 0,5 gram hi
 
 ## Ketentuan Pajak Pembelian dan *Buyback* Emas Antam
 
-
-
 Sesuai peraturan perpajakan yang berlaku bagi transaksi logam mulia di PT Antam Tbk:
 
 
 
-* **Pajak Pembelian:** Setiap pembelian emas batangan dikenakan potongan PPh 22 sebesar **0,25%** untuk pembeli yang mencantumkan nomor NPWP (dan tarif lebih tinggi bagi non-NPWP), disertai bukti potong resmi.
-
-* **Pajak Penjualan Kembali (*Buyback*):** Transaksi *buyback* emas batangan ke PT Antam Tbk dengan nominal di atas **Rp10 juta** dikenakan PPh 22 sebesar **1,5%** bagi pemegang NPWP dan **3%** bagi non-NPWP yang dipotong langsung dari total nilai transaksi.
+- **Pajak Pembelian:** Setiap pembelian emas batangan dikenakan potongan PPh 22 sebesar **0,25%** untuk pembeli yang mencantumkan nomor NPWP (dan tarif lebih tinggi bagi non-NPWP), disertai bukti potong resmi.
+- **Pajak Penjualan Kembali (*Buyback*):** Transaksi *buyback* emas batangan ke PT Antam Tbk dengan nominal di atas **Rp10 juta** dikenakan PPh 22 sebesar **1,5%** bagi pemegang NPWP dan **3%** bagi non-NPWP yang dipotong langsung dari total nilai transaksi.
 
 
 
@@ -90,4 +85,5 @@ Sesuai peraturan perpajakan yang berlaku bagi transaksi logam mulia di PT Antam 
 
 **Sumber Data:**
 
-* Laman Resmi [PT Aneka Tambang Tbk (Logam Mulia)](https://logammulia.com/ "PT Aneka Tambang Tbk Logam Mulia") — Pembaruan Harga Emas Batangan 27 November 2026.
+- Laman Resmi [PT Aneka Tambang Tbk (Logam Mulia)](https://logammulia.com/ "PT Aneka Tambang Tbk Logam Mulia") — Pembaruan Harga Emas Batangan 27 November 2026.
+
