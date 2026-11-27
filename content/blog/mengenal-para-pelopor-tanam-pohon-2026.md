@@ -16,8 +16,8 @@ tags:
 banner: /images/hari-tanam-pohon-28-november.jpg
 banner_alt: Tangan menanam bibit pohon muda di tanah subur dengan sinar matahari
   pagi sebagai simbol harapan
-banner_caption: Ilustrasi menanam bibit pohon muda sebagai bagian dari gerakan
-  penghijauan yang dipelopori sejak berabad-abad lalu.
+banner_caption: "Ilustrasi menanam bibit pohon muda sebagai bagian dari gerakan
+  penghijauan yang dipelopori sejak berabad-abad lalu. (Visual: AI Generated)"
 ---
 Setiap tanggal **28 November**, masyarakat Indonesia memperingati **Hari Menanam Pohon Indonesia (HMPI)**. Di tengah berbagai ajakan penghijauan yang ramai di media sosial, pernahkah terlintas pertanyaan: siapa sebenarnya sosok yang pertama kali memulai tradisi menanam pohon secara terencana?
 
