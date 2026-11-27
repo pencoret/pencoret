@@ -16,12 +16,13 @@ populer: true
 pilihan: false
 tags:
   - Everton, Liverpool, Derbi Merseyside, Liga Inggris, Fakta Unik, Olahraga
+banner: /images/sejarah-panas-derbi-merseyside.jpg
 banner_alt: Ilustrasi atmosfer pertandingan sepak bola malam hari antara tim
   berseragam biru melawan merah dengan ketegangan tinggi dan kartu merah wasit
   di stadion Inggris
-banner_caption: • Ilustrasi rivalitas panas Derbi Merseyside antara Everton dan
+banner_caption: Ilustrasi rivalitas panas Derbi Merseyside antara Everton dan
   Liverpool yang dikenal sebagai pertandingan dengan rekor kartu merah terbanyak
-  di Premier League.
+  di Premier League. (AI Generated)
 ---
 Pertemuan dua rival sekota asal kota Liverpool, **Everton FC** dan **Liverpool FC**, kembali menyita perhatian pecinta sepak bola dunia pada pekan ke-12 Liga Utama Inggris musim 2026/2027. Pertandingan bertajuk **Derbi Merseyside** ini dikenal sebagai salah satu laga paling emosional dan keras dalam sejarah sepak bola Inggris.
 
