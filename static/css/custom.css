@@ -71,20 +71,27 @@ article h1, main h1 { margin: 2px 0 4px 0 !important; padding-top: 0 !important;
 body a:not(#navigation a):not(.dropdown-menu a):not(.kat-scroll a):not([href*="/categories/"]) { color: #38a7bb !important; }
 body a:hover:not(#navigation a):not(.dropdown-menu a):not(.kat-scroll a):not([href*="/categories/"]) { color: #2c8a9b !important; }
   
-/* Memaksa semua tulisan di dalam daftar menu selalu berwarna hitam */
-.menu__list .menu__link,
-.menu__list .menu__link:link,
-.menu__list .menu__link:visited,
-.menu__list .menu__link:hover,
-.menu__list .menu__link:active,
-.menu__list .menu__link:focus,
-.menu__item a {
+/* Memaksa teks di dalam menu kustom di halaman artikel menjadi hitam */
+.content button + ul a,
+.content button + div a,
+.post__content button + ul a,
+.post__content button + div a,
+.entry__content a[href] {
     color: #000000 !important;
+    text-shadow: none !important;
     opacity: 1 !important;
-    visibility: visible !important;
 }
 
-/* Memastikan tulisan di dalam dropdown tetap hitam saat menu terbuka */
-.menu__list--active .menu__link {
+/* Jika menu menggunakan elemen <details> dan <summary> */
+details ul li a,
+details div a {
     color: #000000 !important;
 }
+
+/* Memastikan teks tetap hitam saat disentuh/hover */
+.content button + ul a:hover,
+.content button + div a:hover,
+details ul li a:hover {
+    color: #000000 !important;
+}
+
