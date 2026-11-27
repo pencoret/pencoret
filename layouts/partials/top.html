@@ -11,12 +11,6 @@
     }
   }
 
-  .global-top-wrap {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden;
-  }
-
   .banner-box-relative {
     position: relative !important;
   }
@@ -75,14 +69,26 @@
     color: #ffffff !important;
   }
 
-  /* PAKSA RUNNING TEXT & GARIS HIJAU TOSCA FULL WIDTH UJUNG KE UJUNG */
+  /* HILANGKAN GARIS HIJAU TOSCA PENDEK & PASTIKAN HANYA 1 BILAH PENUH */
+  .global-top-wrap {
+    border-bottom: none !important;
+  }
+
   .global-running-bar {
     width: 100vw !important;
     max-width: 100vw !important;
     margin-left: calc(50% - 50vw) !important;
     margin-right: calc(50% - 50vw) !important;
     border-radius: 0 !important;
+    border-top: none !important;
+    border-bottom: 3px solid #38a7bb !important;
     box-sizing: border-box !important;
+  }
+
+  .global-running-bar::before,
+  .global-running-bar::after {
+    display: none !important;
+    content: none !important;
   }
 </style>
 
