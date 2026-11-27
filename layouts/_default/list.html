@@ -47,8 +47,8 @@
         .latest-grid.mode-all .big-card:first-child .big-card-body { padding: 20px; justify-content: center; }
         .latest-grid.mode-all .big-card:first-child h3 { font-size: 21px; }
       }
-                     </style>
-                       </head>
+    </style>
+  </head>
   <body>
     <div id="all">
 
@@ -70,28 +70,54 @@
 
                 {{ if gt (len .Pages) 0 }}
                   <div class="latest-grid mode-all" id="postGrid">
+                    {{- $usedPermalinks := slice -}}
                     {{ range $index, $page := .Pages }}
-                    {{- $rawImg := .Params.banner | default .Params.image | default .Params.thumbnail | default "images/image_d634cfff.jpg" -}}
-                    {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
-                    {{- $res := resources.Get $cleanPath -}}
-                    {{- if not $res -}}
-                      {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
-                    {{- end -}}
-                    {{- $finalSrc := $rawImg | relURL -}}
-                    {{- if $res -}}
-                      {{- $webp := $res.Fill "600x338 webp q80" -}}
-                      {{- $finalSrc = $webp.RelPermalink -}}
-                    {{- end -}}
-                    <article class="big-card" data-cats="{{ with .Params.categories }}{{ delimit . "|" }}{{ end }}">
-                      <a href="{{ .Permalink }}">
-                        <img src="{{ $finalSrc }}" alt="{{ .Title }}" {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}>
-                      </a>
-                      <div class="big-card-body">
-                        {{ with .Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
-                        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-                        <div class="big-meta">Oleh: {{ .Params.author | default "PenCoret" }} • {{ .Date.Format "02 Jan 2006" }}</div>
-                      </div>
-                    </article>
+                      {{- $targetPage := $page -}}
+                      {{- $catLabel := "" -}}
+
+                      {{- /* JIKA HALAMAN DAFTAR KATEGORI/TAGS (.Kind == "taxonomy"), CARI ARTIKEL TERBARU YANG BELUM DIPAKAI */ -}}
+                      {{- if eq $.Kind "taxonomy" -}}
+                        {{- $catLabel = $page.Title -}}
+                        {{- $picked := false -}}
+                        {{- range $page.Pages -}}
+                          {{- if and (not $picked) (not (in $usedPermalinks .RelPermalink)) -}}
+                            {{- $targetPage = . -}}
+                            {{- $usedPermalinks = $usedPermalinks | append .RelPermalink -}}
+                            {{- $picked = true -}}
+                          {{- end -}}
+                        {{- end -}}
+                        {{- /* JIKA SEMUA ARTIKEL DI KATEGORI INI SUDAH TERPAKAI DI KATEGORI LAIN, AMBIL YANG TERBARU */ -}}
+                        {{- if and (not $picked) (gt (len $page.Pages) 0) -}}
+                          {{- $targetPage = index $page.Pages 0 -}}
+                        {{- end -}}
+                      {{- end -}}
+
+                      {{- $rawImg := $targetPage.Params.banner | default $targetPage.Params.image | default $targetPage.Params.thumbnail | default "images/image_d634cfff.jpg" -}}
+                      {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+                      {{- $res := resources.Get $cleanPath -}}
+                      {{- if not $res -}}
+                        {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+                      {{- end -}}
+                      {{- $finalSrc := $rawImg | relURL -}}
+                      {{- if $res -}}
+                        {{- $webp := $res.Fill "600x338 webp q80" -}}
+                        {{- $finalSrc = $webp.RelPermalink -}}
+                      {{- end -}}
+
+                      <article class="big-card" data-cats="{{ if eq $.Kind "taxonomy" }}{{ $page.Title }}{{ else }}{{ with $targetPage.Params.categories }}{{ delimit . "|" }}{{ end }}{{ end }}">
+                        <a href="{{ $targetPage.Permalink }}">
+                          <img src="{{ $finalSrc }}" alt="{{ $targetPage.Title }}" {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}>
+                        </a>
+                        <div class="big-card-body">
+                          {{- if eq $.Kind "taxonomy" -}}
+                            <span class="big-cat"><a href="{{ $page.Permalink }}" style="color:inherit;text-decoration:none;">{{ $catLabel }} ({{ len $page.Pages }})</a></span>
+                          {{- else -}}
+                            {{ with $targetPage.Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
+                          {{- end -}}
+                          <h3><a href="{{ $targetPage.Permalink }}">{{ $targetPage.Title }}</a></h3>
+                          <div class="big-meta">Oleh: {{ $targetPage.Params.author | default "PenCoret" }} • {{ $targetPage.Date.Format "02 Jan 2006" }}</div>
+                        </div>
+                      </article>
                     {{ end }}
                   </div>
                 {{ else }}
