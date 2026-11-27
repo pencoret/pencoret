@@ -28,43 +28,27 @@ Berbeda dengan harga jual yang bertahan, harga jual kembali (*buyback*) emas Ant
 
 
 
-## Daftar Lengkap Harga Emas Antam Hari Ini (27 November 2026)
+## Daftar Harga Emas Antam Hari Ini (27 November 2026)
 
-Produk emas batangan Logam Mulia tersedia mulai dari ukuran terkecil 0,5 gram hingga 1.000 gram (1 kilogram). Berikut rincian harga dasar emas Antam hari ini:
+* **0,5 gram:** Rp1.300.500
 
+* **1 gram:** Rp2.501.000
 
+* **5 gram:** Rp12.280.000
 
-| Berat Emas | Harga Dasar (Rp) |
+* **10 gram:** Rp24.505.000
 
-|:---|:---|
+* **25 gram:** Rp61.137.000
 
-| **0,5 gram** | Rp1.300.500 |
+* **50 gram:** Rp122.195.000
 
-| **1 gram** | Rp2.501.000 |
+* **100 gram:** Rp244.312.000
 
-| **2 gram** | Rp4.942.000 |
+* **500 gram:** Rp1.220.820.000
 
-| **3 gram** | Rp7.388.000 |
+* **1.000 gram (1 kg):** Rp2.441.600.000
 
-| **5 gram** | Rp12.280.000 |
-
-| **10 gram** | Rp24.505.000 |
-
-| **25 gram** | Rp61.137.000 |
-
-| **50 gram** | Rp122.195.000 |
-
-| **100 gram** | Rp244.312.000 |
-
-| **250 gram** | Rp610.515.000 |
-
-| **500 gram** | Rp1.220.820.000 |
-
-| **1.000 gram** | Rp2.441.600.000 |
-
-
-
-*(Catatan: Harga di atas merupakan harga dasar di Butik Emas Logam Mulia Pulo Gadung, Jakarta, sebelum ditambah pajak PPh 22 sebesar 0,25% sesuai ketentuan PMK No. 48 Tahun 2023 bagi pemegang NPWP).*
+*(Catatan: Harga dasar dari Butik Emas Pulo Gadung, Jakarta, belum termasuk PPh 22 sebesar 0,25% bagi pemegang NPWP).*
 
 
 
