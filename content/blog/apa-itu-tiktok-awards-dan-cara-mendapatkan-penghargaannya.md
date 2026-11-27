@@ -14,6 +14,9 @@ pilihan: false
 banner_alt: Trofi penghargaan kaca dan logam berkilau berdiri di atas podium
   hitam dengan latar panggung malam penghargaan dan sorotan lampu hangat
   melambangkan TikTok Award
+banner_caption: Ilustrasi trofi penghargaan kreator konten digital dalam ajang
+  TikTok Award yang diberikan melalui sistem penilaian juri dan pemungutan suara
+  publik.
 ---
 Istilah **TikTok Awards** kembali ramai menghiasi lini masa media sosial seiring digelarnya malam puncak ajang penghargaan kreator terbesar di Asia Tenggara pada akhir November 2026. Banyak pengguna yang penasaran mengenai bagaimana sebuah akun bisa masuk dalam daftar nominasi hingga membawa pulang piala bergengsi tersebut.
 
@@ -25,8 +28,6 @@ Bagi kreator pemula maupun pengguna umum, mungkin muncul pertanyaan, apakah ajan
 
 ## Apa Itu TikTok Awards?
 
-
-
 **TikTok Awards** merupakan ajang penghargaan tahunan resmi yang diselenggarakan oleh TikTok untuk mengapresiasi para kreator konten, musisi, hingga mitra industri yang dinilai berhasil menciptakan tren positif, menginspirasi komunitas, dan memberikan dampak nyata melalui karya video pendek maupun siaran langsung (*LIVE*).
 
 
@@ -37,8 +38,6 @@ Penghargaan ini digelar di berbagai negara termasuk Indonesia, dan kini berkemba
 
 ## Apakah Kreator Bisa Mendaftar Sendiri?
 
-
-
 Berbeda dari kompetisi video berhadiah yang membuka formulir pendaftaran umum, **TikTok Awards tidak membuka pendaftaran mandiri bagi kreator**. 
 
 
@@ -48,8 +47,6 @@ Tim kurasi internal TikTok akan melakukan pemantauan secara menyeluruh terhadap 
 
 
 ## Dua Jalur Utama Penentuan Pemenang TikTok Awards
-
-
 
 Secara garis besar, penghargaan di TikTok Awards dibagi menjadi dua sistem penilaian utama:
 
@@ -70,8 +67,6 @@ Untuk kategori khusus seperti *Changemaker of the Year* atau *Best Video*, pemen
 
 
 ## Cara Meningkatkan Peluang Masuk Nominasi TikTok Awards
-
-
 
 Meski tidak ada formulir pendaftaran langsung, kreator tetap bisa membangun rekam jejak akun agar masuk dalam radar kurasi tim TikTok melalui langkah-langkah berikut:
 
