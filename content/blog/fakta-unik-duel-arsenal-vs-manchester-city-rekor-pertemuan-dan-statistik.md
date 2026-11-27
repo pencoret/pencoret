@@ -11,6 +11,7 @@ description: Simak fakta unik, rekor head to head sepanjang masa, dan statistik
   Minggu 29 November 2026.
 categories:
   - Olahraga
+  - Fakta Unik
 populer: true
 pilihan: false
 tags:
@@ -63,9 +64,8 @@ Sepanjang tahun kalender 2026, kedua tim sudah beberapa kali bertemu dalam laga 
 
 Menjelang pekan ke-12 musim 2026/2027, kedua tim datang dengan statistik permainan yang nyaris identik dalam hal kontrol permainan:
 
-* **Arsenal** memuncaki papan atas dengan koleksi **27 poin** dari 10 laga awal (9 menang, 1 kalah) serta mencatatkan rata-rata penguasaan bola mencapai **60 persen**.
-
-* **Manchester City** membuntuti di papan atas dengan rata-rata penguasaan bola lebih tinggi, yakni **65 persen**, serta produktivitas rata-rata **2,10 gol per laga** yang ditopang ketajaman Erling Haaland di lini depan.
+- **Arsenal** memuncaki papan atas dengan koleksi **27 poin** dari 10 laga awal (9 menang, 1 kalah) serta mencatatkan rata-rata penguasaan bola mencapai **60 persen**.
+- **Manchester City** membuntuti di papan atas dengan rata-rata penguasaan bola lebih tinggi, yakni **65 persen**, serta produktivitas rata-rata **2,10 gol per laga** yang ditopang ketajaman Erling Haaland di lini depan.
 
 
 
