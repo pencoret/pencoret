@@ -137,3 +137,74 @@ article h1, main h1, .post__title, .entry-title {
 /* 8. Semua Link Lain Warna Biru Toska */
 body a:not(#navigation a):not(.dropdown-menu a):not([class*="menu"] a):not([class*="dropdown"] a):not(.kat-scroll a):not([href*="/categories/"]) { color: #38a7bb !important; }
 body a:hover:not(#navigation a):not(.dropdown-menu a):not([class*="menu"] a):not([class*="dropdown"] a):not(.kat-scroll a):not([href*="/categories/"]) { color: #2c8a9b !important; }
+
+/* =========================================================
+   9. PERBAIKAN HEADER, LOGO OVERLAY & GARIS TOSCA FULL WIDTH
+   ========================================================= */
+
+/* Hapus sisa garis/kotak hijau tosca pendek di atas banner */
+body, #all, #top, header {
+  border-top: none !important;
+}
+#top {
+  display: none !important;
+}
+
+/* Pastikan pembungkus banner & running text full layar tanpa sela */
+.global-top-wrap,
+.article-top-wrap {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+  display: block !important;
+}
+
+.banner-box-relative {
+  position: relative !important;
+  width: 100% !important;
+  height: 110px !important;
+  overflow: hidden !important;
+  display: block !important;
+}
+
+@media (min-width: 768px) {
+  .banner-box-relative {
+    height: 165px !important;
+  }
+}
+
+/* Kembalikan posisi Logo PC & Tombol Gelap menimpa di dalam pojok kiri banner */
+.logo-overlay-banner {
+  position: absolute !important;
+  top: 6px !important;
+  left: 10px !important;
+  z-index: 30 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.banner-theme-btn {
+  position: absolute !important;
+  top: 66px !important;
+  left: 10px !important;
+  z-index: 35 !important;
+  margin: 0 !important;
+}
+
+/* Pita Running Text + 1 Garis Hijau Tosca Penuh (Full Width) di Bawahnya */
+.global-running-bar,
+.article-running-bar {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: 4px solid #38a7bb !important;
+  border-radius: 0 !important;
+  box-sizing: border-box !important;
+}
