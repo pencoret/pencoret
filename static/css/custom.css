@@ -1,7 +1,17 @@
-/* === 1. Menyesuaikan Banner Header PenCoret === */
-img[alt*="Banner PenCoret"],
-img[alt*="Logo PenCoret"],
-header img {
+/* === 1. Menyesuaikan Banner Header PenCoret (Beranda & Artikel) === */
+.global-top-banner,
+.article-top-banner {
+  display: block !important;
+  width: 100% !important;
+  height: 110px !important;
+  max-height: 110px !important;
+  overflow: hidden !important;
+  border-radius: 0 !important;
+}
+
+.global-top-banner img,
+.article-top-banner img,
+img[alt*="Banner PenCoret"] {
   width: 100% !important;
   height: 110px !important;
   max-height: 110px !important;
@@ -11,12 +21,22 @@ header img {
   display: block !important;
 }
 
+/* Memastikan logo animasi kecil di pojok kiri atas tidak ikut melebar */
+.logo-animasi-estetik {
+  width: 58px !important;
+  height: 58px !important;
+  max-height: 58px !important;
+  object-fit: contain !important;
+}
+
 @media screen and (min-width: 768px) {
-  img[alt*="Banner PenCoret"],
-  img[alt*="Logo PenCoret"],
-  header img {
-    height: 180px !important;
-    max-height: 180px !important;
+  .global-top-banner,
+  .article-top-banner,
+  .global-top-banner img,
+  .article-top-banner img,
+  img[alt*="Banner PenCoret"] {
+    height: 165px !important;
+    max-height: 165px !important;
   }
 }
 
@@ -76,7 +96,7 @@ body:not(.single) article {
   margin-right: 0 !important;
 }
 
-/* Memaksa semua warna link di seluruh halaman menjadi hijau */
+/* === 6. Memaksa semua warna link di seluruh halaman menjadi hijau === */
 body a,
 body a:visited,
 main a,
@@ -94,5 +114,3 @@ p a:hover,
 li a:hover {
   color: #15803d !important;
 }
-
-
