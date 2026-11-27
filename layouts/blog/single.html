@@ -32,7 +32,8 @@
       .post-meta,
       .post-thumb,
       .post-body,
-      .post-tags {
+      .post-tags,
+      .latest-bottom-box {
         padding-left: 18px !important;
         padding-right: 18px !important;
         margin-left: 0 !important;
@@ -46,7 +47,8 @@
         .post-meta,
         .post-thumb,
         .post-body,
-        .post-tags {
+        .post-tags,
+        .latest-bottom-box {
           padding-left: 28px !important;
           padding-right: 28px !important;
         }
@@ -185,7 +187,7 @@
         overflow-x: auto;
       }
 
-      /* KOTAK BACA JUGA */
+      /* KOTAK BACA JUGA DI DALAM ARTIKEL (ARTIKEL TERKAIT) */
       .baca-juga-box {
         background: #f4f6f8;
         border-left: 4px solid #38a7bb;
@@ -215,6 +217,62 @@
         border-radius: 15px;
         text-decoration: none;
         margin: 4px 4px 2px 0;
+      }
+
+      /* 5 DAFTAR JUDUL POSTINGAN TERBARU DI BAWAH */
+      .latest-bottom-box {
+        margin-top: 26px;
+        padding-top: 18px;
+        border-top: 2px solid #f0f2f5;
+      }
+      .latest-bottom-title {
+        font-size: 15px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #1a2536;
+        border-left: 4px solid #38a7bb;
+        padding-left: 10px;
+        margin: 0 0 12px 0;
+      }
+      .latest-bottom-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .latest-bottom-list li {
+        padding: 10px 0;
+        border-bottom: 1px dashed #e2e8f0;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .latest-bottom-list li:last-child {
+        border-bottom: none;
+      }
+      .latest-num {
+        background: #38a7bb;
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: 800;
+        min-width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+      .latest-bottom-list a {
+        color: #1a2536;
+        font-size: 14.5px;
+        font-weight: 700;
+        line-height: 1.4;
+        text-decoration: none;
+      }
+      .latest-bottom-list a:hover {
+        color: #38a7bb;
+        text-decoration: underline;
       }
     </style>
   </head>
@@ -281,6 +339,4 @@
                 {{- end -}}
               </figure>
             {{- end }}
-        
-    
-                        
+  
