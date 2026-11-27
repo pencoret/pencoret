@@ -24,45 +24,114 @@ body:not(.single) .list, body:not(.single) .list__item, body:not(.single) articl
 }
 body:not(.single) h2, body:not(.single) h3, body:not(.single) section { margin-left: 0 !important; padding-left: 0 !important; }
 
-/* 4. Tombol Menu Ramping & Tulisan Daftar Menu HITAM di Atas Toska */
-header button:not(#theme-toggle), .menu-btn, .btn-menu {
-  padding: 2px 11px !important; font-size: 12px !important; line-height: 1.2 !important; min-height: 0 !important; margin-right: 15px !important;
+/* 4. Tombol Menu Mengikuti Ukuran Homepage + Kotak Dropdown Ramping + Tulisan HITAM */
+header button:not(#theme-toggle), main button:not(#theme-toggle), article button:not(#theme-toggle),
+.menu-btn, .btn-menu, button[data-target="#navigation"], button[aria-controls="navigation"] {
+  padding: 2px 11px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  border-radius: 999px !important;
+  margin-right: 15px !important;
 }
+
 #navigation, #navigation.navbar-collapse.collapse.in, .dropdown-menu {
-  background: #38a7bb !important; border: 1px solid #2c8a9b !important;
+  background: #38a7bb !important; 
+  border: 1px solid #2c8a9b !important;
+  padding: 2px 0 !important;
+  min-width: 150px !important;
+  max-width: 210px !important;
+  width: auto !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
 }
+
+#navigation ul, .dropdown-menu ul, #navigation li, .dropdown-menu li {
+  margin: 0 !important; padding: 0 !important;
+}
+
 #navigation a, #navigation a:visited, #navigation li a, .dropdown-menu a, .dropdown-menu li a,
 [class*="menu"] a, [class*="dropdown"] a {
-  color: #000000 !important; -webkit-text-fill-color: #000000 !important;
-  font-weight: 700 !important; border-bottom: 1px solid rgba(0, 0, 0, 0.15) !important;
+  color: #000000 !important; 
+  -webkit-text-fill-color: #000000 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  padding: 6px 12px !important;
+  display: block !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
 }
+
+#navigation li:last-child a, .dropdown-menu li:last-child a {
+  border-bottom: none !important;
+}
+
 #navigation a:hover, #navigation a:focus, #navigation a:active, .dropdown-menu a:hover,
 [class*="menu"] a:hover, [class*="dropdown"] a:hover {
-  background: #2c8a9b !important; color: #000000 !important; -webkit-text-fill-color: #000000 !important;
+  background: #2c8a9b !important; 
+  color: #000000 !important; 
+  -webkit-text-fill-color: #000000 !important;
 }
 
 /* 5. Kategori Slide (Transparan & Hitam) */
 .kat-scroll a, .kat-scroll a:visited { background: transparent !important; color: #111 !important; border: 1px solid #d1d5db !important; }
 [data-theme="dark"] .kat-scroll a { color: #f3f4f6 !important; border-color: #4b5563 !important; }
 
-/* 6. Kategori Atas Judul (Toska + Mepet Kiri) & Judul Artikel Naik */
+/* 6. Kategori Atas Judul (Toska + Mepet Kiri) & Judul Artikel Naik Rapat */
 main a[href*="/categories/"], article a[href*="/categories/"], .category a {
   display: inline-block !important; font-size: 13.5px !important; font-weight: 800 !important; text-transform: uppercase !important;
-  color: #38a7bb !important; border-left: 4px solid #38a7bb !important; padding-left: 11px !important; margin: 0 0 2px -15px !important; line-height: 1.1 !important;
+  color: #38a7bb !important; border-left: 4px solid #38a7bb !important; padding-left: 11px !important; margin: 0 0 0 -15px !important; line-height: 1.1 !important;
 }
-#heading-breadcrumbs, .heading-breadcrumbs { padding: 4px 0 0 0 !important; margin: 0 !important; }
-article h1, main h1 { margin: 2px 0 4px 0 !important; padding-top: 0 !important; line-height: 1.25 !important; }
+#heading-breadcrumbs, .heading-breadcrumbs, .post__header, article header {
+  padding: 2px 0 0 0 !important; margin: 0 !important;
+}
+article h1, main h1, .post__title, .entry-title {
+  margin: -4px 0 4px 0 !important; padding-top: 0 !important; line-height: 1.22 !important;
+}
 .info-penulis, .post-meta { margin: 0 0 8px 0 !important; }
 
-/* 7. Postingan Terbaru di Dalam Artikel (Beri Sela Pinggir & Background Judul) */
+/* 7. Postingan Terbaru di Dalam Artikel (Beri Sela Garis Biru & Background Nyaman Dibaca) */
 #recent-posts, #blog-post ~ div {
-  padding-left: 15px !important; padding-right: 15px !important;
+  margin-top: 18px !important;
+  padding-top: 14px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  padding-bottom: 15px !important;
 }
-#recent-posts h3, #recent-posts h4, #recent-posts .content h4, #recent-posts .box-image-text .content {
-  background: #f4f6f8 !important; padding: 8px 10px !important; border-radius: 6px !important; margin-top: 6px !important; display: block !important;
+
+#recent-posts > h2, #recent-posts > h3, #recent-posts .heading h2, #recent-posts .heading h3,
+#blog-post ~ div > h2, #blog-post ~ div > h3 {
+  background: #e6f4f7 !important;
+  color: #111827 !important;
+  padding: 8px 12px !important;
+  border-left: 4px solid #38a7bb !important;
+  border-radius: 6px !important;
+  margin-top: 6px !important;
+  margin-bottom: 12px !important;
+  display: block !important;
 }
-[data-theme="dark"] #recent-posts h3, [data-theme="dark"] #recent-posts h4, [data-theme="dark"] #recent-posts .box-image-text .content {
+
+#recent-posts h3, #recent-posts h4, #recent-posts .content h4, #recent-posts .box-image-text .content,
+#blog-post ~ div ul li, #blog-post ~ div .item {
+  background: #f4f6f8 !important;
+  padding: 10px 12px !important;
+  border-radius: 6px !important;
+  margin-top: 8px !important;
+  display: block !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+[data-theme="dark"] #recent-posts > h2, [data-theme="dark"] #recent-posts > h3, [data-theme="dark"] .heading h2,
+[data-theme="dark"] #blog-post ~ div > h2, [data-theme="dark"] #blog-post ~ div > h3 {
+  background: #1e293b !important;
+  color: #f3f4f6 !important;
+}
+[data-theme="dark"] #recent-posts h3, [data-theme="dark"] #recent-posts h4, [data-theme="dark"] #recent-posts .box-image-text .content,
+[data-theme="dark"] #blog-post ~ div ul li {
   background: #1f2937 !important;
+  border-color: #374151 !important;
 }
 
 /* 8. Semua Link Lain Warna Biru Toska */
