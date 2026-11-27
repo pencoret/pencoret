@@ -104,22 +104,56 @@
     }
     img, video, iframe { max-width: 100% !important; height: auto; }
 
-    <!-- Kotak Pencarian Internal Instan -->
-<div class="top-search-wrap" style="position: relative; max-width: 650px; margin: 12px auto; padding: 0 12px;">
-  <form class="top-search-form" onsubmit="event.preventDefault(); jalankanPencarian();" style="display: flex; gap: 6px;">
-    <input type="text" id="homeSearchInput" class="top-search-input" placeholder="Cari artikel atau topik di PenCoret..." aria-label="Cari artikel" onkeyup="jalankanPencarian()" autocomplete="off" style="flex: 1; padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px;">
-    <button type="submit" class="top-search-btn" style="padding: 8px 16px; background: #16a34a; color: #fff; border: none; border-radius: 6px; font-weight: bold;">Cari</button>
-  </form>
+    /* Gaya Kapsul Biru Toska Asli Kotak Pencarian */
+    .top-search-wrap {
+      position: relative;
+      padding: 8px 12px;
+      background: #f4f6f8;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .top-search-form {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 50px;
+      padding: 3px 4px 3px 14px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .top-search-input {
+      flex: 1;
+      border: none !important;
+      outline: none !important;
+      background: transparent !important;
+      font-size: 13.5px;
+      color: #333;
+      padding: 5px 6px;
+    }
+    .top-search-btn {
+      background: #38a7bb;
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .top-search-btn:hover {
+      background: #2c8a9b;
+    }
+</style>
 
-  <!-- Kotak Pencarian Atas (Internal Instan) -->
-<div class="top-search-wrap" style="position: relative;">
+<!-- Kotak Pencarian Atas (Internal Instan) -->
+<div class="top-search-wrap">
   <form class="top-search-form" onsubmit="event.preventDefault(); jalankanPencarian();">
     <input type="text" id="homeSearchInput" class="top-search-input" placeholder="Cari artikel atau topik di PenCoret..." aria-label="Cari artikel" onkeyup="jalankanPencarian()" autocomplete="off">
     <button type="submit" class="top-search-btn">Cari</button>
   </form>
 
   <!-- Kotak Hasil Pencarian Instan -->
-  <div id="hasilPencarianBox" style="display: none; background: #ffffff; border: 1px solid #ddd; border-radius: 8px; margin-top: 6px; max-height: 360px; overflow-y: auto; box-shadow: 0 6px 18px rgba(0,0,0,0.15); z-index: 99999; position: absolute; left: 0; right: 0; text-align: left;"></div>
+  <div id="hasilPencarianBox" style="display: none; background: #ffffff; border: 1px solid #ddd; border-radius: 12px; margin: 6px auto 0; max-width: 720px; max-height: 360px; overflow-y: auto; box-shadow: 0 6px 18px rgba(0,0,0,0.15); z-index: 99999; position: absolute; left: 12px; right: 12px; text-align: left;"></div>
 </div>
 
 <script>
@@ -174,7 +208,7 @@
     }
   });
 </script>
-
+    
     /* Banner & Logo Overlay */
     .hero-banner-box { position: relative; width: 100%; max-width: 100%; overflow: hidden; margin: 0; }
     .hero-banner-img { width: 100% !important; height: auto; display: block; object-fit: cover; }
