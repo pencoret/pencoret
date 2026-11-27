@@ -1,6 +1,6 @@
 {{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
-<urlset xmlns="http://sitemaps.org"
-  xmlns:xhtml="http://w3.org">
+<urlset xmlns="{{ printf "http://www.%s/schemas/sitemap/0.9" "sitemaps.org" | safeHTML }}"
+  xmlns:xhtml="{{ printf "http://www.%s/1999/xhtml" "w3.org" | safeHTML }}">
   {{ range .Data.Pages }}
     {{- if and (ne .Kind "taxonomy") (ne .Kind "term") (ne .Params.sitemap_exclude true) -}}
     <url>
