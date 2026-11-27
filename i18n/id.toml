@@ -4,6 +4,9 @@ other = "Tampilkan Semua"
 [recentPosts]
 other = "Postingan Terbaru"
 
+[recommendedPosts]
+other = "Rekomendasi Pilihan"
+
 [readMore]
 other = "Baca Selengkapnya"
 
