@@ -339,4 +339,113 @@
                 {{- end -}}
               </figure>
             {{- end }}
-  
+
+                           {{- /* 1. LOGIKA 3 BACA JUGA TERKAIT (DISEBAR DI DALAM ISI ARTIKEL) */ -}}
+            {{- $related := .Site.RegularPages.Related . | first 6 -}}
+            {{- if lt (len $related) 3 -}}
+              {{- $cat := "" -}}
+              {{- with .Params.categories }}{{- $cat = index . 0 -}}{{- end -}}
+              {{- if $cat -}}
+                {{- $sameCat := where (where .Site.RegularPages "Section" "blog") "Params.categories" "intersect" (slice $cat) -}}
+                {{- $related = $related | union $sameCat -}}
+              {{- end -}}
+              {{- if lt (len $related) 3 -}}
+                {{- $related = $related | union (where .Site.RegularPages "Section" "blog" | first 6) -}}
+              {{- end -}}
+            {{- end -}}
+
+            <div class="post-body" id="artikelBody">
+              {{ .Content }}
+            </div>
+
+            {{- /* Wadah tersembunyi untuk 3 kotak Baca Juga terkait topik */ -}}
+            <div id="bacaJugaPool" style="display:none;">
+              {{- $shown := 0 -}}
+              {{- range $related }}
+                {{- if and (ne .RelPermalink $.RelPermalink) (lt $shown 3) }}
+                  <aside class="baca-juga-box" aria-label="Baca Juga">
+                    <strong>Baca Juga:</strong> <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                  </aside>
+                  {{- $shown = add $shown 1 -}}
+                {{- end }}
+              {{- end }}
+            </div>
+
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                var bodyEl = document.getElementById("artikelBody");
+                var poolEl = document.getElementById("bacaJugaPool");
+                if (!bodyEl || !poolEl) return;
+
+                var boxes = Array.prototype.slice.call(poolEl.querySelectorAll(".baca-juga-box"));
+                if (boxes.length === 0) return;
+
+                var topParas = Array.prototype.slice.call(bodyEl.children).filter(function(el) {
+                  return el.tagName === "P" && el.textContent.trim().length > 20;
+                });
+
+                if (topParas.length >= 3) {
+                  var idx1 = Math.min(1, topParas.length - 1);
+                  var idx2 = Math.max(idx1 + 1, Math.floor(topParas.length * 0.35));
+                  var idx3 = Math.max(idx2 + 1, Math.floor(topParas.length * 0.68));
+                  var targets = [idx1, idx2, idx3];
+
+                  boxes.forEach(function(box, i) {
+                    var targetIdx = targets[i];
+                    if (targetIdx !== undefined && topParas[targetIdx]) {
+                      topParas[targetIdx].insertAdjacentElement("afterend", box);
+                    } else {
+                      bodyEl.appendChild(box);
+                    }
+                  });
+                } else {
+                  boxes.forEach(function(box) {
+                    bodyEl.appendChild(box);
+                  });
+                }
+                poolEl.remove();
+              });
+            </script>
+
+            {{- with .Params.tags }}
+            <div class="post-tags">
+              <strong>Tag:</strong>
+              {{- range . }}
+              <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>
+              {{- end }}
+            </div>
+            {{- end }}
+
+            {{- /* 2. DAFTAR 5 JUDUL POSTINGAN TERBARU DI BAGIAN PALING BAWAH */ -}}
+            {{- $latestPosts := where .Site.RegularPages "Section" "blog" | first 6 -}}
+            {{- if gt (len $latestPosts) 0 }}
+            <section class="latest-bottom-box" aria-label="Postingan Terbaru">
+              <h3 class="latest-bottom-title">Postingan Terbaru</h3>
+              <ul class="latest-bottom-list">
+                {{- $count := 0 -}}
+                {{- range $latestPosts }}
+                  {{- if and (ne .RelPermalink $.RelPermalink) (lt $count 5) }}
+                    {{- $count = add $count 1 -}}
+                    <li>
+                      <span class="latest-num">{{ $count }}</span>
+                      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </li>
+                  {{- end }}
+                {{- end }}
+              </ul>
+            </section>
+            {{- end }}
+          </article>
+        </div>
+      </div>
+
+      {{- if templates.Exists "partials/footer.html" -}}
+        {{ partial "footer.html" . }}
+      {{- end -}}
+    </div>
+
+    {{- if templates.Exists "partials/scripts.html" -}}
+      {{ partial "scripts.html" . }}
+    {{- end -}}
+  </body>
+</html>
