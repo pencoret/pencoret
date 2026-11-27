@@ -75,3 +75,13 @@ body:not(.single) article {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+
+/* Mengubah warna link di dalam isi artikel & halaman menjadi hijau */
+main a, article a, .content a {
+  color: #16a34a !important;
+}
+
+/* Warna hijau lebih gelap saat link disentuh atau diarahkan kursor */
+main a:hover, article a:hover, .content a:hover {
+  color: #15803d !important;
+}
