@@ -261,12 +261,12 @@
     {{ if $populerPosts }}
     <div class="sec-header-row">
       <div class="sec-label">Postingan Populer</div>
-      <select class="nav-dropdown-select" aria-label="Menu Navigasi Halaman" onchange="if(this.value) window.location.href=this.value">
+            <select class="nav-dropdown-select" aria-label="Menu Navigasi Halaman" onchange="if(this.value) window.location.href=this.value">
         <option value="" selected disabled hidden>Menu</option>
-        <option value="{{ "/" | relURL }}">Beranda</option>
-        {{ range .Site.Menus.footer }}
-          <option value="{{ .URL | relURL }}">{{ .Name }}</option>
-        {{ end }}
+        <option value="{{ "/about/" | relURL }}">Tentang Kami</option>
+        <option value="{{ "/contact/" | relURL }}">Kontak</option>
+        <option value="{{ "/disclaimer/" | relURL }}">Disclaimer</option>
+        <option value="{{ "/privacy-policy/" | relURL }}">Kebijakan Privasi</option>
       </select>
     </div>
     <div class="pop-slider" id="popSliderBox">
