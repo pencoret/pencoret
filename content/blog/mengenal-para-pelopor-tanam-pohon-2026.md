@@ -11,6 +11,9 @@ categories:
   - Fakta Unik
 populer: true
 pilihan: false
+tags:
+  - Tanam Pohon, Hari, 28 November, Fakta Unik
+banner: /images/hari-tanam-pohon-28-november.jpg
 banner_alt: Tangan menanam bibit pohon muda di tanah subur dengan sinar matahari
   pagi sebagai simbol harapan
 banner_caption: • Ilustrasi menanam bibit pohon muda sebagai bagian dari gerakan
@@ -38,9 +41,8 @@ Melalui tulisan-tulisannya di surat kabar dan perannya di Dewan Pertanian setemp
 
 Di Tanah Air, semangat para pelopor dunia tersebut turut menginspirasi lahirnya gerakan penanaman pohon berskala nasional melalui dua momentum bersejarah:
 
-* **Gerakan Satu Juta Pohon (10 Januari 1993):** Dimulai secara nasional oleh Presiden Soeharto di Jakarta untuk mengajak seluruh daerah menanam lebih dari satu juta pohon sebagai langkah nyata menjaga keseimbangan lingkungan.
-
-* **Hari Menanam Pohon Indonesia (28 November 2007):** Berawal dari aksi penanaman serentak di Desa Cibadak, Kecamatan Tanjungsari, Kabupaten Bogor. Momentum ini kemudian dikukuhkan oleh Presiden Susilo Bambang Yudhoyono melalui **Keputusan Presiden (Keppres) Nomor 24 Tahun 2008** yang menetapkan setiap **28 November sebagai Hari Menanam Pohon Indonesia**.
+- **Gerakan Satu Juta Pohon (10 Januari 1993):** Dimulai secara nasional oleh Presiden Soeharto di Jakarta untuk mengajak seluruh daerah menanam lebih dari satu juta pohon sebagai langkah nyata menjaga keseimbangan lingkungan.
+- **Hari Menanam Pohon Indonesia (28 November 2007):** Berawal dari aksi penanaman serentak di Desa Cibadak, Kecamatan Tanjungsari, Kabupaten Bogor. Momentum ini kemudian dikukuhkan oleh Presiden Susilo Bambang Yudhoyono melalui **Keputusan Presiden (Keppres) Nomor 24 Tahun 2008** yang menetapkan setiap **28 November sebagai Hari Menanam Pohon Indonesia**.
 
 ---
 
