@@ -1,191 +1,57 @@
-/* === 1. Menyesuaikan Banner Header PenCoret (Beranda & Artikel) === */
-.global-top-banner,
-.article-top-banner {
+/* 1. Banner Atas & Logo (Beranda & Artikel) */
+.global-top-banner, .article-top-banner,
+.global-top-banner img, .article-top-banner img {
   display: block !important;
   width: 100% !important;
   height: 110px !important;
   max-height: 110px !important;
+  object-fit: cover !important;
   overflow: hidden !important;
   border-radius: 0 !important;
 }
-
-.global-top-banner img,
-.article-top-banner img,
-img[alt*="Banner PenCoret"] {
-  width: 100% !important;
-  height: 110px !important;
-  max-height: 110px !important;
-  min-height: 0 !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  display: block !important;
+.logo-animasi-estetik { width: 58px !important; height: 58px !important; object-fit: contain !important; }
+@media (min-width: 768px) {
+  .global-top-banner, .article-top-banner,
+  .global-top-banner img, .article-top-banner img { height: 165px !important; max-height: 165px !important; }
 }
 
-.logo-animasi-estetik {
-  width: 58px !important;
-  height: 58px !important;
-  max-height: 58px !important;
-  object-fit: contain !important;
+/* 2. Pita Running Text Ramping */
+.global-running-bar, .article-running-bar {
+  padding: 0 !important; margin: 0 !important;
+  height: 18px !important; line-height: 18px !important;
+  font-size: 11px !important; display: flex !important; align-items: center !important; overflow: hidden !important;
 }
+.global-running-text, .article-running-text { line-height: 18px !important; padding: 0 !important; }
 
-@media screen and (min-width: 768px) {
-  .global-top-banner,
-  .article-top-banner,
-  .global-top-banner img,
-  .article-top-banner img,
-  img[alt*="Banner PenCoret"] {
-    height: 165px !important;
-    max-height: 165px !important;
-  }
+/* 3. Layout Beranda Full-Width & Mepet Kiri */
+body:not(.single) .container, body:not(.single) .wrapper, body:not(.single) .primary, body:not(.single) .main,
+body:not(.single) .list, body:not(.single) .list__item, body:not(.single) article {
+  width: 100% !important; max-width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; margin-left: 0 !important; margin-right: 0 !important;
 }
+body:not(.single) h2, body:not(.single) h3, body:not(.single) section { margin-left: 0 !important; padding-left: 0 !important; }
 
-/* === 2. Halaman Depan Full-Width === */
-body:not(.single) .container,
-body:not(.single) .wrapper,
-body:not(.single) .primary,
-body:not(.single) .main,
-body:not(.single) .main__content {
-  width: 100% !important;
-  max-width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+/* 4. Tombol Menu Tipis & Tulisan Daftar Menu Hitam */
+header button:not(#theme-toggle), .menu-btn, .btn-menu {
+  padding: 2px 11px !important; font-size: 12px !important; line-height: 1.2 !important; min-height: 0 !important; margin-right: 15px !important;
 }
+#navigation, #navigation.navbar-collapse.collapse.in { background: #fff !important; border: 1px solid #d1d5db !important; }
+#navigation a, #navigation a:visited { color: #111 !important; font-weight: 600 !important; border-bottom: 1px solid #eee !important; }
+#navigation a:hover { background: #38a7bb !important; color: #fff !important; }
 
-/* === 3. Memepetkan Garis Biru Toska "POSTINGAN POPULER" ke Tepi Kiri === */
-body:not(.single) [style*="border-left"],
-body:not(.single) .section-title,
-body:not(.single) .category-title,
-body:not(.single) .popular-header,
-body:not(.single) .main__header,
-body:not(.single) .main__title,
-body:not(.single) h2,
-body:not(.single) h3 {
-  margin-left: 0 !important;
-}
+/* 5. Kategori Slide (Transparan & Hitam) */
+.kat-scroll a, .kat-scroll a:visited { background: transparent !important; color: #111 !important; border: 1px solid #d1d5db !important; }
+[data-theme="dark"] .kat-scroll a { color: #f3f4f6 !important; border-color: #4b5563 !important; }
 
-body:not(.single) .wrapper > div,
-body:not(.single) .container > div,
-body:not(.single) section {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
+/* 6. Kategori Atas Judul (Toska + Mepet Kiri) & Judul Artikel Naik */
+main a[href*="/categories/"], article a[href*="/categories/"], .category a {
+  display: inline-block !important; font-size: 13.5px !important; font-weight: 800 !important; text-transform: uppercase !important;
+  color: #38a7bb !important; border-left: 4px solid #38a7bb !important; padding-left: 11px !important; margin: 0 0 2px -15px !important; line-height: 1.1 !important;
 }
+#heading-breadcrumbs, .heading-breadcrumbs { padding: 4px 0 0 0 !important; margin: 0 !important; }
+article h1, main h1 { margin: 2px 0 4px 0 !important; padding-top: 0 !important; line-height: 1.25 !important; }
+.info-penulis, .post-meta { margin: 0 0 8px 0 !important; }
 
-/* === 4. Menjaga Posisi Tombol "Menu" di Kanan === */
-body:not(.single) .menu-toggle,
-body:not(.single) .nav-toggle,
-body:not(.single) .menu-btn,
-body:not(.single) .btn-menu,
-body:not(.single) button {
-  margin-right: 15px !important;
-}
-
-/* === 5. Menghilangkan Sela Kanan-Kiri pada "Postingan Terbaru" === */
-body:not(.single) .list,
-body:not(.single) .list__item,
-body:not(.single) .list__header,
-body:not(.single) .list__content,
-body:not(.single) .list__footer,
-body:not(.single) article {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-/* === 6. Semua Warna Link Menjadi Biru Toska (#38a7bb) === */
-body a:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a):not([href*="/categories/"]),
-body a:visited:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a):not([href*="/categories/"]) {
-  color: #38a7bb !important;
-}
-
-body a:hover:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a):not([href*="/categories/"]),
-body a:active:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a):not([href*="/categories/"]) {
-  color: #2c8a9b !important;
-}
-
-/* === 7. Tombol Kategori Slide: Latar Transparan & Tulisan Hitam === */
-body header .kat-scroll a,
-body header .kat-scroll a:visited,
-body .kat-strip .kat-scroll a,
-body .kat-strip .kat-scroll a:visited {
-  background-color: transparent !important;
-  color: #111111 !important;
-  border: 1px solid #d1d5db !important;
-}
-
-body header .kat-scroll a:hover,
-body header .kat-scroll a:active,
-body .kat-strip .kat-scroll a:hover,
-body .kat-strip .kat-scroll a:active {
-  background-color: #38a7bb !important;
-  color: #ffffff !important;
-  border-color: #38a7bb !important;
-}
-
-[data-theme="dark"] header .kat-scroll a,
-[data-theme="dark"] .kat-strip .kat-scroll a {
-  background-color: transparent !important;
-  color: #f3f4f6 !important;
-  border-color: #4b5563 !important;
-}
-
-/* === 8. Label Kategori di Atas Judul Artikel (Mepet Pinggir Kiri + Garis Toska) === */
-body main a[href*="/categories/"],
-body article a[href*="/categories/"],
-body .breadcrumb a[href*="/categories/"],
-body #heading-breadcrumbs a[href*="/categories/"],
-body .category a,
-body .article-category,
-body .post-category {
-  display: inline-block !important;
-  font-size: 14px !important;
-  font-weight: 800 !important;
-  text-transform: uppercase !important;
-  color: #111111 !important;
-  border-left: 4px solid #38a7bb !important;
-  padding-left: 11px !important;
-  margin-left: -15px !important;
-  line-height: 1.2 !important;
-  margin-bottom: 6px !important;
-  text-decoration: none !important;
-}
-
-[data-theme="dark"] body main a[href*="/categories/"],
-[data-theme="dark"] body article a[href*="/categories/"],
-[data-theme="dark"] body .breadcrumb a[href*="/categories/"],
-[data-theme="dark"] body #heading-breadcrumbs a[href*="/categories/"],
-[data-theme="dark"] body .category a,
-[data-theme="dark"] body .article-category,
-[data-theme="dark"] body .post-category {
-  color: #f3f4f6 !important;
-  border-left-color: #38a7bb !important;
-}
-
-/* === 9. Pita Running Text Pas Mengikuti Tinggi Huruf (Super Ramping) === */
-body .global-running-bar,
-body .article-running-bar,
-.global-running-bar,
-.article-running-bar {
-  padding: 0 !important;
-  margin: 0 !important;
-  height: 18px !important;
-  min-height: 18px !important;
-  max-height: 18px !important;
-  line-height: 18px !important;
-  font-size: 11px !important;
-  display: flex !important;
-  align-items: center !important;
-  overflow: hidden !important;
-}
-
-body .global-running-text,
-body .article-running-text,
-.global-running-text,
-.article-running-text {
-  line-height: 18px !important;
-  height: 18px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
+/* 7. Semua Link Lain Warna Biru Toska */
+body a:not(#navigation a):not(.kat-scroll a):not([href*="/categories/"]) { color: #38a7bb !important; }
+body a:hover:not(#navigation a):not(.kat-scroll a):not([href*="/categories/"]) { color: #2c8a9b !important; }
+           
