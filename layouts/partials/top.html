@@ -1,72 +1,12 @@
 <style>
-  @keyframes penaEstetik {
-    0%, 100% {
-      transform: translateY(0px) rotate(0deg);
-    }
-    25% {
-      transform: translateY(-3.5px) rotate(-4deg);
-    }
-    75% {
-      transform: translateY(2px) rotate(3deg);
-    }
-  }
-
-  .banner-box-relative {
-    position: relative !important;
-  }
-
-  /* LOGO TRANSPARAN MENIMPA DI DEPAN BANNER */
-  .logo-overlay-banner {
-    position: absolute;
-    top: 6px;
-    left: 10px;
-    z-index: 20;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-  }
-
-  .logo-animasi-estetik {
-    width: 58px;
-    height: 58px;
-    object-fit: contain;
-    background: transparent !important;
-    animation: penaEstetik 3.8s ease-in-out infinite;
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    transform-origin: bottom center;
-    display: block;
-  }
-
-  .logo-overlay-banner:hover .logo-animasi-estetik,
-  .logo-overlay-banner:active .logo-animasi-estetik {
-    animation-play-state: paused;
-    transform: scale(1.15) rotate(-6deg);
-  }
-
-  /* TOMBOL TEMA TEPAT DI BAWAH LOGO ANIMASI */
-  .banner-theme-btn {
-    position: absolute;
-    top: 68px;
-    left: 10px;
-    z-index: 25;
-    padding: 3px 9px;
-    font-size: 10.5px;
-    font-weight: 700;
-    border-radius: 14px;
-    background: rgba(26, 37, 54, 0.88);
-    color: #f4d08c !important;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    cursor: pointer;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    transition: all 0.25s ease;
-    line-height: 1.2;
-  }
-
-  .banner-theme-btn:hover {
-    background: #38a7bb;
-    color: #ffffff !important;
+  /* MEMBUAT BILAH RUNNING TEXT & GARIS HIJAU TOSCA FULL WIDTH */
+  .global-running-bar {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 0 !important;
+    border-bottom: 4px solid #38a7bb; /* Garis hijau tosca penuh di bawah running text */
   }
 </style>
 
@@ -88,12 +28,12 @@
         <img src="{{ "/images/image_dacac6d.jpeg" | relURL }}" alt="{{ .Site.Title }}">
       </a>
     </div>
+  </div>
 
-    <div class="global-running-bar">
-      <div class="global-running-text">
-        SELAMAT DATANG & MEMBACA | Terima kasih telah meluangkan waktu untuk berkunjung. Jangan lupa tinggalkan kritik dan saran, serta pendapat Anda di kolom komentar bawah!
-      </div>
+  <!-- RUNNING TEXT DI LUAR .container AGAR FULL LEBAR LAYAR -->
+  <div class="global-running-bar">
+    <div class="global-running-text">
+      SELAMAT DATANG & MEMBACA | Terima kasih telah meluangkan waktu untuk berkunjung. Jangan lupa tinggalkan kritik dan saran, serta pendapat Anda di kolom komentar bawah!
     </div>
   </div>
-  </div>
-  
+</div>
