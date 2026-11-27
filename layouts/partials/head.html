@@ -1,11 +1,11 @@
 <meta charset="utf-8">
 
 <!-- Google AdSense -->
-<script async src="{{ printf "https://googlesyndication.com%s" "/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817" | safeHTMLAttr }}"
+<script async src="{{ printf "https://pagead2.googlesyndication.com%s" "/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817" | safeHTMLAttr }}"
      crossorigin="anonymous"></script>
 
 <!-- Google Tag Manager -->
-<script async src="{{ printf "https://googletagmanager.com%s" "/gtm.js?id=GTM-W8M8KC6Q" | safeHTMLAttr }}"></script>
+<script async src="{{ printf "https://www.googletagmanager.com%s" "/gtm.js?id=GTM-W8M8KC6Q" | safeHTMLAttr }}"></script>
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -139,3 +139,18 @@
   ]
 }
 </script>
+
+<!-- Kunci Tinggi Banner Atas & Pemanggilan CSS Kustom -->
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+<style>
+  .global-top-wrap, .article-top-wrap { background: transparent !important; padding-top: 0 !important; margin-top: 0 !important; }
+  .global-top-wrap .container, .article-top-wrap .container { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
+  .global-top-banner, .article-top-banner { display: block !important; width: 100% !important; height: 110px !important; max-height: 110px !important; overflow: hidden !important; border-radius: 0 !important; }
+  .global-top-banner img, .article-top-banner img { width: 100% !important; height: 110px !important; max-height: 110px !important; object-fit: cover !important; object-position: center !important; display: block !important; }
+  .global-running-bar, .article-running-bar { background: #1a2536; color: #f4d08c; padding: 7px 0; overflow: hidden; white-space: nowrap; font-weight: 800; font-size: 13px; }
+  .global-running-text, .article-running-text { display: inline-block; padding-left: 100%; animation: jalanGlobal 16s linear infinite; }
+  @keyframes jalanGlobal { 0% { transform: translate(0,0); } 100% { transform: translate(-100%,0); } }
+  @media (min-width: 768px) {
+    .global-top-banner, .global-top-banner img, .article-top-banner, .article-top-banner img { height: 165px !important; max-height: 165px !important; }
+  }
+</style>
