@@ -438,19 +438,25 @@
             {{- end }}
 
             {{- $latestPosts := where .Site.RegularPages "Section" "blog" | first 6 -}}
-            {{- if gt (len $latestPosts) 0 }}
-            <section class="latest-bottom-box" aria-label="Postingan Terbaru">
-              <h3 class="latest-bottom-title">Postingan Terbaru</h3>
+                        {{- $related := .Site.RegularPages.Related . | first 5 -}}
+            {{- if eq (len $related) 0 -}}
+              {{- $related = where (where .Site.RegularPages "Section" "blog") "RelPermalink" "ne" .RelPermalink | first 5 -}}
+            {{- end -}}
+            {{- if gt (len $related) 0 }}
+            <section class="latest-bottom-box" aria-label="Rekomendasi Pilihan">
+              <h3 class="latest-bottom-title">Rekomendasi Pilihan</h3>
               <ul class="latest-bottom-list">
                 {{- $count := 0 -}}
-                {{- range $latestPosts }}
-                  {{- if and (ne .RelPermalink $.RelPermalink) (lt $count 5) }}
-                    {{- $count = add $count 1 -}}
-                    <li>
-                      <span class="latest-num">{{ $count }}</span>
-                      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                    </li>
-                  {{- end }}
+                {{- range $related }}
+                  {{- $count = add $count 1 -}}
+                  <li>
+                    <span class="latest-num">{{ $count }}</span>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                  </li>
+                {{- end }}
+              </ul>
+            </section>
+            {{- end }}
                 {{- end }}
               </ul>
             </section>
