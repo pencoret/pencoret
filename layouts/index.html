@@ -143,73 +143,7 @@
     .top-search-btn:hover {
       background: #2c8a9b;
     }
-</style>
 
-<!-- Kotak Pencarian Atas (Internal Instan) -->
-<div class="top-search-wrap">
-  <form class="top-search-form" onsubmit="event.preventDefault(); jalankanPencarian();">
-    <input type="text" id="homeSearchInput" class="top-search-input" placeholder="Cari artikel atau topik di PenCoret..." aria-label="Cari artikel" onkeyup="jalankanPencarian()" autocomplete="off">
-    <button type="submit" class="top-search-btn">Cari</button>
-  </form>
-
-  <!-- Kotak Hasil Pencarian Instan -->
-  <div id="hasilPencarianBox" style="display: none; background: #ffffff; border: 1px solid #ddd; border-radius: 12px; margin: 6px auto 0; max-width: 720px; max-height: 360px; overflow-y: auto; box-shadow: 0 6px 18px rgba(0,0,0,0.15); z-index: 99999; position: absolute; left: 12px; right: 12px; text-align: left;"></div>
-</div>
-
-<script>
-  const daftarArtikelPenCoret = [
-    {{- range .Site.RegularPages -}}
-    {{- if not (in (slice "about" "contact" "disclaimer" "privacy-policy") .File.ContentBaseName) -}}
-    {
-      judul: "{{ .Title }}",
-      url: "{{ .Permalink }}",
-      kategori: "{{ with .Params.categories }}{{ index . 0 }}{{ else }}Artikel{{ end }}",
-      tanggal: "{{ .Date.Format "02 Jan 2006" }}",
-      ringkasan: "{{ .Summary | plainify | truncate 100 }}"
-    },
-    {{- end -}}
-    {{- end -}}
-  ];
-
-  function jalankanPencarian() {
-    const input = document.getElementById('homeSearchInput').value.toLowerCase().trim();
-    const box = document.getElementById('hasilPencarianBox');
-
-    if (input.length < 2) {
-      box.style.display = 'none';
-      box.innerHTML = '';
-      return;
-    }
-
-    const hasil = daftarArtikelPenCoret.filter(item =>
-      item.judul.toLowerCase().includes(input) ||
-      item.kategori.toLowerCase().includes(input) ||
-      item.ringkasan.toLowerCase().includes(input)
-    );
-
-    if (hasil.length === 0) {
-      box.innerHTML = '<div style="padding: 14px; color: #666; font-size: 13.5px;">Tidak ditemukan artikel untuk kata kunci "<strong>' + input + '</strong>".</div>';
-    } else {
-      box.innerHTML = hasil.map(item => `
-        <a href="${item.url}" style="display: block; padding: 12px 14px; border-bottom: 1px solid #eee; text-decoration: none;">
-          <div style="font-size: 11px; color: #16a34a; font-weight: 700; text-transform: uppercase;">${item.kategori} • ${item.tanggal}</div>
-          <div style="font-size: 14.5px; font-weight: 700; color: #1a2536; margin: 3px 0;">${item.judul}</div>
-          <div style="font-size: 12.5px; color: #555; line-height: 1.4;">${item.ringkasan}</div>
-        </a>
-      `).join('');
-    }
-    box.style.display = 'block';
-  }
-
-  document.addEventListener('click', function(e) {
-    const wrap = document.querySelector('.top-search-wrap');
-    if (wrap && !wrap.contains(e.target)) {
-      document.getElementById('hasilPencarianBox').style.display = 'none';
-    }
-  });
-</script>
-    
-    <style>
     /* Banner & Logo Overlay */
     .hero-banner-box { position: relative; width: 100%; max-width: 100%; overflow: hidden; margin: 0; }
     .hero-banner-img { width: 100% !important; height: auto; display: block; object-fit: cover; }
@@ -319,14 +253,69 @@
   </style>
   </head>
   <body>
-  <!-- Kotak Pencarian Atas -->
-  <div class="top-search-wrap">
-    <form class="top-search-form" action="https://google.com" method="get" target="_blank" rel="noopener" onsubmit="return submitSiteSearch(this);">
-      <input type="hidden" name="q" value="">
-      <input type="text" id="homeSearchInput" class="top-search-input" placeholder="Cari artikel atau topik di PenCoret..." aria-label="Cari artikel" required>
-      <button type="submit" class="top-search-btn">Cari</button>
-    </form>
-  </div>
+  <!-- Kotak Pencarian Atas (Internal Instan) -->
+<div class="top-search-wrap">
+  <form class="top-search-form" onsubmit="event.preventDefault(); jalankanPencarian();">
+    <input type="text" id="homeSearchInput" class="top-search-input" placeholder="Cari artikel atau topik di PenCoret..." aria-label="Cari artikel" onkeyup="jalankanPencarian()" autocomplete="off">
+    <button type="submit" class="top-search-btn">Cari</button>
+  </form>
+
+  <!-- Kotak Hasil Pencarian Instan -->
+  <div id="hasilPencarianBox" style="display: none; background: #ffffff; border: 1px solid #ddd; border-radius: 12px; margin: 6px auto 0; max-width: 720px; max-height: 360px; overflow-y: auto; box-shadow: 0 6px 18px rgba(0,0,0,0.15); z-index: 99999; position: absolute; left: 12px; right: 12px; text-align: left;"></div>
+</div>
+
+<script>
+  const daftarArtikelPenCoret = [
+    {{- range .Site.RegularPages -}}
+    {{- if not (in (slice "about" "contact" "disclaimer" "privacy-policy") .File.ContentBaseName) -}}
+    {
+      judul: "{{ .Title }}",
+      url: "{{ .Permalink }}",
+      kategori: "{{ with .Params.categories }}{{ index . 0 }}{{ else }}Artikel{{ end }}",
+      tanggal: "{{ .Date.Format "02 Jan 2006" }}",
+      ringkasan: "{{ .Summary | plainify | truncate 100 }}"
+    },
+    {{- end -}}
+    {{- end -}}
+  ];
+
+  function jalankanPencarian() {
+    const input = document.getElementById('homeSearchInput').value.toLowerCase().trim();
+    const box = document.getElementById('hasilPencarianBox');
+
+    if (input.length < 2) {
+      box.style.display = 'none';
+      box.innerHTML = '';
+      return;
+    }
+
+    const hasil = daftarArtikelPenCoret.filter(item =>
+      item.judul.toLowerCase().includes(input) ||
+      item.kategori.toLowerCase().includes(input) ||
+      item.ringkasan.toLowerCase().includes(input)
+    );
+
+    if (hasil.length === 0) {
+      box.innerHTML = '<div style="padding: 14px; color: #666; font-size: 13.5px;">Tidak ditemukan artikel untuk kata kunci "<strong>' + input + '</strong>".</div>';
+    } else {
+      box.innerHTML = hasil.map(item => `
+        <a href="${item.url}" style="display: block; padding: 12px 14px; border-bottom: 1px solid #eee; text-decoration: none;">
+          <div style="font-size: 11px; color: #16a34a; font-weight: 700; text-transform: uppercase;">${item.kategori} • ${item.tanggal}</div>
+          <div style="font-size: 14.5px; font-weight: 700; color: #1a2536; margin: 3px 0;">${item.judul}</div>
+          <div style="font-size: 12.5px; color: #555; line-height: 1.4;">${item.ringkasan}</div>
+        </a>
+      `).join('');
+    }
+    box.style.display = 'block';
+  }
+
+  document.addEventListener('click', function(e) {
+    const wrap = document.querySelector('.top-search-wrap');
+    if (wrap && !wrap.contains(e.target)) {
+      document.getElementById('hasilPencarianBox').style.display = 'none';
+    }
+  });
+</script>
 
   <!-- Banner Utama + Logo Melayang (Tanpa scale berlebih agar tidak melebar di HP) -->
   <div style="width: 100%; max-width: 100%; overflow: hidden; margin-top: 0; position: relative;">
