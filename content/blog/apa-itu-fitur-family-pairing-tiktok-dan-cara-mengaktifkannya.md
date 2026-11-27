@@ -17,6 +17,9 @@ tags:
 banner_alt: Seorang ibu dan anak laki-laki remaja di Indonesia tersenyum saat
   melihat dasbor pemantauan Family Pairing TikTok di layar laptop dan ponsel
   pintar
+banner_caption: Ilustrasi orang tua dan remaja meninjau pengaturan waktu layar
+  serta keamanan akun melalui dasbor web fitur Family Pairing (Pelibatan
+  Keluarga) TikTok yang diperbarui pada November 2026.
 ---
 Belakangan ini, istilah **Family Pairing** di TikTok kembali ramai diperbincangkan di media sosial. Fitur ini menjadi sorotan setelah TikTok resmi merilis pembaruan besar pada akhir November 2026 yang membuat orang tua bisa memantau aktivitas akun remaja langsung lewat komputer.
 
@@ -28,8 +31,6 @@ Namun, bagi sebagian pengguna, istilah *Family Pairing* mungkin masih terdengar 
 
 ## Apa Itu Family Pairing di TikTok?
 
-
-
 **Family Pairing** (atau dalam bahasa Indonesia disebut **Pelibatan Keluarga**) adalah fitur keamanan bawaan TikTok yang memungkinkan orang tua menautkan akun TikTok miliknya dengan akun anak remaja (usia 13 hingga 17 tahun). 
 
 
@@ -39,8 +40,6 @@ Tujuannya bukan untuk memata-matai secara berlebihan, melainkan memberikan kenda
 
 
 ## Fungsi dan Fitur Terbaru Family Pairing (Update November 2026)
-
-
 
 Sejak diperbarui pada akhir November 2026, fitur ini tidak lagi sekadar membatasi penggunaan aplikasi. Orang tua kini mendapatkan dasbor khusus yang bisa diakses lewat peramban web (*browser*) di PC maupun laptop dengan empat fungsi pemantauan utama:
 
@@ -82,23 +81,15 @@ Orang tua berhak memblokir kemunculan video yang mengandung kata kunci atau taga
 
 ## Cara Mengaktifkan Fitur Family Pairing TikTok
 
-
-
 Untuk menggunakan fitur ini, baik orang tua maupun anak harus memiliki akun TikTok masing-masing. Berikut langkah-langkah mudah menautkannya:
 
 
 
 1. **Buka Akun Orang Tua:** Masuk ke aplikasi TikTok di HP orang tua, buka menu **Profil**, lalu ketuk ikon **tiga garis (☰)** di pojok kanan atas.
-
 2. **Masuk ke Menu Pengaturan:** Pilih **Pengaturan dan privasi**, gulir ke bawah, lalu ketuk **Pelibatan Keluarga (*Family Pairing*)**.
-
 3. **Pilih Peran Orang Tua:** Ketuk **Lanjutkan**, lalu pilih **Orang Tua** hingga layar menampilkan kode QR.
-
 4. **Siapkan Akun Anak:** Di HP anak, buka menu **Pengaturan dan privasi** > **Pelibatan Keluarga**, lalu pilih peran sebagai **Remaja**.
-
 5. **Pindai Kode QR:** Gunakan kamera HP anak untuk memindai kode QR yang muncul di layar HP orang tua, lalu ketuk **Tautkan akun**.
-
-
 
 Setelah kedua akun berhasil ditautkan, seluruh pengaturan keamanan dan batas waktu yang dikunci oleh orang tua tidak akan bisa diubah sendiri oleh anak.
 
