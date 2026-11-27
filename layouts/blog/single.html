@@ -289,39 +289,66 @@
         font-weight: 700 !important;
         margin: 0 !important;
       }
-
-            .salam-marquee-inner {
-        display: inline-block !important;
-        padding-left: 100% !important;
-        animation: jalanSalamArtikel 20s linear infinite !important;
+            /* PERBAIKAN TOTAL BANNER, LOGO & GARIS HIJAU TOSCA FULL WIDTH DI ARTIKEL */
+      #all, .global-top-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
       }
-
-      /* NETRALKAN BATAS TEMA DI HALAMAN ARTIKEL */
-      #all {
+      .global-top-wrap .banner-box-relative {
+        position: relative !important;
+        width: 100% !important;
+        height: 110px !important;
+        overflow: hidden !important;
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      @media (min-width: 768px) {
+        .global-top-wrap .banner-box-relative {
+          height: 165px !important;
+        }
+      }
+      .global-top-wrap .logo-overlay-banner {
+        position: absolute !important;
+        top: 6px !important;
+        left: 10px !important;
+        z-index: 30 !important;
+        display: block !important;
+        border: none !important;
+        text-decoration: none !important;
+        background: transparent !important;
+      }
+      .global-top-wrap .banner-theme-btn {
+        position: absolute !important;
+        top: 68px !important;
+        left: 10px !important;
+        z-index: 35 !important;
+        display: inline-block !important;
+        margin: 0 !important;
+      }
+      .global-top-wrap .global-top-banner {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .global-top-wrap .global-running-bar {
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
         border-top: none !important;
-        box-shadow: none !important;
-      }
-      #top, .top-bar {
-        display: none !important;
-      }
-      .global-top-wrap,
-      .global-top-wrap .banner-box-relative,
-      .global-top-banner,
-      .global-top-banner img,
-      .global-running-bar {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-      }
-      .global-running-bar {
+        border-left: none !important;
+        border-right: none !important;
         border-bottom: 4px solid #38a7bb !important;
+        box-sizing: border-box !important;
       }
-    </style>
+    </style> 
   </head>
 
   <body>
