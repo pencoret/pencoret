@@ -437,7 +437,7 @@
             </div>
             {{- end }}
 
-                        {{- $related := .Site.RegularPages.Related . | first 5 -}}
+            {{- $related := .Site.RegularPages.Related . | first 5 -}}
             {{- if eq (len $related) 0 -}}
               {{- $related = where (where .Site.RegularPages "Section" "blog") "RelPermalink" "ne" .RelPermalink | first 5 -}}
             {{- end -}}
@@ -452,10 +452,6 @@
                     <span class="latest-num">{{ $count }}</span>
                     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                   </li>
-                {{- end }}
-              </ul>
-            </section>
-            {{- end }}
                 {{- end }}
               </ul>
             </section>
