@@ -21,7 +21,6 @@ img[alt*="Banner PenCoret"] {
   display: block !important;
 }
 
-/* Memastikan logo animasi kecil di pojok kiri atas tidak ikut melebar */
 .logo-animasi-estetik {
   width: 58px !important;
   height: 58px !important;
@@ -40,7 +39,7 @@ img[alt*="Banner PenCoret"] {
   }
 }
 
-/* === 2. Halaman Depan Full-Width (Menghapus Semua Sela Pembungkus Utama) === */
+/* === 2. Halaman Depan Full-Width === */
 body:not(.single) .container,
 body:not(.single) .wrapper,
 body:not(.single) .primary,
@@ -66,7 +65,6 @@ body:not(.single) h3 {
   margin-left: 0 !important;
 }
 
-/* Menghapus padding kiri pada pembungkus baris judul agar garis biru menempel ke tepi */
 body:not(.single) .wrapper > div,
 body:not(.single) .container > div,
 body:not(.single) section {
@@ -74,7 +72,7 @@ body:not(.single) section {
   margin-left: 0 !important;
 }
 
-/* === 4. Menjaga Posisi Tombol "Menu" di Kanan Tetap pada Tempatnya === */
+/* === 4. Menjaga Posisi Tombol "Menu" di Kanan === */
 body:not(.single) .menu-toggle,
 body:not(.single) .nav-toggle,
 body:not(.single) .menu-btn,
@@ -95,3 +93,35 @@ body:not(.single) article {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+
+/* === 6. Warna Link Hijau (Kecuali Menu Navigasi & Tombol Kategori) === */
+body a:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a),
+body a:visited:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a) {
+  color: #16a34a !important;
+}
+
+body a:hover:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a),
+body a:active:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a) {
+  color: #15803d !important;
+}
+
+/* === 7. Tombol Kategori: Latar Biru Toska & Tulisan Hitam === */
+.kat-scroll a,
+.kat-scroll a:visited,
+.kat-strip a,
+.kat-strip a:visited,
+[data-theme="dark"] .kat-scroll a,
+[data-theme="dark"] .kat-strip a {
+  background-color: #38a7bb !important;
+  color: #000000 !important;
+  border-color: #38a7bb !important;
+}
+
+.kat-scroll a:hover,
+.kat-scroll a:active,
+.kat-strip a:hover,
+.kat-strip a:active {
+  background-color: #2c8a9b !important;
+  color: #000000 !important;
+  border-color: #2c8a9b !important;
+  }
