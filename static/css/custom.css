@@ -136,7 +136,6 @@ article h1, main h1, .post__title, .entry-title {
 
 /* 8. Semua Link Lain Warna Biru Toska */
 body a:not(#navigation a):not(.dropdown-menu a):not([class*="menu"] a):not([class*="dropdown"] a):not(.kat-scroll a):not([href*="/categories/"]) { color: #38a7bb !important; }
-body a:hover:not(#navigation a):not(.dropdown-menu a):not([class*="menu"] a):not([class*="dropdown"] a):not(.kat-scroll a):not([href*="/categories/"]) { color: #2c8a9b !important; }
 
 /* =========================================================
    9. PERBAIKAN HEADER, LOGO OVERLAY & GARIS TOSCA FULL WIDTH
