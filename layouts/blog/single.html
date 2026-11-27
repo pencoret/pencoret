@@ -317,17 +317,19 @@
                   <a href="{{ "/categories/" | relURL }}{{ index . 0 | urlize }}/" class="post-cat">{{ index . 0 }}</a>
                 {{ end }}
               </div>
-              <div>
-                <button type="button" class="title-dots-btn" onclick="document.getElementById('titleDotsDropdown').classList.toggle('show')" aria-label="Menu Kategori">
-                  ⋮
+                            <div>
+                <button type="button" class="title-dots-btn" onclick="document.getElementById('titleDotsDropdown').classList.toggle('show')" aria-label="Menu Navigasi">
+                  Menu
                 </button>
                 <div id="titleDotsDropdown" class="title-dots-menu">
-                  {{- range .Site.Menus.main }}
-                    <a href="{{ .URL | relURL }}">{{ .Name }}</a>
-                  {{- end }}
+                  <a href="{{ "/" | relURL }}">Beranda</a>
+                  <a href="{{ "/categories/" | relURL }}">Kategori</a>
+                  <a href="{{ "/about/" | relURL }}">Tentang Kami</a>
+                  <a href="{{ "/contact/" | relURL }}">Kontak</a>
+                  <a href="{{ "/disclaimer/" | relURL }}">Disclaimer</a>
+                  <a href="{{ "/privacy-policy/" | relURL }}">Kebijakan Privasi</a>
                 </div>
               </div>
-            </div>
 
             <h1 class="post-title">{{ .Title }}</h1>
 
