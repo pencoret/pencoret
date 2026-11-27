@@ -71,19 +71,20 @@ article h1, main h1 { margin: 2px 0 4px 0 !important; padding-top: 0 !important;
 body a:not(#navigation a):not(.dropdown-menu a):not(.kat-scroll a):not([href*="/categories/"]) { color: #38a7bb !important; }
 body a:hover:not(#navigation a):not(.dropdown-menu a):not(.kat-scroll a):not([href*="/categories/"]) { color: #2c8a9b !important; }
   
-/* 9. Mengubah warna tulisan di dalam daftar menu menjadi hitam */
+/* Memaksa semua tulisan di dalam daftar menu selalu berwarna hitam */
 .menu__list .menu__link,
+.menu__list .menu__link:link,
+.menu__list .menu__link:visited,
+.menu__list .menu__link:hover,
+.menu__list .menu__link:active,
+.menu__list .menu__link:focus,
 .menu__item a {
     color: #000000 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
-/* Mengubah warna tulisan saat disentuh atau diarahkan kursor (hover) */
-.menu__list .menu__link:hover,
-.menu__item a:hover {
-    color: #ffffff !important; /* Atau gunakan #222222 jika ingin tetap gelap */
-}
-
-/* Opsional: Mengubah warna tulisan pada tombol "Menu" utama */
-.menu__btn-title {
+/* Memastikan tulisan di dalam dropdown tetap hitam saat menu terbuka */
+.menu__list--active .menu__link {
     color: #000000 !important;
 }
