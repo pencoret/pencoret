@@ -76,12 +76,23 @@ body:not(.single) article {
   margin-right: 0 !important;
 }
 
-/* Mengubah semua warna link di seluruh situs menjadi hijau */
-a {
+/* Memaksa semua warna link di seluruh halaman menjadi hijau */
+body a,
+body a:visited,
+main a,
+article a,
+p a,
+li a {
   color: #16a34a !important;
 }
 
-a:hover {
+body a:hover,
+body a:active,
+main a:hover,
+article a:hover,
+p a:hover,
+li a:hover {
   color: #15803d !important;
 }
+
 
