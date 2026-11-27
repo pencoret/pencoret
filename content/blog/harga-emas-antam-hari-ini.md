@@ -36,7 +36,7 @@ Produk emas batangan Logam Mulia tersedia mulai dari ukuran terkecil 0,5 gram hi
 
 | Berat Emas | Harga Dasar (Rp) |
 
-| :--- | :--- |
+|:---|:---|
 
 | **0,5 gram** | Rp1.300.500 |
 
