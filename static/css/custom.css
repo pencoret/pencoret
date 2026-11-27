@@ -95,22 +95,3 @@ body:not(.single) article {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-
-/* === 6. Memaksa semua warna link di seluruh halaman menjadi hijau === */
-body a,
-body a:visited,
-main a,
-article a,
-p a,
-li a {
-  color: #16a34a !important;
-}
-
-body a:hover,
-body a:active,
-main a:hover,
-article a:hover,
-p a:hover,
-li a:hover {
-  color: #15803d !important;
-}
