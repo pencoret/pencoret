@@ -55,12 +55,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ .Site.Title }} — {{ .Site.Params.description }}">
   <meta name="twitter:description" content="{{ .Site.Params.description }}">
-  <meta name="twitter:image" content="{{ $waImg }}">
+  <meta name="twitter:image" content="{{ $discoverImg }}">
 
   <title>{{ .Site.Title }} — {{ .Site.Params.description }}</title>
-  <link rel="icon" type="image/png" sizes="48x48" href="{{ "/images/logo-transparan.png" | relURL }}">
-  <link rel="icon" type="image/png" sizes="192x192" href="{{ "/images/logo-transparan.png" | relURL }}">
-  <link rel="apple-touch-icon" href="{{ "/images/logo-transparan.png" | relURL }}">
+  
+  <!-- Favicon Terbaru -->
+  <link rel="icon" href="{{ "favicon.ico" | absURL }}" sizes="any">
+  <link rel="icon" type="image/png" href="{{ "favicon.png?v=2" | absURL }}">
+  <link rel="apple-touch-icon" href="{{ "favicon.png?v=2" | absURL }}">
 
   <!-- Schema JSON-LD WebSite & Organization -->
   <script type="application/ld+json">
