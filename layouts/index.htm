@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <script async src="https://googlesyndication.com" crossorigin="anonymous"></script>
+  <script async src="https://googletagmanager.com"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  {{- /* Proses Gambar Otomatis: 1200px untuk Google Discover & 800px JPG (<300KB) untuk WhatsApp */ -}}
+  {{- $rawImg := .Params.image | default .Params.banner | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+  {{- $discoverImg := $rawImg | absURL -}}
+  {{- $waImg := $rawImg | absURL -}}
+  {{- $waWidth := "800" -}}
+  {{- $waHeight := "450" -}}
+
+  {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+  {{- $imgRes := resources.Get $cleanPath -}}
+  {{- if not $imgRes -}}
+    {{- $imgRes = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+  {{- end -}}
+
+  {{- if $imgRes -}}
+    {{- $discoverRes := $imgRes.Resize "1200x jpg q85" -}}
+    {{- $discoverImg = $discoverRes.Permalink -}}
+    {{- $waRes := $imgRes.Resize "800x jpg q75" -}}
+    {{- $waImg = $waRes.Permalink -}}
+    {{- $waWidth = $waRes.Width -}}
+    {{- $waHeight = $waRes.Height -}}
+  {{- end -}}
+
+  <!-- Open Graph & WhatsApp Share Preview -->
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ .Site.Title }} — {{ .Site.Params.description }}">
+  <meta property="og:description" content="{{ .Site.Params.description }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ $waImg }}">
+  <meta property="og:image:secure_url" content="{{ $waImg }}">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="{{ $waWidth }}">
+  <meta property="og:image:height" content="{{ $waHeight }}">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ .Site.Title }} — {{ .Site.Params.description }}">
+  <meta name="twitter:description" content="{{ .Site.Params.description }}">
+  <meta name="twitter:image" content="{{ $waImg }}">
+
+  <title>{{ .Site.Title }} — {{ .Site.Params.description }}</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="{{ "/images/logo-transparan.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ "/images/logo-transparan.png" | relURL }}">
+  <link rel="apple-touch-icon" href="{{ "/images/logo-transparan.png" | relURL }}">
+
+  <!-- Schema JSON-LD WebSite & Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "PenCoret",
+        "alternateName": ["pencoret.web.id", "Ruang Baca PenCoret"],
+        "url": "https://pencoret.web.id",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://pencoret.web.id{search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "name": "PenCoret",
+        "url": "https://pencoret.web.id",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ "/images/logo-transparan.png" | absURL }}"
+        }
+      }
+    ]
+  }
+  </script>
+    <style>
+    * { box-sizing: border-box !important; }
+    html, body {
+      width: 100% !important;
+      max-width: 100vw !important;
+      overflow-x: hidden !important;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    img, video, iframe { max-width: 100% !important; height: auto; }
+
+    /* Kotak Pencarian Atas */
+    .top-search-wrap { width: 100%; background: #1a2536; padding: 8px 12px; }
+    .top-search-form { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; background: #fff; border-radius: 20px; padding: 3px 6px 3px 14px; border: 1px solid #38a7bb; }
+    .top-search-input { flex: 1; min-width: 0; border: none; outline: none; font-size: 13px; color: #222; background: transparent; padding: 5px 0; }
+    .top-search-btn { background: #38a7bb; color: #fff; border: none; border-radius: 16px; padding: 6px 14px; font-size: 12px; font-weight: 700; cursor: pointer; flex-shrink: 0; transition: 0.2s; }
+    .top-search-btn:hover { background: #2c8a9b; }
+
+    /* Banner & Logo Overlay */
+    .hero-banner-box { position: relative; width: 100%; max-width: 100%; overflow: hidden; margin: 0; }
+    .hero-banner-img { width: 100% !important; height: auto; display: block; object-fit: cover; }
+    @keyframes penaEstetik {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25% { transform: translateY(-3.5px) rotate(-4deg); }
+      75% { transform: translateY(2px) rotate(3deg); }
+    }
+    .home-logo-overlay { position: absolute; top: 8px; left: 12px; z-index: 20; display: inline-flex; text-decoration: none; }
+    .home-logo-overlay img, .home-logo-animasi { width: auto !important; height: 42px !important; max-height: 42px !important; animation: penaEstetik 4s ease-in-out infinite; }
+
+    /* Running Text Atas */
+    .top-running-bar { width: 100%; background: #1a2536; color: #f4d08c; padding: 6px 0; overflow: hidden; white-space: nowrap; font-weight: 700; font-size: 13px; }
+    .top-running-text { display: inline-block; padding-left: 100%; animation: jalanTeks 22s linear infinite; }
+
+    /* Container & Menu Kategori */
+    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0; }
+    .home-wrap { padding-bottom: 35px; }
+
+    .cat-menu-bar { display: flex; flex-wrap: nowrap; width: 100%; overflow-x: auto; gap: 8px; padding: 10px 12px; background: #f4f7f9; border-bottom: 1px solid #e5eaef; scrollbar-width: none; }
+    .cat-menu-bar::-webkit-scrollbar { display: none; }
+    .cat-menu-btn { flex-shrink: 0; white-space: nowrap; font-size: 12px; font-weight: 700; color: #1a2536 !important; text-decoration: none !important; padding: 5px 12px; border-radius: 15px; background: #fff; border: 1px solid #dce3ea; transition: 0.2s; }
+    .cat-menu-btn:hover { background: #38a7bb; color: #fff !important; border-color: #38a7bb; }
+
+    /* Section Header & Dropdown */
+    .sec-header-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 14px 0 8px; padding: 0; }
+    .sec-label { font-size: 15px; font-weight: 800; text-transform: uppercase; color: #222; border-left: 4px solid #38a7bb; padding-left: 10px; margin: 0; }
+    .nav-dropdown-select { appearance: none; -webkit-appearance: none; background-color: #38a7bb; color: #fff; border: 1px solid #38a7bb; padding: 5px 14px; margin-right: 12px; border-radius: 16px; font-size: 12px; font-weight: 700; cursor: pointer; outline: none; }
+    .nav-dropdown-select option { background-color: #fff; color: #222; }
+
+    /* Slider Postingan Populer */
+    .pop-slider { position: relative; width: 100%; max-width: 100%; overflow: hidden; background: #1a2536; }
+    .pop-track { display: flex; width: 100%; transition: transform 0.45s ease-in-out; }
+    .pop-slide { position: relative; min-width: 100%; width: 100%; flex-shrink: 0; height: 220px; overflow: hidden; }
+    .pop-slide img { width: 100% !important; height: 100% !important; object-fit: cover; display: block; }
+    .pop-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 14px; background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)); }
+    .pop-overlay h2 { margin: 0; font-size: 16px; font-weight: 700; line-height: 1.35; color: #fff; }
+    .pop-overlay h2 a { color: #fff !important; text-decoration: none !important; }
+    .pop-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 15; background: rgba(26, 37, 54, 0.7); color: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .pop-prev { left: 8px; }
+    .pop-next { right: 8px; }
+
+    /* Grid Postingan Terbaru & Mini Row */
+    .latest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px; padding: 0 12px; width: 100%; }
+    .big-card { border: 1px solid #eaeaea; border-radius: 6px; overflow: hidden; background: #fff; display: flex; flex-direction: column; min-width: 0; }
+    .big-card img { width: 100% !important; height: 115px !important; object-fit: cover; display: block; }
+    .big-card-body { padding: 9px 10px; flex-grow: 1; }
+    .big-cat { font-size: 10px; font-weight: 700; color: #38a7bb; text-transform: uppercase; }
+    .big-card-body h3 { margin: 3px 0 5px; font-size: 13.5px; font-weight: 700; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .big-card-body h3 a { color: #222 !important; text-decoration: none !important; }
+    .big-meta { font-size: 10.5px; color: #777; }
+
+    .mini-row { display: flex; gap: 10px; width: 100%; overflow-x: auto; padding: 6px 12px 14px; scroll-behavior: smooth; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .mini-row::-webkit-scrollbar { display: none; }
+    .mini-card { width: 175px; flex-shrink: 0; scroll-snap-align: start; border: 1px solid #edf0f3; border-radius: 10px; overflow: hidden; background: #fff; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04); }
+    .mini-card > a { display: block; overflow: hidden; }
+    .mini-card img { width: 100% !important; height: 105px !important; object-fit: cover; display: block; }
+    .mini-card-body { padding: 10px 12px 12px; }
+    .mini-card-body h4 { margin: 0; font-size: 13px; font-weight: 600; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .mini-card-body h4 a { color: #222 !important; text-decoration: none !important; }
+
+    /* Tombol Tampilkan Semua & Footer */
+    .all-post-box { margin-top: 16px; text-align: center; padding: 0 12px; }
+    .btn-all-post { display: inline-flex; align-items: center; justify-content: center; width: 100%; max-width: 320px; background: #38a7bb; color: #fff !important; font-weight: 700; font-size: 14px; padding: 12px 20px; border-radius: 6px; text-decoration: none !important; transition: 0.2s; }
+    .btn-all-post:hover { background: #2c8a9b; }
+    .site-footer { background: #1a2536; color: #ccc; padding: 18px 0 0; margin-top: 36px; font-size: 13px; width: 100%; }
+    .footer-top-flex { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; padding: 0 12px; }
+    .footer-logo img { max-height: 38px !important; width: auto !important; display: block; }
+    .footer-nav { display: grid; grid-template-columns: repeat(2, auto); gap: 6px; justify-content: end; text-align: center; }
+    .footer-btn { background: rgba(255,255,255,0.1); color: #fff !important; border: 1px solid rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 14px; font-size: 11px; font-weight: 600; text-decoration: none !important; white-space: nowrap; transition: 0.2s; }
+    .footer-btn:hover { background: #38a7bb; border-color: #38a7bb; }
+    .footer-running-bottom { background: #38a7bb; color: #fff; padding: 9px 0; font-size: 13px; font-weight: 600; overflow: hidden; white-space: nowrap; }
+    .footer-running-text { display: inline-block; padding-left: 100%; animation: jalanTeks 24s linear infinite; }
+
+    @keyframes jalanTeks { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
+    @media (min-width: 768px) {
+      .pop-slide { height: 360px; } .pop-overlay h2 { font-size: 24px; }
+      .latest-grid { gap: 14px; } .big-card img { height: 185px !important; } .big-card-body h3 { font-size: 16px; }
+      .mini-card { width: 225px; } .mini-card img { height: 135px !important; }
+    }
+  </style>
+  </head>
+  <body>
+  <!-- Kotak Pencarian Atas -->
+  <div class="top-search-wrap">
+    <form class="top-search-form" action="https://google.com" method="get" target="_blank" rel="noopener" onsubmit="return submitSiteSearch(this);">
+      <input type="hidden" name="q" value="">
+      <input type="text" id="homeSearchInput" class="top-search-input" placeholder="Cari artikel atau topik di PenCoret..." aria-label="Cari artikel" required>
+      <button type="submit" class="top-search-btn">Cari</button>
+    </form>
+  </div>
+
+  <!-- Banner Utama + Logo Melayang (Tanpa scale berlebih agar tidak melebar di HP) -->
+  <div style="width: 100%; max-width: 100%; overflow: hidden; margin-top: 0; position: relative;">
+    <a href="{{ "/" | relURL }}" class="home-logo-overlay" title="Beranda {{ .Site.Title }}">
+      <img src="{{ "/images/logo-transparan.png" | relURL }}" alt="Logo {{ .Site.Title }}" width="44" height="44" class="home-logo-animasi">
+    </a>
+    <img src="{{ "/images/image_dacac6d.jpeg" | relURL }}" alt="Banner PenCoret" width="1200" height="300" fetchpriority="high" decoding="sync" style="width: 100%; height: auto; display: block;">
+  </div>
+
+  <!-- Running Text Sambutan -->
+  <div style="width: 100%; background: #1a2536; color: #f4d08c; padding: 6px 0; overflow: hidden; white-space: nowrap; font-weight: bold; font-size: 13px;">
+    <div style="display: inline-block; padding-left: 100%; animation: jalanTeks 22s linear infinite;">
+      Selamat Datang di Ruang Baca dari sudut pandang yang berbeda, menyelami ide, mengurai cerita, dan menulis makna baru di setiap coretan pena.
+    </div>
+  </div>
+
+  <div class="container home-wrap">
+    <!-- Bar Menu Kategori -->
+    <nav class="cat-menu-bar" id="catMenuBar" aria-label="Kategori Artikel">
+      {{ range .Site.Menus.main }}
+        {{ if ne (lower .Name) "beranda" }}
+          <a href="{{ .URL | relURL }}" class="cat-menu-btn">{{ .Name }}</a>
+        {{ end }}
+      {{ end }}
+    </nav>
+
+    {{ $allPosts := where .Site.RegularPages "Section" "blog" }}
+    {{ $populerPosts := where $allPosts "Params.populer" true | default (first 5 $allPosts) }}
+
+    <!-- Slider Postingan Populer -->
+    {{ if $populerPosts }}
+    <div class="sec-header-row">
+      <div class="sec-label">Postingan Populer</div>
+      <select class="nav-dropdown-select" aria-label="Menu Navigasi Halaman" onchange="if(this.value) window.location.href=this.value">
+        <option value="" selected disabled hidden>Menu</option>
+        <option value="{{ "/" | relURL }}">Beranda</option>
+        {{ range .Site.Menus.footer }}
+          <option value="{{ .URL | relURL }}">{{ .Name }}</option>
+        {{ end }}
+      </select>
+    </div>
+    <div class="pop-slider" id="popSliderBox">
+      <div class="pop-track" id="popTrack">
+        {{ range $index, $page := first 5 $populerPosts }}
+        {{- $rawImg := $page.Params.image | default $page.Params.banner | default $page.Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+        {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+        {{- $res := resources.Get $cleanPath -}}
+        {{- if not $res -}}
+          {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+        {{- end -}}
+        {{- $finalSrc := $rawImg | relURL -}}
+        {{- if $res -}}
+          {{- $webp := $res.Fill "1140x480 webp q80 Smart" -}}
+          {{- $finalSrc = $webp.RelPermalink -}}
+        {{- end -}}
+        <div class="pop-slide">
+          <a href="{{ $page.Permalink }}">
+            <img src="{{ $finalSrc }}" alt="{{ $page.Title }}" width="1140" height="480" {{ if eq $index 0 }}fetchpriority="high" decoding="sync"{{ else }}loading="lazy" decoding="async"{{ end }}>
+          </a>
+          <div class="pop-overlay">
+            <h2><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></h2>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      <button type="button" class="pop-nav pop-prev" aria-label="Slide Sebelumnya" onclick="moveSlide(-1)">❮</button>
+      <button type="button" class="pop-nav pop-next" aria-label="Slide Berikutnya" onclick="moveSlide(1)">❯</button>
+    </div>
+    {{ end }}
+        <!-- Grid Postingan Terbaru -->
+    <div class="sec-label" style="margin: 14px 0 8px;">Postingan Terbaru</div>
+    <div class="latest-grid">
+      {{ range first 4 $allPosts }}
+      {{- $rawImg := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+      {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+      {{- $res := resources.Get $cleanPath -}}
+      {{- if not $res -}}
+        {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+      {{- end -}}
+      {{- $finalSrc := $rawImg | relURL -}}
+      {{- if $res -}}
+        {{- $webp := $res.Fill "500x280 webp q78" -}}
+        {{- $finalSrc = $webp.RelPermalink -}}
+      {{- end -}}
+      <article class="big-card">
+        <a href="{{ .Permalink }}"><img src="{{ $finalSrc }}" alt="{{ .Title }}" width="400" height="220" loading="lazy" decoding="async"></a>
+        <div class="big-card-body">
+          {{ with .Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
+          <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <div class="big-meta">{{ .Date.Format "02 Jan 2006" }}</div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+
+    <!-- Baris Artikel Horizontal (Mini Row) -->
+    {{ with after 4 $allPosts }}
+    <div class="mini-row" id="terbaruRow" style="margin-top: 10px;">
+      {{ range first 6 . }}
+      {{- $rawImg := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+      {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+      {{- $res := resources.Get $cleanPath -}}
+      {{- if not $res -}}
+        {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+      {{- end -}}
+      {{- if not $res -}}
+        {{- $res = $.Resources.GetMatch (printf "*%s*" (path.Base $cleanPath)) -}}
+      {{- end -}}
+      {{- $finalSrc := $rawImg | relURL -}}
+      {{- if $res -}}
+        {{- $webp := $res.Fill "400x240 webp q78" -}}
+        {{- $finalSrc = $webp.RelPermalink -}}
+      {{- end -}}
+      <div class="mini-card">
+        <a href="{{ .Permalink }}"><img src="{{ $finalSrc }}" alt="{{ .Title }}" width="225" height="135" loading="lazy" decoding="async"></a>
+        <div class="mini-card-body"><h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4></div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <!-- Tombol Tampilkan Semua -->
+    <div class="all-post-box"><a href="{{ "/blog/" | relURL }}" class="btn-all-post">Tampilkan Semua</a></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-flex">
+        <div class="footer-logo"><a href="{{ "/" | relURL }}"><img src="{{ "/images/logo-transparan.png" | relURL }}" alt="{{ .Site.Title }}" width="120" height="38" loading="lazy"></a></div>
+        <div class="footer-nav">{{ range .Site.Menus.footer }}<a href="{{ .URL | relURL }}" class="footer-btn">{{ .Name }}</a>{{ end }}</div>
+      </div>
+    </div>
+    <div class="footer-running-bottom">
+      <div style="white-space: nowrap; overflow: hidden;">
+        <div style="display: inline-block; padding-left: 100%; animation: jalanTeks 20s linear infinite;">
+          &copy; {{ now.Format "2006" }} PenCoret | Terimakasih telah berkunjung di Ruang Baca Digital, semoga setiap coretan dapat memberi wawasan dan inspirasi baru.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Ringan Tanpa Bebani PageSpeed -->
+  <script>
+    function submitSiteSearch(form) {
+      const input = document.getElementById('homeSearchInput');
+      if (!input || !form.q) return false;
+      const keyword = input.value.trim();
+      if (!keyword) {
+        input.focus();
+        return false;
+      }
+      form.q.value = 'site:pencoret.web.id ' + keyword;
+      return true;
+    }
+
+    let currentSlide = 0, popTimer;
+    function moveSlide(step) {
+      const track = document.getElementById('popTrack');
+      if (!track || track.children.length <= 1) return;
+      currentSlide = (currentSlide + step + track.children.length) % track.children.length;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    const popBox = document.getElementById('popSliderBox');
+    if (popBox) {
+      const startPop = () => popTimer = setInterval(() => moveSlide(1), 3500);
+      popBox.addEventListener('mouseenter', () => clearInterval(popTimer));
+      popBox.addEventListener('mouseleave', startPop);
+      startPop();
+    }
+
+    function autoScrollRow(id, selector, speed) {
+      const row = document.getElementById(id);
+      if (!row) return;
+      let timer;
+      const step = () => {
+        const item = row.querySelector(selector);
+        if (!item) return;
+        if (row.scrollLeft + row.clientWidth >= row.scrollWidth - 5) row.scrollTo({ left: 0, behavior: 'smooth' });
+        else row.scrollBy({ left: item.offsetWidth + 10, behavior: 'smooth' });
+      };
+      const start = () => timer = setInterval(step, speed);
+      row.addEventListener('mouseenter', () => clearInterval(timer));
+      row.addEventListener('mouseleave', start);
+      row.addEventListener('touchstart', () => clearInterval(timer), { passive: true });
+      row.addEventListener('touchend', start);
+      start();
+    }
+    autoScrollRow('catMenuBar', '.cat-menu-btn', 3200);
+    autoScrollRow('terbaruRow', '.mini-card', 4000);
+  </script>
+</body>
+</html>
