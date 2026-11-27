@@ -1,17 +1,17 @@
 <meta charset="utf-8">
 
 <!-- Google AdSense -->
-<script async src="{{ printf "https://googlesyndication.com%s" "/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817" | safeHTMLAttr }}"
+<script async src="{{ printf "https://pagead2.googlesyndication.com%s" "/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817" | safeHTMLAttr }}"
      crossorigin="anonymous"></script>
 
 <!-- Google Tag Manager -->
-<script async src="{{ printf "https://googletagmanager.com%s" "/gtm.js?id=GTM-W8M8KC6Q" | safeHTMLAttr }}"></script>
+<script async src="{{ printf "https://www.googletagmanager.com%s" "/gtm.js?id=GTM-W8M8KC6Q" | safeHTMLAttr }}"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 </script>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 {{- if or (eq .Kind "taxonomy") (eq .Kind "term") -}}
 <meta name="robots" content="noindex, follow">
@@ -27,11 +27,12 @@
 <meta name="description" content="{{ $desc_plain }}">
 <link rel="canonical" href="{{ .Permalink }}">
 
-{{- /* Optimal Image: 1200px (Google Discover & og:image) dikompresi q75 agar tetap ringan untuk WhatsApp */ -}}
+{{- /* Dual Image: 1200px (Google Discover) & 800px Ringan <300KB (WhatsApp/Medsos) */ -}}
 {{- $rawImg := .Params.image | default .Params.banner | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
 {{- $discoverImg := $rawImg | absURL -}}
-{{- $imgWidth := "1200" -}}
-{{- $imgHeight := "675" -}}
+{{- $waImg := $rawImg | absURL -}}
+{{- $waWidth := "800" -}}
+{{- $waHeight := "450" -}}
 
 {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
 {{- $imgRes := resources.Get $cleanPath -}}
@@ -40,26 +41,29 @@
 {{- end -}}
 
 {{- if $imgRes -}}
-  {{- $discoverRes := $imgRes.Resize "1200x jpg q75" -}}
+  {{- $discoverRes := $imgRes.Resize "1200x jpg q80" -}}
   {{- $discoverImg = $discoverRes.Permalink -}}
-  {{- $imgWidth = $discoverRes.Width -}}
-  {{- $imgHeight = $discoverRes.Height -}}
+
+  {{- $waRes := $imgRes.Resize "800x jpg q60" -}}
+  {{- $waImg = $waRes.Permalink -}}
+  {{- $waWidth = $waRes.Width -}}
+  {{- $waHeight = $waRes.Height -}}
 {{- end -}}
 
 {{- $isArticle := and .IsPage (not (in (slice "about" "contact" "disclaimer" "privacy-policy") .File.ContentBaseName)) -}}
 
-<!-- Open Graph & WhatsApp Share Preview -->
+<!-- Open Graph & WhatsApp Share Preview (< 300 KB) -->
 <meta property="og:locale" content="id_ID">
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:type" content="{{ if $isArticle }}article{{ else }}website{{ end }}">
 <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }} — {{ $desc_plain }}{{ else }}{{ $title_plain }}{{ end }}">
 <meta property="og:description" content="{{ $desc_plain }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ $discoverImg }}">
-<meta property="og:image:secure_url" content="{{ $discoverImg }}">
+<meta property="og:image" content="{{ $waImg }}">
+<meta property="og:image:secure_url" content="{{ $waImg }}">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="{{ $imgWidth }}">
-<meta property="og:image:height" content="{{ $imgHeight }}">
+<meta property="og:image:width" content="{{ $waWidth }}">
+<meta property="og:image:height" content="{{ $waHeight }}">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
@@ -96,8 +100,8 @@
       "logo": {
         "@type": "ImageObject",
         "@id": "https://pencoret.web.id#logo",
-        "url": "https://pencoret.web.idfavicon.png",
-        "contentUrl": "https://pencoret.web.idfavicon.png",
+        "url": "https://pencoret.web.id",
+        "contentUrl": "https://pencoret.web.id",
         "width": 1024,
         "height": 1024,
         "caption": "PenCoret"
