@@ -11,6 +11,8 @@ categories:
   - Teknologi
 populer: true
 pilihan: false
+tags:
+  - TikTok Award, TikTok, Kreator Konten, Tips TikTok, Media Sosial, Teknologi
 banner_alt: Trofi penghargaan kaca dan logam berkilau berdiri di atas podium
   hitam dengan latar panggung malam penghargaan dan sorotan lampu hangat
   melambangkan TikTok Award
