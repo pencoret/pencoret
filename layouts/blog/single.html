@@ -266,6 +266,35 @@
         color: #38a7bb;
         text-decoration: underline;
       }
+            /* 1. Hilangkan daftar kategori vertikal warna biru tua (• Beranda, • Fakta Unik, dst.) */
+      #all ul:not(.latest-bottom-list):not(.post-body ul) {
+        display: none !important;
+      }
+
+      /* 2. Bar teks berjalan untuk "SELAMAT DATANG & MEMBACA..." */
+      @keyframes jalanSalamArtikel {
+        0% { transform: translate3d(0, 0, 0); }
+        100% { transform: translate3d(-100%, 0, 0); }
+      }
+
+      .salam-marquee-bar {
+        width: 100% !important;
+        background: #1a2536 !important;
+        color: #f4d08c !important;
+        padding: 7px 0 !important;
+        overflow: hidden !important;
+        white-space: nowrap !important;
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        margin: 0 !important;
+      }
+
+      .salam-marquee-inner {
+        display: inline-block !important;
+        padding-left: 100% !important;
+        animation: jalanSalamArtikel 20s linear infinite !important;
+      }
+      
     </style>
   </head>
 
