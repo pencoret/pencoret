@@ -1,11 +1,11 @@
 <meta charset="utf-8">
 
 <!-- Google AdSense -->
-<script async src="{{ printf "https://pagead2.googlesyndication.com%s" "/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817" | safeHTMLAttr }}"
+<script async src="{{ printf "https://googlesyndication.com%s" "/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817" | safeHTMLAttr }}"
      crossorigin="anonymous"></script>
 
 <!-- Google Tag Manager -->
-<script async src="{{ printf "https://www.googletagmanager.com%s" "/gtm.js?id=GTM-W8M8KC6Q" | safeHTMLAttr }}"></script>
+<script async src="{{ printf "https://googletagmanager.com%s" "/gtm.js?id=GTM-W8M8KC6Q" | safeHTMLAttr }}"></script>
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -113,16 +113,16 @@
     {
       "@type": "NewsArticle",
       "@id": "{{ .Permalink }}#article",
-      "headline": {{ $title_plain | jsonify }},
-      "description": {{ $desc_plain | jsonify }},
-      "image": [{{ $discoverImg | jsonify }}],
-      "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
-      "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+      "headline": "{{ $title_plain }}",
+      "description": "{{ $desc_plain }}",
+      "image": ["{{ $discoverImg }}"],
+      "datePublished": "{{ .Date.Format "2006-01-02T15:04:05-07:00" }}",
+      "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}",
       "inLanguage": "id-ID",
       "author": {
         "@type": "Organization",
         "@id": "https://pencoret.web.id#organization",
-        "name": {{ .Site.Title | jsonify }},
+        "name": "{{ .Site.Title }}",
         "url": "https://pencoret.web.id"
       },
       "publisher": {
@@ -133,7 +133,7 @@
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": {{ .Permalink | jsonify }}
+        "@id": "{{ .Permalink }}"
       }
     }{{ end }}
   ]
