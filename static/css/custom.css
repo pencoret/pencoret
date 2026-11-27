@@ -53,7 +53,7 @@ body:not(.single) .main__content {
   margin-right: 0 !important;
 }
 
-/* === 3. Memepetkan Garis Biru "POSTINGAN POPULER" ke Tepi Kiri === */
+/* === 3. Memepetkan Garis Biru Toska "POSTINGAN POPULER" ke Tepi Kiri === */
 body:not(.single) [style*="border-left"],
 body:not(.single) .section-title,
 body:not(.single) .category-title,
@@ -94,15 +94,15 @@ body:not(.single) article {
   margin-right: 0 !important;
 }
 
-/* === 6. Warna Link Hijau (Kecuali Menu Navigasi & Tombol Kategori) === */
-body a:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a):not([href*="/categories/"]),
-body a:visited:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a):not([href*="/categories/"]) {
-  color: #16a34a !important;
+/* === 6. Semua Warna Link Menjadi Biru Toska (#38a7bb) === */
+body a:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a),
+body a:visited:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a) {
+  color: #38a7bb !important;
 }
 
-body a:hover:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a):not([href*="/categories/"]),
-body a:active:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a):not([href*="/categories/"]) {
-  color: #15803d !important;
+body a:hover:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a),
+body a:active:not(#navigation a):not(.navbar a):not(.kat-scroll a):not(.kat-strip a) {
+  color: #2c8a9b !important;
 }
 
 /* === 7. Tombol Kategori Slide: Latar Biru Toska & Tulisan Putih === */
@@ -126,21 +126,35 @@ body .kat-strip .kat-scroll a:active {
   border-color: #2c8a9b !important;
 }
 
-/* === 8. Label Kategori Kecil di Atas Judul Artikel: Warna Hitam === */
+/* === 8. Label Kategori di Atas Judul Artikel (Format Sama Seperti "POSTINGAN TERBARU") === */
 body main a[href*="/categories/"],
 body article a[href*="/categories/"],
 body .breadcrumb a[href*="/categories/"],
 body #heading-breadcrumbs a[href*="/categories/"],
-body .category a {
+body .category a,
+body .article-category,
+body .post-category {
+  display: inline-block !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
   color: #111111 !important;
+  border-left: 4px solid #38a7bb !important;
+  padding-left: 8px !important;
+  line-height: 1.2 !important;
+  margin-bottom: 6px !important;
+  text-decoration: none !important;
 }
 
 [data-theme="dark"] body main a[href*="/categories/"],
 [data-theme="dark"] body article a[href*="/categories/"],
 [data-theme="dark"] body .breadcrumb a[href*="/categories/"],
 [data-theme="dark"] body #heading-breadcrumbs a[href*="/categories/"],
-[data-theme="dark"] body .category a {
+[data-theme="dark"] body .category a,
+[data-theme="dark"] body .article-category,
+[data-theme="dark"] body .post-category {
   color: #f3f4f6 !important;
+  border-left-color: #38a7bb !important;
 }
 
 /* === 9. Pita Running Text Pas Mengikuti Tinggi Huruf === */
@@ -162,4 +176,4 @@ body .category a {
   line-height: 1 !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
-  }
+}
