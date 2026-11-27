@@ -1,14 +1,23 @@
 <meta charset="utf-8">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817"
+
+<!-- CEK BARIS INI: gabungkan https://googlesyndication.com dengan /pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817 -->
+<script async src="{{ printf "https://googlesyndication.com%s" "/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817" | safeHTMLAttr }}"
      crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W8M8KC6Q"></script>
+
+<!-- CEK BARIS INI: gabungkan https://googletagmanager.com dengan /gtm.js?id=GTM-W8M8KC6Q -->
+<script async src="{{ printf "https://googletagmanager.com%s" "/gtm.js?id=GTM-W8M8KC6Q" | safeHTMLAttr }}"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+{{- if or (eq .Kind "taxonomy") (eq .Kind "term") -}}
+<meta name="robots" content="noindex, follow">
+{{- else -}}
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+{{- end -}}
 
 {{- $raw_title := .Params.seo_title | default .Title -}}
 {{- $title_plain := $raw_title | markdownify | plainify -}}
@@ -18,7 +27,7 @@
 <meta name="description" content="{{ $desc_plain }}">
 <link rel="canonical" href="{{ .Permalink }}">
 
-{{- /* Gambar Otomatis: 1200px (Google Discover) & 800px JPG (WhatsApp) */ -}}
+{{- /* Dual Image: 1200px (Google Discover) & 800px Ringan <300KB (WhatsApp/Medsos) */ -}}
 {{- $rawImg := .Params.image | default .Params.banner | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
 {{- $discoverImg := $rawImg | absURL -}}
 {{- $waImg := $rawImg | absURL -}}
@@ -32,27 +41,29 @@
 {{- end -}}
 
 {{- if $imgRes -}}
-  {{- $discoverRes := $imgRes.Resize "1200x jpg q85" -}}
+  {{- $discoverRes := $imgRes.Resize "1200x jpg q80" -}}
   {{- $discoverImg = $discoverRes.Permalink -}}
 
-  {{- $waRes := $imgRes.Resize "800x jpg q75" -}}
+  {{- $waRes := $imgRes.Resize "800x jpg q60" -}}
   {{- $waImg = $waRes.Permalink -}}
   {{- $waWidth = $waRes.Width -}}
   {{- $waHeight = $waRes.Height -}}
 {{- end -}}
 
-<!-- Open Graph & WhatsApp Share Preview -->
+{{- $isArticle := and .IsPage (not (in (slice "about" "contact" "disclaimer" "privacy-policy") .File.ContentBaseName)) -}}
+
+<!-- Open Graph & WhatsApp Share Preview (< 300 KB) -->
 <meta property="og:locale" content="id_ID">
 <meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:type" content="{{ if $isArticle }}article{{ else }}website{{ end }}">
 <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }} — {{ $desc_plain }}{{ else }}{{ $title_plain }}{{ end }}">
 <meta property="og:description" content="{{ $desc_plain }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ $discoverImg }}">
-<meta property="og:image:secure_url" content="{{ $discoverImg }}">
+<meta property="og:image" content="{{ $waImg }}">
+<meta property="og:image:secure_url" content="{{ $waImg }}">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="675">
+<meta property="og:image:width" content="{{ $waWidth }}">
+<meta property="og:image:height" content="{{ $waHeight }}">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
@@ -68,7 +79,7 @@
 <!-- Schema JSON-LD WebSite & NewsArticle (1200px untuk Google Discover) -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
+  "@context": "{{ printf "https://%s" "schema.org" }}",
   "@graph": [
     {
       "@type": "WebSite",
@@ -77,7 +88,7 @@
       "url": "https://pencoret.web.id",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://pencoret.web.id{search_term_string}",
+        "target": "{{ printf "https://pencoret.web.id" "{search_term_string}" }}",
         "query-input": "required name=search_term_string"
       }
     },
@@ -89,7 +100,7 @@
         "@type": "ImageObject",
         "url": "{{ "/images/logo-transparan.png" | absURL }}"
       }
-    }{{ if .IsPage }},
+    }{{ if $isArticle }},
     {
       "@type": "NewsArticle",
       "headline": {{ $title_plain | jsonify }},
@@ -107,7 +118,7 @@
         "name": {{ .Site.Title | jsonify }},
         "logo": {
           "@type": "ImageObject",
-          "url": "{{ "/images/image_d634cfff.jpg" | absURL }}"
+          "url": "{{ "/images/logo-transparan.png" | absURL }}"
         }
       },
       "mainEntityOfPage": {
@@ -160,4 +171,5 @@
     width: 100% !important;
     overflow: hidden !important;
   }
-</style>
+     </style>
+     
