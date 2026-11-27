@@ -9,13 +9,19 @@ author: PenCoret
 description: Simak fakta unik, rekor head to head sepanjang masa, dan statistik
   menarik jelang big match Arsenal vs Manchester City di Liga Inggris pada
   Minggu 29 November 2026.
-populer: false
+categories:
+  - Olahraga
+populer: true
 pilihan: false
 tags:
   - Arsenal, Manchester City, Liga Inggris, Fakta Unik, Sepak Bola, Olahraga
+banner: /images/fakta-unik-duel-arsenal-vs-manchester-city-2026.jpg
 banner_alt: Ilustrasi dua pemain sepak bola berseragam merah putih dan biru
   langit berebut bola di tengah lapangan stadion malam hari dengan latar tribun
   suporter Arsenal dan Manchester City serta efek asap suar merah dan biru
+banner_caption: "Ilustrasi atmosfer duel panas antara Arsenal dan Manchester
+  City di Emirates Stadium jelang pertemuan keduanya pada lanjutan Liga Utama
+  Inggris akhir pekan. (Visual: AI Generated)"
 ---
 Persaingan papan atas Liga Utama Inggris kembali memanas pada pekan ke-12 musim 2026/2027. Dua kandidat kuat peraih gelar juara, **Arsenal FC** dan **Manchester City FC**, dijadwalkan saling bentrok di Emirates Stadium pada **Minggu, 29 November 2026 pukul 23.30 WIB**.
 
@@ -53,9 +59,8 @@ Sepanjang tahun kalender 2026, kedua tim sudah beberapa kali bertemu dalam laga 
 
 Menjelang pekan ke-12 musim 2026/2027, kedua tim datang dengan statistik permainan yang nyaris identik dalam hal kontrol permainan:
 
-* **Arsenal** memuncaki papan atas dengan koleksi **27 poin** dari 10 laga awal (9 menang, 1 kalah) serta mencatatkan rata-rata penguasaan bola mencapai **60 persen**.
-
-* **Manchester City** membuntuti di papan atas dengan rata-rata penguasaan bola lebih tinggi, yakni **65 persen**, serta produktivitas rata-rata **2,10 gol per laga** yang ditopang ketajaman Erling Haaland di lini depan.
+- **Arsenal** memuncaki papan atas dengan koleksi **27 poin** dari 10 laga awal (9 menang, 1 kalah) serta mencatatkan rata-rata penguasaan bola mencapai **60 persen**.
+- **Manchester City** membuntuti di papan atas dengan rata-rata penguasaan bola lebih tinggi, yakni **65 persen**, serta produktivitas rata-rata **2,10 gol per laga** yang ditopang ketajaman Erling Haaland di lini depan.
 
 
 
