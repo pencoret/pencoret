@@ -104,12 +104,69 @@
     }
     img, video, iframe { max-width: 100% !important; height: auto; }
 
-    /* Kotak Pencarian Atas */
-    .top-search-wrap { width: 100%; background: #1a2536; padding: 8px 12px; }
-    .top-search-form { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; background: #fff; border-radius: 20px; padding: 3px 6px 3px 14px; border: 1px solid #38a7bb; }
-    .top-search-input { flex: 1; min-width: 0; border: none; outline: none; font-size: 13px; color: #222; background: transparent; padding: 5px 0; }
-    .top-search-btn { background: #38a7bb; color: #fff; border: none; border-radius: 16px; padding: 6px 14px; font-size: 12px; font-weight: 700; cursor: pointer; flex-shrink: 0; transition: 0.2s; }
-    .top-search-btn:hover { background: #2c8a9b; }
+    <!-- Kotak Pencarian Internal Instan -->
+<div class="top-search-wrap" style="position: relative; max-width: 650px; margin: 12px auto; padding: 0 12px;">
+  <form class="top-search-form" onsubmit="event.preventDefault(); jalankanPencarian();" style="display: flex; gap: 6px;">
+    <input type="text" id="homeSearchInput" class="top-search-input" placeholder="Cari artikel atau topik di PenCoret..." aria-label="Cari artikel" onkeyup="jalankanPencarian()" autocomplete="off" style="flex: 1; padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px;">
+    <button type="submit" class="top-search-btn" style="padding: 8px 16px; background: #16a34a; color: #fff; border: none; border-radius: 6px; font-weight: bold;">Cari</button>
+  </form>
+
+  <!-- Kotak Hasil Pencarian Instan -->
+  <div id="hasilPencarianBox" style="display: none; background: #ffffff; border: 1px solid #ddd; border-radius: 8px; margin-top: 6px; max-height: 360px; overflow-y: auto; box-shadow: 0 6px 18px rgba(0,0,0,0.12); z-index: 9999; position: relative; text-align: left;"></div>
+</div>
+
+<script>
+  // Daftar seluruh artikel di situs PenCoret yang otomatis dibuat oleh Hugo
+  const daftarArtikelPenCoret = [
+    {{- range where .Site.RegularPages "Type" "not in" (slice "page") -}}
+    {
+      judul: {{ .Title | jsonify }},
+      url: {{ .Permalink | jsonify }},
+      kategori: {{ delimit (.Params.categories | default (slice "Artikel")) ", " | jsonify }},
+      tanggal: {{ .Date.Format "02 Jan 2006" | jsonify }},
+      ringkasan: {{ (.Description | default .Summary | plainify | truncate 110) | jsonify }}
+    },
+    {{- end -}}
+  ];
+
+  function jalankanPencarian() {
+    const input = document.getElementById('homeSearchInput').value.toLowerCase().trim();
+    const box = document.getElementById('hasilPencarianBox');
+
+    if (input.length < 2) {
+      box.style.display = 'none';
+      box.innerHTML = '';
+      return;
+    }
+
+    const hasil = daftarArtikelPenCoret.filter(item =>
+      item.judul.toLowerCase().includes(input) ||
+      item.kategori.toLowerCase().includes(input) ||
+      item.ringkasan.toLowerCase().includes(input)
+    );
+
+    if (hasil.length === 0) {
+      box.innerHTML = '<div style="padding: 14px; color: #666; font-size: 13.5px;">Tidak ditemukan artikel untuk kata kunci "<strong>' + input + '</strong>".</div>';
+    } else {
+      box.innerHTML = hasil.map(item => `
+        <a href="${item.url}" style="display: block; padding: 12px 14px; border-bottom: 1px solid #eee; text-decoration: none;">
+          <div style="font-size: 11px; color: #16a34a; font-weight: 700; text-transform: uppercase;">${item.kategori} • ${item.tanggal}</div>
+          <div style="font-size: 14.5px; font-weight: 700; color: #1a2536; margin: 3px 0;">${item.judul}</div>
+          <div style="font-size: 12.5px; color: #555; line-height: 1.4;">${item.ringkasan}</div>
+        </a>
+      `).join('');
+    }
+    box.style.display = 'block';
+  }
+
+  // Tutup kotak hasil jika klik di luar area pencarian
+  document.addEventListener('click', function(e) {
+    const wrap = document.querySelector('.top-search-wrap');
+    if (wrap && !wrap.contains(e.target)) {
+      document.getElementById('hasilPencarianBox').style.display = 'none';
+    }
+  });
+</script>
 
     /* Banner & Logo Overlay */
     .hero-banner-box { position: relative; width: 100%; max-width: 100%; overflow: hidden; margin: 0; }
