@@ -48,17 +48,17 @@
 <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }} — {{ $desc_plain }}{{ else }}{{ $title_plain }}{{ end }}">
 <meta property="og:description" content="{{ $desc_plain }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ $waImg }}">
-<meta property="og:image:secure_url" content="{{ $waImg }}">
+<meta property="og:image" content="{{ $discoverImg }}">
+<meta property="og:image:secure_url" content="{{ $discoverImg }}">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="{{ $waWidth }}">
-<meta property="og:image:height" content="{{ $waHeight }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ $title_plain }}{{ end }}">
 <meta name="twitter:description" content="{{ $desc_plain }}">
-<meta name="twitter:image" content="{{ $waImg }}">
+<meta name="twitter:image" content="{{ $discoverImg }}">
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" sizes="48x48" href="{{ "/images/logo-transparan.png" | relURL }}">
