@@ -1,4 +1,4 @@
-# Kebijakan Privasi
+# KEBIJAKAN PRIVASI
 
 Privasi pengunjung sangat penting bagi **PenCoret** (https://pencoret.web.id). Halaman ini menjelaskan jenis informasi yang dikumpulkan dan dicatat oleh situs kami serta penggunaannya.
 
