@@ -383,4 +383,108 @@
       <div class="all-post-box"><a href="{{ "/blog/" | relURL }}" class="btn-all-post">Tampilkan Semua</a></div>
     </main>
   </div>
-  
+    <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-flex">
+        <div class="footer-logo"><a href="{{ "/" | relURL }}"><img src="{{ "/images/logo-transparan.png" | relURL }}" alt="{{ .Site.Title }}" width="120" height="38" loading="lazy"></a></div>
+        <div class="footer-nav">{{ range .Site.Menus.footer }}<a href="{{ .URL | relURL }}" class="footer-btn">{{ .Name }}</a>{{ end }}</div>
+      </div>
+    </div>
+    <div class="footer-running-bottom">
+      <div style="white-space: nowrap; overflow: hidden;">
+        <div style="display: inline-block; padding-left: 100%; animation: jalanTeks 20s linear infinite;">
+          &copy; {{ now.Format "2006" }} PenCoret | Terimakasih telah berkunjung di Ruang Baca Digital, semoga setiap coretan dapat memberi wawasan dan inspirasi baru.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const daftarArtikelPenCoret = [
+      {{- range .Site.RegularPages -}}
+      {{- if not (in (slice "about" "contact" "disclaimer" "privacy-policy") .File.ContentBaseName) -}}
+      {
+        judul: "{{ .Title }}",
+        url: "{{ .Permalink }}",
+        kategori: "{{ with .Params.categories }}{{ index . 0 }}{{ else }}Artikel{{ end }}",
+        tanggal: "{{ .Date.Format "02 Jan 2006" }}",
+        ringkasan: "{{ .Summary | plainify | truncate 100 }}"
+      },
+      {{- end -}}
+      {{- end -}}
+    ];
+
+    function jalankanPencarian() {
+      const input = document.getElementById('homeSearchInput').value.toLowerCase().trim();
+      const box = document.getElementById('hasilPencarianBox');
+
+      if (input.length < 2) {
+        box.style.display = 'none';
+        box.innerHTML = '';
+        return;
+      }
+
+      const hasil = daftarArtikelPenCoret.filter(item =>
+        item.judul.toLowerCase().includes(input) ||
+        item.kategori.toLowerCase().includes(input) ||
+        item.ringkasan.toLowerCase().includes(input)
+      );
+
+      if (hasil.length === 0) {
+        box.innerHTML = '<div style="padding: 14px; color: #666; font-size: 13.5px;">Tidak ditemukan artikel untuk kata kunci "<strong>' + input + '</strong>".</div>';
+      } else {
+        box.innerHTML = hasil.map(item => `
+          <a href="${item.url}" style="display: block; padding: 12px 14px; border-bottom: 1px solid #eee; text-decoration: none;">
+            <div style="font-size: 11px; color: #16a34a; font-weight: 700; text-transform: uppercase;">${item.kategori} • ${item.tanggal}</div>
+            <div style="font-size: 14.5px; font-weight: 700; color: #1a2536; margin: 3px 0;">${item.judul}</div>
+            <div style="font-size: 12.5px; color: #555; line-height: 1.4;">${item.ringkasan}</div>
+          </a>
+        `).join('');
+      }
+      box.style.display = 'block';
+    }
+
+    document.addEventListener('click', function(e) {
+      const wrap = document.querySelector('.top-search-wrap');
+      if (wrap && !wrap.contains(e.target)) {
+        document.getElementById('hasilPencarianBox').style.display = 'none';
+      }
+    });
+
+    let currentSlide = 0, popTimer;
+    function moveSlide(step) {
+      const track = document.getElementById('popTrack');
+      if (!track || track.children.length <= 1) return;
+      currentSlide = (currentSlide + step + track.children.length) % track.children.length;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    const popBox = document.getElementById('popSliderBox');
+    if (popBox) {
+      const startPop = () => popTimer = setInterval(() => moveSlide(1), 3500);
+      popBox.addEventListener('mouseenter', () => clearInterval(popTimer));
+      popBox.addEventListener('mouseleave', startPop);
+      startPop();
+    }
+
+    function autoScrollRow(id, selector, speed) {
+      const row = document.getElementById(id);
+      if (!row) return;
+      let timer;
+      const step = () => {
+        const item = row.querySelector(selector);
+        if (!item) return;
+        if (row.scrollLeft + row.clientWidth >= row.scrollWidth - 5) row.scrollTo({ left: 0, behavior: 'smooth' });
+        else row.scrollBy({ left: item.offsetWidth + 10, behavior: 'smooth' });
+      };
+      const start = () => timer = setInterval(step, speed);
+      row.addEventListener('mouseenter', () => clearInterval(timer));
+      row.addEventListener('mouseleave', start);
+      row.addEventListener('touchstart', () => clearInterval(timer), { passive: true });
+      row.addEventListener('touchend', start);
+      start();
+    }
+    autoScrollRow('catMenuBar', '.cat-menu-btn', 3200);
+    autoScrollRow('terbaruRow', '.mini-card', 4000);
+  </script>
+</body>
+</html>
