@@ -293,21 +293,32 @@ body, #all, #top, header {
   background-color: #2c8a9b !important;
 }
 
-/* Paksa seluruh elemen di dalam footer menyesuaikan lebar layar HP */
-footer, footer *, .footer, .footer *, [class*="footer"], [class*="footer"] * {
+/* Perbaikan khusus Footer tema Hugo Mainroad di layar HP */
+.footer__container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 12px 16px !important;
   max-width: 100% !important;
-  white-space: normal !important;
   box-sizing: border-box !important;
 }
 
-footer, .footer, [class*="footer"] {
-  padding-left: 12px !important;
-  padding-right: 12px !important;
-  text-align: center !important;
-  overflow-x: hidden !important;
+.footer__links,
+.footer__copyright {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  max-width: 100% !important;
+  line-height: 1.6 !important;
+  float: none !important;
 }
 
-footer a, .footer a, [class*="footer"] a {
+.footer__links {
+  margin-bottom: 8px !important;
+}
+
+.footer__links a {
   display: inline-block !important;
-  padding: 2px 4px !important;
+  margin: 2px 4px !important;
 }
