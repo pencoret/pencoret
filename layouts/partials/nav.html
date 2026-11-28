@@ -1,3 +1,11 @@
+<!-- Pita Pencarian Biru Tua Full Kiri-Kanan di Paling Atas -->
+<div class="pencoret-search-wrap">
+  <form class="pencoret-search-form" action="{{ "search" | relURL }}" method="get">
+    <input type="search" name="q" class="pencoret-search-input" placeholder="Cari artikel atau topik di PenCoret..." aria-label="Cari artikel" required>
+    <button type="submit" class="pencoret-search-btn">Cari</button>
+  </form>
+</div>
+
 <header class="navbar-affixed-top" data-spy="affix" data-offset-top="62" style="margin: 0 !important; padding: 0 !important; min-height: 0 !important; background: transparent !important;">
     <div class="navbar navbar-default yamm" role="navigation" id="navbar" style="display: none !important;">
         <div class="container" style="padding: 0 !important; margin: 0 !important;">
@@ -25,7 +33,65 @@
 </header>
 
 <style>
-  /* Menghapus ruang kosong di antara running text dan baris kategori */
+  /* 1. Pita Kolom Pencarian Biru Tua Penuh Kiri-Kanan */
+  .pencoret-search-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    background-color: #1a2536 !important;
+    padding: 8px 14px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    display: block !important;
+  }
+
+  .pencoret-search-form {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 960px !important;
+    margin: 0 auto !important;
+    background-color: #ffffff !important;
+    border-radius: 999px !important;
+    padding: 3px 4px 3px 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .pencoret-search-input {
+    flex: 1 !important;
+    width: 100% !important;
+    border: none !important;
+    background: transparent !important;
+    color: #111827 !important;
+    font-size: 13.5px !important;
+    line-height: 1.4 !important;
+    padding: 4px 8px 4px 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .pencoret-search-input::placeholder {
+    color: #6b7280 !important;
+  }
+
+  .pencoret-search-form .pencoret-search-btn {
+    background-color: #38a7bb !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 999px !important;
+    padding: 6px 18px !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+  }
+
+  .pencoret-search-form .pencoret-search-btn:hover {
+    background-color: #2c8a9b !important;
+  }
+
+  /* 2. Menghapus ruang kosong & menipiskan garis hijau tosca */
   .navbar-affixed-top, #navbar, #navbar .container {
     min-height: 0 !important;
     margin: 0 !important;
@@ -34,16 +100,36 @@
     border: none !important;
   }
 
+  /* Matikan garis 4px dari custom.css pada running bar agar tidak bertumpuk */
+  .global-running-bar, .article-running-bar {
+    border-bottom: none !important;
+  }
+
   .kat-strip {
+    position: relative !important;
     width: 100% !important;
     max-width: 100% !important;
     background-color: #f8f9fa;
-    border-top: 0.5px solid #38a7bb;
+    border-top: none !important; /* Diganti garis super tipis di bawah ini */
     border-bottom: 1px solid #e7e7e7;
     padding: 5px 0;
     margin: 0 !important;
     box-sizing: border-box;
   }
+
+  /* Garis hijau tosca super tipis (0.35px) di batas atas kategori */
+  .kat-strip::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 1px !important;
+    background-color: #38a7bb !important;
+    transform: scaleY(0.35) !important;
+    transform-origin: top !important;
+  }
+
   .kat-strip .container {
     width: 100% !important;
     max-width: 1140px;
@@ -80,16 +166,21 @@
     border-color: #38a7bb !important;
   }
 
-  /* Mode Gelap untuk Baris Kategori */
+  /* Mode Gelap untuk Baris Kategori & Kolom Pencarian */
   [data-theme="dark"] .kat-strip {
     background-color: #1a1a1a !important;
-    border-top-color: #38a7bb !important;
     border-bottom-color: #333333 !important;
   }
   [data-theme="dark"] .kat-scroll a {
     background-color: #2a2a2a !important;
     color: #e4e4e4 !important;
     border-color: #444444 !important;
+  }
+  [data-theme="dark"] .pencoret-search-form {
+    background-color: #2a2a2a !important;
+  }
+  [data-theme="dark"] .pencoret-search-input {
+    color: #f3f4f6 !important;
   }
       </style>
       
