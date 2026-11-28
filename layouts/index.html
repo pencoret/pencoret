@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817"
-     crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W8M8KC6Q"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  </script>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Site.Title }} — {{ .Site.Params.description }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="{{ .Permalink }}">
+
+  {{- /* Preload gambar banner utama agar LCP terdeteksi secepat mungkin */ -}}
+  {{- $bannerRes := resources.Get "images/image_dacac6d.jpeg" -}}
+  {{- $bannerSrc := "/images/image_dacac6d.jpeg" | relURL -}}
+  {{- $bannerW := "800" -}}
+  {{- $bannerH := "300" -}}
+  {{- if $bannerRes -}}
+    {{- $bannerWebp := $bannerRes.Resize "800x webp q80" -}}
+    {{- $bannerSrc = $bannerWebp.RelPermalink -}}
+    {{- $bannerW = $bannerWebp.Width -}}
+    {{- $bannerH = $bannerWebp.Height -}}
+    <link rel="preload" as="image" href="{{ $bannerSrc }}" fetchpriority="high">
+  {{- end -}}
 
   {{- /* Proses Gambar Otomatis: 1200px untuk Google Discover & 800px JPG (<300KB) untuk WhatsApp */ -}}
   {{- $rawImg := .Params.image | default .Params.banner | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
@@ -57,8 +62,6 @@
   <meta name="twitter:description" content="{{ .Site.Params.description }}">
   <meta name="twitter:image" content="{{ $discoverImg }}">
 
-  <title>{{ .Site.Title }} — {{ .Site.Params.description }}</title>
-  
   <!-- Favicon Terbaru -->
   <link rel="icon" href="{{ "favicon.ico" | absURL }}" sizes="any">
   <link rel="icon" type="image/png" href="{{ "favicon.png?v=2" | absURL }}">
@@ -142,9 +145,7 @@
       font-weight: 700;
       cursor: pointer;
     }
-    .top-search-btn:hover {
-      background: #2c8a9b;
-    }
+    .top-search-btn:hover { background: #2c8a9b; }
 
     /* Banner & Logo Overlay */
     .hero-banner-box { position: relative; width: 100%; max-width: 100%; overflow: hidden; margin: 0; }
@@ -173,7 +174,7 @@
     /* Section Header & Dropdown */
     .sec-header-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 14px 0 8px; padding: 0; }
     .sec-label { font-size: 15px; font-weight: 800; text-transform: uppercase; color: #222; border-left: 4px solid #38a7bb; padding-left: 10px; margin: 0; }
-        .nav-dropdown-select {
+    .nav-dropdown-select {
       appearance: none;
       -webkit-appearance: none;
       background-color: #38a7bb !important;
@@ -191,16 +192,8 @@
       box-shadow: 0 2px 6px rgba(56, 167, 187, 0.3) !important;
       transition: 0.2s;
     }
-    .nav-dropdown-select:hover, .nav-dropdown-select:focus {
-      background-color: #2c8a9b !important;
-    }
-    .nav-dropdown-select option {
-      background-color: #38a7bb !important;
-      color: #ffffff !important;
-      font-weight: 700;
-      text-align: left;
-    }
-
+    .nav-dropdown-select:hover, .nav-dropdown-select:focus { background-color: #2c8a9b !important; }
+    .nav-dropdown-select option { background-color: #38a7bb !important; color: #ffffff !important; font-weight: 700; text-align: left; }
 
     /* Slider Postingan Populer */
     .pop-slider { position: relative; width: 100%; max-width: 100%; overflow: hidden; background: #1a2536; }
@@ -244,7 +237,6 @@
     .footer-btn { background: rgba(255,255,255,0.1); color: #fff !important; border: 1px solid rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 14px; font-size: 11px; font-weight: 600; text-decoration: none !important; white-space: nowrap; transition: 0.2s; }
     .footer-btn:hover { background: #38a7bb; border-color: #38a7bb; }
     .footer-running-bottom { background: #38a7bb; color: #fff; padding: 9px 0; font-size: 13px; font-weight: 600; overflow: hidden; white-space: nowrap; }
-    .footer-running-text { display: inline-block; padding-left: 100%; animation: jalanTeks 24s linear infinite; }
 
     @keyframes jalanTeks { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
     @media (min-width: 768px) {
@@ -252,262 +244,5 @@
       .latest-grid { gap: 14px; } .big-card img { height: 185px !important; } .big-card-body h3 { font-size: 16px; }
       .mini-card { width: 225px; } .mini-card img { height: 135px !important; }
     }
-  </style>
-  </head>
-  <body>
-  <!-- Kotak Pencarian Atas (Internal Instan) -->
-<div class="top-search-wrap">
-  <form class="top-search-form" onsubmit="event.preventDefault(); jalankanPencarian();">
-    <input type="text" id="homeSearchInput" class="top-search-input" placeholder="Cari artikel atau topik di PenCoret..." aria-label="Cari artikel" onkeyup="jalankanPencarian()" autocomplete="off">
-    <button type="submit" class="top-search-btn">Cari</button>
-  </form>
-
-  <!-- Kotak Hasil Pencarian Instan -->
-  <div id="hasilPencarianBox" style="display: none; background: #ffffff; border: 1px solid #ddd; border-radius: 12px; margin: 6px auto 0; max-width: 720px; max-height: 360px; overflow-y: auto; box-shadow: 0 6px 18px rgba(0,0,0,0.15); z-index: 99999; position: absolute; left: 12px; right: 12px; text-align: left;"></div>
-</div>
-
-<script>
-  const daftarArtikelPenCoret = [
-    {{- range .Site.RegularPages -}}
-    {{- if not (in (slice "about" "contact" "disclaimer" "privacy-policy") .File.ContentBaseName) -}}
-    {
-      judul: "{{ .Title }}",
-      url: "{{ .Permalink }}",
-      kategori: "{{ with .Params.categories }}{{ index . 0 }}{{ else }}Artikel{{ end }}",
-      tanggal: "{{ .Date.Format "02 Jan 2006" }}",
-      ringkasan: "{{ .Summary | plainify | truncate 100 }}"
-    },
-    {{- end -}}
-    {{- end -}}
-  ];
-
-  function jalankanPencarian() {
-    const input = document.getElementById('homeSearchInput').value.toLowerCase().trim();
-    const box = document.getElementById('hasilPencarianBox');
-
-    if (input.length < 2) {
-      box.style.display = 'none';
-      box.innerHTML = '';
-      return;
-    }
-
-    const hasil = daftarArtikelPenCoret.filter(item =>
-      item.judul.toLowerCase().includes(input) ||
-      item.kategori.toLowerCase().includes(input) ||
-      item.ringkasan.toLowerCase().includes(input)
-    );
-
-    if (hasil.length === 0) {
-      box.innerHTML = '<div style="padding: 14px; color: #666; font-size: 13.5px;">Tidak ditemukan artikel untuk kata kunci "<strong>' + input + '</strong>".</div>';
-    } else {
-      box.innerHTML = hasil.map(item => `
-        <a href="${item.url}" style="display: block; padding: 12px 14px; border-bottom: 1px solid #eee; text-decoration: none;">
-          <div style="font-size: 11px; color: #16a34a; font-weight: 700; text-transform: uppercase;">${item.kategori} • ${item.tanggal}</div>
-          <div style="font-size: 14.5px; font-weight: 700; color: #1a2536; margin: 3px 0;">${item.judul}</div>
-          <div style="font-size: 12.5px; color: #555; line-height: 1.4;">${item.ringkasan}</div>
-        </a>
-      `).join('');
-    }
-    box.style.display = 'block';
-  }
-
-  document.addEventListener('click', function(e) {
-    const wrap = document.querySelector('.top-search-wrap');
-    if (wrap && !wrap.contains(e.target)) {
-      document.getElementById('hasilPencarianBox').style.display = 'none';
-    }
-  });
-</script>
-
-  <!-- Banner Utama + Logo Melayang (Tanpa scale berlebih agar tidak melebar di HP) -->
-  <div style="width: 100%; max-width: 100%; overflow: hidden; margin-top: 0; position: relative;">
-    <a href="{{ "/" | relURL }}" class="home-logo-overlay" title="Beranda {{ .Site.Title }}">
-      <img src="{{ "/images/logo-transparan.png" | relURL }}" alt="Logo {{ .Site.Title }}" width="44" height="44" class="home-logo-animasi">
-    </a>
-    <img src="{{ "/images/image_dacac6d.jpeg" | relURL }}" alt="Banner PenCoret" width="1200" height="300" fetchpriority="high" decoding="sync" style="width: 100%; height: auto; display: block;">
-  </div>
-
-  <!-- Running Text Sambutan -->
-  <div style="width: 100%; background: #1a2536; color: #f4d08c; padding: 6px 0; overflow: hidden; white-space: nowrap; font-weight: bold; font-size: 13px;">
-    <div style="display: inline-block; padding-left: 100%; animation: jalanTeks 22s linear infinite;">
-      Selamat Datang di Ruang Baca dari sudut pandang yang berbeda, menyelami ide, mengurai cerita, dan menulis makna baru di setiap coretan pena.
-    </div>
-  </div>
-
-  <div class="container home-wrap">
-    <!-- Bar Menu Kategori -->
-    <nav class="cat-menu-bar" id="catMenuBar" aria-label="Kategori Artikel">
-      {{ range .Site.Menus.main }}
-        {{ if ne (lower .Name) "beranda" }}
-          <a href="{{ .URL | relURL }}" class="cat-menu-btn">{{ .Name }}</a>
-        {{ end }}
-      {{ end }}
-    </nav>
-
-    {{ $allPosts := where .Site.RegularPages "Section" "blog" }}
-    {{ $populerPosts := where $allPosts "Params.populer" true | default (first 5 $allPosts) }}
-
-    <!-- Slider Postingan Populer -->
-    {{ if $populerPosts }}
-    <div class="sec-header-row">
-      <div class="sec-label">Postingan Populer</div>
-            <select class="nav-dropdown-select" aria-label="Menu Navigasi Halaman" onchange="if(this.value) window.location.href=this.value">
-        <option value="" selected disabled hidden>Menu</option>
-        <option value="{{ "/about/" | relURL }}">Tentang Kami</option>
-        <option value="{{ "/contact/" | relURL }}">Kontak</option>
-        <option value="{{ "/disclaimer/" | relURL }}">Disclaimer</option>
-        <option value="{{ "/privacy-policy/" | relURL }}">Kebijakan Privasi</option>
-      </select>
-    </div>
-    <div class="pop-slider" id="popSliderBox">
-      <div class="pop-track" id="popTrack">
-        {{ range $index, $page := first 5 $populerPosts }}
-        {{- $rawImg := $page.Params.image | default $page.Params.banner | default $page.Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
-        {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
-        {{- $res := resources.Get $cleanPath -}}
-        {{- if not $res -}}
-          {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
-        {{- end -}}
-        {{- $finalSrc := $rawImg | relURL -}}
-        {{- if $res -}}
-          {{- $webp := $res.Fill "1140x480 webp q80 Smart" -}}
-          {{- $finalSrc = $webp.RelPermalink -}}
-        {{- end -}}
-        <div class="pop-slide">
-          <a href="{{ $page.Permalink }}">
-            <img src="{{ $finalSrc }}" alt="{{ $page.Title }}" width="1140" height="480" {{ if eq $index 0 }}fetchpriority="high" decoding="sync"{{ else }}loading="lazy" decoding="async"{{ end }}>
-          </a>
-          <div class="pop-overlay">
-            <h2><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></h2>
-          </div>
-        </div>
-        {{ end }}
-      </div>
-      <button type="button" class="pop-nav pop-prev" aria-label="Slide Sebelumnya" onclick="moveSlide(-1)">❮</button>
-      <button type="button" class="pop-nav pop-next" aria-label="Slide Berikutnya" onclick="moveSlide(1)">❯</button>
-    </div>
-    {{ end }}
-        <!-- Grid Postingan Terbaru -->
-    <div class="sec-label" style="margin: 14px 0 8px;">Postingan Terbaru</div>
-    <div class="latest-grid">
-      {{ range first 4 $allPosts }}
-      {{- $rawImg := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
-      {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
-      {{- $res := resources.Get $cleanPath -}}
-      {{- if not $res -}}
-        {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
-      {{- end -}}
-      {{- $finalSrc := $rawImg | relURL -}}
-      {{- if $res -}}
-        {{- $webp := $res.Fill "500x280 webp q78" -}}
-        {{- $finalSrc = $webp.RelPermalink -}}
-      {{- end -}}
-      <article class="big-card">
-        <a href="{{ .Permalink }}"><img src="{{ $finalSrc }}" alt="{{ .Title }}" width="400" height="220" loading="lazy" decoding="async"></a>
-        <div class="big-card-body">
-          {{ with .Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
-          <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-          <div class="big-meta">{{ .Date.Format "02 Jan 2006" }}</div>
-        </div>
-      </article>
-      {{ end }}
-    </div>
-
-    <!-- Baris Artikel Horizontal (Mini Row) -->
-    {{ with after 4 $allPosts }}
-    <div class="mini-row" id="terbaruRow" style="margin-top: 10px;">
-      {{ range first 6 . }}
-      {{- $rawImg := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
-      {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
-      {{- $res := resources.Get $cleanPath -}}
-      {{- if not $res -}}
-        {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
-      {{- end -}}
-      {{- if not $res -}}
-        {{- $res = $.Resources.GetMatch (printf "*%s*" (path.Base $cleanPath)) -}}
-      {{- end -}}
-      {{- $finalSrc := $rawImg | relURL -}}
-      {{- if $res -}}
-        {{- $webp := $res.Fill "400x240 webp q78" -}}
-        {{- $finalSrc = $webp.RelPermalink -}}
-      {{- end -}}
-      <div class="mini-card">
-        <a href="{{ .Permalink }}"><img src="{{ $finalSrc }}" alt="{{ .Title }}" width="225" height="135" loading="lazy" decoding="async"></a>
-        <div class="mini-card-body"><h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4></div>
-      </div>
-      {{ end }}
-    </div>
-    {{ end }}
-
-    <!-- Tombol Tampilkan Semua -->
-    <div class="all-post-box"><a href="{{ "/blog/" | relURL }}" class="btn-all-post">Tampilkan Semua</a></div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top-flex">
-        <div class="footer-logo"><a href="{{ "/" | relURL }}"><img src="{{ "/images/logo-transparan.png" | relURL }}" alt="{{ .Site.Title }}" width="120" height="38" loading="lazy"></a></div>
-        <div class="footer-nav">{{ range .Site.Menus.footer }}<a href="{{ .URL | relURL }}" class="footer-btn">{{ .Name }}</a>{{ end }}</div>
-      </div>
-    </div>
-    <div class="footer-running-bottom">
-      <div style="white-space: nowrap; overflow: hidden;">
-        <div style="display: inline-block; padding-left: 100%; animation: jalanTeks 20s linear infinite;">
-          &copy; {{ now.Format "2006" }} PenCoret | Terimakasih telah berkunjung di Ruang Baca Digital, semoga setiap coretan dapat memberi wawasan dan inspirasi baru.
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Script Ringan Tanpa Bebani PageSpeed -->
-  <script>
-    function submitSiteSearch(form) {
-      const input = document.getElementById('homeSearchInput');
-      if (!input || !form.q) return false;
-      const keyword = input.value.trim();
-      if (!keyword) {
-        input.focus();
-        return false;
-      }
-      form.q.value = 'site:pencoret.web.id ' + keyword;
-      return true;
-    }
-
-    let currentSlide = 0, popTimer;
-    function moveSlide(step) {
-      const track = document.getElementById('popTrack');
-      if (!track || track.children.length <= 1) return;
-      currentSlide = (currentSlide + step + track.children.length) % track.children.length;
-      track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-    const popBox = document.getElementById('popSliderBox');
-    if (popBox) {
-      const startPop = () => popTimer = setInterval(() => moveSlide(1), 3500);
-      popBox.addEventListener('mouseenter', () => clearInterval(popTimer));
-      popBox.addEventListener('mouseleave', startPop);
-      startPop();
-    }
-
-    function autoScrollRow(id, selector, speed) {
-      const row = document.getElementById(id);
-      if (!row) return;
-      let timer;
-      const step = () => {
-        const item = row.querySelector(selector);
-        if (!item) return;
-        if (row.scrollLeft + row.clientWidth >= row.scrollWidth - 5) row.scrollTo({ left: 0, behavior: 'smooth' });
-        else row.scrollBy({ left: item.offsetWidth + 10, behavior: 'smooth' });
-      };
-      const start = () => timer = setInterval(step, speed);
-      row.addEventListener('mouseenter', () => clearInterval(timer));
-      row.addEventListener('mouseleave', start);
-      row.addEventListener('touchstart', () => clearInterval(timer), { passive: true });
-      row.addEventListener('touchend', start);
-      start();
-    }
-    autoScrollRow('catMenuBar', '.cat-menu-btn', 3200);
-    autoScrollRow('terbaruRow', '.mini-card', 4000);
-  </script>
-</body>
-</html>
+                                 </style>
+                                 
