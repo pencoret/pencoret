@@ -207,3 +207,88 @@ body, #all, #top, header {
   border-radius: 0 !important;
   box-sizing: border-box !important;
 }
+/* =========================================================
+   10. TIPISKAN GARIS RUNNING TEXT & PITA PENCARIAN FULL WIDTH
+   ========================================================= */
+
+/* Tipiskan garis hijau tosca di bawah running text (dari 4px menjadi super tipis) */
+.global-running-bar,
+.article-running-bar {
+  position: relative !important;
+  border-bottom: none !important;
+  overflow: visible !important; /* Agar garis tipis di bawah tetap terlihat */
+}
+
+.global-running-bar::after,
+.article-running-bar::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 1px !important;
+  background-color: #38a7bb !important;
+  transform: scaleY(0.4) !important; /* Bisa diubah ke 0.3 jika ingin lebih tipis lagi */
+  transform-origin: bottom !important;
+}
+
+/* Pita Kolom Pencarian Biru Tua Penuh Kiri-Kanan */
+.pencoret-search-wrap {
+  width: 100% !important;
+  max-width: 100% !important;
+  background-color: #162a3a !important; /* Biru dongker senada running text */
+  padding: 8px 14px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  display: block !important;
+}
+
+/* Kapsul Putih Pembungkus Input & Tombol */
+.pencoret-search-form {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 960px !important;
+  margin: 0 auto !important;
+  background-color: #ffffff !important;
+  border-radius: 999px !important;
+  padding: 3px 4px 3px 16px !important;
+  box-sizing: border-box !important;
+}
+
+/* Kolom Ketik Pencarian */
+.pencoret-search-input {
+  flex: 1 !important;
+  width: 100% !important;
+  border: none !important;
+  background: transparent !important;
+  color: #111827 !important;
+  font-size: 13.5px !important;
+  line-height: 1.4 !important;
+  padding: 4px 8px 4px 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.pencoret-search-input::placeholder {
+  color: #6b7280 !important;
+}
+
+/* Tombol Cari Hijau Tosca (Menimpa aturan tombol umum di bagian 4) */
+.pencoret-search-form .pencoret-search-btn {
+  background-color: #38a7bb !important; /* Warna tosca khas PenCoret */
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 999px !important;
+  padding: 6px 18px !important;
+  margin: 0 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+}
+
+.pencoret-search-form .pencoret-search-btn:hover {
+  background-color: #2c8a9b !important;
+}
