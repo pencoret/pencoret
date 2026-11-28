@@ -34,8 +34,6 @@ Agar kualitas istirahat malam tetap terjaga tanpa harus memutus total akses komu
 
 ## Mengapa Layar HP Membuat Otak Sulit Mengantuk?
 
-
-
 Secara alami, tubuh manusia memproduksi hormon **melatonin** saat suasana sekitar mulai gelap sebagai sinyal bahwa sudah waktunya beristirahat. Paparan cahaya terang dari layar ponsel, terutama spektrum gelombang biru yang menipu otak seolah-olah hari masih siang sehingga produksi melatonin tertunda.
 
 
@@ -45,8 +43,6 @@ Namun di luar faktor cahaya, desain antarmuka aplikasi modern menggunakan warna 
 
 
 ## 1. Trik Mengatur Fitur Layar HP di Malam Hari
-
-
 
 Baik ponsel Android maupun iPhone sebenarnya sudah dibekali fitur kesehatan digital (*Digital Wellbeing* / *Screen Time*) yang sangat efektif meredam daya tarik layar di malam hari.
 
@@ -58,9 +54,8 @@ Ini adalah salah satu trik paling ampuh namun paling jarang digunakan. Mengubah 
 
 
 
-* **Cara di Android:** Buka **Setelan (*Settings*) → Kesehatan Digital & Kontrol Orang Tua (*Digital Wellbeing*) → Mode Waktu Tidur (*Bedtime Mode*) → Sesuaikan (*Customize*) → Opsi Layar (*Screen options*)**, lalu aktifkan **Skala Abu-abu (*Grayscale*)** dan atur jadwal otomatisnya (misalnya pukul 22.00 hingga 06.00).
-
-* **Cara di iPhone:** Masuk ke **Pengaturan (*Settings*) → Aksesibilitas (*Accessibility*) → Layar & Ukuran Teks (*Display & Text Size*) → Filter Warna (*Color Filters*)**, lalu aktifkan **Skala Abu-abu (*Grayscale*)**. Anda juga bisa memasangnya di pintasan tombol samping agar mudah dinyalakan setiap malam.
+- **Cara di Android:** Buka **Setelan (*Settings*) → Kesehatan Digital & Kontrol Orang Tua (*Digital Wellbeing*) → Mode Waktu Tidur (*Bedtime Mode*) → Sesuaikan (*Customize*) → Opsi Layar (*Screen options*)**, lalu aktifkan **Skala Abu-abu (*Grayscale*)** dan atur jadwal otomatisnya (misalnya pukul 22.00 hingga 06.00).
+- **Cara di iPhone:** Masuk ke **Pengaturan (*Settings*) → Aksesibilitas (*Accessibility*) → Layar & Ukuran Teks (*Display & Text Size*) → Filter Warna (*Color Filters*)**, lalu aktifkan **Skala Abu-abu (*Grayscale*)**. Anda juga bisa memasangnya di pintasan tombol samping agar mudah dinyalakan setiap malam.
 
 
 
@@ -70,9 +65,8 @@ Daripada menyalakannya secara manual saat mata sudah perih, atur agar warna laya
 
 
 
-* **Di Android:** Masuk ke **Setelan → Tampilan (*Display*) → Cahaya Malam (*Night Light*) / Perisai Kenyamanan Mata (*Eye Comfort Shield*)**, pilih opsi **Jadwal (*Schedule*) → Dari matahari terbenam hingga matahari terbit**, lalu geser intensitas kehangatan warna ke tingkat menengah hingga tinggi.
-
-* **Di iPhone:** Buka **Pengaturan → Tampilan & Kecerahan (*Display & Brightness*) → Night Shift**, lalu aktifkan opsi **Terjadwal (*Scheduled*)** dan atur suhu warna ke arah lebih hangat (*More Warm*).
+- **Di Android:** Masuk ke **Setelan → Tampilan (*Display*) → Cahaya Malam (*Night Light*) / Perisai Kenyamanan Mata (*Eye Comfort Shield*)**, pilih opsi **Jadwal (*Schedule*) → Dari matahari terbenam hingga matahari terbit**, lalu geser intensitas kehangatan warna ke tingkat menengah hingga tinggi.
+- **Di iPhone:** Buka **Pengaturan → Tampilan & Kecerahan (*Display & Brightness*) → Night Shift**, lalu aktifkan opsi **Terjadwal (*Scheduled*)** dan atur suhu warna ke arah lebih hangat (*More Warm*).
 
 
 
@@ -82,9 +76,8 @@ Terkadang tingkat kecerahan (*brightness*) paling rendah di ponsel masih terasa 
 
 
 
-* **Di Android:** Tarik panel notifikasi cepat (*Quick Settings*) dari atas layar dan aktifkan ikon **Redup Ekstra (*Extra Dim*)** (atau cari melalui **Setelan → Aksesibilitas → Redup Ekstra**). Fitur ini menurunkan intensitas cahaya di bawah batas minimum standar layar.
-
-* **Di iPhone:** Masuk ke **Pengaturan → Aksesibilitas → Layar & Ukuran Teks**, aktifkan **Kurangi Titik Putih (*Reduce White Point*)**, lalu geser pengaturannya sesuai kenyamanan mata.
+- **Di Android:** Tarik panel notifikasi cepat (*Quick Settings*) dari atas layar dan aktifkan ikon **Redup Ekstra (*Extra Dim*)** (atau cari melalui **Setelan → Aksesibilitas → Redup Ekstra**). Fitur ini menurunkan intensitas cahaya di bawah batas minimum standar layar.
+- **Di iPhone:** Masuk ke **Pengaturan → Aksesibilitas → Layar & Ukuran Teks**, aktifkan **Kurangi Titik Putih (*Reduce White Point*)**, lalu geser pengaturannya sesuai kenyamanan mata.
 
 
 
@@ -95,8 +88,6 @@ Getaran kecil atau cahaya layar yang menyala karena pesan masuk di tengah malam 
 
 
 ## 2. Kebiasaan Sebelum Tidur agar Cepat Terlelap
-
-
 
 Pengaturan layar HP akan bekerja jauh lebih maksimal apabila diimbangi dengan penyesuaian suasana kamar dan rutinitas menjelang tidur (*sleep hygiene*).
 
@@ -127,7 +118,5 @@ Menonton berita kontroversial, membaca perdebatan di kolom komentar, atau mengec
 
 
 ## Kesimpulan
-
-
 
 Mengatasi susah tidur akibat kebiasaan bermain ponsel di malam hari tidak selalu menuntut Anda untuk berhenti total menggunakan gawai. Dengan memadukan pengaturan teknis seperti fitur *grayscale*, redup ekstra, dan jadwal *Do Not Disturb* bersama kebiasaan meletakkan ponsel jauh dari bantal, otak akan menerima sinyal istirahat yang lebih jelas sehingga tidur menjadi lebih cepat dan nyenyak.
