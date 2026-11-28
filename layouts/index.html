@@ -301,19 +301,23 @@
             {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
           {{- end -}}
           {{- $finalSrc := $rawImg | relURL -}}
+          {{- $srcSet := "" -}}
           {{- if $res -}}
-            {{- $webp := $res.Fill "800x340 webp q78 Smart" -}}
-            {{- $finalSrc = $webp.RelPermalink -}}
+            {{- $webpMobile := $res.Fill "520x220 webp q75 Smart" -}}
+            {{- $webpDesktop := $res.Fill "800x340 webp q75 Smart" -}}
+            {{- $finalSrc = $webpMobile.RelPermalink -}}
+            {{- $srcSet = printf "%s 520w, %s 800w" $webpMobile.RelPermalink $webpDesktop.RelPermalink -}}
           {{- end -}}
           <div class="pop-slide">
             <a href="{{ $page.Permalink }}">
-              <img src="{{ $finalSrc }}" alt="{{ $page.Title }}" width="800" height="340" {{ if eq $index 0 }}fetchpriority="high" decoding="sync"{{ else }}loading="lazy" decoding="async"{{ end }}>
+              <img src="{{ $finalSrc }}" {{ if $srcSet }}srcset="{{ $srcSet }}" sizes="(max-width: 768px) 100vw, 800px"{{ end }} alt="{{ $page.Title }}" width="520" height="220" {{ if eq $index 0 }}fetchpriority="high" decoding="sync"{{ else }}loading="lazy" decoding="async"{{ end }}>
             </a>
             <div class="pop-overlay">
               <h2><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></h2>
             </div>
           </div>
           {{ end }}
+
         </div>
         <button type="button" class="pop-nav pop-prev" aria-label="Slide Sebelumnya" onclick="moveSlide(-1)">❮</button>
         <button type="button" class="pop-nav pop-next" aria-label="Slide Berikutnya" onclick="moveSlide(1)">❯</button>
