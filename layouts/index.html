@@ -246,3 +246,43 @@
     }
                                  </style>
                                  
+
+      <script async src="https://googlesyndication.com" crossorigin="anonymous"></script>
+  <script async src="https://googletagmanager.com"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+</head>
+<body>
+  <div class="top-search-wrap">
+    <form class="top-search-form" onsubmit="event.preventDefault(); jalankanPencarian();">
+      <input type="text" id="homeSearchInput" class="top-search-input" placeholder="Cari artikel atau topik di PenCoret..." aria-label="Cari artikel" onkeyup="jalankanPencarian()" autocomplete="off">
+      <button type="submit" class="top-search-btn">Cari</button>
+    </form>
+    <div id="hasilPencarianBox" style="display: none; background: #ffffff; border: 1px solid #ddd; border-radius: 12px; margin: 6px auto 0; max-width: 720px; max-height: 360px; overflow-y: auto; box-shadow: 0 6px 18px rgba(0,0,0,0.15); z-index: 99999; position: absolute; left: 12px; right: 12px; text-align: left;"></div>
+  </div>
+
+  <div class="hero-banner-box">
+    <a href="{{ "/" | relURL }}" class="home-logo-overlay" title="Beranda {{ .Site.Title }}">
+      <img src="{{ "/images/logo-transparan.png" | relURL }}" alt="Logo {{ .Site.Title }}" width="44" height="44" class="home-logo-animasi">
+    </a>
+    <img src="{{ $bannerSrc }}" alt="Banner PenCoret" class="hero-banner-img" width="{{ $bannerW }}" height="{{ $bannerH }}" fetchpriority="high" decoding="sync">
+  </div>
+
+  <div class="top-running-bar">
+    <div class="top-running-text">
+      Selamat Datang di Ruang Baca dari sudut pandang yang berbeda, menyelami ide, mengurai cerita, dan menulis makna baru di setiap coretan pena.
+    </div>
+  </div>
+
+  <div class="container home-wrap">
+    <nav class="cat-menu-bar" id="catMenuBar" aria-label="Kategori Artikel">
+      {{ range .Site.Menus.main }}
+        {{ if ne (lower .Name) "beranda" }}
+          <a href="{{ .URL | relURL }}" class="cat-menu-btn">{{ .Name }}</a>
+        {{ end }}
+      {{ end }}
+    </nav>
+    
