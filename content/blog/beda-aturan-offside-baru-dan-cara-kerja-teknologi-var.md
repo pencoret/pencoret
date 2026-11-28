@@ -17,9 +17,9 @@ tags:
 banner: /images/beda-aturan-offside-baru-teknologi-var.jpg
 banner_alt: Ilustrasi garis digital teknologi VAR dan offside semi-otomatis di
   lapangan sepak bola
-banner_caption: Teknologi Video Assistant Referee (VAR) dan sistem offside
+banner_caption: "Teknologi Video Assistant Referee (VAR) dan sistem offside
   semi-otomatis memetakan garis digital 3D secara presisi untuk membantu wasit
-  menentukan posisi pemain di lapangan.
+  menentukan posisi pemain di lapangan. (Visual: AI Generated)"
 ---
 Perdebatan soal keputusan *offside* tipis hingga beberapa sentimeter sering kali menjadi topik paling panas setiap kali pertandingan liga top Eropa atau turnamen internasional berlangsung. Banyak penonton di layar kaca merasa sebuah gol seharusnya sah, tetapi wasit justru menganulirnya setelah berdiskusi dengan ruang *Video Assistant Referee* (VAR).
 
