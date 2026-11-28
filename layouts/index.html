@@ -335,11 +335,11 @@
         {{- end -}}
         {{- $finalSrc := $rawImg | relURL -}}
         {{- if $res -}}
-          {{- $webp := $res.Fill "500x280 webp q78" -}}
+          {{- $webp := $res.Fill "360x200 webp q72 Smart" -}}
           {{- $finalSrc = $webp.RelPermalink -}}
         {{- end -}}
         <article class="big-card">
-          <a href="{{ $post.Permalink }}"><img src="{{ $finalSrc }}" alt="{{ $post.Title }}" width="400" height="220" {{ if lt $index 2 }}decoding="sync"{{ else }}loading="lazy" decoding="async"{{ end }}></a>
+          <a href="{{ $post.Permalink }}"><img src="{{ $finalSrc }}" alt="{{ $post.Title }}" width="360" height="200" loading="lazy" decoding="async"></a>
           <div class="big-card-body">
             {{ with $post.Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
             <h3><a href="{{ $post.Permalink }}">{{ $post.Title }}</a></h3>
@@ -348,7 +348,7 @@
         </article>
         {{ end }}
       </div>
-
+          
       {{ with after 4 $allPosts }}
       <div class="mini-row" id="terbaruRow" style="margin-top: 10px;">
         {{ range first 6 . }}
