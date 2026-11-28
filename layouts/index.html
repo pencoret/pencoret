@@ -363,7 +363,7 @@
         {{- end -}}
         {{- $finalSrc := $rawImg | relURL -}}
         {{- if $res -}}
-          {{- $webp := $res.Fill "400x240 webp q78" -}}
+          {{- $webp := $res.Fill "240x144 webp q70 Smart" -}}
           {{- $finalSrc = $webp.RelPermalink -}}
         {{- end -}}
         <div class="mini-card">
@@ -380,7 +380,13 @@
     <footer class="site-footer">
     <div class="container">
       <div class="footer-top-flex">
-        <div class="footer-logo"><a href="{{ "/" | relURL }}"><img src="{{ "/images/logo-transparan.png" | relURL }}" alt="{{ .Site.Title }}" width="120" height="38" loading="lazy"></a></div>
+        {{- $footerLogoSrc := "/images/logo-transparan.png" | relURL -}}
+        {{- $logoRes := resources.Get "images/logo-transparan.png" -}}
+        {{- if $logoRes -}}
+          {{- $logoWebp := $logoRes.Resize "240x webp q75" -}}
+          {{- $footerLogoSrc = $logoWebp.RelPermalink -}}
+        {{- end -}}
+        <div class="footer-logo"><a href="{{ "/" | relURL }}"><img src="{{ $footerLogoSrc }}" alt="{{ .Site.Title }}" width="120" height="38" loading="lazy" decoding="async"></a></div>
         <div class="footer-nav">{{ range .Site.Menus.footer }}<a href="{{ .URL | relURL }}" class="footer-btn">{{ .Name }}</a>{{ end }}</div>
       </div>
     </div>
