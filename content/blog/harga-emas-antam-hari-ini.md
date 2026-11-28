@@ -1,13 +1,12 @@
 ---
-title: "Harga Emas Antam Hari Ini Jumat 27 November 2026: Stagnan Rp2.501.000,
-  Buyback Naik!"
-seo_title: Harga Emas Antam Hari Ini 27 November 2026 Lengkap Semua Pecahan
+title: Harga Emas Antam Hari Ini 28 November 2026
+seo_title: Harga Emas Antam Hari Ini 28 November 2026 Lengkap Semua Pecahan
 slug: harga-emas-antam-hari-ini
-date: 2026-11-27
+date: 2026-11-28
 author: PenCoret
-description: Update lengkap harga emas batangan Antam Logam Mulia hari ini
-  Jumat, 27 November 2026 bertahan di Rp2.501.000 per gram dan harga buyback
-  naik menjadi Rp2.114.000.
+description: Info harga emas hari ini terbaru dan terlengkap. Pantau pergerakan
+  grafik harga emas Antam, UBS, dan Pegadaian per gram serta rincian harga
+  buyback di sini.
 categories:
   - Gaya Hidup
 populer: true
@@ -20,46 +19,83 @@ banner_alt: Ilustrasi tumpukan emas batangan Antam Fine Gold 999.9 di atas meja
 banner_caption: "Ilustrasi emas batangan Logam Mulia Antam kemurnian 999.9
   sebagai instrumen investasi dan lindung nilai. (Visual: AI Generated)"
 ---
-**Harga emas batangan PT Aneka Tambang Tbk (Antam) pada hari ini, Jumat, 27 November 2026, terpantau stagnan di level Rp2.501.000 per gram.** Berdasarkan pembaruan resmi laman [Logam Mulia Antam](https://logammulia.com/ "Logam Mulia Antam"), harga jual emas batangan tidak mengalami perubahan dibandingkan perdagangan Kamis (26/11/2026).
+Harga emas batangan PT Aneka Tambang Tbk (Antam) pada perdagangan hari ini, **Sabtu, 28 November 2026**, terpantau stabil di level **Rp2.514.000 per gram**. Harga tersebut tidak berubah dibandingkan posisi penutupan perdagangan kemarin setelah sempat menguat Rp13.000 per gram dari level Rp2.501.000.
 
 
 
-Berbeda dengan harga jual yang bertahan, harga jual kembali (*buyback*) emas Antam hari ini justru mencatatkan kenaikan tipis sebesar **Rp3.000 per gram**, dari sebelumnya Rp2.111.000 menjadi **Rp2.114.000 per gram**. Dengan demikian, selisih (*spread*) antara harga beli dan harga jual kembali saat ini berada di angka **Rp387.000 per gram**.
+Sementara itu, harga jual kembali (*buyback*) emas Antam hari ini juga berada di angka **Rp2.167.000 per gram**. Dengan demikian, selisih (*spread*) antara harga beli dan harga *buyback* tercatat sebesar **Rp347.000 per gram**.
 
 
 
-## Daftar Harga Emas Antam Hari Ini (27 November 2026)
-
-* **0,5 gram:** Rp1.300.500
-
-* **1 gram:** Rp2.501.000
-
-* **5 gram:** Rp12.280.000
-
-* **10 gram:** Rp24.505.000
-
-* **25 gram:** Rp61.137.000
-
-* **50 gram:** Rp122.195.000
-
-* **100 gram:** Rp244.312.000
-
-* **500 gram:** Rp1.220.820.000
-
-* **1.000 gram (1 kg):** Rp2.441.600.000
-
-*(Catatan: Harga dasar dari Butik Emas Pulo Gadung, Jakarta, belum termasuk PPh 22 sebesar 0,25% bagi pemegang NPWP).*
+## Rincian Harga Emas Antam Hari Ini (28 November 2026)
 
 
 
-## Ketentuan Pajak Pembelian dan *Buyback* Emas Antam
-
-Sesuai peraturan perpajakan yang berlaku bagi transaksi logam mulia di PT Antam Tbk:
+Mengacu pada data butik emas [Logam Mulia](https://logammulia.com), berikut daftar lengkap harga dasar emas batangan Antam sebelum dan sesudah pajak PPh 22 (0,25% untuk pemegang NPWP):
 
 
 
-- **Pajak Pembelian:** Setiap pembelian emas batangan dikenakan potongan PPh 22 sebesar **0,25%** untuk pembeli yang mencantumkan nomor NPWP (dan tarif lebih tinggi bagi non-NPWP), disertai bukti potong resmi.
-- **Pajak Penjualan Kembali (*Buyback*):** Transaksi *buyback* emas batangan ke PT Antam Tbk dengan nominal di atas **Rp10 juta** dikenakan PPh 22 sebesar **1,5%** bagi pemegang NPWP dan **3%** bagi non-NPWP yang dipotong langsung dari total nilai transaksi.
+| Pecahan / Berat | Harga Dasar | Harga (+PPh 0,25%) |
+
+| :--- | :--- | :--- |
+
+| **0,5 gram** | Rp1.307.000 | Rp1.310.268 |
+
+| **1 gram** | Rp2.514.000 | Rp2.520.285 |
+
+| **2 gram** | Rp4.968.000 | Rp4.980.420 |
+
+| **3 gram** | Rp7.427.000 | Rp7.445.568 |
+
+| **5 gram** | Rp12.345.000 | Rp12.375.862 |
+
+| **10 gram** | Rp24.635.000 | Rp24.696.588 |
+
+| **25 gram** | Rp61.462.000 | Rp61.615.655 |
+
+| **50 gram** | Rp122.845.000 | Rp123.152.112 |
+
+| **100 gram** | Rp245.612.000 | Rp246.226.030 |
+
+| **250 gram** | Rp613.765.000 | Rp615.299.412 |
+
+| **500 gram** | Rp1.227.320.000 | Rp1.230.388.300 |
+
+| **1.000 gram** | Rp2.454.600.000 | Rp2.460.736.500 |
+
+
+
+## Ketentuan Pajak Transaksi Emas Antam
+
+
+
+Sesuai Peraturan Menteri Keuangan (PMK) Nomor 34/PMK.10/2017 dan PMK Nomor 48 Tahun 2023, setiap transaksi pembelian maupun penjualan kembali emas batangan dikenakan potongan pajak:
+
+
+
+* **Pajak Pembelian:** Dikenakan PPh Pasal 22 sebesar **0,25%** bagi pembeli yang menyertakan Nomor Pokok Wajib Pajak (NPWP), atau **0,9%** bagi pembeli tanpa NPWP. Setiap pembelian disertai bukti potong PPh 22.
+
+* **Pajak Penjualan Kembali (*Buyback*):** Transaksi *buyback* ke PT Antam Tbk dengan nominal di atas **Rp10.000.000** dikenakan PPh Pasal 22 sebesar **1,5%** untuk pemegang NPWP dan **3%** untuk non-NPWP. Pajak dipotong langsung dari total nilai transaksi *buyback*.
+
+
+
+## Ringkasan Pergerakan Harga Emas
+
+
+
+Bagi Anda yang berencana membeli atau menjual emas hari ini, perhatikan poin penting berikut sebelum bertransaksi:
+
+
+
+* **Harga Jual (1 Gram):** Rp2.514.000 (stabil dari perdagangan kemarin).
+
+* **Harga Buyback (1 Gram):** Rp2.167.000.
+
+* **Selisih Jual–Buyback:** Rp347.000 per gram.
+
+
+
+Karena selisih antara harga jual dan *buyback* cukup lebar, investasi emas batangan lebih optimal untuk tujuan jangka menengah hingga jangka panjang.
 
 
 
@@ -67,7 +103,4 @@ Sesuai peraturan perpajakan yang berlaku bagi transaksi logam mulia di PT Antam 
 
 
 
-**Sumber Data:**
-
-- Laman Resmi [PT Aneka Tambang Tbk (Logam Mulia)](https://logammulia.com/ "PT Aneka Tambang Tbk Logam Mulia") — Pembaruan Harga Emas Batangan 27 November 2026.
-
+*Catatan: Pencoret hanya menyajikan informasi harga emas berdasarkan data resmi dari sumber terkait. Harga dapat berubah sewaktu-waktu sesuai kebijakan dan ketentuan pihak penyedia maupun otoritas yang berwenang, serta dapat berbeda di setiap lokasi gerai atau butik penjualan.*
