@@ -1,16 +1,5 @@
 <meta charset="utf-8">
-<!-- Google AdSense -->
-<script async src="{{ printf "https://pagead2.googlesyndication.com%s" "/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817" | safeHTMLAttr }}"
-     crossorigin="anonymous"></script>
-<!-- Google Tag Manager -->
-<script async src="{{ printf "https://www.googletagmanager.com%s" "/gtm.js?id=GTM-W8M8KC6Q" | safeHTMLAttr }}"></script>
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-</script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 {{- if or (eq .Kind "taxonomy") (eq .Kind "term") -}}
 <meta name="robots" content="noindex, follow">
 {{- else -}}
@@ -25,7 +14,7 @@
 <meta name="description" content="{{ $desc_plain }}">
 <link rel="canonical" href="{{ .Permalink }}">
 
-{{- /* Dual Image: 1200px (Google Discover) & 800px Ringan <300KB (WhatsApp/Medsos) */ -}}
+{{- /* Dual Image: 1200px (Google Discover) & 800px Ringan (WhatsApp/Medsos) */ -}}
 {{- $rawImg := .Params.image | default .Params.banner | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
 {{- $discoverImg := $rawImg | absURL -}}
 {{- $waImg := $rawImg | absURL -}}
@@ -48,9 +37,21 @@
   {{- $waHeight = $waRes.Height -}}
 {{- end -}}
 
+{{- /* Preload Gambar LCP (Banner Utama atau Thumbnail Artikel) */ -}}
+{{- if .IsHome -}}
+  {{- $bannerRes := resources.Get "images/image_dacac6d.jpg" -}}
+  {{- if $bannerRes -}}
+    {{- $bannerWebp := $bannerRes.Resize "800x webp q80" -}}
+    <link rel="preload" as="image" href="{{ $bannerWebp.RelPermalink }}" fetchpriority="high">
+  {{- end -}}
+{{- else if $imgRes -}}
+  {{- $articleLcp := $imgRes.Resize "800x webp q80" -}}
+  <link rel="preload" as="image" href="{{ $articleLcp.RelPermalink }}" fetchpriority="high">
+{{- end -}}
+
 {{- $isArticle := and .IsPage (not (in (slice "about" "contact" "disclaimer" "privacy-policy") .File.ContentBaseName)) -}}
 
-<!-- Open Graph & WhatsApp Share Preview (< 300 KB) -->
+<!-- Open Graph & WhatsApp Share Preview -->
 <meta property="og:locale" content="id_ID">
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:type" content="{{ if $isArticle }}article{{ else }}website{{ end }}">
@@ -74,6 +75,31 @@
 <link rel="icon" type="image/png" href="{{ "favicon.png?v=2" | absURL }}">
 <link rel="apple-touch-icon" href="{{ "favicon.png?v=2" | absURL }}">
 
+<!-- CSS Utama Mainroad & Custom CSS (Minify + Fingerprint) -->
+{{- $style := resources.Get "css/style.css" -}}
+{{- $custom := resources.Get "css/custom.css" -}}
+{{- if and $style $custom -}}
+  {{- $bundle := slice $style $custom | resources.Concat "css/bundle.css" | resources.Minify | resources.Fingerprint -}}
+  <link rel="stylesheet" href="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}">
+{{- else -}}
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+{{- end -}}
+
+<!-- Critical CSS Banner Atas -->
+<style>
+  .global-top-wrap, .article-top-wrap { background: transparent !important; padding-top: 0 !important; margin-top: 0 !important; }
+  .global-top-wrap .container, .article-top-wrap .container { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
+  .global-top-banner, .article-top-banner { display: block !important; width: 100% !important; height: 110px !important; max-height: 110px !important; overflow: hidden !important; border-radius: 0 !important; }
+  .global-top-banner img, .article-top-banner img { width: 100% !important; height: 110px !important; max-height: 110px !important; object-fit: cover !important; object-position: center !important; display: block !important; }
+  .global-running-bar, .article-running-bar { background: #1a2536; color: #f4d08c; padding: 3px 0 !important; line-height: 1.3 !important; overflow: hidden; white-space: nowrap; font-weight: 800; font-size: 12px !important; }
+  .global-running-text, .article-running-text { display: inline-block; padding-left: 100%; animation: jalanGlobal 16s linear infinite; }
+  @keyframes jalanGlobal { 0% { transform: translate(0,0); } 100% { transform: translate(-100%,0); } }
+  @media (min-width: 768px) {
+    .global-top-banner, .global-top-banner img, .article-top-banner, .article-top-banner img { height: 165px !important; max-height: 165px !important; }
+  }
+</style>
+
 <!-- Schema JSON-LD WebSite & NewsArticle -->
 <script type="application/ld+json">
 {
@@ -95,7 +121,7 @@
       "@id": "https://pencoret.web.id#organization",
       "name": "PenCoret",
       "url": "https://pencoret.web.id",
-                 "logo": {
+      "logo": {
         "@type": "ImageObject",
         "@id": "https://pencoret.web.id#logo",
         "url": "https://pencoret.web.id/favicon.png",
@@ -137,19 +163,3 @@
   ]
 }
 </script>
-
-<!-- Kunci Tinggi Banner Atas & Pemanggilan CSS Kustom -->
-<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}?v={{ now.Unix }}">
-<style>
-  .global-top-wrap, .article-top-wrap { background: transparent !important; padding-top: 0 !important; margin-top: 0 !important; }
-  .global-top-wrap .container, .article-top-wrap .container { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
-  .global-top-banner, .article-top-banner { display: block !important; width: 100% !important; height: 110px !important; max-height: 110px !important; overflow: hidden !important; border-radius: 0 !important; }
-  .global-top-banner img, .article-top-banner img { width: 100% !important; height: 110px !important; max-height: 110px !important; object-fit: cover !important; object-position: center !important; display: block !important; }
-  .global-running-bar, .article-running-bar { background: #1a2536; color: #f4d08c; padding: 3px 0 !important; line-height: 1.3 !important; overflow: hidden; white-space: nowrap; font-weight: 800; font-size: 12px !important; }
-  .global-running-text, .article-running-text { display: inline-block; padding-left: 100%; animation: jalanGlobal 16s linear infinite; }
-  @keyframes jalanGlobal { 0% { transform: translate(0,0); } 100% { transform: translate(-100%,0); } }
-  @media (min-width: 768px) {
-    .global-top-banner, .global-top-banner img, .article-top-banner, .article-top-banner img { height: 165px !important; max-height: 165px !important; }
-  }
-                                                                                              </style>
-                                                                                              
