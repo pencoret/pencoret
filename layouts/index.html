@@ -286,4 +286,101 @@
         {{ end }}
       {{ end }}
     </nav>
-    
+        <main id="main-content">
+      {{ $allPosts := where .Site.RegularPages "Section" "blog" }}
+      {{ $populerPosts := where $allPosts "Params.populer" true | default (first 5 $allPosts) }}
+
+      {{ if $populerPosts }}
+      <div class="sec-header-row">
+        <div class="sec-label">Postingan Populer</div>
+        <select class="nav-dropdown-select" aria-label="Menu Navigasi Halaman" onchange="if(this.value) window.location.href=this.value">
+          <option value="" selected disabled hidden>Menu</option>
+          <option value="{{ "/about/" | relURL }}">Tentang Kami</option>
+          <option value="{{ "/contact/" | relURL }}">Kontak</option>
+          <option value="{{ "/disclaimer/" | relURL }}">Disclaimer</option>
+          <option value="{{ "/privacy-policy/" | relURL }}">Kebijakan Privasi</option>
+        </select>
+      </div>
+      <div class="pop-slider" id="popSliderBox">
+        <div class="pop-track" id="popTrack">
+          {{ range $index, $page := first 5 $populerPosts }}
+          {{- $rawImg := $page.Params.image | default $page.Params.banner | default $page.Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+          {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+          {{- $res := resources.Get $cleanPath -}}
+          {{- if not $res -}}
+            {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+          {{- end -}}
+          {{- $finalSrc := $rawImg | relURL -}}
+          {{- if $res -}}
+            {{- $webp := $res.Fill "800x340 webp q78 Smart" -}}
+            {{- $finalSrc = $webp.RelPermalink -}}
+          {{- end -}}
+          <div class="pop-slide">
+            <a href="{{ $page.Permalink }}">
+              <img src="{{ $finalSrc }}" alt="{{ $page.Title }}" width="800" height="340" {{ if eq $index 0 }}fetchpriority="high" decoding="sync"{{ else }}loading="lazy" decoding="async"{{ end }}>
+            </a>
+            <div class="pop-overlay">
+              <h2><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></h2>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+        <button type="button" class="pop-nav pop-prev" aria-label="Slide Sebelumnya" onclick="moveSlide(-1)">❮</button>
+        <button type="button" class="pop-nav pop-next" aria-label="Slide Berikutnya" onclick="moveSlide(1)">❯</button>
+      </div>
+      {{ end }}
+
+      <div class="sec-label" style="margin: 14px 0 8px;">Postingan Terbaru</div>
+      <div class="latest-grid">
+        {{ range $index, $post := first 4 $allPosts }}
+        {{- $rawImg := $post.Params.banner | default $post.Params.image | default $post.Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+        {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+        {{- $res := resources.Get $cleanPath -}}
+        {{- if not $res -}}
+          {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+        {{- end -}}
+        {{- $finalSrc := $rawImg | relURL -}}
+        {{- if $res -}}
+          {{- $webp := $res.Fill "500x280 webp q78" -}}
+          {{- $finalSrc = $webp.RelPermalink -}}
+        {{- end -}}
+        <article class="big-card">
+          <a href="{{ $post.Permalink }}"><img src="{{ $finalSrc }}" alt="{{ $post.Title }}" width="400" height="220" {{ if lt $index 2 }}decoding="sync"{{ else }}loading="lazy" decoding="async"{{ end }}></a>
+          <div class="big-card-body">
+            {{ with $post.Params.categories }}<span class="big-cat">{{ index . 0 }}</span>{{ end }}
+            <h3><a href="{{ $post.Permalink }}">{{ $post.Title }}</a></h3>
+            <div class="big-meta">{{ $post.Date.Format "02 Jan 2006" }}</div>
+          </div>
+        </article>
+        {{ end }}
+      </div>
+
+      {{ with after 4 $allPosts }}
+      <div class="mini-row" id="terbaruRow" style="margin-top: 10px;">
+        {{ range first 6 . }}
+        {{- $rawImg := .Params.banner | default .Params.image | default .Params.thumbnail | default "/images/image_d634cfff.jpg" -}}
+        {{- $cleanPath := strings.TrimPrefix "/" $rawImg -}}
+        {{- $res := resources.Get $cleanPath -}}
+        {{- if not $res -}}
+          {{- $res = resources.Get (printf "images/%s" (path.Base $cleanPath)) -}}
+        {{- end -}}
+        {{- if not $res -}}
+          {{- $res = $.Resources.GetMatch (printf "*%s*" (path.Base $cleanPath)) -}}
+        {{- end -}}
+        {{- $finalSrc := $rawImg | relURL -}}
+        {{- if $res -}}
+          {{- $webp := $res.Fill "400x240 webp q78" -}}
+          {{- $finalSrc = $webp.RelPermalink -}}
+        {{- end -}}
+        <div class="mini-card">
+          <a href="{{ .Permalink }}"><img src="{{ $finalSrc }}" alt="{{ .Title }}" width="225" height="135" loading="lazy" decoding="async"></a>
+          <div class="mini-card-body"><h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4></div>
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <div class="all-post-box"><a href="{{ "/blog/" | relURL }}" class="btn-all-post">Tampilkan Semua</a></div>
+    </main>
+  </div>
+  
