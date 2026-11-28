@@ -1,6 +1,6 @@
 ---
 title: 7 Manfaat Menanam Pohon bagi Lingkungan, Kesehatan, dan Ekonomi
-seo_title: Nukan Sekadar Bikin Adem, Ini 7 Manfaat Nyata Menanam Pohon bagi Kehidupan
+seo_title: Bukan Sekadar Bikin Adem, Ini 7 Manfaat Nyata Menanam Pohon bagi Kehidupan
 slug: manfaat-menanam-pohon-bagi-lingkungan-dan-kesehatan
 date: 2026-11-28
 author: PenCoret
