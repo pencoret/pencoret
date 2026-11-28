@@ -138,36 +138,3 @@
   }
   body { top: 0px !important; }
 </style>
-
-<!-- Muat AdSense & GTM Setelah Halaman Tampil (Bebas Hambatan LCP) -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  let adsLoaded = false;
-  function loadAdsAndGTM() {
-    if (adsLoaded) return;
-    adsLoaded = true;
-
-    // 1. Google AdSense
-    const adsScript = document.createElement('script');
-    adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5990589807311817';
-    adsScript.async = true;
-    adsScript.crossOrigin = 'anonymous';
-    document.body.appendChild(adsScript);
-
-    // 2. Google Tag Manager
-    const gtmScript = document.createElement('script');
-    gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-W8M8KC6Q';
-    gtmScript.async = true;
-    document.body.appendChild(gtmScript);
-  }
-
-  // Muat otomatis 2.5 detik setelah halaman selesai, atau langsung saat user scroll/sentuh
-  window.addEventListener('load', () => setTimeout(loadAdsAndGTM, 2500));
-  ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(evt => {
-    window.addEventListener(evt, loadAdsAndGTM, { once: true, passive: true });
-  });
-</script>
-
