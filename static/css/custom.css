@@ -292,3 +292,24 @@ body, #all, #top, header {
 .pencoret-search-form .pencoret-search-btn:hover {
   background-color: #2c8a9b !important;
 }
+
+/* Memastikan elemen footer membungkus ke baris baru di layar HP */
+footer, .footer, .site-footer {
+  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+footer a, .footer a {
+  display: inline-block;
+  margin: 4px 6px;
+  white-space: nowrap;
+}
+
+footer p, .footer p {
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.5;
+}
